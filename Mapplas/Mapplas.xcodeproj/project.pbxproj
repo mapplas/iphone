@@ -18,6 +18,8 @@
 		7F06795416A7F4150043EF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793B16A7F4150043EF6B /* Foundation.framework */; };
 		7F06795C16A7F4150043EF6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F06795A16A7F4150043EF6B /* InfoPlist.strings */; };
 		7F06795F16A7F4150043EF6B /* MapplasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F06795E16A7F4150043EF6B /* MapplasTests.m */; };
+		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
+		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7FC8825D16A81E5A008A06A8 /* AppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8825B16A81E5A008A06A8 /* AppsViewController.m */; };
 		7FC8825E16A81E5A008A06A8 /* AppsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8825C16A81E5A008A06A8 /* AppsViewController.xib */; };
 		7FC8826616A825D0008A06A8 /* SCAppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8826516A825D0008A06A8 /* SCAppUtils.m */; };
@@ -30,6 +32,11 @@
 		7FC8827E16A82AA5008A06A8 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8827C16A82AA5008A06A8 /* UserViewController.xib */; };
 		7FC8828416A83B22008A06A8 /* ic_menu_notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8828016A83B22008A06A8 /* ic_menu_notifications.png */; };
 		7FC8828616A83B22008A06A8 /* ic_menu_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8828216A83B22008A06A8 /* ic_menu_profile.png */; };
+		7FC8828A16A8468B008A06A8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8828916A8468B008A06A8 /* App.m */; };
+		7FC8828D16A84CE2008A06A8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8828C16A84CE2008A06A8 /* Comment.m */; };
+		7FC8829016A84E6E008A06A8 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8828F16A84E6E008A06A8 /* Photo.m */; };
+		7FC8829316A85002008A06A8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8829216A85002008A06A8 /* User.m */; };
+		7FC8829916A85677008A06A8 /* SuperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8829816A85676008A06A8 /* SuperModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +66,10 @@
 		7F06795B16A7F4150043EF6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F06795D16A7F4150043EF6B /* MapplasTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapplasTests.h; sourceTree = "<group>"; };
 		7F06795E16A7F4150043EF6B /* MapplasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapplasTests.m; sourceTree = "<group>"; };
+		7F68781A16A857DC005DC098 /* AppOrderedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppOrderedList.h; path = classes/AppOrderedList.h; sourceTree = "<group>"; };
+		7F68781B16A857DC005DC098 /* AppOrderedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppOrderedList.m; path = classes/AppOrderedList.m; sourceTree = "<group>"; };
+		7F68781E16A85854005DC098 /* NotificationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationList.h; path = classes/NotificationList.h; sourceTree = "<group>"; };
+		7F68781F16A85854005DC098 /* NotificationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationList.m; path = classes/NotificationList.m; sourceTree = "<group>"; };
 		7FC8825A16A81E5A008A06A8 /* AppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsViewController.h; sourceTree = "<group>"; };
 		7FC8825B16A81E5A008A06A8 /* AppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsViewController.m; sourceTree = "<group>"; };
 		7FC8825C16A81E5A008A06A8 /* AppsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppsViewController.xib; sourceTree = "<group>"; };
@@ -77,6 +88,17 @@
 		7FC8827C16A82AA5008A06A8 /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		7FC8828016A83B22008A06A8 /* ic_menu_notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_notifications.png; sourceTree = SOURCE_ROOT; };
 		7FC8828216A83B22008A06A8 /* ic_menu_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_profile.png; sourceTree = SOURCE_ROOT; };
+		7FC8828816A8468B008A06A8 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App.h; path = classes/App.h; sourceTree = "<group>"; };
+		7FC8828916A8468B008A06A8 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App.m; path = classes/App.m; sourceTree = "<group>"; };
+		7FC8828B16A84CE2008A06A8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = classes/Comment.h; sourceTree = "<group>"; };
+		7FC8828C16A84CE2008A06A8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = classes/Comment.m; sourceTree = "<group>"; };
+		7FC8828E16A84E6E008A06A8 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = classes/Photo.h; sourceTree = "<group>"; };
+		7FC8828F16A84E6E008A06A8 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = classes/Photo.m; sourceTree = "<group>"; };
+		7FC8829116A85002008A06A8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = classes/User.h; sourceTree = "<group>"; };
+		7FC8829216A85002008A06A8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = classes/User.m; sourceTree = "<group>"; };
+		7FC8829416A853CD008A06A8 /* LocationCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCurrency.h; path = classes/LocationCurrency.h; sourceTree = "<group>"; };
+		7FC8829716A85676008A06A8 /* SuperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperModel.h; path = classes/SuperModel.h; sourceTree = "<group>"; };
+		7FC8829816A85676008A06A8 /* SuperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperModel.m; path = classes/SuperModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC8826716A82656008A06A8 /* Categories */,
+				7FC8828716A8466E008A06A8 /* Model */,
 				7FC8826316A825AE008A06A8 /* Utils */,
 			);
 			name = Classes;
@@ -253,6 +276,28 @@
 				7FC8827C16A82AA5008A06A8 /* UserViewController.xib */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		7FC8828716A8466E008A06A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7FC8828816A8468B008A06A8 /* App.h */,
+				7FC8828916A8468B008A06A8 /* App.m */,
+				7F68781A16A857DC005DC098 /* AppOrderedList.h */,
+				7F68781B16A857DC005DC098 /* AppOrderedList.m */,
+				7FC8828B16A84CE2008A06A8 /* Comment.h */,
+				7FC8828C16A84CE2008A06A8 /* Comment.m */,
+				7FC8829416A853CD008A06A8 /* LocationCurrency.h */,
+				7F68781E16A85854005DC098 /* NotificationList.h */,
+				7F68781F16A85854005DC098 /* NotificationList.m */,
+				7FC8828E16A84E6E008A06A8 /* Photo.h */,
+				7FC8828F16A84E6E008A06A8 /* Photo.m */,
+				7FC8829716A85676008A06A8 /* SuperModel.h */,
+				7FC8829816A85676008A06A8 /* SuperModel.m */,
+				7FC8829116A85002008A06A8 /* User.h */,
+				7FC8829216A85002008A06A8 /* User.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +420,13 @@
 				7FC8826D16A82724008A06A8 /* SCClassUtils.m in Sources */,
 				7FC8827716A82A90008A06A8 /* NotificationsViewController.m in Sources */,
 				7FC8827D16A82AA5008A06A8 /* UserViewController.m in Sources */,
+				7FC8828A16A8468B008A06A8 /* App.m in Sources */,
+				7FC8828D16A84CE2008A06A8 /* Comment.m in Sources */,
+				7FC8829016A84E6E008A06A8 /* Photo.m in Sources */,
+				7FC8829316A85002008A06A8 /* User.m in Sources */,
+				7FC8829916A85677008A06A8 /* SuperModel.m in Sources */,
+				7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */,
+				7F68782016A85854005DC098 /* NotificationList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
