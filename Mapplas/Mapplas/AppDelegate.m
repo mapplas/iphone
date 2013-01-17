@@ -7,15 +7,25 @@
 //
 
 #import "AppDelegate.h"
+#import "SCAppUtils.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    AppsViewController *appsViewController = [[AppsViewController alloc] init];
+    UINavigationController* navigation = [[UINavigationController alloc] init];
+    [SCAppUtils customizeNavigationController:navigation];
+    [navigation pushViewController:appsViewController animated:NO];
+    
+    [self.window addSubview:[navigation view]];
+    
     return YES;
 }
 
@@ -38,8 +48,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
-    // Push view controller
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
