@@ -22,13 +22,20 @@
     return self;
 }
 
+- (void)initializeNavigationBarButtons {
+    UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:nil];
+    
+    UIImage *profileImage = [UIImage imageNamed:@"ic_menu_profile.png"];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
-    UIImage *navigationBarBackground = [UIImage imageNamed:@"@bgd_menu.png"];
-    [[UINavigationBar appearance] setBackgroundImage:navigationBarBackground forBarMetrics:UIBarMetricsDefault];
+    [self initializeNavigationBarButtons];
 }
+
+
 
 @end

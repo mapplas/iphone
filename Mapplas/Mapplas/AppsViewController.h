@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotificationsViewController.h"
+#import "UserViewController.h"
 
 @interface AppsViewController : UIViewController
+
 
 @end
