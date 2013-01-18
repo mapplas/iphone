@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NotificationsViewController.h"
 #import "UserViewController.h"
+#import "UserIdentificationRequest.h"
 
-@interface AppsViewController : UIViewController
+@interface AppsViewController : UIViewController {
+    UserIdentificationRequest *_userIdentRequester;
+}
+
+@property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 
 
 @end

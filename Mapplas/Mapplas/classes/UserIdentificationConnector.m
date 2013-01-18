@@ -12,11 +12,12 @@
 
 @synthesize request = _request;
 
-- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper {
+- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(UserIdentificationResponseHandler *)response_handler {
     if (self = [super init]) {
         self.request = nil;
         adresses = _addresses;
         variableListMapper = list_mapper;
+        handler = response_handler;
     }
     return self;
 }
@@ -25,9 +26,9 @@
     model = super_model;
     
     VariableList *parameters = [[VariableList alloc] init];
-    [parameters addValue:@"v" withKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
-    [parameters addValue:@"l" withKey:[model currentLocation]];
-    [parameters addValue:@"ii" withKey:[model currentImei]];
+    [parameters addValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] withKey:@"v"];
+    [parameters addValue:[model currentLocation] withKey:@"l"];
+    [parameters addValue:[model currentImei] withKey:@"ii"];
     
     NSString *url = [self getUrl];
 	ASIFormDataRequest *asiRequest = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
@@ -35,7 +36,7 @@
 	
 	[variableListMapper insert:parameters into:self.request];
 	[self.request setResponseEncoding:NSUTF8StringEncoding];
-	[self.request setDelegate:delegate];
+	[self.request setDelegate:handler];
 	[self.request startAsynchronous];
 }
 

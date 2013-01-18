@@ -8,12 +8,20 @@
 
 #import "AppDelegate.h"
 #import "SCAppUtils.h"
+#import "NSString+UUID.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Set user unique identifier in defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:UUID_USER_DEFAULTS_KEY] == nil) {
+        [defaults setObject:[NSString uuid] forKey:UUID_USER_DEFAULTS_KEY];
+        [defaults synchronize];
+    }
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

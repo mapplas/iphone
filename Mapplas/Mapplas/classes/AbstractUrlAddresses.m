@@ -20,11 +20,11 @@
 	self = [super init];
 	
 	if(self) {
-		[self reloadAddresses];
-        
         [self setDomain:@"mapplas.com"];
         [self setPort:@"80"];
 		[self setRelativePath:@"/Publico"];
+        
+        [self reloadAddresses];
 	}
 
 	return self;

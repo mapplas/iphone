@@ -18,7 +18,13 @@
 }
 
 - (void)doRequest {
-    connector = [[UserIdentificationConnector alloc] init];
+    Environment *environment = [Environment sharedInstance];
+	
+	AbstractUrlAddresses *urlAdresses = [environment addresses];
+    VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
+    UserIdentificationResponseHandler *handler = [[UserIdentificationResponseHandler alloc] init];
+    
+    connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
     
     [connector requestWithModel:model];
 }

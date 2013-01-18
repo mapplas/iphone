@@ -8,6 +8,7 @@
 
 #import "SuperModel.h"
 #import "UserIdentificationConnector.h"
+#import "Environment.h"
 
 @interface UserIdentificationRequest : NSObject {
     SuperModel *model;
