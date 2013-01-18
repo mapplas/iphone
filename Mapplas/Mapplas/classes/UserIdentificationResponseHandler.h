@@ -9,7 +9,12 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "ASIHTTPRequest.h"
 #import "NSObject+JSON.h"
+#import "SuperModel.h"
 
-@interface UserIdentificationResponseHandler : NSObject <ASIHTTPRequestDelegate>
+@interface UserIdentificationResponseHandler : NSObject <ASIHTTPRequestDelegate> {
+    SuperModel *model;
+}
+
+- (id)initWithSuperModel:(SuperModel *)_model;
 
 @end

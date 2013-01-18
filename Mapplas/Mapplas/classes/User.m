@@ -24,7 +24,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.userId = [NSNumber numberWithInt:0];
+        self.userId = @"0";
         self.name = @"";
         self.lastName = @"";
         self.gender = @"";

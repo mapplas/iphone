@@ -22,7 +22,7 @@
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
     VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
-    UserIdentificationResponseHandler *handler = [[UserIdentificationResponseHandler alloc] init];
+    UserIdentificationResponseHandler *handler = [[UserIdentificationResponseHandler alloc] initWithSuperModel:model];
     
     connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
     

@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface SCClassUtils : NSObject
 
 + (void)swizzleSelector:(SEL)orig ofClass:(Class)c withSelector:(SEL)new;

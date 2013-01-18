@@ -7,8 +7,16 @@
 //
 
 #import "UserIdentificationResponseHandler.h"
+#import "JSONToUserMapper.h"
 
 @implementation UserIdentificationResponseHandler
+
+- (id)initWithSuperModel:(SuperModel *)_model {
+    if (self == [super init]) {
+        model = _model;
+    }
+    return  self;
+}
 
 #pragma mark - AsiHTTPResponse delegate
 - (void)errorLog:(NSString *)from request:(ASIHTTPRequest *)request {
@@ -19,6 +27,10 @@
 	NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSDictionary *jsonData = [response JSONValue];
     
+    JSONToUserMapper *userMapper = [[JSONToUserMapper alloc] init];
+    User *currentUser = [userMapper map:jsonData];
+
+    [model setUser:currentUser];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {

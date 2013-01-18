@@ -7,7 +7,7 @@
 //
 
 @interface User : NSObject {
-    NSNumber *_userId;
+    NSString *_userId;
     NSString *_name;
     NSString *_lastName;
     NSString *_gender;
@@ -22,7 +22,7 @@
 
 - (id)init;
 
-@property (nonatomic, strong) NSNumber *userId;
+@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *gender;

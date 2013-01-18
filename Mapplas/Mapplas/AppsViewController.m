@@ -48,6 +48,8 @@
     
     self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:model];
     [self.userIdentRequest doRequest];
+    
+    
 }
 
 

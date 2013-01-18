@@ -71,6 +71,12 @@
 		7FFFBB7016A9559200417499 /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB6F16A9559200417499 /* Environment.m */; };
 		7FFFBB7316A95B0100417499 /* ic_menu_notifications.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FFFBB7116A95B0100417499 /* ic_menu_notifications.jpg */; };
 		7FFFBB7416A95B0100417499 /* ic_menu_notifications@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FFFBB7216A95B0100417499 /* ic_menu_notifications@2x.jpg */; };
+		7FFFBB7A16A9652900417499 /* GenericMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB7716A9652900417499 /* GenericMapper.m */; };
+		7FFFBB7F16A9657100417499 /* JSONToUserMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB7E16A9657100417499 /* JSONToUserMapper.m */; };
+		7FFFBB8416A967FA00417499 /* KeyValueMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB8116A967FA00417499 /* KeyValueMapper.m */; };
+		7FFFBB8516A967FA00417499 /* KeyValueScappedMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB8316A967FA00417499 /* KeyValueScappedMapper.m */; };
+		7FFFBB8816A9689900417499 /* HtmlEntitiesConversor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB8716A9689900417499 /* HtmlEntitiesConversor.m */; };
+		7FFFBB8B16A968E800417499 /* MREntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBB8A16A968E700417499 /* MREntitiesConverter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +209,20 @@
 		7FFFBB6F16A9559200417499 /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Environment.m; path = classes/Environment.m; sourceTree = "<group>"; };
 		7FFFBB7116A95B0100417499 /* ic_menu_notifications.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ic_menu_notifications.jpg; sourceTree = SOURCE_ROOT; };
 		7FFFBB7216A95B0100417499 /* ic_menu_notifications@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ic_menu_notifications@2x.jpg"; sourceTree = SOURCE_ROOT; };
+		7FFFBB7616A9652900417499 /* GenericMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericMapper.h; path = classes/mappers/GenericMapper.h; sourceTree = "<group>"; };
+		7FFFBB7716A9652900417499 /* GenericMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericMapper.m; path = classes/mappers/GenericMapper.m; sourceTree = "<group>"; };
+		7FFFBB7816A9652900417499 /* ReturnMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReturnMapper.h; path = classes/mappers/ReturnMapper.h; sourceTree = "<group>"; };
+		7FFFBB7916A9652900417499 /* TargetMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetMapper.h; path = classes/mappers/TargetMapper.h; sourceTree = "<group>"; };
+		7FFFBB7D16A9657100417499 /* JSONToUserMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToUserMapper.h; path = classes/mappers/JSONToUserMapper.h; sourceTree = "<group>"; };
+		7FFFBB7E16A9657100417499 /* JSONToUserMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToUserMapper.m; path = classes/mappers/JSONToUserMapper.m; sourceTree = "<group>"; };
+		7FFFBB8016A967FA00417499 /* KeyValueMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyValueMapper.h; path = classes/mappers/KeyValueMapper.h; sourceTree = "<group>"; };
+		7FFFBB8116A967FA00417499 /* KeyValueMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyValueMapper.m; path = classes/mappers/KeyValueMapper.m; sourceTree = "<group>"; };
+		7FFFBB8216A967FA00417499 /* KeyValueScappedMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyValueScappedMapper.h; path = classes/mappers/KeyValueScappedMapper.h; sourceTree = "<group>"; };
+		7FFFBB8316A967FA00417499 /* KeyValueScappedMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyValueScappedMapper.m; path = classes/mappers/KeyValueScappedMapper.m; sourceTree = "<group>"; };
+		7FFFBB8616A9689900417499 /* HtmlEntitiesConversor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HtmlEntitiesConversor.h; path = classes/HtmlEntitiesConversor.h; sourceTree = "<group>"; };
+		7FFFBB8716A9689900417499 /* HtmlEntitiesConversor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HtmlEntitiesConversor.m; path = classes/HtmlEntitiesConversor.m; sourceTree = "<group>"; };
+		7FFFBB8916A968E600417499 /* MREntitiesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MREntitiesConverter.h; path = classes/MREntitiesConverter.h; sourceTree = "<group>"; };
+		7FFFBB8A16A968E700417499 /* MREntitiesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MREntitiesConverter.m; path = classes/MREntitiesConverter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +359,7 @@
 				7FC8826716A82656008A06A8 /* Categories */,
 				7FFFBB6D16A9557E00417499 /* Configuration */,
 				7FFFBA9816A9314500417499 /* Localization */,
+				7FFFBB7516A964AA00417499 /* Mappers */,
 				7FC8828716A8466E008A06A8 /* Model */,
 				7FFFBA9A16A9328600417499 /* Network */,
 				7FC8826316A825AE008A06A8 /* Utils */,
@@ -349,6 +370,10 @@
 		7FC8826316A825AE008A06A8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7FFFBB8616A9689900417499 /* HtmlEntitiesConversor.h */,
+				7FFFBB8716A9689900417499 /* HtmlEntitiesConversor.m */,
+				7FFFBB8916A968E600417499 /* MREntitiesConverter.h */,
+				7FFFBB8A16A968E700417499 /* MREntitiesConverter.m */,
 				7FC8826416A825D0008A06A8 /* SCAppUtils.h */,
 				7FC8826516A825D0008A06A8 /* SCAppUtils.m */,
 				7FC8826B16A82724008A06A8 /* SCClassUtils.h */,
@@ -572,6 +597,39 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		7FFFBB7516A964AA00417499 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				7FFFBB7B16A9654000417499 /* Base */,
+				7FFFBB7C16A9654F00417499 /* User */,
+			);
+			name = Mappers;
+			sourceTree = "<group>";
+		};
+		7FFFBB7B16A9654000417499 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7FFFBB7616A9652900417499 /* GenericMapper.h */,
+				7FFFBB7716A9652900417499 /* GenericMapper.m */,
+				7FFFBB8016A967FA00417499 /* KeyValueMapper.h */,
+				7FFFBB8116A967FA00417499 /* KeyValueMapper.m */,
+				7FFFBB8216A967FA00417499 /* KeyValueScappedMapper.h */,
+				7FFFBB8316A967FA00417499 /* KeyValueScappedMapper.m */,
+				7FFFBB7816A9652900417499 /* ReturnMapper.h */,
+				7FFFBB7916A9652900417499 /* TargetMapper.h */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		7FFFBB7C16A9654F00417499 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7FFFBB7D16A9657100417499 /* JSONToUserMapper.h */,
+				7FFFBB7E16A9657100417499 /* JSONToUserMapper.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -729,6 +787,12 @@
 				7FFFBB6816A94DDB00417499 /* Reachability.m in Sources */,
 				7FFFBB6C16A9522900417499 /* NSString+UUID.m in Sources */,
 				7FFFBB7016A9559200417499 /* Environment.m in Sources */,
+				7FFFBB7A16A9652900417499 /* GenericMapper.m in Sources */,
+				7FFFBB7F16A9657100417499 /* JSONToUserMapper.m in Sources */,
+				7FFFBB8416A967FA00417499 /* KeyValueMapper.m in Sources */,
+				7FFFBB8516A967FA00417499 /* KeyValueScappedMapper.m in Sources */,
+				7FFFBB8816A9689900417499 /* HtmlEntitiesConversor.m in Sources */,
+				7FFFBB8B16A968E800417499 /* MREntitiesConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
