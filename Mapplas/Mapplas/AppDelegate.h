@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppsViewController.h"
+
+#define UUID_USER_DEFAULTS_KEY @"UUID"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

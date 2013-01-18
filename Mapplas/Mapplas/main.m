@@ -9,9 +9,17 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "SCClassUtils.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
+    
+    [SCClassUtils swizzleSelector:@selector(insertSubview:atIndex:)
+                          ofClass:[UINavigationBar class]
+                     withSelector:@selector(scInsertSubview:atIndex:)];
+    [SCClassUtils swizzleSelector:@selector(sendSubviewToBack:)
+                          ofClass:[UINavigationBar class]
+                     withSelector:@selector(scSendSubviewToBack:)];
+    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
