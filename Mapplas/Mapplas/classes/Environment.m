@@ -1,9 +1,9 @@
 //
-//  Environment.m
-//  Quomai
+//  Environment.h
+//  Mapplas
 //
-//  Created by Fran Naranjo on 03/03/11.
-//  Copyright 2011 Quomai. All rights reserved.
+//  Created by Belén  on 18/01/13.
+//  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
 #import "Environment.h"

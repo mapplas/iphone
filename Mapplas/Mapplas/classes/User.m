@@ -23,7 +23,8 @@
 @synthesize blockedApps = _blockedApps;
 
 - (id)init {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.userId = @"0";
         self.name = @"";
         self.lastName = @"";

@@ -19,7 +19,8 @@
 @synthesize comment = _comment;
 
 - (id)init {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.commentId = [NSNumber numberWithInt:0];
         self.idUser = [NSNumber numberWithInt:0];
         self.idApp = [NSNumber numberWithInt:0];

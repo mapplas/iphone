@@ -13,7 +13,8 @@
 @synthesize request = _request;
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(UserIdentificationResponseHandler *)response_handler {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.request = nil;
         adresses = _addresses;
         variableListMapper = list_mapper;

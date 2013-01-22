@@ -19,7 +19,8 @@
 @synthesize hour = _hour;
 
 - (id)init {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.photoId = [NSNumber numberWithInt:0];
         self.userId = [NSNumber numberWithInt:0];
         self.appId = [NSNumber numberWithInt:0];

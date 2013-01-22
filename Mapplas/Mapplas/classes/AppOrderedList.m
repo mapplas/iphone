@@ -13,7 +13,8 @@
 @synthesize list = _list;
 
 - (id)init {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.list = [[NSMutableArray alloc] init];
     }
     return self;
