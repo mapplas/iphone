@@ -12,7 +12,8 @@
 @implementation VariableList
 
 -(id)init{	
-	if(self = [super init]){
+    self = [super init];
+    if (self) {
 		variableList = [[NSMutableArray alloc] init];
 	}
 	return self;

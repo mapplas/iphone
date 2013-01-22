@@ -22,7 +22,8 @@
 //@synthesize notificationRawList = _notificationRawList;
 
 - (id)init {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.currentLocation = @"";
         self.user = nil;
         self.currentRadius = @"0.1";

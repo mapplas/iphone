@@ -44,7 +44,8 @@
 @synthesize locationCurrency = _locationCurrency;
 
 - (id)init {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         self.appId = [NSNumber numberWithInt:0];
         self.name = @"";
         self.latitude = [NSNumber numberWithDouble:0.0f];

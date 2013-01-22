@@ -12,7 +12,8 @@
 @implementation UserIdentificationResponseHandler
 
 - (id)initWithSuperModel:(SuperModel *)_model {
-    if (self == [super init]) {
+    self = [super init];
+    if (self) {
         model = _model;
     }
     return  self;

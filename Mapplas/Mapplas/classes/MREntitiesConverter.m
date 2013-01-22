@@ -14,7 +14,8 @@
 @implementation MREntitiesConverter
 
 - (id)init {
-	if(self = [super init]) {
+    self = [super init];
+    if (self) {
 		resultString = [[NSMutableString alloc] init];
 	}
 	return self;

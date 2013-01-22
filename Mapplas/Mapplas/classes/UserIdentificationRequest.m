@@ -10,8 +10,11 @@
 
 @implementation UserIdentificationRequest
 
+@synthesize connector = _connector;
+
 - (id)initWithSuperModel:(SuperModel *)super_model {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         model = super_model;
     }
     return self;
@@ -24,9 +27,9 @@
     VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
     UserIdentificationResponseHandler *handler = [[UserIdentificationResponseHandler alloc] initWithSuperModel:model];
     
-    connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
+    self.connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
     
-    [connector requestWithModel:model];
+    [self.connector requestWithModel:model];
 }
 
 @end
