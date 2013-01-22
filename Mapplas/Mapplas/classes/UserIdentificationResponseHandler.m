@@ -16,7 +16,7 @@
     if (self) {
         model = _model;
     }
-    return  self;
+    return self;
 }
 
 #pragma mark - AsiHTTPResponse delegate

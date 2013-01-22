@@ -10,10 +10,11 @@
 
 @implementation AroundRequester
 
-- (id)initWithLocationManager:(LocationManager *)location_manager {
+- (id)initWithLocationManager:(LocationManager *)location_manager andModel:(SuperModel *)s_model {
     self = [super init];
     if (self) {
         locationManager = location_manager;
+        model = s_model;
         [locationManager setListener:self];
     }
     return self;
@@ -29,9 +30,15 @@
 
 #pragma mark - Location listener methods
 
-- (void)locationFound:(CLLocation *)location {
-    // MAKE REQUEST!
-    NSLog(@"LOCATION FOUND!!");
+- (void)locationFound:(CLLocation *)location {    
+    Environment *environment = [Environment sharedInstance];
+	
+	AbstractUrlAddresses *urlAdresses = [environment addresses];
+    VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
+    AppGetterResponseHandler *handler = [[AppGetterResponseHandler alloc] init];
+
+    connector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
+    [connector requestWithModel:model andLocation:location];
 }
 
 - (void)locationSearchDidTimeout {

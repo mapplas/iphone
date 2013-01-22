@@ -51,6 +51,7 @@
     uniqueCode = [uniqueCode stringByReplacingOccurrencesOfString:@"-" withString:@""];
     [self.model setCurrentImei:uniqueCode];
     
+    // Identify user through server
     self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:self.model];
     [self.userIdentRequest doRequest];
     
@@ -61,7 +62,7 @@
     CoreLocationManagerConfigurator *configurator = [[CoreLocationManagerConfigurator alloc] init];
     
     LocationManager *locationManager = [[LocationManager alloc] initWithLocationManager:coreLocationManager managerConfigurator:configurator listener:nil];
-    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager];
+    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager andModel:self.model];
     [self.aroundRequester startRequesting];
 }
 

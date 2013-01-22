@@ -18,6 +18,9 @@
 		7F06795416A7F4150043EF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793B16A7F4150043EF6B /* Foundation.framework */; };
 		7F06795C16A7F4150043EF6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F06795A16A7F4150043EF6B /* InfoPlist.strings */; };
 		7F06795F16A7F4150043EF6B /* MapplasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F06795E16A7F4150043EF6B /* MapplasTests.m */; };
+		7F0C5B7216AEB2BE0093C850 /* AppGetterConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C5B7116AEB2BE0093C850 /* AppGetterConnector.m */; };
+		7F0C5B7516AEB3620093C850 /* GenericConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C5B7416AEB3620093C850 /* GenericConnector.m */; };
+		7F0C5B8816AEB6FA0093C850 /* AppGetterResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C5B8716AEB6FA0093C850 /* AppGetterResponseHandler.m */; };
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
@@ -117,6 +120,12 @@
 		7F06795B16A7F4150043EF6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F06795D16A7F4150043EF6B /* MapplasTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapplasTests.h; sourceTree = "<group>"; };
 		7F06795E16A7F4150043EF6B /* MapplasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapplasTests.m; sourceTree = "<group>"; };
+		7F0C5B7016AEB2BE0093C850 /* AppGetterConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGetterConnector.h; sourceTree = "<group>"; };
+		7F0C5B7116AEB2BE0093C850 /* AppGetterConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGetterConnector.m; sourceTree = "<group>"; };
+		7F0C5B7316AEB3620093C850 /* GenericConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericConnector.h; path = classes/network/GenericConnector.h; sourceTree = "<group>"; };
+		7F0C5B7416AEB3620093C850 /* GenericConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericConnector.m; path = classes/network/GenericConnector.m; sourceTree = "<group>"; };
+		7F0C5B8616AEB6FA0093C850 /* AppGetterResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppGetterResponseHandler.h; path = classes/network/AppGetterResponseHandler.h; sourceTree = "<group>"; };
+		7F0C5B8716AEB6FA0093C850 /* AppGetterResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppGetterResponseHandler.m; path = classes/network/AppGetterResponseHandler.m; sourceTree = "<group>"; };
 		7F68781A16A857DC005DC098 /* AppOrderedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppOrderedList.h; path = classes/AppOrderedList.h; sourceTree = "<group>"; };
 		7F68781B16A857DC005DC098 /* AppOrderedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppOrderedList.m; path = classes/AppOrderedList.m; sourceTree = "<group>"; };
 		7F68781E16A85854005DC098 /* NotificationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationList.h; path = classes/NotificationList.h; sourceTree = "<group>"; };
@@ -151,7 +160,7 @@
 		7FC8829416A853CD008A06A8 /* LocationCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCurrency.h; path = classes/LocationCurrency.h; sourceTree = "<group>"; };
 		7FC8829716A85676008A06A8 /* SuperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperModel.h; path = classes/SuperModel.h; sourceTree = "<group>"; };
 		7FC8829816A85676008A06A8 /* SuperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperModel.m; path = classes/SuperModel.m; sourceTree = "<group>"; };
-		7FFC228A16AE9B6B00469819 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7FFC228A16AE9B6B00469819 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FFFBA9B16A932AB00417499 /* UserIdentificationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserIdentificationRequest.h; path = classes/UserIdentificationRequest.h; sourceTree = "<group>"; };
 		7FFFBA9C16A932AB00417499 /* UserIdentificationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserIdentificationRequest.m; path = classes/UserIdentificationRequest.m; sourceTree = "<group>"; };
 		7FFFBAAC16A9351100417499 /* UserIdentificationConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserIdentificationConnector.h; path = classes/UserIdentificationConnector.h; sourceTree = "<group>"; };
@@ -283,7 +292,6 @@
 		7F06792A16A7F4140043EF6B = {
 			isa = PBXGroup;
 			children = (
-				7FFC228A16AE9B6B00469819 /* Default-568h@2x.png */,
 				7F06793F16A7F4150043EF6B /* Mapplas */,
 				7F06795716A7F4150043EF6B /* MapplasTests */,
 				7F06793816A7F4140043EF6B /* Frameworks */,
@@ -373,6 +381,7 @@
 		7FC8825F16A81EEB008A06A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FFC228A16AE9B6B00469819 /* Default-568h@2x.png */,
 				7FFFBBC816A97E4F00417499 /* ic_mapplas.png */,
 				7FFFBBC916A97E4F00417499 /* ic_mapplas@2x.png */,
 				7FFFBBB716A97E2A00417499 /* Backgrounds */,
@@ -502,6 +511,10 @@
 		7FFFBAAB16A934FF00417499 /* Connectors */ = {
 			isa = PBXGroup;
 			children = (
+				7F0C5B7016AEB2BE0093C850 /* AppGetterConnector.h */,
+				7F0C5B7116AEB2BE0093C850 /* AppGetterConnector.m */,
+				7F0C5B7316AEB3620093C850 /* GenericConnector.h */,
+				7F0C5B7416AEB3620093C850 /* GenericConnector.m */,
 				7FFFBAAC16A9351100417499 /* UserIdentificationConnector.h */,
 				7FFFBAAD16A9351100417499 /* UserIdentificationConnector.m */,
 			);
@@ -554,6 +567,8 @@
 		7FFFBAE016A9427000417499 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				7F0C5B8616AEB6FA0093C850 /* AppGetterResponseHandler.h */,
+				7F0C5B8716AEB6FA0093C850 /* AppGetterResponseHandler.m */,
 				7FFFBAE116A9428C00417499 /* UserIdentificationResponseHandler.h */,
 				7FFFBAE216A9428C00417499 /* UserIdentificationResponseHandler.m */,
 			);
@@ -862,6 +877,9 @@
 				7FFFBBAF16A971B900417499 /* AroundRequester.m in Sources */,
 				7FFFBBB216A9730300417499 /* LocationManager.m in Sources */,
 				7FFFBBB516A974BA00417499 /* CoreLocationManagerConfigurator.m in Sources */,
+				7F0C5B7216AEB2BE0093C850 /* AppGetterConnector.m in Sources */,
+				7F0C5B7516AEB3620093C850 /* GenericConnector.m in Sources */,
+				7F0C5B8816AEB6FA0093C850 /* AppGetterResponseHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

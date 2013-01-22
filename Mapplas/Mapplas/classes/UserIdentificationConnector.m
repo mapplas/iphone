@@ -10,35 +10,17 @@
 
 @implementation UserIdentificationConnector
 
-@synthesize request = _request;
-
-- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(UserIdentificationResponseHandler *)response_handler {
-    self = [super init];
-    if (self) {
-        self.request = nil;
-        adresses = _addresses;
-        variableListMapper = list_mapper;
-        handler = response_handler;
-    }
-    return self;
+- (id)initWithAddresses:(AbstractUrlAddresses *)addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(UserIdentificationResponseHandler *)response_handler {
+    return [super initWithAddresses:addresses variableListMapper:list_mapper responseHandler:response_handler];
 }
 
 - (void)requestWithModel:(SuperModel *)super_model {
     model = super_model;
     
-    VariableList *parameters = [[VariableList alloc] init];
-    [parameters addValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] withKey:@"v"];
     [parameters addValue:[model currentLocation] withKey:@"l"];
     [parameters addValue:[model currentImei] withKey:@"ii"];
     
-    NSString *url = [self getUrl];
-	ASIFormDataRequest *asiRequest = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
-	self.request = asiRequest;
-	
-	[variableListMapper insert:parameters into:self.request];
-	[self.request setResponseEncoding:NSUTF8StringEncoding];
-	[self.request setDelegate:handler];
-	[self.request startAsynchronous];
+    [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
 
 - (NSString *)getUrl {
