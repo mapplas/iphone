@@ -19,8 +19,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIPrerenderedIcon</key>
-	<string>YES</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.mapplas.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -37,6 +35,8 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIPrerenderedIcon</key>
+	<string>YES</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
