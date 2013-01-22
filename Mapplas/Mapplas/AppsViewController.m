@@ -18,6 +18,7 @@
 @implementation AppsViewController
 
 @synthesize userIdentRequest = _userIdentRequester;
+@synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -31,9 +32,11 @@
 - (void)initializeNavigationBarButtons {
     UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:nil];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     
     UIImage *profileImage = [UIImage imageNamed:@"ic_menu_profile.png"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:nil];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
 }
 
 - (void)viewDidLoad {
@@ -41,14 +44,14 @@
     
     [self initializeNavigationBarButtons];
     
-    SuperModel *model = [[SuperModel alloc] init];
+    self.model = [[SuperModel alloc] init];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *uniqueCode = [defaults objectForKey:UUID_USER_DEFAULTS_KEY];
     uniqueCode = [uniqueCode stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    [model setCurrentImei:uniqueCode];
+    [self.model setCurrentImei:uniqueCode];
     
-    self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:model];
+    self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:self.model];
     [self.userIdentRequest doRequest];
     
     // Get phone's application list
