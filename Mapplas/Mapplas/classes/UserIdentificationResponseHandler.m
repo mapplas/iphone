@@ -20,30 +20,15 @@
 }
 
 - (void)requestFinished:(id)JSON {
-    NSLog(@"USER RESPONSE OK");
+    NSDictionary *jsonResponse = JSON;
+    JSONToUserMapper *userMapper = [[JSONToUserMapper alloc] init];
+    User *currentUser = [userMapper map:jsonResponse];
+    
+    [model setUser:currentUser];
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
-    NSLog(@"USER RESPONSE NOK");
+    NSLog(@"Response delegate error, %@, %@", [error description], JSON);
 }
 
-//#pragma mark - AsiHTTPResponse delegate
-//- (void)errorLog:(NSString *)from request:(ASIHTTPRequest *)request {
-//    NSLog(@"-Response delegate, %@.\n-Url: %@\n-Response: %@\n", from, [request url], [request responseString]);
-//}
-//
-//- (void)requestFinished:(ASIHTTPRequest *)request {
-//	NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//	NSDictionary *jsonData = [response JSONValue];
-//    
-//    JSONToUserMapper *userMapper = [[JSONToUserMapper alloc] init];
-//    User *currentUser = [userMapper map:jsonData];
-//
-//    [model setUser:currentUser];
-//}
-//
-//- (void)requestFailed:(ASIHTTPRequest *)request {
-//	NSError *error = [request error];
-//	[self errorLog:[@"request failed: " stringByAppendingString:[error description]] request:request];
-//}
 @end

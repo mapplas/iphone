@@ -12,12 +12,11 @@
 
 - (void)requestFinished:(id)JSON {
     NSLog(@"REQUEST FINISHED");
-//    NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//    NSDictionary *jsonData = [response JSONValue];
+    NSDictionary *jsonData = JSON;
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
-    NSLog(@"REQUEST FAILED");
+    NSLog(@"Response delegate error, %@, %@", [error description], JSON);
 }
 
 @end
