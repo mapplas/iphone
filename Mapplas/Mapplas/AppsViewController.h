@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "NotificationsViewController.h"
 #import "UserViewController.h"
 #import "UserIdentificationRequest.h"
+#import "LocationManager.h"
+#import "AroundRequester.h"
 
 @interface AppsViewController : UIViewController {
     UserIdentificationRequest *_userIdentRequester;
+    
+    AroundRequester *_aroundRequester;
 }
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
+@property (nonatomic, strong) AroundRequester *aroundRequester;
 
 
 @end
