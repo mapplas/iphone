@@ -22,10 +22,9 @@
     Environment *environment = [Environment sharedInstance];
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
     UserIdentificationResponseHandler *handler = [[UserIdentificationResponseHandler alloc] initWithSuperModel:model];
     
-    connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
+    connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
     [connector requestWithModel:model];
 }
 

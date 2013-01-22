@@ -10,18 +10,14 @@
 
 @implementation GenericConnector
 
-@synthesize request = _request;
 @synthesize handler = _handler;
 
-- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(id<ASIHTTPRequestDelegate>)response_handler {
+- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(id<GenericRequestHandler>)response_handler {
     self = [super init];
     if (self) {
-        self.request = nil;
         adresses = _addresses;
-        variableListMapper = list_mapper;
         self.handler = response_handler;
-        
-        parameters = [[VariableList alloc] init];
+        parameters = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -31,15 +27,23 @@
 }
 
 - (void)initializeVariablesWithUrlAndSend:(NSString *)url {
-    [parameters addValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] withKey:@"v"];
+    [parameters setValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] forKey:@"v"];
     
-    ASIFormDataRequest *asiRequest = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
-	self.request = asiRequest;
-	
-	[variableListMapper insert:parameters into:self.request];
-	[self.request setResponseEncoding:NSUTF8StringEncoding];
-	[self.request setDelegate:self.handler];
-	[self.request startAsynchronous];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    NSMutableURLRequest *jsonRequest = [httpClient requestWithMethod:@"GET"
+                                                                path:@""
+                                                          parameters:parameters];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:jsonRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"App.net Global Stream: %@", JSON);
+        [self.handler requestFinished:JSON];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"%@", [error userInfo]);
+        [self.handler requestFinishedWithErrors:error andReponse:JSON];
+    }];
+    
+    [operation start];
 }
 
 @end

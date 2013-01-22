@@ -10,13 +10,13 @@
 
 @implementation AppGetterResponseHandler
 
-- (void)requestFinished:(ASIHTTPRequest *)request {
+- (void)requestFinished:(id)JSON {
     NSLog(@"REQUEST FINISHED");
-    NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	NSDictionary *jsonData = [response JSONValue];
+//    NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    NSDictionary *jsonData = [response JSONValue];
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request {
+- (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
     NSLog(@"REQUEST FAILED");
 }
 

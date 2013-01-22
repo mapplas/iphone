@@ -10,8 +10,8 @@
 
 @implementation AppGetterConnector
 
-- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(AppGetterResponseHandler *)response_handler {
-    self = [super initWithAddresses:_addresses variableListMapper:list_mapper responseHandler:response_handler];
+- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(AppGetterResponseHandler *)response_handler {
+    self = [super initWithAddresses:_addresses responseHandler:response_handler];
     if (self) {
         
     }
@@ -22,10 +22,10 @@
     CLLocationCoordinate2D coord = location.coordinate;
     NSString *stringLocation = [NSString stringWithFormat:@"%g, %g", coord.latitude, coord.longitude];
     
-    [parameters addValue:stringLocation withKey:@"l"];
-    [parameters addValue:[[super_model user] userId] withKey:@"uid"];
-    [parameters addValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] withKey:@"p"];
-    [parameters addValue:@"" withKey:@"ln"];
+    [parameters setValue:stringLocation forKey:@"l"];
+    [parameters setValue:[[super_model user] userId] forKey:@"uid"];
+    [parameters setValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] forKey:@"p"];
+    [parameters setValue:@"" forKey:@"ln"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }

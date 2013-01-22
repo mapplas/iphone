@@ -10,15 +10,15 @@
 
 @implementation UserIdentificationConnector
 
-- (id)initWithAddresses:(AbstractUrlAddresses *)addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(UserIdentificationResponseHandler *)response_handler {
-    return [super initWithAddresses:addresses variableListMapper:list_mapper responseHandler:response_handler];
+- (id)initWithAddresses:(AbstractUrlAddresses *)addresses responseHandler:(UserIdentificationResponseHandler *)response_handler {
+    return [super initWithAddresses:addresses responseHandler:response_handler];
 }
 
 - (void)requestWithModel:(SuperModel *)super_model {
     model = super_model;
     
-    [parameters addValue:[model currentLocation] withKey:@"l"];
-    [parameters addValue:[model currentImei] withKey:@"ii"];
+    [parameters setValue:[model currentLocation] forKey:@"l"];
+    [parameters setValue:[model currentImei] forKey:@"ii"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }

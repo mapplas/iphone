@@ -19,23 +19,31 @@
     return self;
 }
 
-#pragma mark - AsiHTTPResponse delegate
-- (void)errorLog:(NSString *)from request:(ASIHTTPRequest *)request {
-    NSLog(@"-Response delegate, %@.\n-Url: %@\n-Response: %@\n", from, [request url], [request responseString]);
+- (void)requestFinished:(id)JSON {
+    NSLog(@"USER RESPONSE OK");
 }
 
-- (void)requestFinished:(ASIHTTPRequest *)request {
-	NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	NSDictionary *jsonData = [response JSONValue];
-    
-    JSONToUserMapper *userMapper = [[JSONToUserMapper alloc] init];
-    User *currentUser = [userMapper map:jsonData];
-
-    [model setUser:currentUser];
+- (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
+    NSLog(@"USER RESPONSE NOK");
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request {
-	NSError *error = [request error];
-	[self errorLog:[@"request failed: " stringByAppendingString:[error description]] request:request];
-}
+//#pragma mark - AsiHTTPResponse delegate
+//- (void)errorLog:(NSString *)from request:(ASIHTTPRequest *)request {
+//    NSLog(@"-Response delegate, %@.\n-Url: %@\n-Response: %@\n", from, [request url], [request responseString]);
+//}
+//
+//- (void)requestFinished:(ASIHTTPRequest *)request {
+//	NSString *response = [[request responseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//	NSDictionary *jsonData = [response JSONValue];
+//    
+//    JSONToUserMapper *userMapper = [[JSONToUserMapper alloc] init];
+//    User *currentUser = [userMapper map:jsonData];
+//
+//    [model setUser:currentUser];
+//}
+//
+//- (void)requestFailed:(ASIHTTPRequest *)request {
+//	NSError *error = [request error];
+//	[self errorLog:[@"request failed: " stringByAppendingString:[error description]] request:request];
+//}
 @end

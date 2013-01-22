@@ -34,10 +34,9 @@
     Environment *environment = [Environment sharedInstance];
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
     AppGetterResponseHandler *handler = [[AppGetterResponseHandler alloc] init];
 
-    connector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
+    connector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
     [connector requestWithModel:model andLocation:location];
 }
 

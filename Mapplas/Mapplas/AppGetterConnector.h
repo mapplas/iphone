@@ -13,7 +13,7 @@
 
 @interface AppGetterConnector : GenericConnector
 
-- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(AppGetterResponseHandler *)response_handler;
+- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(AppGetterResponseHandler *)response_handler;
 
 - (void)requestWithModel:(SuperModel *)super_model andLocation:(CLLocation *)location;
 

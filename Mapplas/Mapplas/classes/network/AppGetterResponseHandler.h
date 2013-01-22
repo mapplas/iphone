@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
-#import "ASIHTTPRequestDelegate.h"
-#import "ASIHTTPRequest.h"
+#import "GenericRequestHandler.h"
 #import "NSObject+JSON.h"
 
-@interface AppGetterResponseHandler : NSObject <ASIHTTPRequestDelegate>
+@interface AppGetterResponseHandler : NSObject <GenericRequestHandler>
 
 @end

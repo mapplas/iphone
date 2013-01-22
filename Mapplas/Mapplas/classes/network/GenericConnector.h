@@ -7,22 +7,20 @@
 //
 
 #import "AbstractUrlAddresses.h"
-#import "VariableListMapper.h"
+#import "AFJSONRequestOperation.h"
+#import "AFHTTPClient.h"
+#import "GenericRequestHandler.h"
 
-@interface GenericConnector : NSObject {
-    ASIFormDataRequest *_request;
-    
+@interface GenericConnector : NSObject {    
     AbstractUrlAddresses *adresses;
-    VariableListMapper *variableListMapper;
-    id<ASIHTTPRequestDelegate> _handler;
+    id<GenericRequestHandler> _handler;
     
-    VariableList *parameters;
+    NSMutableDictionary *parameters;
 }
 
-@property (nonatomic, strong) ASIFormDataRequest *request;
-@property (nonatomic, strong) id<ASIHTTPRequestDelegate> handler;
+@property (nonatomic, strong) id<GenericRequestHandler> handler;
 
-- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses variableListMapper:(VariableListMapper *)list_mapper responseHandler:(id<ASIHTTPRequestDelegate>)response_handler;
+- (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(id<GenericRequestHandler>)response_handler;
 - (NSString *)getUrl;
 - (void)initializeVariablesWithUrlAndSend:(NSString *)url;
 
