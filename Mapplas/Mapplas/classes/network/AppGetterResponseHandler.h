@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
 #import "GenericRequestHandler.h"
 #import "NSObject+JSON.h"
 #import "JSONToAppMapper.h"
@@ -16,8 +17,10 @@
 @interface AppGetterResponseHandler : NSObject <GenericRequestHandler> {
     SuperModel *model;
     AppsViewController *mainController;
+    CLGeocoder *geocoder;
+    CLLocation *location;
 }
 
-- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller;
+- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller reverseGeocoder:(CLGeocoder *)_geocoder location:(CLLocation *)_location;
 
 @end

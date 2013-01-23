@@ -10,13 +10,14 @@
 #import "LocationManager.h"
 #import "AppGetterConnector.h"
 #import "Environment.h"
+#import <MapKit/MapKit.h>
 
 @class AppsViewController;
 
 @interface AroundRequester : NSObject <LocationListener> {
 	LocationManager *locationManager;
     SuperModel *model;
-    AppGetterConnector *connector;
+    AppGetterConnector *appGetterConnector;
     AppGetterResponseHandler *handler;
     AppsViewController *viewController;
 }

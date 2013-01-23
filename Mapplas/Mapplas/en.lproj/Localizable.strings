@@ -5,3 +5,6 @@
   Created by Belén  on 17/01/13.
   Copyright (c) 2013 Mapplas. All rights reserved.
 */
+
+/* Reverse geocoding error */
+"descriptive_geoloc_error" = "Oops! It seems that you're in Wonderland.";

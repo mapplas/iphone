@@ -36,10 +36,11 @@
     Environment *environment = [Environment sharedInstance];
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController reverseGeocoder:geocoder location:location];
 
-    connector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
-    [connector requestWithModel:model andLocation:location];
+    appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
+    [appGetterConnector requestWithModel:model andLocation:location];
 }
 
 - (void)locationSearchDidTimeout {

@@ -89,8 +89,7 @@
 }
 
 - (void)appsDataParsedFromServer {
-    NSDate *today = [NSDate date];
-    [self.location setText:[NSString stringWithFormat:@"%f", today.timeIntervalSince1970]];
+    [self.location setText:self.model.currentDescriptiveGeoLoc];
     [self.table reloadData];
     [self doneLoadingTableViewData];
 }
