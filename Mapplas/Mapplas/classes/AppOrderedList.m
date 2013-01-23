@@ -20,4 +20,8 @@
     return self;
 }
 
+- (void)addObject:(App *)app {
+    [self.list addObject:app];
+}
+
 @end

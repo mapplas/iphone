@@ -10,9 +10,25 @@
 
 @implementation AppGetterResponseHandler
 
+- (id)initWithModel:(SuperModel *)_model {
+    self = [super init];
+    if (self) {
+        model = _model;
+    }
+    return self;
+}
 - (void)requestFinished:(id)JSON {
-    NSLog(@"REQUEST FINISHED");
-    NSDictionary *jsonData = JSON;
+    NSArray *jsonObjects = JSON;
+    JSONToAppMapper *appMapper = [[JSONToAppMapper alloc] init];
+    
+    App *app = nil;
+    AppOrderedList *list = [[AppOrderedList alloc] init];
+    for (int i=0; i < jsonObjects.count; i++) {
+        app = [appMapper map:[jsonObjects objectAtIndex:i]];
+        [list addObject:app];
+    }
+    
+    [model setAppList:list];
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {

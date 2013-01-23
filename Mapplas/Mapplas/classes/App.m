@@ -42,6 +42,9 @@
 @synthesize setPinnedGeocodedLocation = _setPinnedGeocodedLocation;
 
 @synthesize locationCurrency = _locationCurrency;
+@synthesize market = _market;
+
+@synthesize notificationRaw = _notificationRaw;
 
 - (id)init {
     self = [super init];
@@ -66,6 +69,9 @@
         self.auxPhotosArray = [[NSMutableArray alloc] init];
         
         self.locationCurrency = EURO;
+        self.market = @"Eur";
+        
+        self.notificationRaw = [[NSArray alloc] init];
     }
     return self;
 }

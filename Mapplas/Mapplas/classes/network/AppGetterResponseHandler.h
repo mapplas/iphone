@@ -8,7 +8,13 @@
 
 #import "GenericRequestHandler.h"
 #import "NSObject+JSON.h"
+#import "JSONToAppMapper.h"
+#import "SuperModel.h"
 
-@interface AppGetterResponseHandler : NSObject <GenericRequestHandler>
+@interface AppGetterResponseHandler : NSObject <GenericRequestHandler> {
+    SuperModel *model;
+}
+
+- (id)initWithModel:(SuperModel *)_model;
 
 @end
