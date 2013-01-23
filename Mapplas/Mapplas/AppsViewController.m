@@ -20,7 +20,9 @@
 @synthesize userIdentRequest = _userIdentRequester;
 @synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
+
 @synthesize table;
+@synthesize location;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,9 +64,13 @@
     CLLocationManager *coreLocationManager = [CLLocationManager alloc];
     CoreLocationManagerConfigurator *configurator = [[CoreLocationManagerConfigurator alloc] init];
     
-    LocationManager *locationManager = [[LocationManager alloc] initWithLocationManager:coreLocationManager managerConfigurator:configurator listener:nil];    
+    locationManager = [[LocationManager alloc] initWithLocationManager:coreLocationManager managerConfigurator:configurator listener:nil];
     self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager model:self.model mainViewController:self];
     [self.aroundRequester startRequesting];
+    
+    // Set table delegate and data source
+    [self.table setDataSource:self];
+    [self.table setDelegate:self];
     
     // Pull to refresh view set
     if (_refreshHeaderView == nil) {
@@ -83,9 +89,10 @@
 }
 
 - (void)appsDataParsedFromServer {
-    [self.table setDataSource:self];
-    [self.table setDelegate:self];
+    NSDate *today = [NSDate date];
+    [self.location setText:[NSString stringWithFormat:@"%f", today.timeIntervalSince1970]];
     [self.table reloadData];
+    [self doneLoadingTableViewData];
 }
 
 #pragma mark -
@@ -115,7 +122,11 @@
 - (void)reloadTableViewDataSource {
 	//  should be calling your tableviews data source model to reload
     [self.table reloadData];
-	_reloading = YES;	
+    // request new location
+	_reloading = YES;
+    
+    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager model:self.model mainViewController:self];
+    [self.aroundRequester startRequesting];
 }
 
 - (void)doneLoadingTableViewData {
@@ -148,8 +159,8 @@
 	return _reloading; // should return if data source model is reloading	
 }
 
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {	
-	return [NSDate date]; // should return date data source was last changed	
-}
+//- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {	
+//	return [NSDate date]; // should return date data source was last changed	
+//}
 
 @end

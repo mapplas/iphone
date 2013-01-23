@@ -21,12 +21,14 @@
     SuperModel *_model;
     
     AroundRequester *_aroundRequester;
+    LocationManager *locationManager;
     
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
+@property (nonatomic, strong) IBOutlet UILabel *location;
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 @property (nonatomic, strong) SuperModel *model;
