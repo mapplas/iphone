@@ -14,12 +14,16 @@
 #import "LocationManager.h"
 #import "AroundRequester.h"
 
+#import "AppTableViewAdapter.h"
+
 @interface AppsViewController : UIViewController {
     UserIdentificationRequest *_userIdentRequester;
     SuperModel *_model;
     
     AroundRequester *_aroundRequester;
 }
+
+@property (nonatomic, strong) IBOutlet UITableView *table;
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 @property (nonatomic, strong) SuperModel *model;

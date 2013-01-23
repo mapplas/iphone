@@ -16,5 +16,7 @@
 
 - (id)init;
 - (void)addObject:(App *)app;
+- (NSUInteger)count;
+- (App *)objectAtIndex:(NSUInteger)index;
 
 @end

@@ -10,11 +10,13 @@
 
 @implementation AroundRequester
 
-- (id)initWithLocationManager:(LocationManager *)location_manager andModel:(SuperModel *)s_model {
+- (id)initWithLocationManager:(LocationManager *)location_manager model:(SuperModel *)s_model table:(UITableView *)_table tableAdapter:(AppTableViewAdapter *)table_adapter {
     self = [super init];
     if (self) {
         locationManager = location_manager;
         model = s_model;
+        appTable = _table;
+        adapter = table_adapter;
         [locationManager setListener:self];
     }
     return self;
@@ -34,7 +36,7 @@
     Environment *environment = [Environment sharedInstance];
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    AppGetterResponseHandler *handler = [[AppGetterResponseHandler alloc] init];
+    handler = [[AppGetterResponseHandler alloc] initWithModel:model tableView:appTable adapter:adapter];
 
     connector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
     [connector requestWithModel:model andLocation:location];

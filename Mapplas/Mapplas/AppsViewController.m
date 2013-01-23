@@ -20,6 +20,7 @@
 @synthesize userIdentRequest = _userIdentRequester;
 @synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
+@synthesize table;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,7 +63,9 @@
     CoreLocationManagerConfigurator *configurator = [[CoreLocationManagerConfigurator alloc] init];
     
     LocationManager *locationManager = [[LocationManager alloc] initWithLocationManager:coreLocationManager managerConfigurator:configurator listener:nil];
-    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager andModel:self.model];
+    AppTableViewAdapter *tableAdapter = [[AppTableViewAdapter alloc] initWithModel:self.model];
+    
+    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager model:self.model table:self.table tableAdapter:tableAdapter];
     [self.aroundRequester startRequesting];
 }
 

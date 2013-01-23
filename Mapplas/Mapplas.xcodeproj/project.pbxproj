@@ -35,6 +35,7 @@
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
 		7F585A0716AFD24000DB843A /* JSONToPhotoMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0616AFD24000DB843A /* JSONToPhotoMapper.m */; };
 		7F585A0A16AFD67500DB843A /* TargetIteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */; };
+		7F585A0E16AFE12F00DB843A /* AppTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0D16AFE12F00DB843A /* AppTableViewAdapter.m */; };
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
@@ -157,6 +158,8 @@
 		7F585A0616AFD24000DB843A /* JSONToPhotoMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToPhotoMapper.m; path = classes/mappers/JSONToPhotoMapper.m; sourceTree = "<group>"; };
 		7F585A0816AFD67500DB843A /* TargetIteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetIteratingMapper.h; path = classes/mappers/TargetIteratingMapper.h; sourceTree = "<group>"; };
 		7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TargetIteratingMapper.m; path = classes/mappers/TargetIteratingMapper.m; sourceTree = "<group>"; };
+		7F585A0C16AFE12F00DB843A /* AppTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppTableViewAdapter.h; path = classes/location/adapters/AppTableViewAdapter.h; sourceTree = "<group>"; };
+		7F585A0D16AFE12F00DB843A /* AppTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppTableViewAdapter.m; path = classes/location/adapters/AppTableViewAdapter.m; sourceTree = "<group>"; };
 		7F68781A16A857DC005DC098 /* AppOrderedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppOrderedList.h; path = classes/AppOrderedList.h; sourceTree = "<group>"; };
 		7F68781B16A857DC005DC098 /* AppOrderedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppOrderedList.m; path = classes/AppOrderedList.m; sourceTree = "<group>"; };
 		7F68781E16A85854005DC098 /* NotificationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationList.h; path = classes/NotificationList.h; sourceTree = "<group>"; };
@@ -396,6 +399,15 @@
 			path = "Mapplas/classes/Third party/AFNetworking";
 			sourceTree = "<group>";
 		};
+		7F585A0B16AFE0FF00DB843A /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				7F585A0C16AFE12F00DB843A /* AppTableViewAdapter.h */,
+				7F585A0D16AFE12F00DB843A /* AppTableViewAdapter.m */,
+			);
+			name = Adapters;
+			sourceTree = "<group>";
+		};
 		7FC8825916A81E4A008A06A8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +434,7 @@
 		7FC8826016A81EF6008A06A8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F585A0B16AFE0FF00DB843A /* Adapters */,
 				7FC8826716A82656008A06A8 /* Categories */,
 				7FFFBB6D16A9557E00417499 /* Configuration */,
 				7FFFBA9816A9314500417499 /* Localization */,
@@ -866,6 +879,7 @@
 				7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */,
 				7F585A0716AFD24000DB843A /* JSONToPhotoMapper.m in Sources */,
 				7F585A0A16AFD67500DB843A /* TargetIteratingMapper.m in Sources */,
+				7F585A0E16AFE12F00DB843A /* AppTableViewAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

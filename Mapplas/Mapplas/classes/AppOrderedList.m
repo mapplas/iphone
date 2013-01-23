@@ -24,4 +24,12 @@
     [self.list addObject:app];
 }
 
+- (NSUInteger)count {
+    return self.list.count;
+}
+
+- (App *)objectAtIndex:(NSUInteger)index {
+    return [self.list objectAtIndex:index];
+}
+
 @end
