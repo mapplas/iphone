@@ -40,6 +40,9 @@
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
 		7FBAE92F16B027CC00621B34 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */; };
 		7FBAE93216B0280500621B34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBAE93116B0280500621B34 /* QuartzCore.framework */; };
+		7FBAE93416B0430F00621B34 /* bgd_pull_to_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAE93316B0430F00621B34 /* bgd_pull_to_refresh.png */; };
+		7FBAE93816B0444C00621B34 /* img_gray_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAE93616B0444C00621B34 /* img_gray_arrow.png */; };
+		7FBAE93916B0444C00621B34 /* img_gray_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAE93716B0444C00621B34 /* img_gray_arrow@2x.png */; };
 		7FC8825D16A81E5A008A06A8 /* AppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8825B16A81E5A008A06A8 /* AppsViewController.m */; };
 		7FC8825E16A81E5A008A06A8 /* AppsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8825C16A81E5A008A06A8 /* AppsViewController.xib */; };
 		7FC8826616A825D0008A06A8 /* SCAppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8826516A825D0008A06A8 /* SCAppUtils.m */; };
@@ -170,6 +173,9 @@
 		7FBAE92D16B027CC00621B34 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		7FBAE93116B0280500621B34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FBAE93316B0430F00621B34 /* bgd_pull_to_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgd_pull_to_refresh.png; sourceTree = SOURCE_ROOT; };
+		7FBAE93616B0444C00621B34 /* img_gray_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_gray_arrow.png; sourceTree = SOURCE_ROOT; };
+		7FBAE93716B0444C00621B34 /* img_gray_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_gray_arrow@2x.png"; sourceTree = SOURCE_ROOT; };
 		7FC8825A16A81E5A008A06A8 /* AppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsViewController.h; sourceTree = "<group>"; };
 		7FC8825B16A81E5A008A06A8 /* AppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsViewController.m; sourceTree = "<group>"; };
 		7FC8825C16A81E5A008A06A8 /* AppsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppsViewController.xib; sourceTree = "<group>"; };
@@ -413,6 +419,15 @@
 			path = "Mapplas/classes/Third party/EGOTableViewPullRefresh";
 			sourceTree = "<group>";
 		};
+		7FBAE93516B0443E00621B34 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7FBAE93616B0444C00621B34 /* img_gray_arrow.png */,
+				7FBAE93716B0444C00621B34 /* img_gray_arrow@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		7FC8825916A81E4A008A06A8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +446,7 @@
 				7FFFBBC916A97E4F00417499 /* ic_mapplas@2x.png */,
 				7FFFBBB716A97E2A00417499 /* Backgrounds */,
 				7FFFBBB616A97E2500417499 /* Icons */,
+				7FBAE93516B0443E00621B34 /* Images */,
 				7F68783D16A86083005DC098 /* Localizable.strings */,
 			);
 			name = Resources;
@@ -703,6 +719,7 @@
 				7FFFBBB916A97E3500417499 /* bgd_menu_default@2x.png */,
 				7FFFBBBA16A97E3500417499 /* bgd_menu.png */,
 				7FFFBBBB16A97E3500417499 /* bgd_menu@2x.png */,
+				7FBAE93316B0430F00621B34 /* bgd_pull_to_refresh.png */,
 			);
 			name = Backgrounds;
 			sourceTree = "<group>";
@@ -794,6 +811,9 @@
 				7FFFBBCA16A97E4F00417499 /* ic_mapplas.png in Resources */,
 				7FFFBBCB16A97E4F00417499 /* ic_mapplas@2x.png in Resources */,
 				7FFC228B16AE9B6B00469819 /* Default-568h@2x.png in Resources */,
+				7FBAE93416B0430F00621B34 /* bgd_pull_to_refresh.png in Resources */,
+				7FBAE93816B0444C00621B34 /* img_gray_arrow.png in Resources */,
+				7FBAE93916B0444C00621B34 /* img_gray_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

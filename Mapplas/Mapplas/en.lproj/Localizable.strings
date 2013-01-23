@@ -8,3 +8,12 @@
 
 /* Reverse geocoding error */
 "descriptive_geoloc_error" = "Oops! It seems that you're in Wonderland.";
+
+/* Pull to refresh pull message */
+"ptr_pull_to_refresh" = "Pull to refresh...";
+
+/* Pull to refresh release message*/
+"ptr_release_to_refresh" = "Release to refresh...";
+
+/* Pull to refresh loading message */
+"ptr_refreshing" = "Loading Apps...";
