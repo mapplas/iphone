@@ -7,15 +7,15 @@
 //
 
 #import "AppGetterResponseHandler.h"
+#import "AppsViewController.h"
 
 @implementation AppGetterResponseHandler
 
-- (id)initWithModel:(SuperModel *)_model tableView:(UITableView *)table_view adapter:(AppTableViewAdapter *)_adapter {
+- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller {
     self = [super init];
     if (self) {
         model = _model;
-        table = table_view;
-        adapter = _adapter;
+        mainController = main_controller;
     }
     return self;
 }
@@ -34,9 +34,7 @@
     [model setAppList:list];
     
     // Set adapter to tableView
-    [table setDelegate:adapter];
-    [table setDataSource:adapter];
-    [table reloadData];
+    [mainController appsDataParsedFromServer];
     
 //    // Get first X applications
 //    ArrayList<App> appList = new ArrayList<App>();

@@ -10,14 +10,14 @@
 #import "NSObject+JSON.h"
 #import "JSONToAppMapper.h"
 #import "SuperModel.h"
-#import "AppTableViewAdapter.h"
+
+@class AppsViewController;
 
 @interface AppGetterResponseHandler : NSObject <GenericRequestHandler> {
     SuperModel *model;
-    AppTableViewAdapter *adapter;
-    UITableView *table;
+    AppsViewController *mainController;
 }
 
-- (id)initWithModel:(SuperModel *)_model tableView:(UITableView *)table_view adapter:(AppTableViewAdapter *)_adapter;
+- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller;
 
 @end

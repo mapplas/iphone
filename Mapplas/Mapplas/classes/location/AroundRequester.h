@@ -10,19 +10,18 @@
 #import "LocationManager.h"
 #import "AppGetterConnector.h"
 #import "Environment.h"
-#import "AppTableViewAdapter.h"
+
+@class AppsViewController;
 
 @interface AroundRequester : NSObject <LocationListener> {
 	LocationManager *locationManager;
     SuperModel *model;
     AppGetterConnector *connector;
     AppGetterResponseHandler *handler;
-    AppTableViewAdapter *adapter;
-    
-    UITableView *appTable;
+    AppsViewController *viewController;
 }
 
-- (id)initWithLocationManager:(LocationManager *)location_manager model:(SuperModel *)s_model table:(UITableView *)_table tableAdapter:(AppTableViewAdapter *)table_adapter;
+- (id)initWithLocationManager:(LocationManager *)location_manager model:(SuperModel *)s_model mainViewController:(AppsViewController *)main_controller;
 
 - (void)startRequesting;
 - (void)stop;

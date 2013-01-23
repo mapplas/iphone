@@ -7,16 +7,16 @@
 //
 
 #import "AroundRequester.h"
+#import "AppsViewController.h"
 
 @implementation AroundRequester
 
-- (id)initWithLocationManager:(LocationManager *)location_manager model:(SuperModel *)s_model table:(UITableView *)_table tableAdapter:(AppTableViewAdapter *)table_adapter {
+- (id)initWithLocationManager:(LocationManager *)location_manager model:(SuperModel *)s_model mainViewController:(AppsViewController *)main_controller {
     self = [super init];
     if (self) {
         locationManager = location_manager;
         model = s_model;
-        appTable = _table;
-        adapter = table_adapter;
+        viewController = main_controller;
         [locationManager setListener:self];
     }
     return self;
@@ -36,7 +36,7 @@
     Environment *environment = [Environment sharedInstance];
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    handler = [[AppGetterResponseHandler alloc] initWithModel:model tableView:appTable adapter:adapter];
+    handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController];
 
     connector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
     [connector requestWithModel:model andLocation:location];

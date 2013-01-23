@@ -14,13 +14,16 @@
 #import "LocationManager.h"
 #import "AroundRequester.h"
 
-#import "AppTableViewAdapter.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface AppsViewController : UIViewController {
+@interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;
     SuperModel *_model;
     
     AroundRequester *_aroundRequester;
+    
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
@@ -29,5 +32,6 @@
 @property (nonatomic, strong) SuperModel *model;
 @property (nonatomic, strong) AroundRequester *aroundRequester;
 
+- (void)appsDataParsedFromServer;
 
 @end

@@ -35,10 +35,11 @@
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
 		7F585A0716AFD24000DB843A /* JSONToPhotoMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0616AFD24000DB843A /* JSONToPhotoMapper.m */; };
 		7F585A0A16AFD67500DB843A /* TargetIteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */; };
-		7F585A0E16AFE12F00DB843A /* AppTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0D16AFE12F00DB843A /* AppTableViewAdapter.m */; };
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
+		7FBAE92F16B027CC00621B34 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */; };
+		7FBAE93216B0280500621B34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBAE93116B0280500621B34 /* QuartzCore.framework */; };
 		7FC8825D16A81E5A008A06A8 /* AppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8825B16A81E5A008A06A8 /* AppsViewController.m */; };
 		7FC8825E16A81E5A008A06A8 /* AppsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC8825C16A81E5A008A06A8 /* AppsViewController.xib */; };
 		7FC8826616A825D0008A06A8 /* SCAppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8826516A825D0008A06A8 /* SCAppUtils.m */; };
@@ -158,8 +159,6 @@
 		7F585A0616AFD24000DB843A /* JSONToPhotoMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToPhotoMapper.m; path = classes/mappers/JSONToPhotoMapper.m; sourceTree = "<group>"; };
 		7F585A0816AFD67500DB843A /* TargetIteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetIteratingMapper.h; path = classes/mappers/TargetIteratingMapper.h; sourceTree = "<group>"; };
 		7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TargetIteratingMapper.m; path = classes/mappers/TargetIteratingMapper.m; sourceTree = "<group>"; };
-		7F585A0C16AFE12F00DB843A /* AppTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppTableViewAdapter.h; path = classes/location/adapters/AppTableViewAdapter.h; sourceTree = "<group>"; };
-		7F585A0D16AFE12F00DB843A /* AppTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppTableViewAdapter.m; path = classes/location/adapters/AppTableViewAdapter.m; sourceTree = "<group>"; };
 		7F68781A16A857DC005DC098 /* AppOrderedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppOrderedList.h; path = classes/AppOrderedList.h; sourceTree = "<group>"; };
 		7F68781B16A857DC005DC098 /* AppOrderedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppOrderedList.m; path = classes/AppOrderedList.m; sourceTree = "<group>"; };
 		7F68781E16A85854005DC098 /* NotificationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationList.h; path = classes/NotificationList.h; sourceTree = "<group>"; };
@@ -168,6 +167,9 @@
 		7F68783A16A86065005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F68783C16A86083005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F68783E16A86087005DC098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7FBAE92D16B027CC00621B34 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		7FBAE93116B0280500621B34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7FC8825A16A81E5A008A06A8 /* AppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsViewController.h; sourceTree = "<group>"; };
 		7FC8825B16A81E5A008A06A8 /* AppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsViewController.m; sourceTree = "<group>"; };
 		7FC8825C16A81E5A008A06A8 /* AppsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppsViewController.xib; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FBAE93216B0280500621B34 /* QuartzCore.framework in Frameworks */,
 				7FFFBAEA16A9476500417499 /* SystemConfiguration.framework in Frameworks */,
 				7FFFBBA816A970E100417499 /* CoreLocation.framework in Frameworks */,
 				7FFFBAEE16A9477E00417499 /* libz.dylib in Frameworks */,
@@ -315,6 +318,7 @@
 		7F06793816A7F4140043EF6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FBAE93116B0280500621B34 /* QuartzCore.framework */,
 				7FFFBBA716A970E100417499 /* CoreLocation.framework */,
 				7FFFBAED16A9477E00417499 /* libz.dylib */,
 				7FFFBAEB16A9476E00417499 /* MobileCoreServices.framework */,
@@ -399,13 +403,14 @@
 			path = "Mapplas/classes/Third party/AFNetworking";
 			sourceTree = "<group>";
 		};
-		7F585A0B16AFE0FF00DB843A /* Adapters */ = {
+		7FBAE92C16B027CC00621B34 /* EGOTableViewPullRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				7F585A0C16AFE12F00DB843A /* AppTableViewAdapter.h */,
-				7F585A0D16AFE12F00DB843A /* AppTableViewAdapter.m */,
+				7FBAE92D16B027CC00621B34 /* EGORefreshTableHeaderView.h */,
+				7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */,
 			);
-			name = Adapters;
+			name = EGOTableViewPullRefresh;
+			path = "Mapplas/classes/Third party/EGOTableViewPullRefresh";
 			sourceTree = "<group>";
 		};
 		7FC8825916A81E4A008A06A8 /* View Controllers */ = {
@@ -434,7 +439,6 @@
 		7FC8826016A81EF6008A06A8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7F585A0B16AFE0FF00DB843A /* Adapters */,
 				7FC8826716A82656008A06A8 /* Categories */,
 				7FFFBB6D16A9557E00417499 /* Configuration */,
 				7FFFBA9816A9314500417499 /* Localization */,
@@ -583,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0C5B9A16AEEC8A0093C850 /* AFNetworking */,
+				7FBAE92C16B027CC00621B34 /* EGOTableViewPullRefresh */,
 				7FFFBAF016A94BDE00417499 /* JSON */,
 			);
 			name = "Third party";
@@ -879,7 +884,7 @@
 				7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */,
 				7F585A0716AFD24000DB843A /* JSONToPhotoMapper.m in Sources */,
 				7F585A0A16AFD67500DB843A /* TargetIteratingMapper.m in Sources */,
-				7F585A0E16AFE12F00DB843A /* AppTableViewAdapter.m in Sources */,
+				7FBAE92F16B027CC00621B34 /* EGORefreshTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
