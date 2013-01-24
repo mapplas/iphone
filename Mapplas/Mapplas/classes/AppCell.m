@@ -10,8 +10,9 @@
 
 @implementation AppCell
 
-@synthesize imageLogo;
-@synthesize imageRoundView;
+@synthesize imageLogo = _imageLogo;
+@synthesize imageRoundView = _imageRoundView;
+@synthesize app = _app;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -25,6 +26,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)loadData {
+    if (self.app.auxPin) {
+        [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_pinup.png"]];
+    }
+    else {
+        [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_btn.png"]];
+    }
 }
 
 @end

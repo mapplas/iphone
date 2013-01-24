@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "App.h"
 
-@interface AppCell : UITableViewCell
+@interface AppCell : UITableViewCell {
+    UIImageView *_imageLogo;
+    UIImageView *_imageRoundView;
+    
+    App *_app;
+}
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageLogo;
 @property (nonatomic, strong) IBOutlet UIImageView *imageRoundView;
+@property (nonatomic, strong) App *app;
+
+- (void)loadData;
 
 @end
