@@ -42,11 +42,21 @@
     if((self = [super initWithFrame:frame])) {
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bgd_pull_to_refresh.png"]];
-
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, frame.size.height - 24.0f, self.frame.size.width - 10.0f, 20.0f)];
+        self.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
+        
+        // Radar image
+        CALayer *layer2 = [CALayer layer];
+		layer2.frame = CGRectMake(10.0f, frame.size.height - 20.0f, 15.0f, 15.0f);
+		layer2.contentsGravity = kCAGravityLeft;
+		layer2.contents = (id)[UIImage imageNamed:@"ic_map.png"].CGImage;
+        
+        [self.layer addSublayer:layer2];
+        _descriptiveGeolocationMapImage = layer2;
+        
+        // Current descriptive geolocation text
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(33.0f, frame.size.height - 24.0f, self.frame.size.width - 24.0f, 20.0f)];
 		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		label.font = [UIFont systemFontOfSize:12.0f];
+		label.font = [UIFont boldSystemFontOfSize:12.0f];
 		label.textColor = textColor;
 		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
 		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
@@ -66,7 +76,7 @@
 		[self addSubview:label];
 		_statusLabel = label;
 		
-		CALayer *layer = [CALayer layer];
+        CALayer *layer = [CALayer layer];
 		layer.frame = CGRectMake(25.0f, frame.size.height - 64.0f, 15.0f, 27.5f);
 		layer.contentsGravity = kCAGravityResizeAspect;
 		layer.contents = (id)[UIImage imageNamed:arrow].CGImage;
@@ -181,18 +191,16 @@
 			_loading = [_delegate egoRefreshTableHeaderDataSourceIsLoading:self];
 		}
 		
-		if (_state == EGOOPullRefreshPulling && scrollView.contentOffset.y > -65.0f && scrollView.contentOffset.y < 0.0f && !_loading) {
+		if (_state == EGOOPullRefreshPulling && scrollView.contentOffset.y > -80.0f && scrollView.contentOffset.y < 0.0f && !_loading) {
 			[self setState:EGOOPullRefreshNormal];
-		} else if (_state == EGOOPullRefreshNormal && scrollView.contentOffset.y < -65.0f && !_loading) {
+		} else if (_state == EGOOPullRefreshNormal && scrollView.contentOffset.y < -80.0f && !_loading) {
 			[self setState:EGOOPullRefreshPulling];
 		}
 		
 		if (scrollView.contentInset.top != 0) {
-			scrollView.contentInset = UIEdgeInsetsZero;
+			scrollView.contentInset = UIEdgeInsetsMake(25.0f, 0.0f, 0.0f, 0.0f);
 		}
-		
 	}
-	
 }
 
 - (void)egoRefreshScrollViewDidEndDragging:(UIScrollView *)scrollView {
@@ -202,7 +210,7 @@
 		_loading = [_delegate egoRefreshTableHeaderDataSourceIsLoading:self];
 	}
 	
-	if (scrollView.contentOffset.y <= - 65.0f && !_loading) {
+	if (scrollView.contentOffset.y <= - 80.0f && !_loading) {
 		
 		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDidTriggerRefresh:)]) {
 			[_delegate egoRefreshTableHeaderDidTriggerRefresh:self];

@@ -39,6 +39,7 @@ typedef enum{
 	id _delegate;
 	EGOPullRefreshState _state;
 
+    CALayer *_descriptiveGeolocationMapImage;
 	UILabel *_descriptiveGeolocationLabel;
 	UILabel *_statusLabel;
 	CALayer *_arrowImage;

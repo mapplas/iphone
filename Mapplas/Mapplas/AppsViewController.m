@@ -78,9 +78,6 @@
 		[self.table addSubview:view];
 		_refreshHeaderView = view;		
 	}
-	
-	//  update the last update date
-	[_refreshHeaderView refreshLastUpdatedDate];
 }
 
 - (void)viewDidUnload {
@@ -88,7 +85,8 @@
 }
 
 - (void)appsDataParsedFromServer {
-    [self.table reloadData];
+//    [self.table reloadData];
+    [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
 }
 
@@ -130,6 +128,7 @@
 	//  model should call this when its done loading
 	_reloading = NO;
 	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.table];
+    [self.table reloadData];
 }
 
 
