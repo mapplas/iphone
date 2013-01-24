@@ -40,7 +40,7 @@
     }
     
     // Set image round view
-    if (self.app.auxPin) {
+    if (self.app.auxPin == [NSNumber numberWithInt:1]) {
         [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_pinup.png"]];
     }
     else {

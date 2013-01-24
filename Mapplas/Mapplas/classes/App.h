@@ -23,9 +23,9 @@
     NSString *_phone;
     NSNumber *_appPrice;
     
-    bool *_auxFavourite;
-    bool *_auxPin;
-    bool *_auxBlocked;
+    NSNumber *_auxFavourite;
+    NSNumber *_auxPin;
+    NSNumber *_auxBlocked;
     NSNumber *_auxRate;
     NSString *_auxComment;
     NSNumber *_auxTotalRate;
@@ -62,9 +62,9 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSNumber *appPrice;
 
-@property (nonatomic) bool *auxFavourite;
-@property (nonatomic) bool *auxPin;
-@property (nonatomic) bool *auxBlocked;
+@property (nonatomic) NSNumber *auxFavourite;
+@property (nonatomic) NSNumber *auxPin;
+@property (nonatomic) NSNumber *auxBlocked;
 @property (nonatomic, strong) NSNumber *auxRate;
 @property (nonatomic, strong) NSString *auxComment;
 @property (nonatomic, strong) NSNumber *auxTotalRate;

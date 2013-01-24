@@ -652,10 +652,6 @@
 		7FFFBA9A16A9328600417499 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7FED413E16B15DB500581C9D /* AsynchronousImageDownloader.h */,
-				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
-				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
-				7FED413C16B1592D00581C9D /* DownloadedImageController.m */,
 				7FFFBAB016A9366700417499 /* Addresses */,
 				7FFFBAAB16A934FF00417499 /* Connectors */,
 				7FFFBAE016A9427000417499 /* Handlers */,
@@ -680,6 +676,10 @@
 		7FFFBAAF16A935D400417499 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				7FED413E16B15DB500581C9D /* AsynchronousImageDownloader.h */,
+				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
+				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
+				7FED413C16B1592D00581C9D /* DownloadedImageController.m */,
 				7FFFBA9B16A932AB00417499 /* UserIdentificationRequest.h */,
 				7FFFBA9C16A932AB00417499 /* UserIdentificationRequest.m */,
 			);
