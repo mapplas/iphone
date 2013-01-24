@@ -41,6 +41,9 @@
     NSString *_setPinnedGeocodedLocation;
     
     LocationCurrency *_locationCurrency;
+    NSString *_market;
+    
+    NSArray *_notificationRaw;
 }
 
 - (id)init;
@@ -77,5 +80,8 @@
 @property (nonatomic, strong) NSString *setPinnedGeocodedLocation;
 
 @property (nonatomic) LocationCurrency *locationCurrency;
+@property (nonatomic, strong) NSString *market;
+
+@property (nonatomic, strong) NSArray *notificationRaw;
 
 @end

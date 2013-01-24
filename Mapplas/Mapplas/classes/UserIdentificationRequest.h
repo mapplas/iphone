@@ -12,10 +12,8 @@
 
 @interface UserIdentificationRequest : NSObject {
     SuperModel *model;
-    UserIdentificationConnector *_connector;
+    UserIdentificationConnector *connector;
 }
-
-@property (nonatomic, strong) UserIdentificationConnector *connector;
 
 - (id)initWithSuperModel:(SuperModel *)super_model;
 - (void)doRequest;

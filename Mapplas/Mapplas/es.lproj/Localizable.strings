@@ -5,3 +5,15 @@
   Created by Belén  on 17/01/13.
   Copyright (c) 2013 Mapplas. All rights reserved.
 */
+
+/* Reverse geocoding error */
+"descriptive_geoloc_error" = "Ups! Google no es capaz de posicionarte.";
+
+/* Pull to refresh pull message */
+"ptr_pull_to_refresh" = "Tira para refrescar...";
+
+/* Pull to refresh release message */
+"ptr_release_to_refresh" = "Suelta para refrescar...";
+
+/* Pull to refresh loading message */
+"ptr_refreshing" = "Cargando aplicaciones...";

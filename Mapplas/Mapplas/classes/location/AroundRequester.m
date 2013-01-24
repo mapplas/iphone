@@ -7,13 +7,16 @@
 //
 
 #import "AroundRequester.h"
+#import "AppsViewController.h"
 
 @implementation AroundRequester
 
-- (id)initWithLocationManager:(LocationManager *)location_manager {
+- (id)initWithLocationManager:(LocationManager *)location_manager model:(SuperModel *)s_model mainViewController:(AppsViewController *)main_controller {
     self = [super init];
     if (self) {
         locationManager = location_manager;
+        model = s_model;
+        viewController = main_controller;
         [locationManager setListener:self];
     }
     return self;
@@ -29,9 +32,15 @@
 
 #pragma mark - Location listener methods
 
-- (void)locationFound:(CLLocation *)location {
-    // MAKE REQUEST!
-    NSLog(@"LOCATION FOUND!!");
+- (void)locationFound:(CLLocation *)location {    
+    Environment *environment = [Environment sharedInstance];
+	
+	AbstractUrlAddresses *urlAdresses = [environment addresses];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController reverseGeocoder:geocoder location:location];
+
+    appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
+    [appGetterConnector requestWithModel:model andLocation:location];
 }
 
 - (void)locationSearchDidTimeout {

@@ -21,6 +21,8 @@
 @synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
 
+@synthesize table;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -51,6 +53,7 @@
     uniqueCode = [uniqueCode stringByReplacingOccurrencesOfString:@"-" withString:@""];
     [self.model setCurrentImei:uniqueCode];
     
+    // Identify user through server
     self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:self.model];
     [self.userIdentRequest doRequest];
     
@@ -60,11 +63,100 @@
     CLLocationManager *coreLocationManager = [CLLocationManager alloc];
     CoreLocationManagerConfigurator *configurator = [[CoreLocationManagerConfigurator alloc] init];
     
-    LocationManager *locationManager = [[LocationManager alloc] initWithLocationManager:coreLocationManager managerConfigurator:configurator listener:nil];
-    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager];
+    locationManager = [[LocationManager alloc] initWithLocationManager:coreLocationManager managerConfigurator:configurator listener:nil];
+    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager model:self.model mainViewController:self];
+    [self.aroundRequester startRequesting];
+    
+    // Set table delegate and data source
+    [self.table setDataSource:self];
+    [self.table setDelegate:self];
+    
+    // Pull to refresh view set
+    if (_refreshHeaderView == nil) {
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.table.bounds.size.height, self.view.frame.size.width, self.table.bounds.size.height)];
+		view.delegate = self;
+		[self.table addSubview:view];
+		_refreshHeaderView = view;		
+	}
+}
+
+- (void)viewDidUnload {
+	_refreshHeaderView = nil;
+}
+
+- (void)appsDataParsedFromServer {
+//    [self.table reloadData];
+    [_refreshHeaderView refreshLastUpdatedDate];
+    [self doneLoadingTableViewData];
+}
+
+#pragma mark -
+#pragma mark Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return self.model.appList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [[self.model.appList objectAtIndex:indexPath.row] name];
+    
+    return cell;
+}
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Methods
+
+- (void)reloadTableViewDataSource {
+	//  should be calling your tableviews data source model to reload
+    [self.table reloadData];
+    // request new location
+	_reloading = YES;
+    
+    self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager model:self.model mainViewController:self];
     [self.aroundRequester startRequesting];
 }
 
+- (void)doneLoadingTableViewData {
+	//  model should call this when its done loading
+	_reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.table];
+    [self.table reloadData];
+}
 
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {	
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];	
+}
+
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view {
+	[self reloadTableViewDataSource];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view {
+	return _reloading; // should return if data source model is reloading	
+}
+
+- (NSString *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {
+	return self.model.currentDescriptiveGeoLoc; // should return date data source was last changed
+}
 
 @end

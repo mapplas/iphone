@@ -6,12 +6,10 @@
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
-#import "ASIHTTPRequestDelegate.h"
-#import "ASIHTTPRequest.h"
-#import "NSObject+JSON.h"
+#import "GenericRequestHandler.h"
 #import "SuperModel.h"
 
-@interface UserIdentificationResponseHandler : NSObject <ASIHTTPRequestDelegate> {
+@interface UserIdentificationResponseHandler : NSObject <GenericRequestHandler> {
     SuperModel *model;
 }
 

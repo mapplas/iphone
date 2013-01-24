@@ -10,8 +10,6 @@
 
 @implementation UserIdentificationRequest
 
-@synthesize connector = _connector;
-
 - (id)initWithSuperModel:(SuperModel *)super_model {
     self = [super init];
     if (self) {
@@ -24,12 +22,10 @@
     Environment *environment = [Environment sharedInstance];
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    VariableListMapper *variableListMapper = [[VariableListMapper alloc] init];
     UserIdentificationResponseHandler *handler = [[UserIdentificationResponseHandler alloc] initWithSuperModel:model];
     
-    self.connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses variableListMapper:variableListMapper responseHandler:handler];
-    
-    [self.connector requestWithModel:model];
+    connector = [[UserIdentificationConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
+    [connector requestWithModel:model];
 }
 
 @end

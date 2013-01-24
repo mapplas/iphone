@@ -10,11 +10,12 @@
 	NSString *identifyUser;
 }
 
-@property (nonatomic, retain) NSString *domain;
-@property (nonatomic, retain) NSString *port;
-@property (nonatomic, retain) NSString *relativePath;
+@property (nonatomic, strong) NSString *domain;
+@property (nonatomic, strong) NSString *port;
+@property (nonatomic, strong) NSString *relativePath;
 
-@property (nonatomic, retain) NSString *identifyUser;
+@property (nonatomic, strong) NSString *identifyUser;
+@property (nonatomic, strong) NSString *getApps;
 
 - (void)reloadAddresses;
 

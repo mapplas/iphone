@@ -10,11 +10,12 @@
 
 @implementation AbstractUrlAddresses
 
-@synthesize identifyUser;
-
 @synthesize domain;
 @synthesize port;
 @synthesize relativePath;
+
+@synthesize identifyUser;
+@synthesize getApps;
 
 - (id)init {
 	self = [super init];
@@ -36,6 +37,7 @@
 
 - (void)reloadAddresses {
 	[self setIdentifyUser:[self buildAddresWithPath:@"/ipc_ii.php"]];
+    [self setGetApps:[self buildAddresWithPath:@"/ipc_locations.php"]];
 }
 
 @end
