@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "App.h"
+#import "ImageLoaderFactory.h"
+#import "AsynchronousImageDownloader.h"
 
-@interface AppCell : UITableViewCell {
+@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
     UIImageView *_imageLogo;
     UIImageView *_imageRoundView;
     
     App *_app;
+    ImageLoader *imageLoader;
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageLogo;

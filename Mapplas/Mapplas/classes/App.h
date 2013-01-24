@@ -9,7 +9,7 @@
 #import "LocationCurrency.h"
 
 @interface App : NSObject {
-    NSNumber *_appId;
+    NSString *_appId;
     NSString *_name;
     NSNumber *_latitude;
     NSNumber *_longitude;
@@ -48,7 +48,7 @@
 
 - (id)init;
 
-@property (nonatomic, strong) NSNumber *appId;
+@property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
