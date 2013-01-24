@@ -12,6 +12,9 @@
 #import "AsynchronousImageDownloader.h"
 
 @interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
+    UIView *cellPressed;
+    UIView *cellUnpressed;
+    
     UIImageView *_imageLogo;
     UIImageView *_imageRoundView;
     
