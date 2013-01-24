@@ -22,7 +22,6 @@
 @synthesize aroundRequester = _aroundRequester;
 
 @synthesize table;
-@synthesize location;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -89,7 +88,6 @@
 }
 
 - (void)appsDataParsedFromServer {
-    [self.location setText:self.model.currentDescriptiveGeoLoc];
     [self.table reloadData];
     [self doneLoadingTableViewData];
 }
@@ -158,8 +156,8 @@
 	return _reloading; // should return if data source model is reloading	
 }
 
-//- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {	
-//	return [NSDate date]; // should return date data source was last changed	
-//}
+- (NSString *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {
+	return self.model.currentDescriptiveGeoLoc; // should return date data source was last changed
+}
 
 @end

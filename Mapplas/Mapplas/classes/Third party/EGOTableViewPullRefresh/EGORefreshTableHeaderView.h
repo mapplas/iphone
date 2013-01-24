@@ -36,11 +36,10 @@ typedef enum{
 @protocol EGORefreshTableHeaderDelegate;
 
 @interface EGORefreshTableHeaderView : UIView {
-	
 	id _delegate;
 	EGOPullRefreshState _state;
 
-	UILabel *_lastUpdatedLabel;
+	UILabel *_descriptiveGeolocationLabel;
 	UILabel *_statusLabel;
 	CALayer *_arrowImage;
 	UIActivityIndicatorView *_activityView;
@@ -57,9 +56,13 @@ typedef enum{
 
 @end
 
+
 @protocol EGORefreshTableHeaderDelegate
+
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view;
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view;
+
 @optional
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view;
+- (NSString *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view;
+
 @end

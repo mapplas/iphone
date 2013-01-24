@@ -28,7 +28,6 @@
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
-@property (nonatomic, strong) IBOutlet UILabel *location;
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 @property (nonatomic, strong) SuperModel *model;

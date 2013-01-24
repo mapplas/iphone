@@ -8,7 +8,6 @@
 
 #import <MapKit/MapKit.h>
 #import "GenericRequestHandler.h"
-#import "NSObject+JSON.h"
 #import "JSONToAppMapper.h"
 #import "SuperModel.h"
 

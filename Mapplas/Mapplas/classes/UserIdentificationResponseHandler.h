@@ -7,7 +7,6 @@
 //
 
 #import "GenericRequestHandler.h"
-#import "NSObject+JSON.h"
 #import "SuperModel.h"
 
 @interface UserIdentificationResponseHandler : NSObject <GenericRequestHandler> {

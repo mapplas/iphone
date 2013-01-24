@@ -26,10 +26,9 @@
 
 #import "EGORefreshTableHeaderView.h"
 
-
 #define TEXT_COLOR	 [UIColor colorWithRed:1/255.0 green:1/255.0 blue:1/255.0 alpha:0]
 #define FLIP_ANIMATION_DURATION 0.18f
-
+#define FLIP_ANIMATION_TOP_OFFSET 100.f
 
 @interface EGORefreshTableHeaderView (Private)
 - (void)setState:(EGOPullRefreshState)aState;
@@ -37,40 +36,38 @@
 
 @implementation EGORefreshTableHeaderView
 
-@synthesize delegate=_delegate;
-
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame arrowImageName:(NSString *)arrow textColor:(UIColor *)textColor  {
     if((self = [super initWithFrame:frame])) {
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bgd_pull_to_refresh.png"]];
-//		self.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0];
 
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
-//		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//		label.font = [UIFont systemFontOfSize:12.0f];
-//		label.textColor = textColor;
-//		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
-//		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
-//		label.backgroundColor = [UIColor clearColor];
-//		label.textAlignment = UITextAlignmentCenter;
-//		[self addSubview:label];
-//		_lastUpdatedLabel=label;
-		
-		label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 48.0f, self.frame.size.width, 20.0f)];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, frame.size.height - 24.0f, self.frame.size.width - 10.0f, 20.0f)];
 		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		label.font = [UIFont boldSystemFontOfSize:13.0f];
+		label.font = [UIFont systemFontOfSize:12.0f];
+		label.textColor = textColor;
+		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
+		label.backgroundColor = [UIColor clearColor];
+		label.textAlignment = UITextAlignmentLeft;
+		[self addSubview:label];
+		_descriptiveGeolocationLabel = label;
+		
+		label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 64.0f, self.frame.size.width, 20.0f)];
+		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		label.font = [UIFont boldSystemFontOfSize:11.0f];
 		label.textColor = textColor;
 		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
 		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		label.backgroundColor = [UIColor clearColor];
 		label.textAlignment = UITextAlignmentCenter;
 		[self addSubview:label];
-		_statusLabel=label;
+		_statusLabel = label;
 		
 		CALayer *layer = [CALayer layer];
-		layer.frame = CGRectMake(25.0f, frame.size.height - 65.0f, 30.0f, 55.0f);
+		layer.frame = CGRectMake(25.0f, frame.size.height - 64.0f, 15.0f, 27.5f);
 		layer.contentsGravity = kCAGravityResizeAspect;
 		layer.contents = (id)[UIImage imageNamed:arrow].CGImage;
 		
@@ -84,7 +81,8 @@
 		_arrowImage=layer;
 		
 		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-		view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
+		view.frame = CGRectMake(25.0f, frame.size.height - 64.0f, 20.0f, 20.0f);
+        view.color = [UIColor whiteColor];
 		[self addSubview:view];
 		_activityView = view;		
 		
@@ -104,19 +102,14 @@
 	
 	if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceLastUpdated:)]) {
 		
-		NSDate *date = [_delegate egoRefreshTableHeaderDataSourceLastUpdated:self];
-		
-		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehaviorDefault];
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
-		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+		NSString  *descriptiveGeoloc = [_delegate egoRefreshTableHeaderDataSourceLastUpdated:self];
 
-		_lastUpdatedLabel.text = [NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:date]];
-		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
+		_descriptiveGeolocationLabel.text = descriptiveGeoloc;
+		[[NSUserDefaults standardUserDefaults] setObject:_descriptiveGeolocationLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 		
 	} else {
-		_lastUpdatedLabel.text = nil;
+		_descriptiveGeolocationLabel.text = nil;
 	}
 }
 
@@ -176,12 +169,12 @@
 - (void)egoRefreshScrollViewDidScroll:(UIScrollView *)scrollView {	
 	
 	if (_state == EGOOPullRefreshLoading) {
-		
 		CGFloat offset = MAX(scrollView.contentOffset.y * -1, 0);
-		offset = MIN(offset, 60);
+		offset = MIN(offset, FLIP_ANIMATION_TOP_OFFSET);
 		scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f);
 		
-	} else if (scrollView.isDragging) {
+	}
+    else if (scrollView.isDragging) {
 		
 		BOOL _loading = NO;
 		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
@@ -226,13 +219,14 @@
 }
 
 - (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView {	
-	
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration:.3];
-	[scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)];
+	[scrollView setContentInset:UIEdgeInsetsMake(25.0f, 0.0f, 0.0f, 0.0f)];
 	[UIView commitAnimations];
 	
 	[self setState:EGOOPullRefreshNormal];
 }
+
+
 
 @end
