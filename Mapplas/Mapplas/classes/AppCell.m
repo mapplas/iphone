@@ -10,14 +10,19 @@
 
 @implementation AppCell
 
+@synthesize cellPressed;
+@synthesize cellUnpressed;
+@synthesize cellContent;
+
 @synthesize imageLogo = _imageLogo;
 @synthesize imageRoundView = _imageRoundView;
 @synthesize app = _app;
+@synthesize pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+        self.pressed = NO;
     }
     return self;
 }
@@ -29,6 +34,9 @@
 }
 
 - (void)loadData {
+    self.appName.text = self.app.name;
+    self.appPrice.text = self.app.appPrice;
+    
     // Set app logo
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
     AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
@@ -46,6 +54,8 @@
     else {
         [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_btn.png"]];
     }
+
+    [self.cellContent addSubview:self.cellUnpressed];
 }
 
 - (void)imageDownloaded:(DownloadedImageSuccess *)download {
@@ -56,7 +66,27 @@
     }
 }
 
-- (void)imageNotDownloaded:(DownloadedImageError *)error {
+- (void)imageNotDownloaded:(DownloadedImageError *)error {}
+
+- (IBAction)animate:(id)sender {
+    CATransition *pushTransition = [CATransition animation];
+    pushTransition.type = kCATransitionPush;
+    
+    if (self.pressed) {
+        self.pressed = NO;
+        pushTransition.subtype = kCATransitionFromRight;
+        [self.cellContent.layer addAnimation:pushTransition forKey:@""];
+        [self.cellContent addSubview:self.cellUnpressed];
+        [self.cellPressed removeFromSuperview];
+    }
+    else {
+        self.pressed = YES;
+        pushTransition.subtype = kCATransitionFromLeft;
+        [self.cellContent.layer addAnimation:pushTransition forKey:@""];
+        [self.cellContent addSubview:self.cellPressed];
+        [self.cellUnpressed removeFromSuperview];
+    }
+    
 }
 
 @end

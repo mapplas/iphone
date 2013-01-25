@@ -55,7 +55,7 @@
         self.longitude = [NSNumber numberWithDouble:0.0f];
         self.type = @"";
         
-        self.appPrice = [NSNumber numberWithDouble:0.0f];
+        self.appPrice = @"0";
         
         self.auxFavourite = NO;
         self.auxPin = NO;

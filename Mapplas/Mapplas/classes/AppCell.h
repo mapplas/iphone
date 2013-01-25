@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "App.h"
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
 
-@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
+@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate> {
     UIView *cellPressed;
     UIView *cellUnpressed;
     
@@ -20,12 +21,22 @@
     
     App *_app;
     ImageLoader *imageLoader;
+    BOOL _pressed;
 }
+
+@property (nonatomic, strong) IBOutlet UIView *cellContent;
+
+@property (nonatomic, strong) IBOutlet UIView *cellPressed;
+@property (nonatomic, strong) IBOutlet UIView *cellUnpressed;
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageLogo;
 @property (nonatomic, strong) IBOutlet UIImageView *imageRoundView;
+@property (nonatomic, strong) IBOutlet UILabel *appName;
+@property (nonatomic, strong) IBOutlet UILabel *appPrice;
 @property (nonatomic, strong) App *app;
+@property (nonatomic) BOOL pressed;
 
 - (void)loadData;
+- (IBAction)animate:(id)sender;
 
 @end

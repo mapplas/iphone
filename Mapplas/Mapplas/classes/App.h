@@ -21,7 +21,7 @@
     NSString *_appUrl;
     NSString *_appDescription;
     NSString *_phone;
-    NSNumber *_appPrice;
+    NSString *_appPrice;
     
     NSNumber *_auxFavourite;
     NSNumber *_auxPin;
@@ -60,7 +60,7 @@
 @property (nonatomic, strong) NSString *appUrl;
 @property (nonatomic, strong) NSString *appDescription;
 @property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) NSNumber *appPrice;
+@property (nonatomic, strong) NSString *appPrice;
 
 @property (nonatomic) NSNumber *auxFavourite;
 @property (nonatomic) NSNumber *auxPin;
