@@ -133,7 +133,7 @@
     self.blockPressedText.text = NSLocalizedString(@"block_text", @"Block text"); 
     
     // Share
-    self.ratePressedText.text = NSLocalizedString(@"share_text", @"Share text");
+    self.sharePressedText.text = NSLocalizedString(@"share_text", @"Share text");
 }
 
 - (void)imageDownloaded:(DownloadedImageSuccess *)download {
