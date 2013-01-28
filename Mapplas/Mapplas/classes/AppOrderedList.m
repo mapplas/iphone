@@ -25,6 +25,10 @@
     [self.list addObject:app];
 }
 
+- (void)deleteApp:(App *)app {
+    [self.list removeObject:app];
+}
+
 - (NSUInteger)count {
     return self.list.count;
 }

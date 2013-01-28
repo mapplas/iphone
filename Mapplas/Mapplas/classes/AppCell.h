@@ -24,6 +24,7 @@
     NSString *_userId;
     NSString *_currentLocation;
     AppOrderedList *_list;
+    int _positionInList;
     ImageLoader *imageLoader;
     BOOL _pressed;
     
@@ -52,6 +53,7 @@
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *currentLocation;
 @property (nonatomic, strong) AppOrderedList *list;
+@property (nonatomic) int positionInList;
 @property (nonatomic) BOOL pressed;
 
 - (void)loadData;

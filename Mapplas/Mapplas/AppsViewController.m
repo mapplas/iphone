@@ -112,6 +112,7 @@
     [cell setUserId:self.model.user.userId];
     [cell setCurrentLocation:self.model.currentLocation];
     [cell setList:self.model.appList];
+    [cell setPositionInList:indexPath.row];
     [cell resetState];
     [cell loadData];
     

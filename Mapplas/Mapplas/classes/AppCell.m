@@ -32,6 +32,7 @@
 @synthesize userId = _userId;
 @synthesize currentLocation = _currentLocation;
 @synthesize list = _list;
+@synthesize positionInList = _positionInList;
 @synthesize pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -187,10 +188,20 @@
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
+    // Block request
     blockRequester = [[AppBlockRequest alloc] init];
     [blockRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_LIKE_REQUEST_BLOCK];
     
-//    (fade out animation)
+    // Pin/unpin request
+    pinRequester = [[AppPinRequest alloc] init];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
+    
+    // Remove app from app list
+    [self.list deleteApp:self.app];
+    
+    // Remove row in table for selected app
+    UITableView *table = (UITableView *)self.superview;
+    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
 @end
