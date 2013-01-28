@@ -19,6 +19,7 @@
 
 - (id)init;
 - (void)addObject:(App *)app;
+- (void)deleteApp:(App *)app;
 - (NSUInteger)count;
 - (App *)objectAtIndex:(NSUInteger)index;
 - (void)sort;

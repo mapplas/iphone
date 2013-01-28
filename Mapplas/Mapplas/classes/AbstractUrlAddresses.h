@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSString *identifyUser;
 @property (nonatomic, strong) NSString *getApps;
+@property (nonatomic, strong) NSString *pinApp;
+@property (nonatomic, strong) NSString *blockApp;
 
 - (void)reloadAddresses;
 

@@ -36,9 +36,13 @@
                                                           parameters:parameters];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:jsonRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [self.handler requestFinished:JSON];
+        if (self.handler != nil) {
+            [self.handler requestFinished:JSON];
+        }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [self.handler requestFinishedWithErrors:error andReponse:JSON];
+        if (self.handler != nil) {
+            [self.handler requestFinishedWithErrors:error andReponse:JSON];
+        }
     }];
     
     [operation start];

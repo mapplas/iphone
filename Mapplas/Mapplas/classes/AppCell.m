@@ -29,6 +29,10 @@
 @synthesize priceImage;
 
 @synthesize app = _app;
+@synthesize userId = _userId;
+@synthesize currentLocation = _currentLocation;
+@synthesize list = _list;
+@synthesize positionInList = _positionInList;
 @synthesize pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -114,11 +118,11 @@
 - (void)loadPressedCellData {
     // Pin
     if ([self.app.auxPin isEqualToString:@"0"]) {
-        self.pinPressedImage.image = [UIImage imageNamed:@"ic_action_pinup.png"];
+        self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_pinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
     }
     else {
-        self.pinPressedImage.image = [UIImage imageNamed:@"ic_action_unpinup.png"];
+        self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_unpinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
     }
     
@@ -160,7 +164,44 @@
         [self.cellContent addSubview:self.cellPressed];
         [self.cellUnpressed removeFromSuperview];
     }
+}
+
+- (IBAction)pinUnpinApp:(id)sender {
+    NSString *action = @"";
+    if ([self.app.auxPin isEqualToString:@"0"]) {
+        action = ACTION_PIN_REQUEST_PIN;
+        self.app.auxPin = @"1";
+    }
+    else {
+        action = ACTION_PIN_REQUEST_UNPIN;
+        self.app.auxPin = @"0";
+    }
     
+    // Pin/unpin request
+    pinRequester = [[AppPinRequest alloc] init];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:action andLocation:self.currentLocation];
+
+    // Sort table and reload
+    [self.list sort];
+    UITableView *table = (UITableView *)self.superview;
+    [table reloadData];
+}
+
+- (IBAction)blockUnblockApp:(id)sender {
+    // Block request
+    blockRequester = [[AppBlockRequest alloc] init];
+    [blockRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_LIKE_REQUEST_BLOCK];
+    
+    // Pin/unpin request
+    pinRequester = [[AppPinRequest alloc] init];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
+    
+    // Remove app from app list
+    [self.list deleteApp:self.app];
+    
+    // Remove row in table for selected app
+    UITableView *table = (UITableView *)self.superview;
+    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
 @end
