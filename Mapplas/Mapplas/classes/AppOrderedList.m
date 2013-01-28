@@ -41,10 +41,10 @@
                                 App *app2 = obj2;
                                 
                                 if([app1.auxPin isEqualToString:@"1"] && [app2.auxPin isEqualToString:@"0"]) {
-                                    return NSOrderedDescending;
+                                    return NSOrderedAscending;
                                 }
                                 else if ([app1.auxPin isEqualToString:@"0"] && [app2.auxPin isEqualToString:@"1"]) {
-                                    return NSOrderedAscending;
+                                    return NSOrderedDescending;
                                 }
                                 else {
                                     NSArray *arrayLocation = [self.currentLocation componentsSeparatedByString:@","];

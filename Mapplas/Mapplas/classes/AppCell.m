@@ -29,6 +29,8 @@
 @synthesize priceImage;
 
 @synthesize app = _app;
+@synthesize userId = _userId;
+@synthesize currentLocation = _currentLocation;
 @synthesize pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -163,11 +165,25 @@
 }
 
 - (IBAction)pinUnpinApp:(id)sender {
-    NSLog(@"pin - unpin");
+    NSString *action = @"";
+    if ([self.app.auxPin isEqualToString:@"0"]) {
+        action = ACTION_PIN_REQUEST_PIN;
+        self.app.auxPin = @"1";
+    }
+    else {
+        action = ACTION_PIN_REQUEST_UNPIN;
+        self.app.auxPin = @"0";
+    }
+    
+//    [up in list];
+    
+    pinRequester = [[AppPinRequest alloc] init];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:action andLocation:self.currentLocation];
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
-    NSLog(@"block - unblock");
+    blockRequester = [[AppBlockRequest alloc] init];
+    [blockRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_LIKE_REQUEST_BLOCK];
 }
 
 @end

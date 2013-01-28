@@ -109,6 +109,8 @@
     }
 
     [cell setApp:[self.model.appList objectAtIndex:indexPath.row]];
+    [cell setUserId:self.model.user.userId];
+    [cell setCurrentLocation:self.model.currentLocation];
     [cell resetState];
     [cell loadData];
     
