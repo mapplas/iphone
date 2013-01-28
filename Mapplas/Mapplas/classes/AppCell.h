@@ -32,7 +32,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *appPrice;
 @property (nonatomic, strong) IBOutlet UILabel *pinsUnpressedText;
 
-@property (nonatomic, strong) IBOutlet UIImageView *pinPressedImage;
+@property (nonatomic, strong) IBOutlet UIButton *pinPressedImage;
 @property (nonatomic, strong) IBOutlet UILabel *pinPressedText;
 @property (nonatomic, strong) IBOutlet UILabel *ratePressedText;
 @property (nonatomic, strong) IBOutlet UILabel *blockPressedText;

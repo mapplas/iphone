@@ -114,11 +114,11 @@
 - (void)loadPressedCellData {
     // Pin
     if ([self.app.auxPin isEqualToString:@"0"]) {
-        self.pinPressedImage.image = [UIImage imageNamed:@"ic_action_pinup.png"];
+        self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_pinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
     }
     else {
-        self.pinPressedImage.image = [UIImage imageNamed:@"ic_action_unpinup.png"];
+        self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_unpinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
     }
     
@@ -160,7 +160,14 @@
         [self.cellContent addSubview:self.cellPressed];
         [self.cellUnpressed removeFromSuperview];
     }
-    
+}
+
+- (IBAction)pinUnpinApp:(id)sender {
+    NSLog(@"pin - unpin");
+}
+
+- (IBAction)blockUnblockApp:(id)sender {
+    NSLog(@"block - unblock");
 }
 
 @end
