@@ -15,6 +15,7 @@
 #import "AroundRequester.h"
 
 #import "EGORefreshTableHeaderView.h"
+#import "AppCell.h"
 
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;

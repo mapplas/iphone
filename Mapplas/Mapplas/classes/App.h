@@ -9,7 +9,7 @@
 #import "LocationCurrency.h"
 
 @interface App : NSObject {
-    NSNumber *_appId;
+    NSString *_appId;
     NSString *_name;
     NSNumber *_latitude;
     NSNumber *_longitude;
@@ -21,11 +21,10 @@
     NSString *_appUrl;
     NSString *_appDescription;
     NSString *_phone;
-    NSNumber *_appPrice;
+    NSString *_appPrice;
     
-    bool *_auxFavourite;
-    bool *_auxPin;
-    bool *_auxBlocked;
+    NSString *_auxPin;
+    NSString *_auxBlocked;
     NSNumber *_auxRate;
     NSString *_auxComment;
     NSNumber *_auxTotalRate;
@@ -48,7 +47,7 @@
 
 - (id)init;
 
-@property (nonatomic, strong) NSNumber *appId;
+@property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
@@ -60,11 +59,10 @@
 @property (nonatomic, strong) NSString *appUrl;
 @property (nonatomic, strong) NSString *appDescription;
 @property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) NSNumber *appPrice;
+@property (nonatomic, strong) NSString *appPrice;
 
-@property (nonatomic) bool *auxFavourite;
-@property (nonatomic) bool *auxPin;
-@property (nonatomic) bool *auxBlocked;
+@property (nonatomic, strong) NSString *auxPin;
+@property (nonatomic, strong) NSString *auxBlocked;
 @property (nonatomic, strong) NSNumber *auxRate;
 @property (nonatomic, strong) NSString *auxComment;
 @property (nonatomic, strong) NSNumber *auxTotalRate;

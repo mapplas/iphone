@@ -85,7 +85,6 @@
 }
 
 - (void)appsDataParsedFromServer {
-//    [self.table reloadData];
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
 }
@@ -98,17 +97,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"AppTableItem";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+    AppCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
-    
-    cell.textLabel.text = [[self.model.appList objectAtIndex:indexPath.row] name];
+
+    [cell setApp:[self.model.appList objectAtIndex:indexPath.row]];
+    [cell resetState];
+    [cell loadData];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 72;
 }
 
 #pragma mark -

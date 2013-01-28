@@ -17,3 +17,33 @@
 
 /* Pull to refresh loading message */
 "ptr_refreshing" = "Loading Apps...";
+
+/* Euro currency */
+"currency_euro" = "€";
+
+/* Dollar currency */
+"currency_dollar" = "$";
+
+/* Pin singular text */
+"pin_sing_text" = "pin";
+
+/* Pin plural text */
+"pin_plural_text" = "pins";
+
+/* Pin unpin text */
+"un_pin_up" = "unpin";
+
+/* Rate plural text */
+"rate_plural_text" = "rates";
+
+/* Rate singular text */
+"rate_singular_text" = "rate";
+
+/* Like plural text */
+"likes_text" = "likes";
+
+/* Share text */
+"share_text" = "share";
+
+/* Block text */
+"block_text" = "block";
