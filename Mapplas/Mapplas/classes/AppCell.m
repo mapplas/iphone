@@ -67,7 +67,6 @@
     else {
         currency = NSLocalizedString(@"currency_dollar", @"Dollar currency");
     }
-    self.appPrice.text = [NSString stringWithFormat:@"%@ %@", currency, self.app.appPrice];
     
     // Unpressed data - Set app logo
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
@@ -77,6 +76,9 @@
     UIImage *image = [imageLoader load:self.app.appLogo withSaveName:self.app.appId];
     if (image != nil) {
         [self.imageLogo setImage:image];
+    }
+    else {
+        [self.imageLogo setImage:[UIImage imageNamed:@"ic_template.png"]];
     }
     
     // Unpressed data - Set image round view
@@ -100,6 +102,10 @@
     if ([self.app.appPrice isEqualToString:@"0"]) {
         self.appPrice.text = NSLocalizedString(@"free_text", @"Free");
         self.priceImage.image = [UIImage imageNamed:@"ic_badge_free.png"];
+    }
+    else {
+        self.appPrice.text = [NSString stringWithFormat:@"%@ %@", currency, self.app.appPrice];
+        self.priceImage.image = [UIImage imageNamed:@"ic_badge_price.png"];
     }
 
     [self.cellContent addSubview:self.cellUnpressed];
