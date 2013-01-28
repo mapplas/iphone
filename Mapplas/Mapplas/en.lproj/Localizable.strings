@@ -47,3 +47,6 @@
 
 /* Block text */
 "block_text" = "block";
+
+/* Free */
+"free_text" = "Free";

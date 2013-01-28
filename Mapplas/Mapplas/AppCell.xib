@@ -608,6 +608,14 @@
 					<int key="connectionID">121</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">priceImage</string>
+						<reference key="source" ref="1040147846"/>
+						<reference key="destination" ref="228433974"/>
+					</object>
+					<int key="connectionID">122</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">animate:</string>
 						<reference key="source" ref="1014404432"/>
@@ -822,7 +830,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">121</int>
+			<int key="maxID">122</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -852,6 +860,7 @@
 						<string key="pinPressedImage">UIImageView</string>
 						<string key="pinPressedText">UILabel</string>
 						<string key="pinsUnpressedText">UILabel</string>
+						<string key="priceImage">UIImageView</string>
 						<string key="ratePressedText">UILabel</string>
 						<string key="sharePressedText">UILabel</string>
 					</dictionary>
@@ -899,6 +908,10 @@
 						<object class="IBToOneOutletInfo" key="pinsUnpressedText">
 							<string key="name">pinsUnpressedText</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="priceImage">
+							<string key="name">priceImage</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="ratePressedText">
 							<string key="name">ratePressedText</string>

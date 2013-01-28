@@ -26,6 +26,8 @@
 @synthesize blockPressedText;
 @synthesize sharePressedText;
 
+@synthesize priceImage;
+
 @synthesize app = _app;
 @synthesize pressed = _pressed;
 
@@ -93,6 +95,12 @@
         pinText = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
     }
     self.pinsUnpressedText.text = [NSString stringWithFormat:@"%@ %@", pins, pinText];
+    
+    // Price image
+    if ([self.app.appPrice isEqualToString:@"0"]) {
+        self.appPrice.text = NSLocalizedString(@"free_text", @"Free");
+        self.priceImage.image = [UIImage imageNamed:@"ic_badge_free.png"];
+    }
 
     [self.cellContent addSubview:self.cellUnpressed];
 }

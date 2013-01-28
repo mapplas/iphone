@@ -34,7 +34,6 @@
 }
 
 - (void)sort {
-    NSString *dsa = @"d";
     NSArray *sortedArray = [self.list sortedArrayUsingComparator:
                             ^NSComparisonResult(id obj1, id obj2)
                             {

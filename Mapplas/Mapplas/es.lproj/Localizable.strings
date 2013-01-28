@@ -48,3 +48,6 @@
 /* Block text */
 "block_text" = "bloquea";
 
+/* Free */
+"free_text" = "Gratis";
+
