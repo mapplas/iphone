@@ -34,6 +34,8 @@
     }
     
     [model setAppList:list];
+    model.appList.currentLocation = model.currentLocation;
+    [model.appList sort];
     
     // Do reverse geocoding
     [self doReverseGeocoding];

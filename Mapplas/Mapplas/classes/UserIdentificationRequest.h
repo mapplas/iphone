@@ -10,12 +10,15 @@
 #import "UserIdentificationConnector.h"
 #import "Environment.h"
 
+@class AppsViewController;
+
 @interface UserIdentificationRequest : NSObject {
     SuperModel *model;
     UserIdentificationConnector *connector;
+    AppsViewController *viewController;
 }
 
-- (id)initWithSuperModel:(SuperModel *)super_model;
+- (id)initWithSuperModel:(SuperModel *)super_model andViewController:(AppsViewController *)view_controller;
 - (void)doRequest;
 
 @end

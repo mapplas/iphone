@@ -54,11 +54,23 @@
     [self.model setCurrentImei:uniqueCode];
     
     // Identify user through server
-    self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:self.model];
+    self.userIdentRequest = [[UserIdentificationRequest alloc] initWithSuperModel:self.model andViewController:self];
     [self.userIdentRequest doRequest];
     
     // Get phone's application list
     
+}
+
+- (void)viewDidUnload {
+	_refreshHeaderView = nil;
+}
+
+- (void)appsDataParsedFromServer {
+    [_refreshHeaderView refreshLastUpdatedDate];
+    [self doneLoadingTableViewData];
+}
+
+- (void)userDataLoaded {
     // Create localization requester and start searching!
     CLLocationManager *coreLocationManager = [CLLocationManager alloc];
     CoreLocationManagerConfigurator *configurator = [[CoreLocationManagerConfigurator alloc] init];
@@ -76,17 +88,8 @@
 		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.table.bounds.size.height, self.view.frame.size.width, self.table.bounds.size.height)];
 		view.delegate = self;
 		[self.table addSubview:view];
-		_refreshHeaderView = view;		
+		_refreshHeaderView = view;
 	}
-}
-
-- (void)viewDidUnload {
-	_refreshHeaderView = nil;
-}
-
-- (void)appsDataParsedFromServer {
-    [_refreshHeaderView refreshLastUpdatedDate];
-    [self doneLoadingTableViewData];
 }
 
 #pragma mark -
