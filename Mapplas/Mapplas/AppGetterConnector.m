@@ -22,7 +22,7 @@
     CLLocationCoordinate2D coord = location.coordinate;
     NSString *stringLocation = [NSString stringWithFormat:@"%g, %g", coord.latitude, coord.longitude];
     
-    [parameters setValue:@"43.326426,-1.985607" forKey:@"l"];
+    [parameters setValue:stringLocation forKey:@"l"];
     [parameters setValue:[[super_model user] userId] forKey:@"uid"];
     [parameters setValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] forKey:@"p"];
     [parameters setValue:@"" forKey:@"ln"];

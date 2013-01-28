@@ -85,7 +85,6 @@
 }
 
 - (void)appsDataParsedFromServer {
-//    [self.table reloadData];
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
 }
@@ -107,6 +106,7 @@
     }
 
     [cell setApp:[self.model.appList objectAtIndex:indexPath.row]];
+    [cell resetState];
     [cell loadData];
     
     return cell;

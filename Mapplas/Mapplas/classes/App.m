@@ -24,7 +24,6 @@
 @synthesize phone = _phone;
 @synthesize appPrice = _appPrice;
 
-@synthesize auxFavourite = _auxFavourite;
 @synthesize auxPin = _auxPin;
 @synthesize auxBlocked = _auxBlocked;
 @synthesize auxRate = _auxRate;
@@ -57,9 +56,8 @@
         
         self.appPrice = @"0";
         
-        self.auxFavourite = NO;
-        self.auxPin = NO;
-        self.auxBlocked = NO;
+        self.auxPin = @"0";
+        self.auxBlocked = @"0";
         self.auxRate = [NSNumber numberWithDouble:0.0f];
         self.auxTotalRate = [NSNumber numberWithDouble:0.0f];
         self.pinnedLatitude = [NSNumber numberWithDouble:0.0f];

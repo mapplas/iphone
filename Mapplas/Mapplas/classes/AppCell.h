@@ -16,16 +16,12 @@
     UIView *cellPressed;
     UIView *cellUnpressed;
     
-    UIImageView *_imageLogo;
-    UIImageView *_imageRoundView;
-    
     App *_app;
     ImageLoader *imageLoader;
     BOOL _pressed;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *cellContent;
-
 @property (nonatomic, strong) IBOutlet UIView *cellPressed;
 @property (nonatomic, strong) IBOutlet UIView *cellUnpressed;
 
@@ -33,10 +29,19 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imageRoundView;
 @property (nonatomic, strong) IBOutlet UILabel *appName;
 @property (nonatomic, strong) IBOutlet UILabel *appPrice;
+@property (nonatomic, strong) IBOutlet UILabel *pinsUnpressedText;
+
+@property (nonatomic, strong) IBOutlet UIImageView *pinPressedImage;
+@property (nonatomic, strong) IBOutlet UILabel *pinPressedText;
+@property (nonatomic, strong) IBOutlet UILabel *ratePressedText;
+@property (nonatomic, strong) IBOutlet UILabel *blockPressedText;
+@property (nonatomic, strong) IBOutlet UILabel *sharePressedText;
+
 @property (nonatomic, strong) App *app;
 @property (nonatomic) BOOL pressed;
 
 - (void)loadData;
 - (IBAction)animate:(id)sender;
+- (void)resetState;
 
 @end
