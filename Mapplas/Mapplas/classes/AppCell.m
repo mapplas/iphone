@@ -31,6 +31,7 @@
 @synthesize app = _app;
 @synthesize userId = _userId;
 @synthesize currentLocation = _currentLocation;
+@synthesize list = _list;
 @synthesize pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -175,15 +176,21 @@
         self.app.auxPin = @"0";
     }
     
-//    [up in list];
-    
+    // Pin/unpin request
     pinRequester = [[AppPinRequest alloc] init];
     [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:action andLocation:self.currentLocation];
+
+    // Sort table and reload
+    [self.list sort];
+    UITableView *table = (UITableView *)self.superview;
+    [table reloadData];
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
     blockRequester = [[AppBlockRequest alloc] init];
     [blockRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_LIKE_REQUEST_BLOCK];
+    
+//    (fade out animation)
 }
 
 @end

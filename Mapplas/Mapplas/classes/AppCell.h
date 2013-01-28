@@ -14,6 +14,7 @@
 #import "AppPinRequest.h"
 #import "AppBlockRequest.h"
 #import "Constants.h"
+#import "AppOrderedList.h"
 
 @interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate> {
     UIView *cellPressed;
@@ -22,6 +23,7 @@
     App *_app;
     NSString *_userId;
     NSString *_currentLocation;
+    AppOrderedList *_list;
     ImageLoader *imageLoader;
     BOOL _pressed;
     
@@ -49,6 +51,7 @@
 @property (nonatomic, strong) App *app;
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *currentLocation;
+@property (nonatomic, strong) AppOrderedList *list;
 @property (nonatomic) BOOL pressed;
 
 - (void)loadData;

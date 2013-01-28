@@ -58,7 +58,7 @@
     [self.userIdentRequest doRequest];
     
     // Get phone's application list
-    
+    // ??
 }
 
 - (void)viewDidUnload {
@@ -111,6 +111,7 @@
     [cell setApp:[self.model.appList objectAtIndex:indexPath.row]];
     [cell setUserId:self.model.user.userId];
     [cell setCurrentLocation:self.model.currentLocation];
+    [cell setList:self.model.appList];
     [cell resetState];
     [cell loadData];
     
