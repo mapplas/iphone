@@ -8,13 +8,15 @@
 
 #import "UserIdentificationResponseHandler.h"
 #import "JSONToUserMapper.h"
+#import "AppsViewController.h"
 
 @implementation UserIdentificationResponseHandler
 
-- (id)initWithSuperModel:(SuperModel *)_model {
+- (id)initWithSuperModel:(SuperModel *)_model andViewController:(AppsViewController *)view_controller {
     self = [super init];
     if (self) {
         model = _model;
+        viewController = view_controller;
     }
     return self;
 }
@@ -25,6 +27,8 @@
     User *currentUser = [userMapper map:jsonResponse];
     
     [model setUser:currentUser];
+    
+    [viewController userDataLoaded];
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {

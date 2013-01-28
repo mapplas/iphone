@@ -57,15 +57,13 @@ static NSTimeInterval validCacheTime;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-	if (ABS([newLocation.timestamp timeIntervalSinceNow]) < validCacheTime) {
-		if (!self.gotLocation) { // only do it if we dont have a location yet
+    if (!self.gotLocation) { // only do it if we dont have a location yet
 			
-            self.gotLocation = YES;
-            [self stopLocationNotifications];
-            [listener locationFound:newLocation];
-		}
-		// else if already got location, do nothing
-	}
+        self.gotLocation = YES;
+        [self stopLocationNotifications];
+        [listener locationFound:newLocation];
+    }
+    // else if already got location, do nothing
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

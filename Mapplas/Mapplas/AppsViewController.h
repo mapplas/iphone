@@ -35,5 +35,6 @@
 @property (nonatomic, strong) AroundRequester *aroundRequester;
 
 - (void)appsDataParsedFromServer;
+- (void)userDataLoaded;
 
 @end
