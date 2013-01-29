@@ -7,6 +7,7 @@
 //
 
 #import "AppCell.h"
+#import "AppsViewController.h"
 
 @implementation AppCell
 
@@ -31,8 +32,10 @@
 @synthesize app = _app;
 @synthesize userId = _userId;
 @synthesize currentLocation = _currentLocation;
-@synthesize list = _list;
+@synthesize modelList = _modelList;
+@synthesize appsList = _appsList;
 @synthesize positionInList = _positionInList;
+@synthesize viewController = _viewController;
 @synthesize pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -182,9 +185,8 @@
     [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:action andLocation:self.currentLocation];
 
     // Sort table and reload
-    [self.list sort];
-    UITableView *table = (UITableView *)self.superview;
-    [table reloadData];
+    [self.modelList sort];
+    [self.viewController reloadTableDataAndScrollTop:YES];
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
@@ -197,11 +199,14 @@
     [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
     
     // Remove app from app list
-    [self.list deleteApp:self.app];
+    [self.modelList deleteApp:self.app];
+    [self.appsList removeObject:self.app];
     
     // Remove row in table for selected app
     UITableView *table = (UITableView *)self.superview;
     [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
+    
+    [self.viewController reloadTableDataAndScrollTop:NO];
 }
 
 @end

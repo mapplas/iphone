@@ -20,13 +20,21 @@
 @synthesize userIdentRequest = _userIdentRequester;
 @synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
+@synthesize loadedAppsArray = _loadedAppsArray;
+@synthesize loadedListCount = _loadedListCount;
 
 @synthesize table;
+@synthesize cellLoading;
+@synthesize loading;
+@synthesize loadingText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.model = [[SuperModel alloc] init];
+        
+        self.loadedAppsArray = [[NSMutableArray alloc] init];
+        self.loadedListCount = 0;
     }
     return self;
 }
@@ -45,8 +53,8 @@
     [super viewDidLoad];
     
     [self initializeNavigationBarButtons];
-    
-    self.model = [[SuperModel alloc] init];
+
+    self.loadingText.text = NSLocalizedString(@"loading_cell_text", @"Apps refreshing cell text");
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *uniqueCode = [defaults objectForKey:UUID_USER_DEFAULTS_KEY];
@@ -62,10 +70,53 @@
 }
 
 - (void)viewDidUnload {
+    [super viewDidUnload];
 	_refreshHeaderView = nil;
+
+    self.loading = nil;
+    self.cellLoading = nil;
+}
+
+- (void)reloadTableDataAndScrollTop:(BOOL)scroll {
+    [scrollManager resetAppList:self.model.appList.list];
+    
+    [self.loadedAppsArray removeAllObjects];
+    
+    int maxIndex = [scrollManager getMaxCount];
+    int to = 0;
+    if (maxIndex > self.loadedListCount) {
+        to = NUMBER_OF_APPS * self.loadedListCount;
+    }
+    else if(maxIndex < self.loadedListCount) {
+        to = self.model.appList.count;
+    }
+    else {
+        to = (NUMBER_OF_APPS * self.loadedListCount) + [scrollManager getRest];
+    }
+    
+    for (int i=0; i < to; i++) {
+        [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
+    }
+    
+    [self.table reloadData];
+    
+    if (scroll) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.table scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
 }
 
 - (void)appsDataParsedFromServer {
+    // Create scroll manager
+    scrollManager = [[InfiniteScrollManager alloc] initWithAppList:self.model.appList.getArray];
+    [self.loadedAppsArray removeAllObjects];
+    self.loadedListCount = 0;
+    
+    // Endless adapter
+    [self.table setTableFooterView:self.cellLoading];
+    //populate the tableview with some data
+    [self addItemsToEndOfTableView];
+    
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
 }
@@ -96,7 +147,7 @@
 #pragma mark Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.model.appList.count;
+    return self.loadedAppsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,10 +159,12 @@
         cell = [nib objectAtIndex:0];
     }
 
-    [cell setApp:[self.model.appList objectAtIndex:indexPath.row]];
+    [cell setApp:[self.loadedAppsArray objectAtIndex:indexPath.row]];
     [cell setUserId:self.model.user.userId];
     [cell setCurrentLocation:self.model.currentLocation];
-    [cell setList:self.model.appList];
+    [cell setModelList:self.model.appList];
+    [cell setAppsList:self.loadedAppsArray];
+    [cell setViewController:self];
     [cell setPositionInList:indexPath.row];
     [cell resetState];
     [cell loadData];
@@ -148,7 +201,15 @@
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Pull to refress
 	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+    
+    // Endless tableView
+    if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height) {
+        [self animateRadar];
+        [self performSelector:@selector(stopAnimatingFooter) withObject:nil afterDelay:0.5];
+        return;
+	}
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {	
@@ -169,6 +230,61 @@
 
 - (NSString *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {
 	return self.model.currentDescriptiveGeoLoc; // should return date data source was last changed
+}
+
+#pragma mark -
+#pragma mark Endless UITableView
+
+- (void)addItemsToEndOfTableView {
+    
+//    int appsArrayLen = self.loadedAppsArray.count;
+//    int modelArrayLen = self.model.appList.count;
+    
+    if (self.loadedAppsArray.count < self.model.appList.count) {
+        
+//        int count = self.loadedListCount;
+//        int maxCount = [scrollManager getMaxCount];
+//        int resto = [scrollManager getRest];
+        
+        if (self.loadedListCount == scrollManager.getMaxCount - 1 && !scrollManager.isRestZero) {
+            NSUInteger rest = scrollManager.getRest;
+            for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + rest - 1; i++) {
+                [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
+            }
+        }
+        else {
+            for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + (NUMBER_OF_APPS - 1); i++) {
+                [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
+            }
+        }
+        self.loadedListCount ++;
+    }
+}
+
+- (void)stopAnimatingFooter {
+    // If there is no more data delete row
+    if (self.loadedAppsArray.count == self.model.appList.count) {
+        [self.table setTableFooterView:nil];
+    } else {
+        [self stopAnimatingRadar];
+        [self addItemsToEndOfTableView];
+        [self.table reloadData];
+    }
+}
+
+- (void)animateRadar {
+    CABasicAnimation *fullRotation;
+    fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    fullRotation.duration = 0.75f;
+    fullRotation.repeatCount = 3;
+    
+    [self.loading.layer addAnimation:fullRotation forKey:@"360"];
+}
+
+- (void)stopAnimatingRadar {
+    [self.loading.layer removeAnimationForKey:@"360"];
 }
 
 @end

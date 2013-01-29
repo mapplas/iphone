@@ -23,5 +23,6 @@
 - (NSUInteger)count;
 - (App *)objectAtIndex:(NSUInteger)index;
 - (void)sort;
+- (NSMutableArray *)getArray;
 
 @end
