@@ -176,6 +176,12 @@
     return 72;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDetailViewController *appViewController = [[AppDetailViewController alloc] init];
+    UINavigationController *contr = self.navigationController;
+    [self.navigationController pushViewController:appViewController animated:YES];
+}
+
 #pragma mark -
 #pragma mark Data Source Loading / Reloading Methods
 

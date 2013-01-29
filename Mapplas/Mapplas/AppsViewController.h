@@ -17,6 +17,7 @@
 #import "EGORefreshTableHeaderView.h"
 #import "AppCell.h"
 #import "InfiniteScrollManager.h"
+#import "AppDetailViewController.h"
 
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;
