@@ -51,3 +51,5 @@
 /* Free */
 "free_text" = "Gratis";
 
+/* Apps refreshing cell text */
+"loading_cell_text" = "Cargando aplicaciones...";

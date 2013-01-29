@@ -50,3 +50,6 @@
 
 /* Free */
 "free_text" = "Free";
+
+/* Apps refreshing cell text */
+"loading_cell_text" = "Loading Apps...";

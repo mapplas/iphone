@@ -16,10 +16,15 @@
 
 #import "EGORefreshTableHeaderView.h"
 #import "AppCell.h"
+#import "InfiniteScrollManager.h"
 
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;
     SuperModel *_model;
+    
+    NSMutableArray *_loadedAppsArray;
+    NSUInteger _loadedListCount;
+    InfiniteScrollManager *scrollManager;
     
     AroundRequester *_aroundRequester;
     LocationManager *locationManager;
@@ -29,9 +34,12 @@
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
-@property (nonatomic,strong) IBOutlet UIView *cellLoading;
+@property (nonatomic, strong) IBOutlet UIView *cellLoading;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loading;
-@property (nonatomic,strong) UIActivityIndicatorView *footerActivityIndicator;
+@property (nonatomic, strong) IBOutlet UILabel *loadingText;
+@property (nonatomic, strong) UIActivityIndicatorView *footerActivityIndicator;
+@property (nonatomic, strong) NSMutableArray *loadedAppsArray;
+@property (nonatomic) NSUInteger loadedListCount;
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 @property (nonatomic, strong) SuperModel *model;

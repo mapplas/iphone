@@ -85,4 +85,8 @@
     self.list = array;
 }
 
+- (NSMutableArray *)getArray {
+    return self.list;
+}
+
 @end

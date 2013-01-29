@@ -20,16 +20,22 @@
 @synthesize userIdentRequest = _userIdentRequester;
 @synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
+@synthesize loadedAppsArray = _loadedAppsArray;
+@synthesize loadedListCount = _loadedListCount;
 
 @synthesize table;
 @synthesize cellLoading;
 @synthesize loading;
+@synthesize loadingText;
 @synthesize footerActivityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.model = [[SuperModel alloc] init];
+        
+        self.loadedAppsArray = [[NSMutableArray alloc] init];
+        self.loadedListCount = 0;
     }
     return self;
 }
@@ -48,8 +54,8 @@
     [super viewDidLoad];
     
     [self initializeNavigationBarButtons];
-    
-    self.model = [[SuperModel alloc] init];
+
+    self.loadingText.text = NSLocalizedString(@"loading_cell_text", @"Apps refreshing cell text");
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *uniqueCode = [defaults objectForKey:UUID_USER_DEFAULTS_KEY];
@@ -65,6 +71,7 @@
 }
 
 - (void)viewDidUnload {
+    [super viewDidUnload];
 	_refreshHeaderView = nil;
 
     self.loading = nil;
@@ -73,6 +80,11 @@
 }
 
 - (void)appsDataParsedFromServer {
+    // Create scroll manager
+    scrollManager = [[InfiniteScrollManager alloc] initWithAppList:self.model.appList.getArray];
+    [self.loadedAppsArray removeAllObjects];
+    self.loadedListCount = 0;
+    
     // Endless adapter
     self.footerActivityIndicator = self.loading;
     [self.table setTableFooterView:self.cellLoading];
@@ -110,7 +122,7 @@
 #pragma mark Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.model.appList.count;
+    return self.loadedAppsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,10 +134,10 @@
         cell = [nib objectAtIndex:0];
     }
 
-    [cell setApp:[self.model.appList objectAtIndex:indexPath.row]];
+    [cell setApp:[self.loadedAppsArray objectAtIndex:indexPath.row]];
     [cell setUserId:self.model.user.userId];
     [cell setCurrentLocation:self.model.currentLocation];
-    [cell setList:self.model.appList];
+    [cell setList:self.loadedAppsArray];
     [cell setPositionInList:indexPath.row];
     [cell resetState];
     [cell loadData];
@@ -196,35 +208,34 @@
 #pragma mark -
 #pragma mark Endless UITableView
 
-- (void) addItemsToEndOfTableView{
-//    //if no existing data
-//    if([[self arr] count] == 0) {
-//        //initialise with 10 numbers
-//        NSInteger i,l;
-//        NSMutableArray *arr1=[NSMutableArray array];
-//        l=TABLEVIEW_START_INDEX+TABLEVIEW_PAGE_SIZE;
-//        for(i=TABLEVIEW_START_INDEX;i<l;i++){
-//            [arr1 addObject:[NSNumber numberWithInt:i]];
-//        }
-//        self.arr=arr1;
-//        return;
-//    }
-//    //copy the existing data
-//    NSInteger i,l;
-//    NSMutableArray *arr1=[NSMutableArray arrayWithArray:[self arr]];
-//    //get the final element of the array
-//    NSNumber *finalNo=[arr1 objectAtIndex:[arr1 count]-1];
-//    l=[finalNo intValue]+TABLEVIEW_PAGE_SIZE+1;
-//    for(i=[finalNo intValue]+1;i<l;i++){
-//        [arr1 addObject:[NSNumber numberWithInt:i]];
-//    }
-//    self.arr=arr1;
+- (void) addItemsToEndOfTableView {
+    
+    if (self.loadedAppsArray.count < self.model.appList.count) {
+        
+        if (self.loadedListCount == scrollManager.getMaxCount - 1 && !scrollManager.isRestZero) {
+            NSUInteger rest = scrollManager.getRest;
+            for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + rest - 1; i++) {
+                [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
+            }
+        }
+        else {
+            for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + (NUMBER_OF_APPS - 1); i++) {
+                [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
+            }
+        }
+        self.loadedListCount ++;
+    }
 }
 
 - (void) stopAnimatingFooter {
-    [[self footerActivityIndicator] stopAnimating];
-    [self addItemsToEndOfTableView];
-    [self.table reloadData];
+    // If there is no more data delete row
+    if (self.loadedAppsArray.count == self.model.appList.count) {
+        [self.table setTableFooterView:nil];
+    } else {
+        [[self footerActivityIndicator] stopAnimating];
+        [self addItemsToEndOfTableView];
+        [self.table reloadData];
+    }
 }
 
 @end
