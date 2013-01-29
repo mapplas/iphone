@@ -22,6 +22,9 @@
 @synthesize aroundRequester = _aroundRequester;
 
 @synthesize table;
+@synthesize cellLoading;
+@synthesize loading;
+@synthesize footerActivityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -63,9 +66,20 @@
 
 - (void)viewDidUnload {
 	_refreshHeaderView = nil;
+
+    self.loading = nil;
+    self.cellLoading = nil;
+    self.footerActivityIndicator = nil;
 }
 
 - (void)appsDataParsedFromServer {
+    // Endless adapter
+    self.footerActivityIndicator = self.loading;
+    [self.table setTableFooterView:self.cellLoading];
+    //populate the tableview with some data
+    [self addItemsToEndOfTableView];
+    
+    
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
 }
@@ -148,7 +162,15 @@
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Pull to refress
 	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+    
+    // Endless tableView
+    if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height) {
+        [[self footerActivityIndicator] startAnimating];
+        [self performSelector:@selector(stopAnimatingFooter) withObject:nil afterDelay:0.5];
+        return;
+	}
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {	
@@ -169,6 +191,40 @@
 
 - (NSString *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view {
 	return self.model.currentDescriptiveGeoLoc; // should return date data source was last changed
+}
+
+#pragma mark -
+#pragma mark Endless UITableView
+
+- (void) addItemsToEndOfTableView{
+//    //if no existing data
+//    if([[self arr] count] == 0) {
+//        //initialise with 10 numbers
+//        NSInteger i,l;
+//        NSMutableArray *arr1=[NSMutableArray array];
+//        l=TABLEVIEW_START_INDEX+TABLEVIEW_PAGE_SIZE;
+//        for(i=TABLEVIEW_START_INDEX;i<l;i++){
+//            [arr1 addObject:[NSNumber numberWithInt:i]];
+//        }
+//        self.arr=arr1;
+//        return;
+//    }
+//    //copy the existing data
+//    NSInteger i,l;
+//    NSMutableArray *arr1=[NSMutableArray arrayWithArray:[self arr]];
+//    //get the final element of the array
+//    NSNumber *finalNo=[arr1 objectAtIndex:[arr1 count]-1];
+//    l=[finalNo intValue]+TABLEVIEW_PAGE_SIZE+1;
+//    for(i=[finalNo intValue]+1;i<l;i++){
+//        [arr1 addObject:[NSNumber numberWithInt:i]];
+//    }
+//    self.arr=arr1;
+}
+
+- (void) stopAnimatingFooter {
+    [[self footerActivityIndicator] stopAnimating];
+    [self addItemsToEndOfTableView];
+    [self.table reloadData];
 }
 
 @end

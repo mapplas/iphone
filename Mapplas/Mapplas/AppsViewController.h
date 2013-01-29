@@ -29,6 +29,9 @@
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
+@property (nonatomic,strong) IBOutlet UIView *cellLoading;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loading;
+@property (nonatomic,strong) UIActivityIndicatorView *footerActivityIndicator;
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 @property (nonatomic, strong) SuperModel *model;
@@ -36,5 +39,7 @@
 
 - (void)appsDataParsedFromServer;
 - (void)userDataLoaded;
+
+- (void) addItemsToEndOfTableView;
 
 @end
