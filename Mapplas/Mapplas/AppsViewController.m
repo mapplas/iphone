@@ -237,23 +237,20 @@
 
 - (void)addItemsToEndOfTableView {
     
-    int appsArrayLen = self.loadedAppsArray.count;
-    int modelArrayLen = self.model.appList.count;
+//    int appsArrayLen = self.loadedAppsArray.count;
+//    int modelArrayLen = self.model.appList.count;
     
     if (self.loadedAppsArray.count < self.model.appList.count) {
         
-        int count = self.loadedListCount;
-        int maxCount = [scrollManager getMaxCount];
-        int resto = [scrollManager getRest];
+//        int count = self.loadedListCount;
+//        int maxCount = [scrollManager getMaxCount];
+//        int resto = [scrollManager getRest];
         
         if (self.loadedListCount == scrollManager.getMaxCount - 1 && !scrollManager.isRestZero) {
             NSUInteger rest = scrollManager.getRest;
             for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + rest - 1; i++) {
                 [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
             }
-        }
-        else if(self.loadedListCount == scrollManager.getMaxCount && scrollManager.isRestZero) {
-            // do nothing
         }
         else {
             for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + (NUMBER_OF_APPS - 1); i++) {
