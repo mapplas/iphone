@@ -16,6 +16,8 @@
 #import "Constants.h"
 #import "AppOrderedList.h"
 
+@class AppsViewController;
+
 @interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate> {
     UIView *cellPressed;
     UIView *cellUnpressed;
@@ -23,8 +25,10 @@
     App *_app;
     NSString *_userId;
     NSString *_currentLocation;
-    AppOrderedList *_list;
+    AppOrderedList *_modelList;
+    NSMutableArray *_appsList;
     int _positionInList;
+    AppsViewController *_viewController;
     ImageLoader *imageLoader;
     BOOL _pressed;
     
@@ -52,8 +56,10 @@
 @property (nonatomic, strong) App *app;
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *currentLocation;
-@property (nonatomic, strong) AppOrderedList *list;
+@property (nonatomic, strong) AppOrderedList *modelList;
+@property (nonatomic, strong) NSMutableArray *appsList;
 @property (nonatomic) int positionInList;
+@property (nonatomic, strong) AppsViewController *viewController;
 @property (nonatomic) BOOL pressed;
 
 - (void)loadData;

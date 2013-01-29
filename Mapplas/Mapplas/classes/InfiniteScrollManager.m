@@ -18,6 +18,10 @@
     return self;
 }
 
+- (void)resetAppList:(NSMutableArray *)app_list {
+    list = app_list;
+}
+
 - (NSUInteger)getMaxCount {
     if (list.count % NUMBER_OF_APPS == 0) {
         return list.count / NUMBER_OF_APPS;

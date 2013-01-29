@@ -77,6 +77,35 @@
     self.cellLoading = nil;
 }
 
+- (void)reloadTableDataAndScrollTop:(BOOL)scroll {
+    [scrollManager resetAppList:self.model.appList.list];
+    
+    [self.loadedAppsArray removeAllObjects];
+    
+    int maxIndex = [scrollManager getMaxCount];
+    int to = 0;
+    if (maxIndex > self.loadedListCount) {
+        to = NUMBER_OF_APPS * self.loadedListCount;
+    }
+    else if(maxIndex < self.loadedListCount) {
+        to = self.model.appList.count;
+    }
+    else {
+        to = (NUMBER_OF_APPS * self.loadedListCount) + [scrollManager getRest];
+    }
+    
+    for (int i=0; i < to; i++) {
+        [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
+    }
+    
+    [self.table reloadData];
+    
+    if (scroll) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.table scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
+}
+
 - (void)appsDataParsedFromServer {
     // Create scroll manager
     scrollManager = [[InfiniteScrollManager alloc] initWithAppList:self.model.appList.getArray];
@@ -87,7 +116,6 @@
     [self.table setTableFooterView:self.cellLoading];
     //populate the tableview with some data
     [self addItemsToEndOfTableView];
-    
     
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
@@ -134,7 +162,9 @@
     [cell setApp:[self.loadedAppsArray objectAtIndex:indexPath.row]];
     [cell setUserId:self.model.user.userId];
     [cell setCurrentLocation:self.model.currentLocation];
-    [cell setList:self.loadedAppsArray];
+    [cell setModelList:self.model.appList];
+    [cell setAppsList:self.loadedAppsArray];
+    [cell setViewController:self];
     [cell setPositionInList:indexPath.row];
     [cell resetState];
     [cell loadData];
@@ -207,13 +237,23 @@
 
 - (void)addItemsToEndOfTableView {
     
+    int appsArrayLen = self.loadedAppsArray.count;
+    int modelArrayLen = self.model.appList.count;
+    
     if (self.loadedAppsArray.count < self.model.appList.count) {
+        
+        int count = self.loadedListCount;
+        int maxCount = [scrollManager getMaxCount];
+        int resto = [scrollManager getRest];
         
         if (self.loadedListCount == scrollManager.getMaxCount - 1 && !scrollManager.isRestZero) {
             NSUInteger rest = scrollManager.getRest;
             for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + rest - 1; i++) {
                 [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
             }
+        }
+        else if(self.loadedListCount == scrollManager.getMaxCount && scrollManager.isRestZero) {
+            // do nothing
         }
         else {
             for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + (NUMBER_OF_APPS - 1); i++) {

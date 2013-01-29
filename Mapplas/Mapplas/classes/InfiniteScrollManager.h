@@ -16,6 +16,8 @@
 }
 
 - (id)initWithAppList:(NSMutableArray *)app_list;
+- (void)resetAppList:(NSMutableArray *)app_list;
+
 - (NSUInteger)getMaxCount;
 - (BOOL)isRestZero;
 - (NSUInteger)getRest;
