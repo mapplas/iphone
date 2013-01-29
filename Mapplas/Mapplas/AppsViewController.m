@@ -27,7 +27,6 @@
 @synthesize cellLoading;
 @synthesize loading;
 @synthesize loadingText;
-@synthesize footerActivityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -76,7 +75,6 @@
 
     self.loading = nil;
     self.cellLoading = nil;
-    self.footerActivityIndicator = nil;
 }
 
 - (void)appsDataParsedFromServer {
@@ -86,7 +84,6 @@
     self.loadedListCount = 0;
     
     // Endless adapter
-    self.footerActivityIndicator = self.loading;
     [self.table setTableFooterView:self.cellLoading];
     //populate the tableview with some data
     [self addItemsToEndOfTableView];
@@ -179,7 +176,7 @@
     
     // Endless tableView
     if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height) {
-        [[self footerActivityIndicator] startAnimating];
+        [self animateRadar];
         [self performSelector:@selector(stopAnimatingFooter) withObject:nil afterDelay:0.5];
         return;
 	}
@@ -208,7 +205,7 @@
 #pragma mark -
 #pragma mark Endless UITableView
 
-- (void) addItemsToEndOfTableView {
+- (void)addItemsToEndOfTableView {
     
     if (self.loadedAppsArray.count < self.model.appList.count) {
         
@@ -227,15 +224,30 @@
     }
 }
 
-- (void) stopAnimatingFooter {
+- (void)stopAnimatingFooter {
     // If there is no more data delete row
     if (self.loadedAppsArray.count == self.model.appList.count) {
         [self.table setTableFooterView:nil];
     } else {
-        [[self footerActivityIndicator] stopAnimating];
+        [self stopAnimatingRadar];
         [self addItemsToEndOfTableView];
         [self.table reloadData];
     }
+}
+
+- (void)animateRadar {
+    CABasicAnimation *fullRotation;
+    fullRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    fullRotation.fromValue = [NSNumber numberWithFloat:0];
+    fullRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    fullRotation.duration = 0.75f;
+    fullRotation.repeatCount = 3;
+    
+    [self.loading.layer addAnimation:fullRotation forKey:@"360"];
+}
+
+- (void)stopAnimatingRadar {
+    [self.loading.layer removeAnimationForKey:@"360"];
 }
 
 @end

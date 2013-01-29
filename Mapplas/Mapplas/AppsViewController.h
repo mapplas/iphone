@@ -35,9 +35,8 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
 @property (nonatomic, strong) IBOutlet UIView *cellLoading;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loading;
+@property (nonatomic, strong) IBOutlet UIImageView *loading;
 @property (nonatomic, strong) IBOutlet UILabel *loadingText;
-@property (nonatomic, strong) UIActivityIndicatorView *footerActivityIndicator;
 @property (nonatomic, strong) NSMutableArray *loadedAppsArray;
 @property (nonatomic) NSUInteger loadedListCount;
 
