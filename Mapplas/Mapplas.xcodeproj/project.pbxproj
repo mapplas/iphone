@@ -92,6 +92,7 @@
 		7FEF543E16B913DC00EAEED8 /* img_roundc.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF543D16B913DC00EAEED8 /* img_roundc.png */; };
 		7FEF544116B9186D00EAEED8 /* ic_action_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF544016B9186D00EAEED8 /* ic_action_phone.png */; };
 		7FEF544516B9212B00EAEED8 /* PriceImageLabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */; };
+		7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF545016B93AE300EAEED8 /* ARScrollViewEnhancer.m */; };
 		7FFA007116B7CC31003E53E1 /* InfiniteScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */; };
 		7FFA007316B7E5A5003E53E1 /* ic_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA007216B7E5A5003E53E1 /* ic_refresh.png */; };
 		7FFA008116B82D8C003E53E1 /* AppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */; };
@@ -288,6 +289,8 @@
 		7FEF544016B9186D00EAEED8 /* ic_action_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_phone.png; sourceTree = SOURCE_ROOT; };
 		7FEF544316B9212B00EAEED8 /* PriceImageLabelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceImageLabelHelper.h; path = classes/PriceImageLabelHelper.h; sourceTree = "<group>"; };
 		7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceImageLabelHelper.m; path = classes/PriceImageLabelHelper.m; sourceTree = "<group>"; };
+		7FEF544F16B93AE300EAEED8 /* ARScrollViewEnhancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARScrollViewEnhancer.h; sourceTree = "<group>"; };
+		7FEF545016B93AE300EAEED8 /* ARScrollViewEnhancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARScrollViewEnhancer.m; sourceTree = "<group>"; };
 		7FFA006F16B7CC31003E53E1 /* InfiniteScrollManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfiniteScrollManager.h; path = classes/InfiniteScrollManager.h; sourceTree = "<group>"; };
 		7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfiniteScrollManager.m; path = classes/InfiniteScrollManager.m; sourceTree = "<group>"; };
 		7FFA007216B7E5A5003E53E1 /* ic_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh.png; sourceTree = SOURCE_ROOT; };
@@ -699,6 +702,16 @@
 			name = "Layout helpers";
 			sourceTree = "<group>";
 		};
+		7FEF544E16B93AE300EAEED8 /* ARScrollViewEnhancer */ = {
+			isa = PBXGroup;
+			children = (
+				7FEF544F16B93AE300EAEED8 /* ARScrollViewEnhancer.h */,
+				7FEF545016B93AE300EAEED8 /* ARScrollViewEnhancer.m */,
+			);
+			name = ARScrollViewEnhancer;
+			path = "Mapplas/classes/Third party/ARScrollViewEnhancer";
+			sourceTree = "<group>";
+		};
 		7FFA007C16B82D60003E53E1 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0C5B9A16AEEC8A0093C850 /* AFNetworking */,
+				7FEF544E16B93AE300EAEED8 /* ARScrollViewEnhancer */,
 				7FBAE92C16B027CC00621B34 /* EGOTableViewPullRefresh */,
 				7FED412B16B1579600581C9D /* RegexKit */,
 			);
@@ -1099,6 +1113,7 @@
 				7FFA007116B7CC31003E53E1 /* InfiniteScrollManager.m in Sources */,
 				7FFA008116B82D8C003E53E1 /* AppDetailViewController.m in Sources */,
 				7FEF544516B9212B00EAEED8 /* PriceImageLabelHelper.m in Sources */,
+				7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

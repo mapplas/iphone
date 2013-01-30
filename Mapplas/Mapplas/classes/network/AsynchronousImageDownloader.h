@@ -12,8 +12,8 @@
 
 @protocol AsynchronousImageDownloaderProtocol <NSObject>
 
-- (void)imageDownloaded:(DownloadedImageSuccess *)download;
-- (void)imageNotDownloaded:(DownloadedImageError *)error;
+- (void)imageDownloaded:(DownloadedImageSuccess *)download withSaveName:(NSString *)save_name;
+- (void)imageNotDownloaded:(DownloadedImageError *)error withSaveName:(NSString *)save_name;
 
 @end
 

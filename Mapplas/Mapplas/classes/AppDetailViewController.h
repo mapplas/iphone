@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "App.h"
+#import "Photo.h"
 
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
@@ -17,6 +18,8 @@
     App *_app;
     
     ImageLoader *imageLoader;
+    NSMutableDictionary *imagesArray;
+    NSUInteger downloadedImages;
 }
 
 - (id)initWithApp:(App *)app;
@@ -38,5 +41,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *shareLabel;
 @property (nonatomic, strong) IBOutlet UIButton *phoneButton;
 @property (nonatomic, strong) IBOutlet UILabel *phoneLabel;
+
+@property (nonatomic, strong) IBOutlet UIScrollView *galleryScroll;
 
 @end

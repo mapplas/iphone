@@ -126,7 +126,7 @@
     self.sharePressedText.text = NSLocalizedString(@"share_text", @"Share text");
 }
 
-- (void)imageDownloaded:(DownloadedImageSuccess *)download {
+- (void)imageDownloaded:(DownloadedImageSuccess *)download withSaveName:(NSString *)save_name {
     UIImage *downloadedImage = download.image;
     if (downloadedImage != nil) {
         [self.imageLogo setImage:downloadedImage];
@@ -134,7 +134,7 @@
     }
 }
 
-- (void)imageNotDownloaded:(DownloadedImageError *)error {}
+- (void)imageNotDownloaded:(DownloadedImageError *)error withSaveName:(NSString *)save_name {}
 
 - (IBAction)animate:(id)sender {
     CATransition *pushTransition = [CATransition animation];
