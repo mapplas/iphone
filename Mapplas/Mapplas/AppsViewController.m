@@ -177,8 +177,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDetailViewController *appViewController = [[AppDetailViewController alloc] init];
-    UINavigationController *contr = self.navigationController;
+    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:appViewController animated:YES];
 }
 

@@ -7,7 +7,36 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "App.h"
 
-@interface AppDetailViewController : UIViewController
+#import "ImageLoaderFactory.h"
+#import "AsynchronousImageDownloader.h"
+#import "PriceImageLabelHelper.h"
+
+@interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol> {
+    App *_app;
+    
+    ImageLoader *imageLoader;
+}
+
+- (id)initWithApp:(App *)app;
+
+@property (nonatomic, strong) App *app;
+
+@property (nonatomic, strong) IBOutlet UIImageView *logo;
+@property (nonatomic, strong) IBOutlet UILabel *name;
+@property (nonatomic, strong) IBOutlet UIImageView *priceBackground;
+@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
+
+@property (nonatomic, strong) IBOutlet UIButton *pinButton;
+@property (nonatomic, strong) IBOutlet UILabel *pinLabel;
+@property (nonatomic, strong) IBOutlet UIButton *rateButton;
+@property (nonatomic, strong) IBOutlet UILabel *rateLabel;
+@property (nonatomic, strong) IBOutlet UIButton *blockButton;
+@property (nonatomic, strong) IBOutlet UILabel *blockLabel;
+@property (nonatomic, strong) IBOutlet UIButton *shareButton;
+@property (nonatomic, strong) IBOutlet UILabel *shareLabel;
+@property (nonatomic, strong) IBOutlet UIButton *phoneButton;
+@property (nonatomic, strong) IBOutlet UILabel *phoneLabel;
 
 @end

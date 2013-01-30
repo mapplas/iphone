@@ -53,3 +53,6 @@
 
 /* Apps refreshing cell text */
 "loading_cell_text" = "Cargando aplicaciones...";
+
+/* Detail screen call text */
+"call_text" = "llama";

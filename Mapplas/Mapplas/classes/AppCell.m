@@ -67,14 +67,6 @@
     // Unpressed data
     self.appName.text = self.app.name;
     
-    NSString *currency = @"";
-    if (self.app.locationCurrency == EURO) {
-        currency = NSLocalizedString(@"currency_euro", @"Euro currency");
-    }
-    else {
-        currency = NSLocalizedString(@"currency_dollar", @"Dollar currency");
-    }
-    
     // Unpressed data - Set app logo
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
     AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
@@ -105,15 +97,10 @@
     }
     self.pinsUnpressedText.text = [NSString stringWithFormat:@"%@ %@", pins, pinText];
     
-    // Price image
-    if ([self.app.appPrice isEqualToString:@"0"]) {
-        self.appPrice.text = NSLocalizedString(@"free_text", @"Free");
-        self.priceImage.image = [UIImage imageNamed:@"ic_badge_free.png"];
-    }
-    else {
-        self.appPrice.text = [NSString stringWithFormat:@"%@ %@", currency, self.app.appPrice];
-        self.priceImage.image = [UIImage imageNamed:@"ic_badge_price.png"];
-    }
+    // Price label and image
+    PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
+    self.appPrice.text = [priceHelper getPriceText];
+    self.priceImage.image = [priceHelper getImage];
 
     [self.cellContent addSubview:self.cellUnpressed];
 }

@@ -15,6 +15,7 @@
 #import "AppBlockRequest.h"
 #import "Constants.h"
 #import "AppOrderedList.h"
+#import "PriceImageLabelHelper.h"
 
 @class AppsViewController;
 
