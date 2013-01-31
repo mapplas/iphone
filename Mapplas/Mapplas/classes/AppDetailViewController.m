@@ -102,15 +102,18 @@
     self.galleryScroll.showsHorizontalScrollIndicator = NO;
 	
 	CGFloat contentOffset = 0.0f;
+    ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:self.galleryScroll];
     
     NSArray *keys = [imagesArray allKeys];
     for (NSString *currentKey in keys) {
         
         if ([imagesArray objectForKey:currentKey] != nil) {
-            CGRect imageViewFrame = CGRectMake(contentOffset, self.galleryScroll.frame.origin.y, self.galleryScroll.frame.size.width, self.galleryScroll.frame.size.height);
+            CGRect imageViewFrame = CGRectMake(contentOffset, 0, self.galleryScroll.frame.size.width, self.galleryScroll.frame.size.height);
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
-            imageView.image = [imagesArray objectForKey:currentKey];
+            
+            imageView.image = [resizer resizeImage:[imagesArray objectForKey:currentKey]];
             imageView.contentMode = UIViewContentModeCenter;
+            
             [self.galleryScroll addSubview:imageView];
             
             contentOffset += imageView.frame.size.width;

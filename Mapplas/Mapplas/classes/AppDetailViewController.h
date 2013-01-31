@@ -13,6 +13,7 @@
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
 #import "PriceImageLabelHelper.h"
+#import "ImageResizer.h"
 
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol> {
     App *_app;
