@@ -18,12 +18,13 @@
     return self;
 }
 
-- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset background:(UIView *)gallery_background {
+- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset background:(UIView *)gallery_background container:(UIView *)gallery_container {
     CGRect imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
     
     if (_image.size.width < _image.size.height) {
-        scroll.frame = CGRectMake(20, 132, 280, 300);
-        gallery_background.frame = CGRectMake(0, 132, 320, scroll.frame.size.height);
+        scroll.frame = CGRectMake(20, 0, 280, 300);
+        gallery_background.frame = CGRectMake(0, 0, 320, scroll.frame.size.height);
+        gallery_container.frame = CGRectMake(0, 0, 320, scroll.frame.size.height);
         imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
     }
     

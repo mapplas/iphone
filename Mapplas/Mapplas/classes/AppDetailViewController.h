@@ -15,12 +15,16 @@
 #import "PriceImageLabelHelper.h"
 #import "ImageResizer.h"
 
+#import "ScrollViewOfViews.h"
+
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol> {
     App *_app;
     
     ImageLoader *imageLoader;
     NSMutableDictionary *imagesArray;
     NSUInteger downloadedImages;
+    
+    ScrollViewOfViews *scrollViewConfigurator;
 }
 
 - (id)initWithApp:(App *)app;
@@ -29,11 +33,13 @@
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 
+@property (nonatomic, strong) IBOutlet UIView *topBar;
 @property (nonatomic, strong) IBOutlet UIImageView *logo;
 @property (nonatomic, strong) IBOutlet UILabel *name;
 @property (nonatomic, strong) IBOutlet UIImageView *priceBackground;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 
+@property (nonatomic, strong) IBOutlet UIView *actionBar;
 @property (nonatomic, strong) IBOutlet UIButton *pinButton;
 @property (nonatomic, strong) IBOutlet UILabel *pinLabel;
 @property (nonatomic, strong) IBOutlet UIButton *rateButton;
@@ -45,6 +51,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *phoneButton;
 @property (nonatomic, strong) IBOutlet UILabel *phoneLabel;
 
+@property (nonatomic, strong) IBOutlet UIView *galleryView;
 @property (nonatomic, strong) IBOutlet UIView *galleryBackground;
 @property (nonatomic, strong) IBOutlet UIScrollView *galleryScroll;
 

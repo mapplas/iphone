@@ -72,6 +72,7 @@
 		7FC8829916A85677008A06A8 /* SuperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8829816A85676008A06A8 /* SuperModel.m */; };
 		7FD39C6316BA5F7A00F5EB8E /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6216BA5F7A00F5EB8E /* ImageResizer.m */; };
 		7FD39C6516BA7CF000F5EB8E /* ic_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD39C6416BA7CF000F5EB8E /* ic_more.png */; };
+		7FD39C6916BA84B600F5EB8E /* ScrollViewOfViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6816BA84B600F5EB8E /* ScrollViewOfViews.m */; };
 		7FED40F616B12E5100581C9D /* ic_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED40F516B12E5100581C9D /* ic_map.png */; };
 		7FED410816B140ED00581C9D /* ic_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED410716B140ED00581C9D /* ic_template.png */; };
 		7FED411816B141CE00581C9D /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FED411716B141CE00581C9D /* AppCell.m */; };
@@ -256,6 +257,8 @@
 		7FD39C6116BA5F7A00F5EB8E /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageResizer.h; path = classes/ImageResizer.h; sourceTree = "<group>"; };
 		7FD39C6216BA5F7A00F5EB8E /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageResizer.m; path = classes/ImageResizer.m; sourceTree = "<group>"; };
 		7FD39C6416BA7CF000F5EB8E /* ic_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_more.png; sourceTree = SOURCE_ROOT; };
+		7FD39C6716BA84B600F5EB8E /* ScrollViewOfViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollViewOfViews.h; path = classes/utils/ScrollViewOfViews.h; sourceTree = "<group>"; };
+		7FD39C6816BA84B600F5EB8E /* ScrollViewOfViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollViewOfViews.m; path = classes/utils/ScrollViewOfViews.m; sourceTree = "<group>"; };
 		7FED40F516B12E5100581C9D /* ic_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_map.png; sourceTree = SOURCE_ROOT; };
 		7FED410716B140ED00581C9D /* ic_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_template.png; sourceTree = SOURCE_ROOT; };
 		7FED411616B141CE00581C9D /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCell.h; path = classes/AppCell.h; sourceTree = "<group>"; };
@@ -713,6 +716,8 @@
 			children = (
 				7FEF544316B9212B00EAEED8 /* PriceImageLabelHelper.h */,
 				7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */,
+				7FD39C6716BA84B600F5EB8E /* ScrollViewOfViews.h */,
+				7FD39C6816BA84B600F5EB8E /* ScrollViewOfViews.m */,
 			);
 			name = "Layout helpers";
 			sourceTree = "<group>";
@@ -1132,6 +1137,7 @@
 				7FEF544516B9212B00EAEED8 /* PriceImageLabelHelper.m in Sources */,
 				7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */,
 				7FD39C6316BA5F7A00F5EB8E /* ImageResizer.m in Sources */,
+				7FD39C6916BA84B600F5EB8E /* ScrollViewOfViews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

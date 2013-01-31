@@ -22,11 +22,13 @@
 
 @synthesize scroll;
 
+@synthesize topBar;
 @synthesize logo;
 @synthesize name;
 @synthesize priceBackground;
 @synthesize priceLabel;
 
+@synthesize actionBar;
 @synthesize pinButton;
 @synthesize pinLabel;
 @synthesize rateButton;
@@ -38,6 +40,7 @@
 @synthesize phoneButton;
 @synthesize phoneLabel;
 
+@synthesize galleryView;
 @synthesize galleryBackground;
 @synthesize galleryScroll;
 
@@ -57,13 +60,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIScrollView *tempScrollView = (UIScrollView *)self.view;
-    tempScrollView.contentSize = CGSizeMake(320, 500);
+        
+    NSMutableArray *viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, nil];
+    scrollViewConfigurator = [[ScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
     [self downloadGalleryImages];
     [self initLayout];
     [self configureGallery];
+    
+    [scrollViewConfigurator organize];
 }
 
 - (void)downloadGalleryImages {
@@ -73,7 +78,12 @@
     
     for (Photo *currenPhoto in self.app.auxPhotosArray) {
         UIImage *currentImage = [imageLoader load:currenPhoto.photo withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
-        [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+        if (currentImage == nil) {
+            [imagesArray setValue:@"" forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+        }
+        else {
+            [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+        }
     }
 }
 
@@ -118,19 +128,26 @@
     ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:self.galleryScroll];
     
     NSArray *keys = [imagesArray allKeys];
-    for (NSString *currentKey in keys) {
-        
-        if ([imagesArray objectForKey:currentKey] != nil) {
-            UIImageView *imageView = [resizer getImageViewForImage:[imagesArray objectForKey:currentKey] contentOffset:contentOffset background:self.galleryBackground];
+    
+    if (keys.count > 0) {
+        for (NSString *currentKey in keys) {
             
-            imageView.image = [resizer resizeImage:[imagesArray objectForKey:currentKey]];
-            imageView.contentMode = UIViewContentModeCenter;
-            
-            [self.galleryScroll addSubview:imageView];
-            
-            contentOffset += imageView.frame.size.width;
-            self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
+            if ([imagesArray objectForKey:currentKey] != nil && ![[imagesArray objectForKey:currentKey] isKindOfClass:[NSString class]]) {
+                UIImageView *imageView = [resizer getImageViewForImage:[imagesArray objectForKey:currentKey] contentOffset:contentOffset background:self.galleryBackground container:self.galleryView];
+                
+                imageView.image = [resizer resizeImage:[imagesArray objectForKey:currentKey]];
+                imageView.contentMode = UIViewContentModeCenter;
+                
+                [self.galleryScroll addSubview:imageView];
+                
+                contentOffset += imageView.frame.size.width;
+                self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
+            }
         }
+    }
+    else {
+        [scrollViewConfigurator removeView:self.galleryView];
+        [scrollViewConfigurator organize];
     }
 }
 
@@ -143,12 +160,12 @@
     }
     else {
         downloadedImages++;
-        NSArray *photoId = [save_name componentsSeparatedByString:@"."];
-        [imagesArray setValue:download.image forKey:[photoId objectAtIndex:1]];
+        [imagesArray setValue:download.image forKey:save_name];
     }
     
     if (downloadedImages == [imagesArray allKeys].count) {
         [self configureGallery];
+        [scrollViewConfigurator organize];
     }
 }
 
