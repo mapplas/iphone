@@ -56,3 +56,15 @@
 
 /* Detail screen call text */
 "call_text" = "call";
+
+/* App detail - developer text */
+"app_detail_developer_label_text" = "Developer";
+
+/* App detail - developer email */
+"app_detail_developer_email_button" = "Developer Mail";
+
+/* App detail - developer web */
+"app_detail_developer_web_button" = "Developer Web";
+
+/* App detail - support button */
+"app_detail_developer_support_button" = "Support";

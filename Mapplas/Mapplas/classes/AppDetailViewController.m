@@ -48,6 +48,12 @@
 @synthesize descriptionText;
 @synthesize morebutton;
 
+@synthesize supportView;
+@synthesize developerLabel;
+@synthesize devWebButton;
+@synthesize devEmailButton;
+@synthesize asistencyButton;
+
 - (id)initWithApp:(App *)app {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -61,7 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         
-    NSMutableArray *viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, nil];
+    NSMutableArray *viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.supportView, nil];
     scrollViewConfigurator = [[ScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
     [self downloadGalleryImages];
@@ -117,6 +123,12 @@
     
     // Description
     self.descriptionText.text = self.app.appDescription;
+    
+    // Support
+    self.developerLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
+    self.devWebButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
+    self.devEmailButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
+    self.asistencyButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_support_button", @"App detail - support button");
 }
 
 - (void)configureGallery {

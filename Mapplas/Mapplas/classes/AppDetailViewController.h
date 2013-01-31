@@ -57,6 +57,12 @@
 
 @property (nonatomic, strong) IBOutlet UIView *descriptionView;
 @property (nonatomic, strong) IBOutlet UILabel *descriptionText;
-@property (nonatomic, strong) IBOutlet UIButton *morebutton;;
+@property (nonatomic, strong) IBOutlet UIButton *morebutton;
+
+@property (nonatomic, strong) IBOutlet UIView *supportView;
+@property (nonatomic, strong) IBOutlet UILabel *developerLabel;
+@property (nonatomic, strong) IBOutlet UIButton *devWebButton;
+@property (nonatomic, strong) IBOutlet UIButton *devEmailButton;
+@property (nonatomic, strong) IBOutlet UIButton *asistencyButton;
 
 @end
