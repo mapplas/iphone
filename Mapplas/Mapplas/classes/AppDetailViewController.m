@@ -20,6 +20,8 @@
 
 @synthesize app = _app;
 
+@synthesize scroll;
+
 @synthesize logo;
 @synthesize name;
 @synthesize priceBackground;
@@ -39,6 +41,10 @@
 @synthesize galleryBackground;
 @synthesize galleryScroll;
 
+@synthesize descriptionView;
+@synthesize descriptionText;
+@synthesize morebutton;
+
 - (id)initWithApp:(App *)app {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -51,6 +57,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIScrollView *tempScrollView = (UIScrollView *)self.view;
+    tempScrollView.contentSize = CGSizeMake(320, 500);
     
     [self downloadGalleryImages];
     [self initLayout];
@@ -95,6 +104,9 @@
     self.blockLabel.text = NSLocalizedString(@"block_text", @"Block text");
     self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
+    
+    // Description
+    self.descriptionText.text = self.app.appDescription;
 }
 
 - (void)configureGallery {

@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) App *app;
 
+@property (nonatomic, strong) IBOutlet UIScrollView *scroll;
+
 @property (nonatomic, strong) IBOutlet UIImageView *logo;
 @property (nonatomic, strong) IBOutlet UILabel *name;
 @property (nonatomic, strong) IBOutlet UIImageView *priceBackground;
@@ -45,5 +47,9 @@
 
 @property (nonatomic, strong) IBOutlet UIView *galleryBackground;
 @property (nonatomic, strong) IBOutlet UIScrollView *galleryScroll;
+
+@property (nonatomic, strong) IBOutlet UIView *descriptionView;
+@property (nonatomic, strong) IBOutlet UILabel *descriptionText;
+@property (nonatomic, strong) IBOutlet UIButton *morebutton;;
 
 @end

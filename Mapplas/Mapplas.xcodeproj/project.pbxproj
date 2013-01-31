@@ -71,6 +71,7 @@
 		7FC8829316A85002008A06A8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8829216A85002008A06A8 /* User.m */; };
 		7FC8829916A85677008A06A8 /* SuperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC8829816A85676008A06A8 /* SuperModel.m */; };
 		7FD39C6316BA5F7A00F5EB8E /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6216BA5F7A00F5EB8E /* ImageResizer.m */; };
+		7FD39C6516BA7CF000F5EB8E /* ic_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD39C6416BA7CF000F5EB8E /* ic_more.png */; };
 		7FED40F616B12E5100581C9D /* ic_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED40F516B12E5100581C9D /* ic_map.png */; };
 		7FED410816B140ED00581C9D /* ic_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED410716B140ED00581C9D /* ic_template.png */; };
 		7FED411816B141CE00581C9D /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FED411716B141CE00581C9D /* AppCell.m */; };
@@ -254,6 +255,7 @@
 		7FC8829816A85676008A06A8 /* SuperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperModel.m; path = classes/SuperModel.m; sourceTree = "<group>"; };
 		7FD39C6116BA5F7A00F5EB8E /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageResizer.h; path = classes/ImageResizer.h; sourceTree = "<group>"; };
 		7FD39C6216BA5F7A00F5EB8E /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageResizer.m; path = classes/ImageResizer.m; sourceTree = "<group>"; };
+		7FD39C6416BA7CF000F5EB8E /* ic_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_more.png; sourceTree = SOURCE_ROOT; };
 		7FED40F516B12E5100581C9D /* ic_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_map.png; sourceTree = SOURCE_ROOT; };
 		7FED410716B140ED00581C9D /* ic_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_template.png; sourceTree = SOURCE_ROOT; };
 		7FED411616B141CE00581C9D /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCell.h; path = classes/AppCell.h; sourceTree = "<group>"; };
@@ -897,6 +899,7 @@
 				7FFFBBC116A97E4900417499 /* ic_menu_notifications@2x.png */,
 				7FFFBBC216A97E4900417499 /* ic_menu_profile.png */,
 				7FFFBBC316A97E4900417499 /* ic_menu_profile@2x.png */,
+				7FD39C6416BA7CF000F5EB8E /* ic_more.png */,
 				7FFA007216B7E5A5003E53E1 /* ic_refresh.png */,
 				7FED410716B140ED00581C9D /* ic_template.png */,
 			);
@@ -1022,6 +1025,7 @@
 				7FFA008216B82D8C003E53E1 /* AppDetailViewController.xib in Resources */,
 				7FEF543E16B913DC00EAEED8 /* img_roundc.png in Resources */,
 				7FEF544116B9186D00EAEED8 /* ic_action_phone.png in Resources */,
+				7FD39C6516BA7CF000F5EB8E /* ic_more.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
