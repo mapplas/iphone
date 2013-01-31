@@ -36,6 +36,7 @@
 @synthesize phoneButton;
 @synthesize phoneLabel;
 
+@synthesize galleryBackground;
 @synthesize galleryScroll;
 
 - (id)initWithApp:(App *)app {
@@ -108,8 +109,7 @@
     for (NSString *currentKey in keys) {
         
         if ([imagesArray objectForKey:currentKey] != nil) {
-            CGRect imageViewFrame = CGRectMake(contentOffset, 0, self.galleryScroll.frame.size.width, self.galleryScroll.frame.size.height);
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
+            UIImageView *imageView = [resizer getImageViewForImage:[imagesArray objectForKey:currentKey] contentOffset:contentOffset background:self.galleryBackground];
             
             imageView.image = [resizer resizeImage:[imagesArray objectForKey:currentKey]];
             imageView.contentMode = UIViewContentModeCenter;

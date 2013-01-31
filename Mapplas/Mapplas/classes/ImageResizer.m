@@ -18,19 +18,19 @@
     return self;
 }
 
+- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset background:(UIView *)gallery_background {
+    CGRect imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
+    
+    if (_image.size.width < _image.size.height) {
+        scroll.frame = CGRectMake(20, 132, 280, 300);
+        gallery_background.frame = CGRectMake(0, 132, 320, scroll.frame.size.height);
+        imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
+    }
+    
+    return [[UIImageView alloc] initWithFrame:imageViewFrame];
+}
+
 - (UIImage *)resizeImage:(UIImage *)_image {
-    // Screen size
-//    CGRect screenBound = [[UIScreen mainScreen] bounds];
-//    CGSize screenSize = screenBound.size;
-//    CGFloat screenWidth = screenSize.width;
-//    
-//    NSUInteger constantw = 480;
-//    if (screenWidth >= 480) {
-//        constantw = 480;
-//    }
-//    else {
-//        constantw = 320;
-//    }
     NSUInteger constantw = 480;
     
     NSUInteger h = _image.size.height;
@@ -47,7 +47,7 @@
     UIImage *newImage = _image;
     
     if (h > scroll.frame.size.height) {
-        // Resize image        
+        // Resize image    
         CGSize newSize = CGSizeMake(w/1.5, h/1.5);  //whaterver size
         UIGraphicsBeginImageContext(newSize);
         [_image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];

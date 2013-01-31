@@ -5027,6 +5027,14 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">galleryBackground</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="317474314"/>
+					</object>
+					<int key="connectionID">613</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">_scrollView</string>
 						<reference key="source" ref="317474314"/>
 						<reference key="destination" ref="420504060"/>
@@ -5240,7 +5248,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">612</int>
+			<int key="maxID">613</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5269,6 +5277,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="blockButton">UIButton</string>
 						<string key="blockLabel">UILabel</string>
+						<string key="galleryBackground">UIView</string>
 						<string key="galleryScroll">UIScrollView</string>
 						<string key="logo">UIImageView</string>
 						<string key="name">UILabel</string>
@@ -5291,6 +5300,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="blockLabel">
 							<string key="name">blockLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="galleryBackground">
+							<string key="name">galleryBackground</string>
+							<string key="candidateClassName">UIView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="galleryScroll">
 							<string key="name">galleryScroll</string>

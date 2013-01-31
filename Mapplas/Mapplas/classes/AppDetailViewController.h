@@ -43,6 +43,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *phoneButton;
 @property (nonatomic, strong) IBOutlet UILabel *phoneLabel;
 
+@property (nonatomic, strong) IBOutlet UIView *galleryBackground;
 @property (nonatomic, strong) IBOutlet UIScrollView *galleryScroll;
 
 @end
