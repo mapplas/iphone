@@ -121,7 +121,20 @@
     self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
     
-    // Description
+    // Description    
+    CGSize maximumLabelSize = CGSizeMake(302, 110);
+    
+    CGSize expectedLabelSize = [self.app.appDescription sizeWithFont:self.descriptionText.font
+                                      constrainedToSize:maximumLabelSize
+                                          lineBreakMode:self.descriptionText.lineBreakMode];
+    
+    // Adjust the label the the new height.
+    CGRect newFrame = self.descriptionText.frame;
+    newFrame.size.height = expectedLabelSize.height;
+    self.descriptionText.frame = newFrame;
+    CGRect viewFrame = CGRectMake(self.descriptionText.frame.origin.x, self.descriptionText.frame.origin.y, self.descriptionText.frame.size.width, self.descriptionText.frame.size.height + 30);
+    self.descriptionView.frame = viewFrame;
+    
     self.descriptionText.text = self.app.appDescription;
     
     // Support
