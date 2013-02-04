@@ -51,6 +51,7 @@
 @synthesize descriptionView;
 @synthesize descriptionText;
 @synthesize morebutton;
+@synthesize moreBigButton;
 
 @synthesize supportView;
 @synthesize developerLabel;
@@ -201,6 +202,7 @@
     self.descriptionText.frame = newFrame;
     CGRect viewFrame = CGRectMake(self.descriptionText.frame.origin.x, self.descriptionText.frame.origin.y, self.descriptionText.frame.size.width, self.descriptionText.frame.size.height + 30);
     self.descriptionView.frame = viewFrame;
+    self.moreBigButton.frame = viewFrame;
     
     self.descriptionText.text = self.app.appDescription;
 }
