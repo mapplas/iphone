@@ -20,7 +20,7 @@
 
 @implementation AppDetailViewController
 
-@synthesize app = _app, user = _user, currentLocation = _current_location;
+@synthesize app = _app, user = _user, currentLocation = _current_location, model = _model;
 
 //@synthesize commentsViewController = _commentsViewController;
 
@@ -32,16 +32,18 @@
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
 @synthesize supportView, developerLabel, devWebButton, devEmailButton, asistencyButton;
 
-- (id)initWithApp:(App *)app user:(User *)user andLocation:(NSString *)current_location {
+- (id)initWithApp:(App *)app user:(User *)user model:(SuperModel *)super_model andLocation:(NSString *)current_location {
     self = [super initWithNibName:@"AppDetailViewController" bundle:nil];
     if (self) {
         self.app = app;
         self.user = user;
         self.currentLocation = current_location;
+        self.model = super_model;
         
         imagesArray = [[NSMutableDictionary alloc] init];
         downloadedImages = 0;
         descriptionOpened = NO;
+        somethingChangedOnApp = NO;
     }
     return self;
 }
@@ -65,6 +67,14 @@
     [self configureGallery];
     
     [scrollViewConfigurator organize];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (somethingChangedOnApp) {
+        [[Environment sharedInstance] setAppSomethingChangedInDetail:somethingChangedOnApp];
+        somethingChangedOnApp = NO;
+    }
 }
 
 - (void)downloadGalleryImages {
@@ -236,6 +246,8 @@
         action = ACTION_PIN_REQUEST_PIN;
         self.app.auxPin = @"1";
     }
+    
+    somethingChangedOnApp = YES;
 
     pinRequest = [[AppPinRequest alloc] init];
     [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:action andLocation:self.currentLocation];
@@ -255,7 +267,18 @@
 }
 
 - (IBAction)block:(id)sender {
+    self.app.auxBlocked = @"1";
+    somethingChangedOnApp = YES;
     
+    [self.model.appList deleteApp:self.app];
+    
+    blockRequest = [[AppBlockRequest alloc] init];
+    [blockRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_BLOCK];
+    
+    pinRequest = [[AppPinRequest alloc] init];
+    [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)rate:(id)sender {

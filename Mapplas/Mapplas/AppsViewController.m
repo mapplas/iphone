@@ -72,7 +72,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (self.loadedListCount > 0) {
+    if ([[Environment sharedInstance] appSomethingChangedInDetail]) {
+        [[Environment sharedInstance] setAppSomethingChangedInDetail:NO];
         [self.model.appList sort];
         [self reloadTableDataAndScrollTop:YES];
     }
@@ -186,7 +187,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row] user:self.model.user andLocation:self.model.currentLocation];
+    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row] user:self.model.user model:self.model andLocation:self.model.currentLocation];
     [self.navigationController pushViewController:appViewController animated:YES];
 }
 
