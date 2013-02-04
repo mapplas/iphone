@@ -28,6 +28,8 @@
     
     ScrollViewOfViews *scrollViewConfigurator;
     
+    BOOL descriptionOpened;
+    
 //    AppDetailCommentsViewController *_commentsViewController;
 }
 

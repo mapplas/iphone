@@ -9,11 +9,12 @@
 #import "AppDetailViewController.h"
 
 @interface AppDetailViewController ()
-
 - (void)downloadGalleryImages;
 - (void)initLayout;
 - (void)configureGallery;
-
+- (void)showAppSmallDescription;
+- (void)showAppCompleteDescription;
+- (void)adjustLabel:(CGSize)max_label_size;
 @end
 
 @implementation AppDetailViewController
@@ -62,6 +63,7 @@
         self.app = app;
         imagesArray = [[NSMutableDictionary alloc] init];
         downloadedImages = 0;
+        descriptionOpened = NO;
     }
     return self;
 }
@@ -131,21 +133,8 @@
     self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
     
-    // Description    
-    CGSize maximumLabelSize = CGSizeMake(302, 110);
-    
-    CGSize expectedLabelSize = [self.app.appDescription sizeWithFont:self.descriptionText.font
-                                      constrainedToSize:maximumLabelSize
-                                          lineBreakMode:self.descriptionText.lineBreakMode];
-    
-    // Adjust the label the the new height.
-    CGRect newFrame = self.descriptionText.frame;
-    newFrame.size.height = expectedLabelSize.height;
-    self.descriptionText.frame = newFrame;
-    CGRect viewFrame = CGRectMake(self.descriptionText.frame.origin.x, self.descriptionText.frame.origin.y, self.descriptionText.frame.size.width, self.descriptionText.frame.size.height + 30);
-    self.descriptionView.frame = viewFrame;
-    
-    self.descriptionText.text = self.app.appDescription;
+    // Description
+    [self showAppSmallDescription];
     
     // Support
     self.developerLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
@@ -184,6 +173,46 @@
         [scrollViewConfigurator removeView:self.galleryView];
         [scrollViewConfigurator organize];
     }
+}
+
+- (void)showAppSmallDescription {
+    CGSize maximumLabelSize = CGSizeMake(self.descriptionText.frame.size.width, 110);
+    [self adjustLabel:maximumLabelSize];
+}
+
+- (void)showAppCompleteDescription {
+    CGSize maximumLabelSize = CGSizeMake(self.descriptionText.frame.size.width, FLT_MAX);
+    [self adjustLabel:maximumLabelSize];
+}
+
+- (void)adjustLabel:(CGSize)max_label_size {
+    CGSize expectedLabelSize = [self.app.appDescription sizeWithFont:self.descriptionText.font
+                                                   constrainedToSize:max_label_size
+                                                       lineBreakMode:self.descriptionText.lineBreakMode];
+    // Adjust label to the new height.
+    self.descriptionText.numberOfLines = 0;
+    CGRect newFrame = self.descriptionText.frame;
+    newFrame.size.height = expectedLabelSize.height;
+    self.descriptionText.frame = newFrame;
+    CGRect viewFrame = CGRectMake(self.descriptionText.frame.origin.x, self.descriptionText.frame.origin.y, self.descriptionText.frame.size.width, self.descriptionText.frame.size.height + 30);
+    self.descriptionView.frame = viewFrame;
+    self.moreBigbutton.frame = viewFrame;
+    
+    self.descriptionText.text = self.app.appDescription;
+}
+
+- (IBAction)showCompleteDescription:(id)sender {
+    
+    if (descriptionOpened) {
+        descriptionOpened = NO;
+        [self showAppSmallDescription];
+    }
+    else {
+        descriptionOpened = YES;
+        [self showAppCompleteDescription];
+    }
+    
+    [scrollViewConfigurator organize];
 }
 
 #pragma mark - AsynchronousImageDownloadedProtocol methods
