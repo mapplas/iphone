@@ -46,6 +46,7 @@
 @synthesize galleryView;
 @synthesize galleryBackground;
 @synthesize galleryScroll;
+@synthesize pageControl;
 
 @synthesize descriptionView;
 @synthesize descriptionText;
@@ -144,14 +145,18 @@
 }
 
 - (void)configureGallery {
-    self.galleryScroll.clipsToBounds = NO;
-	self.galleryScroll.pagingEnabled = YES;
-    self.galleryScroll.showsHorizontalScrollIndicator = NO;
-	
 	CGFloat contentOffset = 0.0f;
     ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:self.galleryScroll];
     
     NSArray *keys = [imagesArray allKeys];
+    
+    self.galleryScroll.clipsToBounds = NO;
+	self.galleryScroll.pagingEnabled = YES;
+    self.galleryScroll.showsHorizontalScrollIndicator = NO;
+    self.galleryScroll.delegate = self;
+    
+    self.pageControl.numberOfPages = keys.count;
+    self.pageControl.currentPage = 0;
     
     if (keys.count > 0) {
         for (NSString *currentKey in keys) {
@@ -196,7 +201,6 @@
     self.descriptionText.frame = newFrame;
     CGRect viewFrame = CGRectMake(self.descriptionText.frame.origin.x, self.descriptionText.frame.origin.y, self.descriptionText.frame.size.width, self.descriptionText.frame.size.height + 30);
     self.descriptionView.frame = viewFrame;
-    self.moreBigbutton.frame = viewFrame;
     
     self.descriptionText.text = self.app.appDescription;
 }
@@ -213,6 +217,18 @@
     }
     
     [scrollViewConfigurator organize];
+}
+
+#pragma mark - UIScrollViewDelegate methods - PageControl
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat pageWidth = self.galleryScroll.frame.size.width;
+    int page = floor((self.galleryScroll.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    pageControl.currentPage = page;
+}
+
+- (void)loadScrollViewWithPage:(int)page {
+    if (page < 0) return;
+    if (page >= [imagesArray allKeys].count) return;
 }
 
 #pragma mark - AsynchronousImageDownloadedProtocol methods

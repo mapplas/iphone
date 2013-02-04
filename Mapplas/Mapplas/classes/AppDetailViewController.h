@@ -19,7 +19,7 @@
 
 #import "AppDetailCommentsViewController.h"
 
-@interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol> {
+@interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate> {
     App *_app;
     
     ImageLoader *imageLoader;
@@ -62,6 +62,7 @@
 @property (nonatomic, strong) IBOutlet UIView *galleryView;
 @property (nonatomic, strong) IBOutlet UIView *galleryBackground;
 @property (nonatomic, strong) IBOutlet UIScrollView *galleryScroll;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
 @property (nonatomic, strong) IBOutlet UIView *descriptionView;
 @property (nonatomic, strong) IBOutlet UILabel *descriptionText;

@@ -99,7 +99,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"CommentTableItem";
+//    static NSString *simpleTableIdentifier = @"CommentTableItem";
     UITableViewCell *cell = self.commentCell;
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 //    if (cell == nil) {
