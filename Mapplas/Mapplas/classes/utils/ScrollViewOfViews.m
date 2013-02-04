@@ -47,10 +47,21 @@
 	for (UIView *current_view in [scrollView subviews]) {
 		[current_view removeFromSuperview];
 	}
-
-	for (UIView *current_view in self.views) {
-		[self.scrollView addSubview:current_view];
-		currentY += [self concatView:current_view toScrollView:self.scrollView currentYPosition:currentY];
+    
+    for (id current in self.views) {
+		UIView *current_view = nil;
+        if([current isKindOfClass:[UIView class]]) {
+			current_view = (UIView *)current;
+		}
+		else if([current isKindOfClass:[UIViewController class]]) {
+			UIViewController *currentController = (UIViewController *)current;
+			current_view = currentController.view;
+		}
+        
+		if(current_view != nil) {
+			[self.scrollView addSubview:current_view];
+			currentY += [self concatView:current_view toScrollView:self.scrollView currentYPosition:currentY];
+		}
 	}
 
 	[self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, currentY)];

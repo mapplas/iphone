@@ -17,6 +17,8 @@
 
 #import "ScrollViewOfViews.h"
 
+#import "AppDetailCommentsViewController.h"
+
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol> {
     App *_app;
     
@@ -25,11 +27,15 @@
     NSUInteger downloadedImages;
     
     ScrollViewOfViews *scrollViewConfigurator;
+    
+//    AppDetailCommentsViewController *_commentsViewController;
 }
 
 - (id)initWithApp:(App *)app;
 
 @property (nonatomic, strong) App *app;
+
+//@property (nonatomic, strong) AppDetailCommentsViewController *commentsViewController;
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 

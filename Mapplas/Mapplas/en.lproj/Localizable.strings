@@ -68,3 +68,6 @@
 
 /* App detail - support button */
 "app_detail_developer_support_button" = "Support";
+
+/* App detail - comments list header text */
+"app_detail_comment_list_title" = "Comments";

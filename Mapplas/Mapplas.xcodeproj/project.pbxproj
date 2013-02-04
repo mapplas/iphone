@@ -100,6 +100,10 @@
 		7FFA007316B7E5A5003E53E1 /* ic_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA007216B7E5A5003E53E1 /* ic_refresh.png */; };
 		7FFA008116B82D8C003E53E1 /* AppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */; };
 		7FFA008216B82D8C003E53E1 /* AppDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA008016B82D8C003E53E1 /* AppDetailViewController.xib */; };
+		7FFA5C0616BBB9D4002BE898 /* AppDetailCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA5C0416BBB9D4002BE898 /* AppDetailCommentsViewController.m */; };
+		7FFA5C0716BBB9D4002BE898 /* AppDetailCommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA5C0516BBB9D4002BE898 /* AppDetailCommentsViewController.xib */; };
+		7FFA5C0916BBBF66002BE898 /* bgd_lblcom.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA5C0816BBBF66002BE898 /* bgd_lblcom.png */; };
+		7FFA5C0B16BBC076002BE898 /* ic_arrow_com.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA5C0A16BBC076002BE898 /* ic_arrow_com.png */; };
 		7FFC228B16AE9B6B00469819 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFC228A16AE9B6B00469819 /* Default-568h@2x.png */; };
 		7FFFBA9D16A932AB00417499 /* UserIdentificationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBA9C16A932AB00417499 /* UserIdentificationRequest.m */; };
 		7FFFBAAE16A9351100417499 /* UserIdentificationConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFBAAD16A9351100417499 /* UserIdentificationConnector.m */; };
@@ -305,6 +309,11 @@
 		7FFA007E16B82D8C003E53E1 /* AppDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDetailViewController.h; path = classes/AppDetailViewController.h; sourceTree = "<group>"; };
 		7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDetailViewController.m; path = classes/AppDetailViewController.m; sourceTree = "<group>"; };
 		7FFA008016B82D8C003E53E1 /* AppDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppDetailViewController.xib; path = classes/AppDetailViewController.xib; sourceTree = "<group>"; };
+		7FFA5C0316BBB9D4002BE898 /* AppDetailCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDetailCommentsViewController.h; path = classes/AppDetailCommentsViewController.h; sourceTree = "<group>"; };
+		7FFA5C0416BBB9D4002BE898 /* AppDetailCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDetailCommentsViewController.m; path = classes/AppDetailCommentsViewController.m; sourceTree = "<group>"; };
+		7FFA5C0516BBB9D4002BE898 /* AppDetailCommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppDetailCommentsViewController.xib; path = classes/AppDetailCommentsViewController.xib; sourceTree = "<group>"; };
+		7FFA5C0816BBBF66002BE898 /* bgd_lblcom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgd_lblcom.png; sourceTree = SOURCE_ROOT; };
+		7FFA5C0A16BBC076002BE898 /* ic_arrow_com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_arrow_com.png; sourceTree = SOURCE_ROOT; };
 		7FFC228A16AE9B6B00469819 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FFFBA9B16A932AB00417499 /* UserIdentificationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserIdentificationRequest.h; path = classes/UserIdentificationRequest.h; sourceTree = "<group>"; };
 		7FFFBA9C16A932AB00417499 /* UserIdentificationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserIdentificationRequest.m; path = classes/UserIdentificationRequest.m; sourceTree = "<group>"; };
@@ -735,11 +744,22 @@
 		7FFA007C16B82D60003E53E1 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				7FFA5BFF16BBB99C002BE898 /* Comments */,
 				7FFA007E16B82D8C003E53E1 /* AppDetailViewController.h */,
 				7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */,
 				7FFA008016B82D8C003E53E1 /* AppDetailViewController.xib */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		7FFA5BFF16BBB99C002BE898 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA5C0316BBB9D4002BE898 /* AppDetailCommentsViewController.h */,
+				7FFA5C0416BBB9D4002BE898 /* AppDetailCommentsViewController.m */,
+				7FFA5C0516BBB9D4002BE898 /* AppDetailCommentsViewController.xib */,
+			);
+			name = Comments;
 			sourceTree = "<group>";
 		};
 		7FFFBA9816A9314500417499 /* Localization */ = {
@@ -896,6 +916,7 @@
 				7FC8548A16B1919B00D73E90 /* ic_action_rate.png */,
 				7FC8548B16B1919B00D73E90 /* ic_action_share.png */,
 				7F2CE75316B672C500B7E6E5 /* ic_action_unpinup.png */,
+				7FFA5C0A16BBC076002BE898 /* ic_arrow_com.png */,
 				7F2CE75E16B69D3A00B7E6E5 /* ic_badge_free.png */,
 				7FC8548716B18F3900D73E90 /* ic_badge_nav.png */,
 				7FC8548316B18A9300D73E90 /* ic_badge_price.png */,
@@ -914,6 +935,7 @@
 		7FFFBBB716A97E2A00417499 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				7FFA5C0816BBBF66002BE898 /* bgd_lblcom.png */,
 				7FFFBBB816A97E3500417499 /* bgd_menu_default.png */,
 				7FFFBBB916A97E3500417499 /* bgd_menu_default@2x.png */,
 				7FFFBBBA16A97E3500417499 /* bgd_menu.png */,
@@ -1031,6 +1053,9 @@
 				7FEF543E16B913DC00EAEED8 /* img_roundc.png in Resources */,
 				7FEF544116B9186D00EAEED8 /* ic_action_phone.png in Resources */,
 				7FD39C6516BA7CF000F5EB8E /* ic_more.png in Resources */,
+				7FFA5C0716BBB9D4002BE898 /* AppDetailCommentsViewController.xib in Resources */,
+				7FFA5C0916BBBF66002BE898 /* bgd_lblcom.png in Resources */,
+				7FFA5C0B16BBC076002BE898 /* ic_arrow_com.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,6 +1163,7 @@
 				7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */,
 				7FD39C6316BA5F7A00F5EB8E /* ImageResizer.m in Sources */,
 				7FD39C6916BA84B600F5EB8E /* ScrollViewOfViews.m in Sources */,
+				7FFA5C0616BBB9D4002BE898 /* AppDetailCommentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

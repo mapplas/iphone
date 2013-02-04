@@ -20,6 +20,8 @@
 
 @synthesize app = _app;
 
+//@synthesize commentsViewController = _commentsViewController;
+
 @synthesize scroll;
 
 @synthesize topBar;
@@ -55,7 +57,7 @@
 @synthesize asistencyButton;
 
 - (id)initWithApp:(App *)app {
-    self = [super initWithNibName:nil bundle:nil];
+    self = [super initWithNibName:@"AppDetailViewController" bundle:nil];
     if (self) {
         self.app = app;
         imagesArray = [[NSMutableDictionary alloc] init];
@@ -66,8 +68,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
-    NSMutableArray *viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.supportView, nil];
+    
+    NSMutableArray *viewsToAddToScroll = nil;
+//    if (self.app.auxCommentsArray.count > 0) {
+//        self.commentsViewController = [[AppDetailCommentsViewController alloc] initWithApp:self.app];
+//        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.commentsViewController, self.supportView, nil];
+//    }
+//    else {
+        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.supportView, nil];
+//    }
+    
     scrollViewConfigurator = [[ScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
     [self downloadGalleryImages];
