@@ -69,6 +69,15 @@
     // ??
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.loadedListCount > 0) {
+        [self.model.appList sort];
+        [self reloadTableDataAndScrollTop:YES];
+    }
+}
+
 - (void)viewDidUnload {
     [super viewDidUnload];
 	_refreshHeaderView = nil;
@@ -177,7 +186,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row]];
+    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row] user:self.model.user andLocation:self.model.currentLocation];
     [self.navigationController pushViewController:appViewController animated:YES];
 }
 

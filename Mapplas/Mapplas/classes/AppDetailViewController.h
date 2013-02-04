@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "App.h"
 #import "Photo.h"
+#import "User.h"
 
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
@@ -19,8 +20,13 @@
 
 #import "AppDetailCommentsViewController.h"
 
+#import "AppPinRequest.h"
+#import "Constants.h"
+
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate> {
     App *_app;
+    User *_user;
+    NSString *_current_location;
     
     ImageLoader *imageLoader;
     NSMutableDictionary *imagesArray;
@@ -30,12 +36,16 @@
     
     BOOL descriptionOpened;
     
+    AppPinRequest *pinRequest;
+    
 //    AppDetailCommentsViewController *_commentsViewController;
 }
 
-- (id)initWithApp:(App *)app;
+- (id)initWithApp:(App *)app user:(User *)user andLocation:(NSString *)current_location;
 
 @property (nonatomic, strong) App *app;
+@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) NSString *currentLocation;
 
 //@property (nonatomic, strong) AppDetailCommentsViewController *commentsViewController;
 

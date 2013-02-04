@@ -15,54 +15,30 @@
 - (void)showAppSmallDescription;
 - (void)showAppCompleteDescription;
 - (void)adjustLabel:(CGSize)max_label_size;
+- (void)initPinActionLayout;
 @end
 
 @implementation AppDetailViewController
 
-@synthesize app = _app;
+@synthesize app = _app, user = _user, currentLocation = _current_location;
 
 //@synthesize commentsViewController = _commentsViewController;
 
 @synthesize scroll;
 
-@synthesize topBar;
-@synthesize logo;
-@synthesize name;
-@synthesize priceBackground;
-@synthesize priceLabel;
+@synthesize topBar, logo, name, priceBackground, priceLabel;
+@synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
+@synthesize galleryView, galleryBackground, galleryScroll, pageControl;
+@synthesize descriptionView, descriptionText, morebutton, moreBigButton;
+@synthesize supportView, developerLabel, devWebButton, devEmailButton, asistencyButton;
 
-@synthesize actionBar;
-@synthesize pinButton;
-@synthesize pinLabel;
-@synthesize rateButton;
-@synthesize rateLabel;
-@synthesize blockButton;
-@synthesize blockLabel;
-@synthesize shareButton;
-@synthesize shareLabel;
-@synthesize phoneButton;
-@synthesize phoneLabel;
-
-@synthesize galleryView;
-@synthesize galleryBackground;
-@synthesize galleryScroll;
-@synthesize pageControl;
-
-@synthesize descriptionView;
-@synthesize descriptionText;
-@synthesize morebutton;
-@synthesize moreBigButton;
-
-@synthesize supportView;
-@synthesize developerLabel;
-@synthesize devWebButton;
-@synthesize devEmailButton;
-@synthesize asistencyButton;
-
-- (id)initWithApp:(App *)app {
+- (id)initWithApp:(App *)app user:(User *)user andLocation:(NSString *)current_location {
     self = [super initWithNibName:@"AppDetailViewController" bundle:nil];
     if (self) {
         self.app = app;
+        self.user = user;
+        self.currentLocation = current_location;
+        
         imagesArray = [[NSMutableDictionary alloc] init];
         downloadedImages = 0;
         descriptionOpened = NO;
@@ -123,13 +99,7 @@
     self.priceBackground.image = [priceHelper getImage];
 
     // Action layout
-    if ([self.app.auxPin isEqualToString:@"1"]) {
-        self.pinButton.imageView.image = [UIImage imageNamed:@"ic_action_unpinup"];
-        self.pinLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
-    }
-    else {
-        self.pinLabel.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
-    }
+    [self initPinActionLayout];
     self.rateLabel.text = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
     self.blockLabel.text = NSLocalizedString(@"block_text", @"Block text");
     self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
@@ -253,6 +223,51 @@
 
 - (void)imageNotDownloaded:(DownloadedImageError *)error withSaveName:(NSString *)save_name {
     downloadedImages++;
+}
+
+#pragma action bar actions
+- (IBAction)pinUp:(id)sender {
+    NSString *action = @"";
+    if ([self.app.auxPin isEqualToString:@"1"]) {
+        action = ACTION_PIN_REQUEST_UNPIN;
+        self.app.auxPin = @"0";
+    }
+    else {
+        action = ACTION_PIN_REQUEST_PIN;
+        self.app.auxPin = @"1";
+    }
+
+    pinRequest = [[AppPinRequest alloc] init];
+    [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:action andLocation:self.currentLocation];
+    
+    [self initPinActionLayout];
+}
+
+- (void)initPinActionLayout {
+    if ([self.app.auxPin isEqualToString:@"1"]) {
+        self.pinButton.selected = YES;
+        self.pinLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+    }
+    else {
+        self.pinButton.selected = NO;
+        self.pinLabel.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
+    }
+}
+
+- (IBAction)block:(id)sender {
+    
+}
+
+- (IBAction)rate:(id)sender {
+    
+}
+
+- (IBAction)share:(id)sender {
+    
+}
+
+- (IBAction)call:(id)sender {
+    
 }
 
 @end
