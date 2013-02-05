@@ -26,7 +26,7 @@
 
 @synthesize scroll;
 
-@synthesize topBar, logo, name, priceBackground, priceLabel;
+@synthesize topBar, logo, name, priceBackground, priceLabel, ratingView;
 @synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
@@ -107,6 +107,10 @@
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
     self.priceLabel.text = [priceHelper getPriceText];
     self.priceBackground.image = [priceHelper getImage];
+    
+    // Rating
+    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
+    [self.topBar addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
 
     // Action layout
     [self initPinActionLayout];

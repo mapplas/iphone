@@ -25,6 +25,8 @@
 #import "AppPinRequest.h"
 #import "AppBlockRequest.h"
 
+#import "RatingHelper.h"
+
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate> {
     App *_app;
     User *_user;
@@ -62,6 +64,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *name;
 @property (nonatomic, strong) IBOutlet UIImageView *priceBackground;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
+@property (nonatomic, strong) IBOutlet UIView *ratingView;
 
 @property (nonatomic, strong) IBOutlet UIView *actionBar;
 @property (nonatomic, strong) IBOutlet UIButton *pinButton;
