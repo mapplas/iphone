@@ -85,40 +85,9 @@
     [self.cellContent addSubview:self.cellUnpressed];
     
     // Rating
-//    rating = [[DLStarRatingControl alloc] initWithFrame:CGRectMake(self.ratingView.frame.origin.x, self.ratingView.frame.origin.y + 5, self.ratingView.frame.size.width, self.ratingView.frame.size.height)
-// andStars:5 isFractional:YES];
-//    rating.delegate = self;
-//	rating.backgroundColor = [UIColor clearColor];
-//	rating.autoresizingMask =  UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-//	rating.rating = [self.app.auxTotalRate doubleValue];
-//    rating.userInteractionEnabled = NO;
-//	[self.cellUnpressed addSubview:rating];
-//    
-//    NSString *ratingText = NSLocalizedString(@"app_rating_unrated", @"Rating - unrated app");
-//    switch ((int)ceil([self.app.auxTotalRate doubleValue])) {
-//        case 1:
-//            ratingText = NSLocalizedString(@"app_rating_poor_app", @"Rating - poor app");
-//            break;
-//        case 2:
-//            ratingText = NSLocalizedString(@"app_rating_below_avg_app", @"Rating - below average app");
-//            break;
-//        case 3:
-//            ratingText = NSLocalizedString(@"app_rating_avg_app", @"Rating - average app");
-//            break;
-//        case 4:
-//            ratingText = NSLocalizedString(@"app_rating_above_avg_app", @"Rating - above average app");
-//            break;
-//        case 5:
-//            ratingText = NSLocalizedString(@"app_rating_excellent_app", @"Rating - excellent app");
-//            break;
-//        default:
-//            break;
-//    }
-//    self.ratingLabel.text = ratingText;
-}
-
-- (void)newRating:(DLStarRatingControl *)control :(float)rating {
-    // Empty
+    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
+    [self.cellUnpressed addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
+    self.ratingLabel.text = [ratingHelper getRatingTextForApp:self.app];
 }
 
 - (void)loadPressedCellData {
