@@ -104,3 +104,9 @@
 
 /* Navigation bar button - Done */
 "nav_bar_button_done" = "Done";
+
+/* Toast after send rate info - OK */
+"toast_after_rate_ok" = "Rate correctly sent!";
+
+/* Toast after send rate info - NOK */
+"toast_after_rate_nok" = "Error sending rate... Try again!";

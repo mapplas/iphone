@@ -19,7 +19,7 @@
 @synthesize ratingView, rateItLabel, ratingLabel;
 @synthesize titleField, commentField;
 
-- (id)initWithAppId:(NSString *)app_id userId:(NSString *)user_id location:(NSString *)location andDescriptiveGeoLoc:(NSString *)descr_geoloc {
+- (id)initWithAppId:(NSString *)app_id userId:(NSString *)user_id location:(NSString *)location descriptiveGeoLoc:(NSString *)descr_geoloc andView:(UIView *)view {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         actualRate = [NSNumber numberWithInt:5];
@@ -28,6 +28,7 @@
         userId = user_id;
         currentLocation = location;
         descriptiveGeoloc = descr_geoloc;
+        detailView = view;
     }
     return self;
 }
@@ -51,7 +52,7 @@
 
 - (void)popAndSave {
     rateRequester = [[AppRateRequest alloc] init];
-    [rateRequester doRequestWithRate:[actualRate stringValue] comment:self.commentField.text appId:appId userId:userId location:currentLocation descriptiveGeoloc:descriptiveGeoloc andViewToShowToast:self.view];
+    [rateRequester doRequestWithRate:[actualRate stringValue] comment:self.commentField.text appId:appId userId:userId location:currentLocation descriptiveGeoloc:descriptiveGeoloc andViewToShowToast:detailView];
     
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }

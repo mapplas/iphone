@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GenericRequestHandler.h"
+#import "Toast.h"
 
 @interface AppRateRequestResponseHandler : NSObject <GenericRequestHandler> {
     UIView *viewToShowToast;

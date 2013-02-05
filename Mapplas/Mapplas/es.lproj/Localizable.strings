@@ -104,3 +104,9 @@
 
 /* Navigation bar button - Done */
 "nav_bar_button_done" = "Hecho";
+
+/* Toast after send rate info - OK */
+"toast_after_rate_ok" = "Comentario enviado correctamente!";
+
+/* Toast after send rate info - NOK */
+"toast_after_rate_nok" = "Error al enviar la valoración... Inténtalo de nuevo!";

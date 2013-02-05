@@ -19,11 +19,13 @@
 }
 
 - (void)requestFinished:(id)JSON {
-    
+    Toast *okToast = [[Toast alloc] initAndShowIn:viewToShowToast withText:NSLocalizedString(@"toast_after_rate_ok", @"Toast after send rate info - OK")];
+    [okToast show];
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
-    
+    Toast *okToast = [[Toast alloc] initAndShowIn:viewToShowToast withText:NSLocalizedString(@"toast_after_rate_nok", @"Toast after send rate info - NOK")];
+    [okToast show];
 }
 
 @end
