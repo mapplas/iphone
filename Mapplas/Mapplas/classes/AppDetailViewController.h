@@ -67,6 +67,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *priceBackground;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 @property (nonatomic, strong) IBOutlet UIView *ratingView;
+@property (nonatomic, strong) IBOutlet UIButton *ratingViewButton;
 
 @property (nonatomic, strong) IBOutlet UIView *actionBar;
 @property (nonatomic, strong) IBOutlet UIButton *pinButton;
@@ -95,5 +96,12 @@
 @property (nonatomic, strong) IBOutlet UIButton *devWebButton;
 @property (nonatomic, strong) IBOutlet UIButton *devEmailButton;
 @property (nonatomic, strong) IBOutlet UIButton *asistencyButton;
+
+
+- (IBAction)pinUp:(id)sender;
+- (IBAction)block:(id)sender;
+- (IBAction)rate:(id)sender;
+- (IBAction)share:(id)sender;
+- (IBAction)call:(id)sender;
 
 @end

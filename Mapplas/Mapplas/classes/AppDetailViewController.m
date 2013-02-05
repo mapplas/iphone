@@ -26,7 +26,7 @@
 
 @synthesize scroll;
 
-@synthesize topBar, logo, name, priceBackground, priceLabel, ratingView;
+@synthesize topBar, logo, name, priceBackground, priceLabel, ratingView, ratingViewButton;
 @synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
