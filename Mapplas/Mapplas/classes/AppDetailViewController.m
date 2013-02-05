@@ -241,10 +241,12 @@
     if ([self.app.auxPin isEqualToString:@"1"]) {
         action = ACTION_PIN_REQUEST_UNPIN;
         self.app.auxPin = @"0";
+        self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] - 1];
     }
     else {
         action = ACTION_PIN_REQUEST_PIN;
         self.app.auxPin = @"1";
+        self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] + 1];
     }
     
     somethingChangedOnApp = YES;

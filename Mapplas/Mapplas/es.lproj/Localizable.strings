@@ -71,3 +71,21 @@
 
 /* App detail - comments list header text */
 "app_detail_comment_list_title" = "Comentarios";
+
+/* Rating - unrated app */
+"app_rating_unrated" = "Sin valorar";
+
+/* Rating - poor app */
+"app_rating_poor_app" = "Baja";
+
+/* Rating - below average app */
+"app_rating_below_avg_app" = "Inferior a la media";
+
+/* Rating - average app */
+"app_rating_avg_app" = "Media";
+
+/* Rating - above average app */
+"app_rating_above_avg_app" = "Superior a la media";
+
+/* Rating - excellent app */
+"app_rating_excellent_app" = "Excelente";

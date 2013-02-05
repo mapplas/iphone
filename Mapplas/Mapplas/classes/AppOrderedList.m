@@ -69,10 +69,10 @@
                                     }
                                     else {
                                         if(app1.auxTotalRate > app2.auxTotalRate) {
-                                            return NSOrderedAscending;
+                                            return NSOrderedDescending;
                                         }
                                         else if(app1.auxTotalRate < app2.auxTotalRate) {
-                                            return NSOrderedDescending;
+                                            return NSOrderedAscending;
                                         }
                                         else {
                                             return NSOrderedSame;
