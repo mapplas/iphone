@@ -18,9 +18,13 @@
 }
 
 - (NSString *)getRatingTextForApp:(App *)_app {
+    return [self getText:(int)ceil([_app.auxTotalRate doubleValue])];
+}
+
+- (NSString *)getText:(int)value {
     NSString *ratingText = NSLocalizedString(@"app_rating_unrated", @"Rating - unrated app");
-    
-    switch ((int)ceil([_app.auxTotalRate doubleValue])) {
+
+    switch (value) {
         case 1:
             ratingText = NSLocalizedString(@"app_rating_poor_app", @"Rating - poor app");
             break;

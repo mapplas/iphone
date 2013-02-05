@@ -51,6 +51,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationItem.backBarButtonItem.tintColor = [UIColor grayColor];
+    
     NSMutableArray *viewsToAddToScroll = nil;
 //    if (self.app.auxCommentsArray.count > 0) {
 //        self.commentsViewController = [[AppDetailCommentsViewController alloc] initWithApp:self.app];
@@ -288,7 +290,12 @@
 }
 
 - (IBAction)rate:(id)sender {
+    RatingModalViewController *ratingController = [[RatingModalViewController alloc] init];    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
+    [SCAppUtils customizeNavigationController:navController];
+    ratingController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     
+    [self presentModalViewController:navController animated:YES];
 }
 
 - (IBAction)share:(id)sender {

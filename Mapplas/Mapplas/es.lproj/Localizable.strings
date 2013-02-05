@@ -89,3 +89,18 @@
 
 /* Rating - excellent app */
 "app_rating_excellent_app" = "Excelente";
+
+/* Rating - rate it text */
+"app_rating_rate_it_text" = "¡Puntúalo!";
+
+/* Rating modal screen - Review text */
+"app_rating_modal_review_text" = "Comentar";
+
+/* Rating modal screen - Title text */
+"app_rating_modal_title_text" = "Título";
+
+/* Navigation bar button - Cancel */
+"nav_bar_button_cancel" = "Cancelar";
+
+/* Navigation bar button - Done */
+"nav_bar_button_done" = "Hecho";

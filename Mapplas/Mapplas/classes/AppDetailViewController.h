@@ -20,12 +20,14 @@
 #import "ScrollViewOfViews.h"
 
 #import "AppDetailCommentsViewController.h"
+#import "SCAppUtils.h"
 
 #import "Constants.h"
 #import "AppPinRequest.h"
 #import "AppBlockRequest.h"
 
 #import "RatingHelper.h"
+#import "RatingModalViewController.h"
 
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate> {
     App *_app;

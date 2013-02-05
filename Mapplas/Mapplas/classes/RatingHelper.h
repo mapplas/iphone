@@ -13,5 +13,6 @@
 
 - (DYRateView *)getRatingViewForView:(UIView *)_view andApp:(App *)_app;
 - (NSString *)getRatingTextForApp:(App *)_app;
+- (NSString *)getText:(int)value;
 
 @end
