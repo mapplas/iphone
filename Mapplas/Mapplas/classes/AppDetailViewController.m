@@ -290,7 +290,7 @@
 }
 
 - (IBAction)rate:(id)sender {
-    RatingModalViewController *ratingController = [[RatingModalViewController alloc] init];    
+    RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.user.userId location:self.model.currentLocation andDescriptiveGeoLoc:self.model.currentDescriptiveGeoLoc];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
     [SCAppUtils customizeNavigationController:navController];
     ratingController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;

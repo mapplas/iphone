@@ -19,10 +19,15 @@
 @synthesize ratingView, rateItLabel, ratingLabel;
 @synthesize titleField, commentField;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)initWithAppId:(NSString *)app_id userId:(NSString *)user_id location:(NSString *)location andDescriptiveGeoLoc:(NSString *)descr_geoloc {
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        // Custom initialization
+        actualRate = [NSNumber numberWithInt:5];
+        
+        appId = app_id;
+        userId = user_id;
+        currentLocation = location;
+        descriptiveGeoloc = descr_geoloc;
     }
     return self;
 }
@@ -45,6 +50,9 @@
 }
 
 - (void)popAndSave {
+    rateRequester = [[AppRateRequest alloc] init];
+    [rateRequester doRequestWithRate:[actualRate stringValue] comment:self.commentField.text appId:appId userId:userId location:currentLocation descriptiveGeoloc:descriptiveGeoloc andViewToShowToast:self.view];
+    
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
@@ -71,6 +79,8 @@
 - (void)rateView:(DYRateView *)rateView changedToNewRate:(NSNumber *)rate {
     RatingHelper *helper = [[RatingHelper alloc] init];
     self.ratingLabel.text = [helper getText:[rate intValue]];
+    
+    actualRate = rate;
 }
 
 #pragma mark - UITextFieldDelegate method

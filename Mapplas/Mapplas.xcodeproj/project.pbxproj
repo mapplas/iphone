@@ -11,6 +11,9 @@
 		7F00029C16C0F79C00A2C86F /* DYRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00029B16C0F79C00A2C86F /* DYRateView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F0002A116C1069A00A2C86F /* RatingModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00029F16C1069A00A2C86F /* RatingModalViewController.m */; };
 		7F0002A216C1069A00A2C86F /* RatingModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0002A016C1069A00A2C86F /* RatingModalViewController.xib */; };
+		7F0002A516C12C1900A2C86F /* RateConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002A416C12C1900A2C86F /* RateConnector.m */; };
+		7F0002A816C12D3700A2C86F /* AppRateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002A716C12D3700A2C86F /* AppRateRequest.m */; };
+		7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */; };
 		7F06793A16A7F4150043EF6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793916A7F4140043EF6B /* UIKit.framework */; };
 		7F06793C16A7F4150043EF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793B16A7F4150043EF6B /* Foundation.framework */; };
 		7F06793E16A7F4150043EF6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793D16A7F4150043EF6B /* CoreGraphics.framework */; };
@@ -163,6 +166,12 @@
 		7F00029E16C1069A00A2C86F /* RatingModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingModalViewController.h; path = classes/RatingModalViewController.h; sourceTree = "<group>"; };
 		7F00029F16C1069A00A2C86F /* RatingModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingModalViewController.m; path = classes/RatingModalViewController.m; sourceTree = "<group>"; };
 		7F0002A016C1069A00A2C86F /* RatingModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingModalViewController.xib; path = classes/RatingModalViewController.xib; sourceTree = "<group>"; };
+		7F0002A316C12C1900A2C86F /* RateConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RateConnector.h; path = classes/network/RateConnector.h; sourceTree = "<group>"; };
+		7F0002A416C12C1900A2C86F /* RateConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RateConnector.m; path = classes/network/RateConnector.m; sourceTree = "<group>"; };
+		7F0002A616C12D3700A2C86F /* AppRateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppRateRequest.h; path = classes/network/AppRateRequest.h; sourceTree = "<group>"; };
+		7F0002A716C12D3700A2C86F /* AppRateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppRateRequest.m; path = classes/network/AppRateRequest.m; sourceTree = "<group>"; };
+		7F0002A916C1325500A2C86F /* AppRateRequestResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppRateRequestResponseHandler.h; path = classes/network/AppRateRequestResponseHandler.h; sourceTree = "<group>"; };
+		7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppRateRequestResponseHandler.m; path = classes/network/AppRateRequestResponseHandler.m; sourceTree = "<group>"; };
 		7F06793516A7F4140043EF6B /* Mapplas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapplas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F06793916A7F4140043EF6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7F06793B16A7F4150043EF6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -852,6 +861,8 @@
 				7F0C5B7416AEB3620093C850 /* GenericConnector.m */,
 				7F2CE76416B6A79300B7E6E5 /* PinConnector.h */,
 				7F2CE76516B6A79400B7E6E5 /* PinConnector.m */,
+				7F0002A316C12C1900A2C86F /* RateConnector.h */,
+				7F0002A416C12C1900A2C86F /* RateConnector.m */,
 				7FFFBAAC16A9351100417499 /* UserIdentificationConnector.h */,
 				7FFFBAAD16A9351100417499 /* UserIdentificationConnector.m */,
 			);
@@ -865,6 +876,8 @@
 				7F2CE76E16B6BEA500B7E6E5 /* AppBlockRequest.m */,
 				7F2CE76116B6A75E00B7E6E5 /* AppPinRequest.h */,
 				7F2CE76216B6A75E00B7E6E5 /* AppPinRequest.m */,
+				7F0002A616C12D3700A2C86F /* AppRateRequest.h */,
+				7F0002A716C12D3700A2C86F /* AppRateRequest.m */,
 				7FED413E16B15DB500581C9D /* AsynchronousImageDownloader.h */,
 				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
 				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
@@ -902,6 +915,8 @@
 			children = (
 				7F0C5B8616AEB6FA0093C850 /* AppGetterResponseHandler.h */,
 				7F0C5B8716AEB6FA0093C850 /* AppGetterResponseHandler.m */,
+				7F0002A916C1325500A2C86F /* AppRateRequestResponseHandler.h */,
+				7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */,
 				7F0C5BB816AEF6200093C850 /* GenericRequestHandler.h */,
 				7FFFBAE116A9428C00417499 /* UserIdentificationResponseHandler.h */,
 				7FFFBAE216A9428C00417499 /* UserIdentificationResponseHandler.m */,
@@ -1227,6 +1242,9 @@
 				7F00029816C0F2B800A2C86F /* RatingHelper.m in Sources */,
 				7F00029C16C0F79C00A2C86F /* DYRateView.m in Sources */,
 				7F0002A116C1069A00A2C86F /* RatingModalViewController.m in Sources */,
+				7F0002A516C12C1900A2C86F /* RateConnector.m in Sources */,
+				7F0002A816C12D3700A2C86F /* AppRateRequest.m in Sources */,
+				7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
