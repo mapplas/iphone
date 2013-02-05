@@ -26,7 +26,7 @@
 
 @synthesize scroll;
 
-@synthesize topBar, logo, name, priceBackground, priceLabel;
+@synthesize topBar, logo, name, priceBackground, priceLabel, ratingView, ratingViewButton;
 @synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
@@ -50,6 +50,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationItem.backBarButtonItem.tintColor = [UIColor grayColor];
     
     NSMutableArray *viewsToAddToScroll = nil;
 //    if (self.app.auxCommentsArray.count > 0) {
@@ -107,6 +109,10 @@
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
     self.priceLabel.text = [priceHelper getPriceText];
     self.priceBackground.image = [priceHelper getImage];
+    
+    // Rating
+    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
+    [self.topBar addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
 
     // Action layout
     [self initPinActionLayout];
@@ -284,7 +290,12 @@
 }
 
 - (IBAction)rate:(id)sender {
+    RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.user.userId location:self.model.currentLocation descriptiveGeoLoc:self.model.currentDescriptiveGeoLoc andView:self.view];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
+    [SCAppUtils customizeNavigationController:navController];
+    ratingController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     
+    [self presentModalViewController:navController animated:YES];
 }
 
 - (IBAction)share:(id)sender {

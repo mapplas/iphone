@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *getApps;
 @property (nonatomic, strong) NSString *pinApp;
 @property (nonatomic, strong) NSString *blockApp;
+@property (nonatomic, strong) NSString *rateApp;
 
 - (void)reloadAddresses;
 

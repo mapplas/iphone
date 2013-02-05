@@ -89,3 +89,24 @@
 
 /* Rating - excellent app */
 "app_rating_excellent_app" = "Excellent";
+
+/* Rating - rate it text */
+"app_rating_rate_it_text" = "Rate it!";
+
+/* Rating modal screen - Review text */
+"app_rating_modal_review_text" = "Review";
+
+/* Rating modal screen - Title text */
+"app_rating_modal_title_text" = "Title";
+
+/* Navigation bar button - Cancel */
+"nav_bar_button_cancel" = "Cancel";
+
+/* Navigation bar button - Done */
+"nav_bar_button_done" = "Done";
+
+/* Toast after send rate info - OK */
+"toast_after_rate_ok" = "Rate correctly sent!";
+
+/* Toast after send rate info - NOK */
+"toast_after_rate_nok" = "Error sending rate... Try again!";
