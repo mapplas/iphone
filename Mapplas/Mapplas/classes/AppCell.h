@@ -15,10 +15,12 @@
 #import "AppBlockRequest.h"
 #import "Constants.h"
 #import "AppOrderedList.h"
+#import "PriceImageLabelHelper.h"
+#import "DLStarRatingControl.h"
 
 @class AppsViewController;
 
-@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate> {
+@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate, DLStarRatingDelegate> {
     UIView *cellPressed;
     UIView *cellUnpressed;
     
@@ -34,6 +36,8 @@
     
     AppPinRequest *pinRequester;
     AppBlockRequest *blockRequester;
+    
+    DLStarRatingControl *rating;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *cellContent;
@@ -46,6 +50,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView *priceImage;
 @property (nonatomic, strong) IBOutlet UILabel *appPrice;
 @property (nonatomic, strong) IBOutlet UILabel *pinsUnpressedText;
+@property (nonatomic, strong) IBOutlet UIView *ratingView;
+@property (nonatomic, strong) IBOutlet UILabel *ratingLabel;
 
 @property (nonatomic, strong) IBOutlet UIButton *pinPressedImage;
 @property (nonatomic, strong) IBOutlet UILabel *pinPressedText;

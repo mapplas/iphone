@@ -12,8 +12,8 @@ static Environment *myInstance = nil;
 
 @implementation Environment
 
-@synthesize addresses;
-
+@synthesize addresses = _addresses;
+@synthesize appSomethingChangedInDetail = _appSomethingChangedInDetail;
 
 #pragma mark -
 #pragma mark Singleton Methods
@@ -42,12 +42,11 @@ static Environment *myInstance = nil;
 }
 
 
-
 - (id)init {
-	if (![[self class] sharedInstanceExists]) {
+    if (![[self class] sharedInstanceExists]) {
 		[self setAddresses:[[AbstractUrlAddresses alloc] init]];
+        [self setAppSomethingChangedInDetail:NO];
 	}
-
 	return self;
 }
 

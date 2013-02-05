@@ -22,39 +22,42 @@
 	return self;
 }
 
-- (void)sendImageToDelegate:(DownloadedImageSuccess *)data {
-	[delegate imageDownloaded:data];
+- (void)sendImageToDelegate:(NSArray *)data {
+	[delegate imageDownloaded:[data objectAtIndex:0] withSaveName:[data objectAtIndex:1]];
 }
 
-- (void)sendErrorToDelegate:(DownloadedImageError *)error {
-	[delegate imageNotDownloaded:error];
+- (void)sendErrorToDelegate:(NSArray *)data {
+	[delegate imageNotDownloaded:[data objectAtIndex:0] withSaveName:[data objectAtIndex:1]];
 }
 
-- (void)executeDownload:(NSString *)path {
+- (void)executeDownload:(NSArray *)params {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
 	NSError *error = nil;
-	NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:path] options:NSDataReadingUncached error:&error];
+	NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[params objectAtIndex:0]] options:NSDataReadingUncached error:&error];
 
 	if(error == nil) {
 		UIImage *image = [[UIImage alloc] initWithData:data];
-		DownloadedImageSuccess *data = [[DownloadedImageSuccess alloc] initWithPath:path andImage:image];
-		[self performSelectorOnMainThread:@selector(sendImageToDelegate:) withObject:data waitUntilDone:YES];
+		DownloadedImageSuccess *data = [[DownloadedImageSuccess alloc] initWithPath:[params objectAtIndex:0] andImage:image];
+        NSArray *toPass = [[NSArray alloc] initWithObjects:data, [params objectAtIndex:1], nil];
+		[self performSelectorOnMainThread:@selector(sendImageToDelegate:) withObject:toPass waitUntilDone:YES];
 	}
 	else {
-		DownloadedImageError *data = [[DownloadedImageError alloc] initWithPath:path andError:error];
-		[self performSelectorOnMainThread:@selector(sendErrorToDelegate:) withObject:data waitUntilDone:YES];
+        DownloadedImageError *data = [[DownloadedImageError alloc] initWithPath:[params objectAtIndex:0] andError:error];
+        NSArray *toPass = [[NSArray alloc] initWithObjects:data, [params objectAtIndex:1], nil];
+		[self performSelectorOnMainThread:@selector(sendErrorToDelegate:) withObject:toPass waitUntilDone:YES];
 	}
 
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 
-- (UIImage *)downloadImage:(NSString *)path {
+- (UIImage *)downloadImage:(NSString *)path withSavePath:(NSString *)save_name {
+    NSArray *params = [[NSArray alloc] initWithObjects:path, save_name, nil];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
 																			selector:@selector(executeDownload:)
-																			  object:path
+																			  object:params
 										];
 	[queue addOperation:operation];
 

@@ -69,6 +69,16 @@
     // ??
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([[Environment sharedInstance] appSomethingChangedInDetail]) {
+        [[Environment sharedInstance] setAppSomethingChangedInDetail:NO];
+        [self.model.appList sort];
+        [self reloadTableDataAndScrollTop:YES];
+    }
+}
+
 - (void)viewDidUnload {
     [super viewDidUnload];
 	_refreshHeaderView = nil;
@@ -174,6 +184,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 72;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row] user:self.model.user model:self.model andLocation:self.model.currentLocation];
+    [self.navigationController pushViewController:appViewController animated:YES];
 }
 
 #pragma mark -

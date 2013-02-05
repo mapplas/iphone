@@ -9,10 +9,12 @@
 #import "AbstractUrlAddresses.h"
 
 @interface Environment : NSObject {
-	AbstractUrlAddresses *addresses;
+	AbstractUrlAddresses *_addresses;
+    BOOL _appSomethingChangedInDetail;
 }
 
-@property (nonatomic, retain) AbstractUrlAddresses *addresses;
+@property (nonatomic, strong) AbstractUrlAddresses *addresses;
+@property (nonatomic) BOOL appSomethingChangedInDetail;
 
 +(Environment*)sharedInstance;
 +(id)hiddenAlloc;

@@ -11,32 +11,12 @@
 
 @implementation AppCell
 
-@synthesize cellPressed;
-@synthesize cellUnpressed;
-@synthesize cellContent;
-
-@synthesize imageLogo;
-@synthesize imageRoundView;
-@synthesize appName;
-@synthesize appPrice;
-@synthesize pinsUnpressedText;
-
-@synthesize pinPressedImage;
-@synthesize pinPressedText;
-@synthesize ratePressedText;
-@synthesize blockPressedText;
-@synthesize sharePressedText;
-
+@synthesize cellPressed, cellUnpressed, cellContent;
+@synthesize imageLogo, imageRoundView, appName, appPrice, pinsUnpressedText, ratingView, ratingLabel;
+@synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
 @synthesize priceImage;
 
-@synthesize app = _app;
-@synthesize userId = _userId;
-@synthesize currentLocation = _currentLocation;
-@synthesize modelList = _modelList;
-@synthesize appsList = _appsList;
-@synthesize positionInList = _positionInList;
-@synthesize viewController = _viewController;
-@synthesize pressed = _pressed;
+@synthesize app = _app, userId = _userId, currentLocation = _currentLocation, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -66,14 +46,6 @@
 - (void)loadUnpressedCellData {
     // Unpressed data
     self.appName.text = self.app.name;
-    
-    NSString *currency = @"";
-    if (self.app.locationCurrency == EURO) {
-        currency = NSLocalizedString(@"currency_euro", @"Euro currency");
-    }
-    else {
-        currency = NSLocalizedString(@"currency_dollar", @"Dollar currency");
-    }
     
     // Unpressed data - Set app logo
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
@@ -105,17 +77,48 @@
     }
     self.pinsUnpressedText.text = [NSString stringWithFormat:@"%@ %@", pins, pinText];
     
-    // Price image
-    if ([self.app.appPrice isEqualToString:@"0"]) {
-        self.appPrice.text = NSLocalizedString(@"free_text", @"Free");
-        self.priceImage.image = [UIImage imageNamed:@"ic_badge_free.png"];
-    }
-    else {
-        self.appPrice.text = [NSString stringWithFormat:@"%@ %@", currency, self.app.appPrice];
-        self.priceImage.image = [UIImage imageNamed:@"ic_badge_price.png"];
-    }
+    // Price label and image
+    PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
+    self.appPrice.text = [priceHelper getPriceText];
+    self.priceImage.image = [priceHelper getImage];
 
     [self.cellContent addSubview:self.cellUnpressed];
+    
+    // Rating
+//    rating = [[DLStarRatingControl alloc] initWithFrame:CGRectMake(self.ratingView.frame.origin.x, self.ratingView.frame.origin.y + 5, self.ratingView.frame.size.width, self.ratingView.frame.size.height)
+// andStars:5 isFractional:YES];
+//    rating.delegate = self;
+//	rating.backgroundColor = [UIColor clearColor];
+//	rating.autoresizingMask =  UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+//	rating.rating = [self.app.auxTotalRate doubleValue];
+//    rating.userInteractionEnabled = NO;
+//	[self.cellUnpressed addSubview:rating];
+//    
+//    NSString *ratingText = NSLocalizedString(@"app_rating_unrated", @"Rating - unrated app");
+//    switch ((int)ceil([self.app.auxTotalRate doubleValue])) {
+//        case 1:
+//            ratingText = NSLocalizedString(@"app_rating_poor_app", @"Rating - poor app");
+//            break;
+//        case 2:
+//            ratingText = NSLocalizedString(@"app_rating_below_avg_app", @"Rating - below average app");
+//            break;
+//        case 3:
+//            ratingText = NSLocalizedString(@"app_rating_avg_app", @"Rating - average app");
+//            break;
+//        case 4:
+//            ratingText = NSLocalizedString(@"app_rating_above_avg_app", @"Rating - above average app");
+//            break;
+//        case 5:
+//            ratingText = NSLocalizedString(@"app_rating_excellent_app", @"Rating - excellent app");
+//            break;
+//        default:
+//            break;
+//    }
+//    self.ratingLabel.text = ratingText;
+}
+
+- (void)newRating:(DLStarRatingControl *)control :(float)rating {
+    // Empty
 }
 
 - (void)loadPressedCellData {
@@ -139,7 +142,7 @@
     self.sharePressedText.text = NSLocalizedString(@"share_text", @"Share text");
 }
 
-- (void)imageDownloaded:(DownloadedImageSuccess *)download {
+- (void)imageDownloaded:(DownloadedImageSuccess *)download withSaveName:(NSString *)save_name {
     UIImage *downloadedImage = download.image;
     if (downloadedImage != nil) {
         [self.imageLogo setImage:downloadedImage];
@@ -147,7 +150,7 @@
     }
 }
 
-- (void)imageNotDownloaded:(DownloadedImageError *)error {}
+- (void)imageNotDownloaded:(DownloadedImageError *)error withSaveName:(NSString *)save_name {}
 
 - (IBAction)animate:(id)sender {
     CATransition *pushTransition = [CATransition animation];

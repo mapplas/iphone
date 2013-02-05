@@ -38,8 +38,8 @@
 #pragma mark -
 #pragma mark Download image
 
-- (UIImage *)downloadImage:(NSString *)path {
-	return [imageDownloader downloadImage:path];
+- (UIImage *)downloadImage:(NSString *)path withSavePaht:(NSString *)save_path {
+	return [imageDownloader downloadImage:path withSavePath:save_path];
 }
 
 #pragma mark - Public methods
@@ -53,7 +53,7 @@
 	}
 	
 	// Second try: download
-    [self downloadImage:path];
+    [self downloadImage:path withSavePaht:save_name];
 	
 	return image;
 }

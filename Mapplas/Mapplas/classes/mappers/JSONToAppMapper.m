@@ -38,8 +38,8 @@
                                   [[KeyValueMapper alloc] initWithKey:@"AuxTotalPins" action:@selector(setAuxTotalPins:)],
                                   [[KeyValueMapper alloc] initWithKey:@"AuxTotalComments" action:@selector(setAuxTotalComments:)],
                                   
-                                  [[TargetIteratingMapper alloc] initWithArrayKey:@"auxCommentsArray" elementMapper:commentMapper action:@selector(setAuxCommentsArray:)],
-                                  [[TargetIteratingMapper alloc] initWithArrayKey:@"auxPhotosArray" elementMapper:photoMapper action:@selector(setAuxPhotosArray:)],
+                                  [[TargetIteratingMapper alloc] initWithArrayKey:@"AuxComments" elementMapper:commentMapper action:@selector(setAuxCommentsArray:)],
+                                  [[TargetIteratingMapper alloc] initWithArrayKey:@"AuxPhotos" elementMapper:photoMapper action:@selector(setAuxPhotosArray:)],
                                   
                                   [[KeyValueScappedMapper alloc] initWithKey:@"Market" action:@selector(setMarket:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"AuxNews" action:@selector(setNotificationRaw:)],
