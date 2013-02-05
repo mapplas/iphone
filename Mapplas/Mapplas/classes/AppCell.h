@@ -16,11 +16,12 @@
 #import "Constants.h"
 #import "AppOrderedList.h"
 #import "PriceImageLabelHelper.h"
-#import "DLStarRatingControl.h"
+#import "RatingHelper.h"
+#import "DYRateView.h"
 
 @class AppsViewController;
 
-@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate, DLStarRatingDelegate> {
+@interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate> {
     UIView *cellPressed;
     UIView *cellUnpressed;
     
@@ -36,8 +37,6 @@
     
     AppPinRequest *pinRequester;
     AppBlockRequest *blockRequester;
-    
-    DLStarRatingControl *rating;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *cellContent;

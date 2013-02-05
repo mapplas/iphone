@@ -19,8 +19,6 @@
 #import "InfiniteScrollManager.h"
 #import "AppDetailViewController.h"
 
-#import "DLStarRatingControl.h"
-
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;
     SuperModel *_model;
