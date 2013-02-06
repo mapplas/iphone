@@ -48,10 +48,16 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
+//    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationItem.backBarButtonItem.tintColor = [UIColor grayColor];
     
     NSMutableArray *viewsToAddToScroll = nil;
 //    if (self.app.auxCommentsArray.count > 0) {
