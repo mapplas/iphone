@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "App.h"
 #import "Photo.h"
 #import "User.h"
@@ -29,6 +30,8 @@
 #import "RatingHelper.h"
 #import "RatingModalViewController.h"
 
+#import "SharingHelper.h"
+
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate> {
     App *_app;
     User *_user;
@@ -46,6 +49,8 @@
     BOOL somethingChangedOnApp;
     AppPinRequest *pinRequest;
     AppBlockRequest *blockRequest;
+    
+    SharingHelper *sharingHelper;
     
 //    AppDetailCommentsViewController *_commentsViewController;
 }

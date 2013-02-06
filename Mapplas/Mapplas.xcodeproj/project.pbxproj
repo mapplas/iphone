@@ -16,6 +16,9 @@
 		7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */; };
 		7F0002B016C1357000A2C86F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AF16C1357000A2C86F /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F0002B516C13A8000A2C86F /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002B416C13A8000A2C86F /* Toast.m */; };
+		7F0195E216C24AFA0040FAD9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0195E116C24AFA0040FAD9 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7F0195E516C2563A0040FAD9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0195E416C2563A0040FAD9 /* MessageUI.framework */; };
+		7F0195E916C25F350040FAD9 /* SharingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0195E816C25F350040FAD9 /* SharingHelper.m */; };
 		7F06793A16A7F4150043EF6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793916A7F4140043EF6B /* UIKit.framework */; };
 		7F06793C16A7F4150043EF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793B16A7F4150043EF6B /* Foundation.framework */; };
 		7F06793E16A7F4150043EF6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793D16A7F4150043EF6B /* CoreGraphics.framework */; };
@@ -86,6 +89,7 @@
 		7FD39C6316BA5F7A00F5EB8E /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6216BA5F7A00F5EB8E /* ImageResizer.m */; };
 		7FD39C6516BA7CF000F5EB8E /* ic_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD39C6416BA7CF000F5EB8E /* ic_more.png */; };
 		7FD39C6916BA84B600F5EB8E /* ScrollViewOfViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6816BA84B600F5EB8E /* ScrollViewOfViews.m */; };
+		7FEA32F416C2455200086E11 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEA32F316C2455200086E11 /* Twitter.framework */; };
 		7FED40F616B12E5100581C9D /* ic_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED40F516B12E5100581C9D /* ic_map.png */; };
 		7FED410816B140ED00581C9D /* ic_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED410716B140ED00581C9D /* ic_template.png */; };
 		7FED411816B141CE00581C9D /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FED411716B141CE00581C9D /* AppCell.m */; };
@@ -178,6 +182,10 @@
 		7F0002AF16C1357000A2C86F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7F0002B316C13A8000A2C86F /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = classes/utils/Toast.h; sourceTree = "<group>"; };
 		7F0002B416C13A8000A2C86F /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Toast.m; path = classes/utils/Toast.m; sourceTree = "<group>"; };
+		7F0195E116C24AFA0040FAD9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		7F0195E416C2563A0040FAD9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		7F0195E716C25F350040FAD9 /* SharingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharingHelper.h; path = classes/utils/SharingHelper.h; sourceTree = "<group>"; };
+		7F0195E816C25F350040FAD9 /* SharingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharingHelper.m; path = classes/utils/SharingHelper.m; sourceTree = "<group>"; };
 		7F06793516A7F4140043EF6B /* Mapplas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapplas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F06793916A7F4140043EF6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7F06793B16A7F4150043EF6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -297,6 +305,7 @@
 		7FD39C6416BA7CF000F5EB8E /* ic_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_more.png; sourceTree = SOURCE_ROOT; };
 		7FD39C6716BA84B600F5EB8E /* ScrollViewOfViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollViewOfViews.h; path = classes/utils/ScrollViewOfViews.h; sourceTree = "<group>"; };
 		7FD39C6816BA84B600F5EB8E /* ScrollViewOfViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollViewOfViews.m; path = classes/utils/ScrollViewOfViews.m; sourceTree = "<group>"; };
+		7FEA32F316C2455200086E11 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		7FED40F516B12E5100581C9D /* ic_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_map.png; sourceTree = SOURCE_ROOT; };
 		7FED410716B140ED00581C9D /* ic_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_template.png; sourceTree = SOURCE_ROOT; };
 		7FED411616B141CE00581C9D /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCell.h; path = classes/AppCell.h; sourceTree = "<group>"; };
@@ -404,6 +413,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0195E516C2563A0040FAD9 /* MessageUI.framework in Frameworks */,
+				7F0195E216C24AFA0040FAD9 /* Social.framework in Frameworks */,
+				7FEA32F416C2455200086E11 /* Twitter.framework in Frameworks */,
 				7FBAE93216B0280500621B34 /* QuartzCore.framework in Frameworks */,
 				7FFFBAEA16A9476500417499 /* SystemConfiguration.framework in Frameworks */,
 				7FFFBBA816A970E100417499 /* CoreLocation.framework in Frameworks */,
@@ -477,6 +489,15 @@
 			name = Toast;
 			sourceTree = "<group>";
 		};
+		7F0195E616C25F1C0040FAD9 /* Sharing */ = {
+			isa = PBXGroup;
+			children = (
+				7F0195E716C25F350040FAD9 /* SharingHelper.h */,
+				7F0195E816C25F350040FAD9 /* SharingHelper.m */,
+			);
+			name = Sharing;
+			sourceTree = "<group>";
+		};
 		7F06792A16A7F4140043EF6B = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +520,9 @@
 		7F06793816A7F4140043EF6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F0195E416C2563A0040FAD9 /* MessageUI.framework */,
+				7F0195E116C24AFA0040FAD9 /* Social.framework */,
+				7FEA32F316C2455200086E11 /* Twitter.framework */,
 				7FBAE93116B0280500621B34 /* QuartzCore.framework */,
 				7FFFBBA716A970E100417499 /* CoreLocation.framework */,
 				7FFFBAED16A9477E00417499 /* libz.dylib */,
@@ -655,6 +679,7 @@
 			children = (
 				7FEF544216B9211200EAEED8 /* Layout helpers */,
 				7F00029516C0F2A000A2C86F /* Rating */,
+				7F0195E616C25F1C0040FAD9 /* Sharing */,
 				7F0002B216C13A6B00A2C86F /* Toast */,
 				7F2CE76716B6AB4B00B7E6E5 /* Constants.h */,
 				7F2CE76816B6AB4B00B7E6E5 /* Constants.m */,
@@ -1274,6 +1299,7 @@
 				7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */,
 				7F0002B016C1357000A2C86F /* MBProgressHUD.m in Sources */,
 				7F0002B516C13A8000A2C86F /* Toast.m in Sources */,
+				7F0195E916C25F350040FAD9 /* SharingHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

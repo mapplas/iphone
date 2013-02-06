@@ -110,3 +110,42 @@
 
 /* Toast after send rate info - NOK */
 "toast_after_rate_nok" = "Error al enviar la valoración... Inténtalo de nuevo!";
+
+/* Share message Spanish part 1 */
+"share_message_part_1" = "";
+
+/* Share message Spanish part 2 */
+"share_message_part_2" = " sharing via Mapplas";
+
+/* Twitter sharing not avaliable */
+"share_twitter_error" = "Twitter no está disponible";
+
+/* Facebook sharing not avaliable */
+"share_facebook_error" = "Facebook no está disponible";
+
+/* iOS5 sharing action sheet title - twitter sharing */
+"ios5_sharing_action_sheet_title" = "Compartir";
+
+/* iOS5 sharing action sheet cancel button - twitter sharing */
+"ios5_sharing_action_sheet_cancel_button" = "Cancelar";
+
+/* iOS5 sharing action sheet twitter button - twitter sharing */
+"ios5_sharing_action_sheet_twitter_button" = "Compartir vía Twitter";
+
+/* OK message */
+"ok_message" = "Aceptar";
+
+/* SMS sharing error */
+"share_sms_error" = "Error al enviar SMS";
+
+/* SMS sharing ok message */
+"share_sms_ok_message" = "SMS enviado con éxito!";
+
+/* Email sharing error */
+"share_email_error" = "Error enviando email";
+
+/* Email sharing ok message */
+"share_email_ok_message" = "Email enviado correctamente";
+
+/* Email sharing mail subject */
+"share_email_subject" = "Compartido via Mapplas";
