@@ -12,7 +12,8 @@
 #import "CoreLocationManagerConfigurator.h"
 
 @interface AppsViewController ()
-
+- (void)pushNotificationScreen;
+- (void)pushUserPrefScreen;
 @end
 
 @implementation AppsViewController
@@ -39,13 +40,23 @@
     return self;
 }
 
+- (void)pushNotificationScreen {
+    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] init];
+    [self.navigationController pushViewController:notifViewController animated:YES];
+}
+
+- (void)pushUserPrefScreen {
+    UserViewController *userViewController = [[UserViewController alloc] init];
+    [self.navigationController pushViewController:userViewController animated:YES];
+}
+
 - (void)initializeNavigationBarButtons {
     UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:nil];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     
     UIImage *profileImage = [UIImage imageNamed:@"ic_menu_profile.png"];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushUserPrefScreen)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
 }
 

@@ -309,7 +309,7 @@
 						<reference key="IBUIFont" ref="1041830473"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
-					<object class="IBUIImageView" id="288918772">
+					<object class="IBUIButton" id="585306260">
 						<reference key="NSNextResponder" ref="321150316"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{145, 15}, {28, 28}}</string>
@@ -317,12 +317,22 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="831203554"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<reference key="IBUIHighlightedTitleColor" ref="13728304"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="505602906"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">ic_action_share.png</string>
 						</object>
+						<reference key="IBUIFontDescription" ref="61708111"/>
+						<reference key="IBUIFont" ref="305713756"/>
 					</object>
 					<object class="IBUILabel" id="589030190">
 						<reference key="NSNextResponder" ref="321150316"/>
@@ -330,7 +340,7 @@
 						<string key="NSFrame">{{138, 41}, {42, 21}}</string>
 						<reference key="NSSuperview" ref="321150316"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="288918772"/>
+						<reference key="NSNextKeyView" ref="585306260"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -688,6 +698,15 @@
 					</object>
 					<int key="connectionID">126</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">rateApp:</string>
+						<reference key="source" ref="585306260"/>
+						<reference key="destination" ref="1040147846"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">143</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -737,13 +756,13 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="831203554"/>
 							<reference ref="856930037"/>
-							<reference ref="288918772"/>
 							<reference ref="394943840"/>
 							<reference ref="441129935"/>
 							<reference ref="813753078"/>
 							<reference ref="589030190"/>
 							<reference ref="756325393"/>
 							<reference ref="827822060"/>
+							<reference ref="585306260"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">App Cell - Pressed</string>
@@ -773,12 +792,6 @@
 						<int key="objectID">25</int>
 						<reference key="object" ref="856930037"/>
 						<reference key="parent" ref="321150316"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">28</int>
-						<reference key="object" ref="288918772"/>
-						<reference key="parent" ref="321150316"/>
-						<string key="objectName">Share image - x=199</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
@@ -865,6 +878,12 @@
 						<reference key="parent" ref="511086860"/>
 						<string key="objectName">Rating label</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">142</int>
+						<reference key="object" ref="585306260"/>
+						<reference key="parent" ref="321150316"/>
+						<string key="objectName">Share button</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -880,11 +899,11 @@
 				<string key="136.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="138.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="140.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="142.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="27.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="28.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.CustomClassName">AppCell</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -901,7 +920,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">141</int>
+			<int key="maxID">143</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -912,6 +931,7 @@
 						<string key="animate:">id</string>
 						<string key="blockUnblockApp:">id</string>
 						<string key="pinUnpinApp:">id</string>
+						<string key="rateApp:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="animate:">
@@ -924,6 +944,10 @@
 						</object>
 						<object class="IBActionInfo" key="pinUnpinApp:">
 							<string key="name">pinUnpinApp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="rateApp:">
+							<string key="name">rateApp:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

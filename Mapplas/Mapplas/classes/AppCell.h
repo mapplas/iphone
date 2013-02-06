@@ -19,6 +19,8 @@
 #import "RatingHelper.h"
 #import "DYRateView.h"
 
+#import "SharingHelper.h"
+
 @class AppsViewController;
 
 @interface AppCell : UITableViewCell <AsynchronousImageDownloaderProtocol, UIGestureRecognizerDelegate> {
@@ -37,6 +39,8 @@
     
     AppPinRequest *pinRequester;
     AppBlockRequest *blockRequester;
+    
+    SharingHelper *sharingHelper;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *cellContent;
@@ -70,5 +74,9 @@
 - (void)loadData;
 - (IBAction)animate:(id)sender;
 - (void)resetState;
+
+- (IBAction)pinUnpinApp:(id)sender;
+- (IBAction)blockUnblockApp:(id)sender;
+- (IBAction)rateApp:(id)sender;
 
 @end
