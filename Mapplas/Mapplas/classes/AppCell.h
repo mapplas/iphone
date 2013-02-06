@@ -16,6 +16,8 @@
 #import "Constants.h"
 #import "AppOrderedList.h"
 #import "PriceImageLabelHelper.h"
+
+#import "RatingModalViewController.h"
 #import "RatingHelper.h"
 #import "DYRateView.h"
 
@@ -30,6 +32,7 @@
     App *_app;
     NSString *_userId;
     NSString *_currentLocation;
+    NSString *_currentDescriptiveGeoLoc;
     AppOrderedList *_modelList;
     NSMutableArray *_appsList;
     int _positionInList;
@@ -65,6 +68,7 @@
 @property (nonatomic, strong) App *app;
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *currentLocation;
+@property (nonatomic, strong) NSString *currentDescriptiveGeoLoc;
 @property (nonatomic, strong) AppOrderedList *modelList;
 @property (nonatomic, strong) NSMutableArray *appsList;
 @property (nonatomic) int positionInList;
@@ -77,6 +81,7 @@
 
 - (IBAction)pinUnpinApp:(id)sender;
 - (IBAction)blockUnblockApp:(id)sender;
+- (IBAction)shareApp:(id)sender;
 - (IBAction)rateApp:(id)sender;
 
 @end

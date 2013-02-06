@@ -183,6 +183,7 @@
     [cell setApp:[self.loadedAppsArray objectAtIndex:indexPath.row]];
     [cell setUserId:self.model.user.userId];
     [cell setCurrentLocation:self.model.currentLocation];
+    [cell setCurrentDescriptiveGeoLoc:self.model.currentDescriptiveGeoLoc];
     [cell setModelList:self.model.appList];
     [cell setAppsList:self.loadedAppsArray];
     [cell setViewController:self];

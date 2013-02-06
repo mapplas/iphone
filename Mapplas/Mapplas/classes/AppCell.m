@@ -16,7 +16,7 @@
 @synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
 @synthesize priceImage;
 
-@synthesize app = _app, userId = _userId, currentLocation = _currentLocation, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
+@synthesize app = _app, userId = _userId, currentLocation = _currentLocation, currentDescriptiveGeoLoc = _currentDescriptiveGeoLoc, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -27,9 +27,11 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 72)];
+    view.backgroundColor = [UIColor colorWithRed:239.0f/255.0f green:239.0f/255.0f blue:239.0f/255.0f alpha:1];
+    self.selectedBackgroundView = view;
+    
 }
 
 - (void)resetState {
@@ -181,7 +183,7 @@
     [self.viewController reloadTableDataAndScrollTop:NO];
 }
 
-- (void)rateApp:(id)sender {
+- (IBAction)shareApp:(id)sender {
     sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.viewController.navigationController];
     
     // If device has ios6 and up
@@ -201,6 +203,15 @@
 		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, @"Share via SMS", @"Share via email", nil];
 		[alertView showInView:self.viewController.navigationController.view];
 	}
+}
+
+- (IBAction)rateApp:(id)sender {
+    RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.userId location:self.currentLocation descriptiveGeoLoc:self.currentDescriptiveGeoLoc andView:self.viewController.navigationController.view];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
+    [SCAppUtils customizeNavigationController:navController];
+    ratingController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    [self.viewController.navigationController presentModalViewController:navController animated:YES];
 }
 
 @end
