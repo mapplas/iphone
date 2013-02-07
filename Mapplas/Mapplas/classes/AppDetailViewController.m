@@ -28,9 +28,11 @@
 
 @synthesize topBar, logo, name, priceBackground, priceLabel, ratingView, ratingViewButton;
 @synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
+@synthesize actionBarWithoutTeleph, pinWithoutPhoneButton, pinWithoutPhoneLabel, rateWithoutPhoneLabel, blockWithoutPhoneLabel, shareWithoutPhoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
 @synthesize supportView, developerLabel, devWebButton, devEmailButton, asistencyButton;
+@synthesize supportModalView, actionView;
 
 - (id)initWithApp:(App *)app user:(User *)user model:(SuperModel *)super_model andLocation:(NSString *)current_location {
     self = [super initWithNibName:@"AppDetailViewController" bundle:nil];
@@ -48,16 +50,8 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
-//    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     NSMutableArray *viewsToAddToScroll = nil;
 //    if (self.app.auxCommentsArray.count > 0) {
@@ -65,8 +59,14 @@
 //        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.commentsViewController, self.supportView, nil];
 //    }
 //    else {
-        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.supportView, nil];
-//    }
+    
+    // Telephone icon or not
+    UIView *whatActionBar = self.actionBar;
+    if ([self.app.phone isEqualToString:@""]) {
+        whatActionBar = self.actionBarWithoutTeleph;
+    }
+    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.supportView, nil];
+
     
     scrollViewConfigurator = [[ScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
@@ -122,9 +122,19 @@
 
     // Action layout
     [self initPinActionLayout];
-    self.rateLabel.text = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
-    self.blockLabel.text = NSLocalizedString(@"block_text", @"Block text");
-    self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
+    
+    NSString *rateLabelText = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
+    self.rateLabel.text = rateLabelText;
+    self.rateWithoutPhoneLabel.text = rateLabelText;
+    
+    NSString *blockLabelText = NSLocalizedString(@"block_text", @"Block text");
+    self.blockLabel.text = blockLabelText;
+    self.blockWithoutPhoneLabel.text = blockLabelText;
+    
+    NSString *shareLabelText = NSLocalizedString(@"share_text", @"Share text");
+    self.shareLabel.text = shareLabelText;
+    self.shareWithoutPhoneLabel.text = shareLabelText;
+    
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
     
     // Description
@@ -132,9 +142,10 @@
     
     // Support
     self.developerLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
-    self.devWebButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
-    self.devEmailButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
-    self.asistencyButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_support_button", @"App detail - support button");
+    
+    [self.devWebButton setTitle:NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web") forState:UIControlStateNormal];
+    [self.devEmailButton setTitle:NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email") forState:UIControlStateNormal];
+    [self.asistencyButton setTitle:NSLocalizedString(@"app_detail_developer_support_button", @"App detail - support button") forState:UIControlStateNormal];
 }
 
 - (void)configureGallery {
@@ -272,11 +283,19 @@
 - (void)initPinActionLayout {
     if ([self.app.auxPin isEqualToString:@"1"]) {
         self.pinButton.selected = YES;
-        self.pinLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+        self.pinWithoutPhoneButton.selected = YES;
+        
+        NSString *pinLabelText = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+        self.pinLabel.text = pinLabelText;
+        self.pinWithoutPhoneLabel.text = pinLabelText;
     }
     else {
         self.pinButton.selected = NO;
-        self.pinLabel.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
+        self.pinWithoutPhoneButton.selected = NO;
+        
+        NSString *pinLabelText = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
+        self.pinLabel.text = pinLabelText;
+        self.pinWithoutPhoneLabel.text = pinLabelText;
     }
 }
 
@@ -327,7 +346,56 @@
 }
 
 - (IBAction)call:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", self.app.phone]]];
+}
+
+- (IBAction)toDeveloperMail:(id)sender {
+    NSString *developerMail = @"";
+    NSString *subject = NSLocalizedString(@"app_developer_email_contact", @"Email app developer contact email subject");
     
+    NSString *mailString = [NSString stringWithFormat:@"mailto:?to=%@&subject=%@&body=%@", developerMail, subject, @""];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailString]];
+    
+    // If mail does not exist TOAST
+}
+
+// Developer email delegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"share_email_error", @"Email sharing error") delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok_message", @"OK message"), nil];
+    UIAlertView *okAlert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"share_email_ok_message", @"Email sharing ok message") delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok_message", @"OK message"), nil];
+    
+	switch (result) {
+		case MessageComposeResultCancelled:
+			break;
+		case MessageComposeResultFailed:
+            [errorAlert show];
+			break;
+		case MessageComposeResultSent:
+            [okAlert show];
+			break;
+		default:
+			break;
+	}
+    
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)toToDeveloperWeb:(id)sender {
+    if (![self.app.appUrl isEqualToString:@""]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.app.appUrl]];
+    }
+    else {
+        Toast *errorToast = [[Toast alloc] initAndShowIn:self.view withText:@"Developer website is not avaliable"];
+        [errorToast show];
+    }
+}
+
+- (IBAction)sendAsistency:(id)sender {
+    self.scroll.scrollEnabled = NO;
+    self.supportModalView.frame = self.scroll.bounds;
+    [self.supportModalView addSubview:self.actionView];
+    [self.supportModalView bringSubviewToFront:self.actionView];
+    [self.view addSubview:self.supportModalView];
 }
 
 @end

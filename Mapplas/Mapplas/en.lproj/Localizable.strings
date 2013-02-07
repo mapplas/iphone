@@ -149,3 +149,6 @@
 
 /* Email sharing mail subject */
 "share_email_subject" = "Shared via Mapplas";
+
+/* Email app developer contact email subject */
+"app_developer_email_contact" = "";
