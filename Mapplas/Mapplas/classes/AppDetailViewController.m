@@ -32,6 +32,7 @@
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
 @synthesize supportView, developerLabel, devWebButton, devEmailButton, asistencyButton;
+@synthesize supportModalView, actionView;
 
 - (id)initWithApp:(App *)app user:(User *)user model:(SuperModel *)super_model andLocation:(NSString *)current_location {
     self = [super initWithNibName:@"AppDetailViewController" bundle:nil];
@@ -141,9 +142,10 @@
     
     // Support
     self.developerLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
-    self.devWebButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
-    self.devEmailButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
-    self.asistencyButton.titleLabel.text = NSLocalizedString(@"app_detail_developer_support_button", @"App detail - support button");
+    
+    [self.devWebButton setTitle:NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web") forState:UIControlStateNormal];
+    [self.devEmailButton setTitle:NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email") forState:UIControlStateNormal];
+    [self.asistencyButton setTitle:NSLocalizedString(@"app_detail_developer_support_button", @"App detail - support button") forState:UIControlStateNormal];
 }
 
 - (void)configureGallery {
@@ -345,6 +347,55 @@
 
 - (IBAction)call:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", self.app.phone]]];
+}
+
+- (IBAction)toDeveloperMail:(id)sender {
+    NSString *developerMail = @"";
+    NSString *subject = NSLocalizedString(@"app_developer_email_contact", @"Email app developer contact email subject");
+    
+    NSString *mailString = [NSString stringWithFormat:@"mailto:?to=%@&subject=%@&body=%@", developerMail, subject, @""];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailString]];
+    
+    // If mail does not exist TOAST
+}
+
+// Developer email delegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"share_email_error", @"Email sharing error") delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok_message", @"OK message"), nil];
+    UIAlertView *okAlert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"share_email_ok_message", @"Email sharing ok message") delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok_message", @"OK message"), nil];
+    
+	switch (result) {
+		case MessageComposeResultCancelled:
+			break;
+		case MessageComposeResultFailed:
+            [errorAlert show];
+			break;
+		case MessageComposeResultSent:
+            [okAlert show];
+			break;
+		default:
+			break;
+	}
+    
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)toToDeveloperWeb:(id)sender {
+    if (![self.app.appUrl isEqualToString:@""]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.app.appUrl]];
+    }
+    else {
+        Toast *errorToast = [[Toast alloc] initAndShowIn:self.view withText:@"Developer website is not avaliable"];
+        [errorToast show];
+    }
+}
+
+- (IBAction)sendAsistency:(id)sender {
+    self.scroll.scrollEnabled = NO;
+    self.supportModalView.frame = self.scroll.bounds;
+    [self.supportModalView addSubview:self.actionView];
+    [self.supportModalView bringSubviewToFront:self.actionView];
+    [self.view addSubview:self.supportModalView];
 }
 
 @end
