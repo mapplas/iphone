@@ -16,6 +16,9 @@
 		7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */; };
 		7F0002B016C1357000A2C86F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AF16C1357000A2C86F /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F0002B516C13A8000A2C86F /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002B416C13A8000A2C86F /* Toast.m */; };
+		7F00B84E16C3F2D000F91B56 /* ic_profile_photo_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F00B84C16C3F2D000F91B56 /* ic_profile_photo_frame.png */; };
+		7F00B84F16C3F2D000F91B56 /* ic_profile_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F00B84D16C3F2D000F91B56 /* ic_profile_photo.png */; };
+		7F00B85216C3F7D300F91B56 /* btn_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F00B85116C3F7D300F91B56 /* btn_red.png */; };
 		7F0195E216C24AFA0040FAD9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0195E116C24AFA0040FAD9 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7F0195E516C2563A0040FAD9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0195E416C2563A0040FAD9 /* MessageUI.framework */; };
 		7F0195E916C25F350040FAD9 /* SharingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0195E816C25F350040FAD9 /* SharingHelper.m */; };
@@ -182,6 +185,9 @@
 		7F0002AF16C1357000A2C86F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7F0002B316C13A8000A2C86F /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = classes/utils/Toast.h; sourceTree = "<group>"; };
 		7F0002B416C13A8000A2C86F /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Toast.m; path = classes/utils/Toast.m; sourceTree = "<group>"; };
+		7F00B84C16C3F2D000F91B56 /* ic_profile_photo_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_profile_photo_frame.png; sourceTree = SOURCE_ROOT; };
+		7F00B84D16C3F2D000F91B56 /* ic_profile_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_profile_photo.png; sourceTree = SOURCE_ROOT; };
+		7F00B85116C3F7D300F91B56 /* btn_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_red.png; sourceTree = SOURCE_ROOT; };
 		7F0195E116C24AFA0040FAD9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7F0195E416C2563A0040FAD9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7F0195E716C25F350040FAD9 /* SharingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharingHelper.h; path = classes/utils/SharingHelper.h; sourceTree = "<group>"; };
@@ -489,6 +495,14 @@
 			name = Toast;
 			sourceTree = "<group>";
 		};
+		7F00B85016C3F7C700F91B56 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7F00B85116C3F7D300F91B56 /* btn_red.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
 		7F0195E616C25F1C0040FAD9 /* Sharing */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +665,7 @@
 				7FFFBBC816A97E4F00417499 /* ic_mapplas.png */,
 				7FFFBBC916A97E4F00417499 /* ic_mapplas@2x.png */,
 				7FFFBBB716A97E2A00417499 /* Backgrounds */,
+				7F00B85016C3F7C700F91B56 /* Buttons */,
 				7FFFBBB616A97E2500417499 /* Icons */,
 				7FBAE93516B0443E00621B34 /* Images */,
 				7F68783D16A86083005DC098 /* Localizable.strings */,
@@ -1048,6 +1063,8 @@
 				7FFFBBC216A97E4900417499 /* ic_menu_profile.png */,
 				7FFFBBC316A97E4900417499 /* ic_menu_profile@2x.png */,
 				7FD39C6416BA7CF000F5EB8E /* ic_more.png */,
+				7F00B84C16C3F2D000F91B56 /* ic_profile_photo_frame.png */,
+				7F00B84D16C3F2D000F91B56 /* ic_profile_photo.png */,
 				7FFA007216B7E5A5003E53E1 /* ic_refresh.png */,
 				7FED410716B140ED00581C9D /* ic_template.png */,
 			);
@@ -1183,6 +1200,9 @@
 				7F1C2EDD16C00B680095ECFC /* star@2x.png in Resources */,
 				7F0002A216C1069A00A2C86F /* RatingModalViewController.xib in Resources */,
 				7F0195EB16C26FC70040FAD9 /* AppCell.xib in Resources */,
+				7F00B84E16C3F2D000F91B56 /* ic_profile_photo_frame.png in Resources */,
+				7F00B84F16C3F2D000F91B56 /* ic_profile_photo.png in Resources */,
+				7F00B85216C3F7D300F91B56 /* btn_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

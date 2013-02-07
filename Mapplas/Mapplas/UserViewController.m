@@ -9,36 +9,56 @@
 #import "UserViewController.h"
 
 @interface UserViewController ()
-
+- (void)configureLayout;
+- (int)checkUserState;
 @end
 
 @implementation UserViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+@synthesize scroll;
+
+@synthesize userImageView, userImageButton, userImageImageView;
+@synthesize userInfoUnpressed, userInfoUnpressedName, userInfoUnpressedEmail, userInfoUnpressedWarningText;
+@synthesize userInfoPressed, userInfoPressedNameEditText, userInfoPressedEmailEditText, userInfoPressedButtonOk;
+
+- (id)initWithUser:(User *)_user {
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        // Custom initialization
+        user = _user;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfoUnpressed, nil];
+    scrollManager = [[ScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
+    
+    [self configureLayout];
+    
+    [scrollManager organize];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)configureLayout {
+    // Unpressed view layout components initialization
+    self.userInfoUnpressedWarningText.text = NSLocalizedString(@"", @"");
+    
+    
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (int)checkUserState {
+    if(![user.email isEqualToString:@""]) {
+        if(user.logged) {
+            return LOG_IN;
+        }
+        else {
+            return LOGGED_IN;
+        }
+    }
+    else {
+        return SIGN_IN;
+    }
 }
 
 @end
