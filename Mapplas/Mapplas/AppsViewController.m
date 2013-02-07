@@ -77,7 +77,7 @@
     [self.userIdentRequest doRequest];
     
     // Get phone's application list
-    // ??
+    // ?? url scheme. canLaunchUrl?
 }
 
 - (void)viewWillAppear:(BOOL)animated {

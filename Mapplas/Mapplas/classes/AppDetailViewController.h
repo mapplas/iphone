@@ -86,6 +86,13 @@
 @property (nonatomic, strong) IBOutlet UIButton *phoneButton;
 @property (nonatomic, strong) IBOutlet UILabel *phoneLabel;
 
+@property (nonatomic, strong) IBOutlet UIView *actionBarWithoutTeleph;
+@property (nonatomic, strong) IBOutlet UIButton *pinWithoutPhoneButton;
+@property (nonatomic, strong) IBOutlet UILabel *pinWithoutPhoneLabel;
+@property (nonatomic, strong) IBOutlet UILabel *rateWithoutPhoneLabel;
+@property (nonatomic, strong) IBOutlet UILabel *blockWithoutPhoneLabel;
+@property (nonatomic, strong) IBOutlet UILabel *shareWithoutPhoneLabel;
+
 @property (nonatomic, strong) IBOutlet UIView *galleryView;
 @property (nonatomic, strong) IBOutlet UIView *galleryBackground;
 @property (nonatomic, strong) IBOutlet UIScrollView *galleryScroll;

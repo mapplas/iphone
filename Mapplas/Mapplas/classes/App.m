@@ -54,6 +54,7 @@
         self.longitude = [NSNumber numberWithDouble:0.0f];
         self.type = @"";
         
+        self.phone = @"";
         self.appPrice = @"0";
         
         self.auxPin = @"0";

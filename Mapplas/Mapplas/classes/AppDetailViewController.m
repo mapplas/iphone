@@ -28,6 +28,7 @@
 
 @synthesize topBar, logo, name, priceBackground, priceLabel, ratingView, ratingViewButton;
 @synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
+@synthesize actionBarWithoutTeleph, pinWithoutPhoneButton, pinWithoutPhoneLabel, rateWithoutPhoneLabel, blockWithoutPhoneLabel, shareWithoutPhoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
 @synthesize supportView, developerLabel, devWebButton, devEmailButton, asistencyButton;
@@ -48,16 +49,8 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
-//    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     NSMutableArray *viewsToAddToScroll = nil;
 //    if (self.app.auxCommentsArray.count > 0) {
@@ -65,8 +58,14 @@
 //        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.commentsViewController, self.supportView, nil];
 //    }
 //    else {
-        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.supportView, nil];
-//    }
+    
+    // Telephone icon or not
+    UIView *whatActionBar = self.actionBar;
+    if ([self.app.phone isEqualToString:@""]) {
+        whatActionBar = self.actionBarWithoutTeleph;
+    }
+    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.supportView, nil];
+
     
     scrollViewConfigurator = [[ScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
@@ -122,9 +121,19 @@
 
     // Action layout
     [self initPinActionLayout];
-    self.rateLabel.text = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
-    self.blockLabel.text = NSLocalizedString(@"block_text", @"Block text");
-    self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
+    
+    NSString *rateLabelText = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
+    self.rateLabel.text = rateLabelText;
+    self.rateWithoutPhoneLabel.text = rateLabelText;
+    
+    NSString *blockLabelText = NSLocalizedString(@"block_text", @"Block text");
+    self.blockLabel.text = blockLabelText;
+    self.blockWithoutPhoneLabel.text = blockLabelText;
+    
+    NSString *shareLabelText = NSLocalizedString(@"share_text", @"Share text");
+    self.shareLabel.text = shareLabelText;
+    self.shareWithoutPhoneLabel.text = shareLabelText;
+    
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
     
     // Description
@@ -272,11 +281,19 @@
 - (void)initPinActionLayout {
     if ([self.app.auxPin isEqualToString:@"1"]) {
         self.pinButton.selected = YES;
-        self.pinLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+        self.pinWithoutPhoneButton.selected = YES;
+        
+        NSString *pinLabelText = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+        self.pinLabel.text = pinLabelText;
+        self.pinWithoutPhoneLabel.text = pinLabelText;
     }
     else {
         self.pinButton.selected = NO;
-        self.pinLabel.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
+        self.pinWithoutPhoneButton.selected = NO;
+        
+        NSString *pinLabelText = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
+        self.pinLabel.text = pinLabelText;
+        self.pinWithoutPhoneLabel.text = pinLabelText;
     }
 }
 
@@ -327,7 +344,7 @@
 }
 
 - (IBAction)call:(id)sender {
-    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", self.app.phone]]];
 }
 
 @end
