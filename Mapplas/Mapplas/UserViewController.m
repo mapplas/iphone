@@ -22,6 +22,8 @@
 @synthesize userImageView, userImageButton, userImageImageView;
 @synthesize userInfoUnpressed, userInfoUnpressedName, userInfoUnpressedEmail, userInfoUnpressedWarningText;
 @synthesize userInfoPressed, userInfoPressedNameEditText, userInfoPressedEmailEditText, userInfoPressedButtonOk;
+@synthesize listHeaderView, listHeaderPinsButton, listHeaderPinsLabel, listHeaderBlocksButton, listHeaderBlocksLabel;
+@synthesize list;
 
 - (id)initWithUser:(User *)_user {
     self = [super initWithNibName:nil bundle:nil];
@@ -34,21 +36,53 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfoUnpressed, nil];
+    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfoUnpressed, self.listHeaderView, self.list, nil];
     scrollManager = [[ScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
     
     [self configureLayout];
     
+    pinUpsRequester = [[UserPinUpsRequester alloc] init];
+    [pinUpsRequester doRequestWithUser:user table:self.list];
+    
     [scrollManager organize];
 }
+
+#pragma mark - UITableViewDataSource delegate methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return user.pinnedApps.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"UserPinsTableItem";
+    
+    UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    [cell setApp:[user.pinnedApps objectAtIndex:indexPath.row]];
+    [cell loadData];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 72;
+}
+
+#pragma mark - Private methods
 
 - (void)actionButtonSelector {
     
 }
 
-- (void)configureLayout {
-    // Unpressed view layout components initialization
-    self.userInfoUnpressedWarningText.text = NSLocalizedString(@"", @"");
+- (void)configureLayout {    
+    // List header
+    self.listHeaderPinsLabel.text =  NSLocalizedString(@"user_list_header_pins_label", @"User screen list header pins label");
+    self.listHeaderBlocksButton.selected = YES;
+    self.listHeaderBlocksLabel.text = NSLocalizedString(@"user_list_header_blocks_label", @"User screen list header blocks label");
+    self.listHeaderBlocksButton.selected = NO;
     
     [self changeLayoutComponents:[self checkUserState]];
 }

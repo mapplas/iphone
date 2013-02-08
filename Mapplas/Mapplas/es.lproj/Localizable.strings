@@ -164,3 +164,9 @@
 
 /* User screen warning text signed-in */
 "user_warning_text_signed_in" = "Pulsa login para acceder a tus preferencias.";
+
+/* User screen list header pins label */
+"user_list_header_pins_label" = "pins";
+
+/* User screen list header blocks label */
+"user_list_header_blocks_label" = "bloqueadas";

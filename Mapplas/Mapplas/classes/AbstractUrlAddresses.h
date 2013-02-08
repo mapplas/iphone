@@ -20,6 +20,10 @@
 @property (nonatomic, strong) NSString *blockApp;
 @property (nonatomic, strong) NSString *rateApp;
 
+@property (nonatomic, strong) NSString *userPinUps;
+@property (nonatomic, strong) NSString *userBlocks;
+
+
 - (void)reloadAddresses;
 
 @end

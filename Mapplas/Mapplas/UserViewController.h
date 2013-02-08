@@ -11,6 +11,9 @@
 #import "ScrollViewOfViews.h"
 
 #import "User.h"
+#import "UserListTableViewCell.h"
+
+#import "UserPinUpsRequester.h"
 
 typedef enum {
     SIGN_IN,
@@ -18,10 +21,13 @@ typedef enum {
     LOGGED_IN
 } UserState;
 
-@interface UserViewController : UIViewController {
+@interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     User *user;
+    App *app;
     
     ScrollViewOfViews *scrollManager;
+    
+    UserPinUpsRequester *pinUpsRequester;
 }
 
 - (id)initWithUser:(User *)_user;
@@ -41,5 +47,13 @@ typedef enum {
 @property (nonatomic, strong) IBOutlet UIView *userInfoPressedNameEditText;
 @property (nonatomic, strong) IBOutlet UIView *userInfoPressedEmailEditText;
 @property (nonatomic, strong) IBOutlet UIView *userInfoPressedButtonOk;
+
+@property (nonatomic, strong) IBOutlet UIView *listHeaderView;
+@property (nonatomic, strong) IBOutlet UIButton *listHeaderPinsButton;
+@property (nonatomic, strong) IBOutlet UILabel *listHeaderPinsLabel;
+@property (nonatomic, strong) IBOutlet UIButton *listHeaderBlocksButton;
+@property (nonatomic, strong) IBOutlet UILabel *listHeaderBlocksLabel;
+
+@property (nonatomic, strong) IBOutlet UITableView *list;
 
 @end

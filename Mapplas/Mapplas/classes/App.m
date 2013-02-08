@@ -38,7 +38,7 @@
 
 @synthesize pinnedLatitude = _pinnedLatitude;
 @synthesize pinnedLongitude = _pinnedLongitude;
-@synthesize setPinnedGeocodedLocation = _setPinnedGeocodedLocation;
+@synthesize pinnedGeocodedLocation = _pinnedGeocodedLocation;
 
 @synthesize locationCurrency = _locationCurrency;
 @synthesize market = _market;
