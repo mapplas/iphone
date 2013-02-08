@@ -15,6 +15,8 @@
 
 #import "UserPinUpsRequester.h"
 
+#define cellHeight 72;
+
 typedef enum {
     SIGN_IN,
     LOG_IN,

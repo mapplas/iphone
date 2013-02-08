@@ -49,6 +49,12 @@
 
 #pragma mark - UITableViewDataSource delegate methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    float tableHeight = user.pinnedApps.count * cellHeight;
+    CGRect listFrame = CGRectMake(self.list.frame.origin.x, self.list.frame.origin.y, self.list.frame.size.width, tableHeight);
+    self.list.frame = listFrame;
+    
+    [scrollManager organize];
+    
     return user.pinnedApps.count;
 }
 
@@ -68,7 +74,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 72;
+    return cellHeight;
 }
 
 #pragma mark - Private methods
