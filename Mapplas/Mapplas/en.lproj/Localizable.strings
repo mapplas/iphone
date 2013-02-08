@@ -152,3 +152,15 @@
 
 /* Email app developer contact email subject */
 "app_developer_email_contact" = "";
+
+/* User screen action button sign-in text */
+"user_action_button_sign_in_text" = "Sign In";
+
+/* User screen action button log-in text */
+"user_action_button_log_in_text" = "Log In";
+
+/* User screen warning text sign-in */
+"user_warning_text_sign_in" = "If you would like to backup your preferences, signin!";
+
+/* User screen warning text signed-in */
+"user_warning_text_signed_in" = "To access your configuration, login!";
