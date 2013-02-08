@@ -10,12 +10,14 @@
 #import "JSONToAppMapper.h"
 #import "User.h"
 
+@class UserViewController;
+
 @interface UserPinUpsResponseHandler : NSObject <GenericRequestHandler> {
     JSONToAppMapper *appMapper;
     User *user;
-    UITableView *table;
+    UserViewController *userViewController;
 }
 
-- (id)initWithAppMapper:(JSONToAppMapper *)app_mapper user:(User *)_user table:(UITableView *)_table;
+- (id)initWithAppMapper:(JSONToAppMapper *)app_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller;
 
 @end

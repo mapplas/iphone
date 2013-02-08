@@ -32,6 +32,10 @@
 		7F03FDB816C5098C0069CBC3 /* UserBlocksConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDB716C5098C0069CBC3 /* UserBlocksConnector.m */; };
 		7F03FDBB16C509C70069CBC3 /* UserBlocksResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDBA16C509C70069CBC3 /* UserBlocksResponseHandler.m */; };
 		7F03FDBE16C50AB40069CBC3 /* UserPinUpsRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDBD16C50AB40069CBC3 /* UserPinUpsRequester.m */; };
+		7F03FDC116C523020069CBC3 /* UserBlocksRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDC016C523010069CBC3 /* UserBlocksRequester.m */; };
+		7F03FDC416C526630069CBC3 /* UserBlockedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */; };
+		7F03FDC616C5267C0069CBC3 /* UserBlockedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */; };
+		7F03FDC816C526F80069CBC3 /* ic_action_unblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDC716C526F80069CBC3 /* ic_action_unblock.png */; };
 		7F06793A16A7F4150043EF6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793916A7F4140043EF6B /* UIKit.framework */; };
 		7F06793C16A7F4150043EF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793B16A7F4150043EF6B /* Foundation.framework */; };
 		7F06793E16A7F4150043EF6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793D16A7F4150043EF6B /* CoreGraphics.framework */; };
@@ -217,6 +221,12 @@
 		7F03FDBA16C509C70069CBC3 /* UserBlocksResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlocksResponseHandler.m; path = classes/network/UserBlocksResponseHandler.m; sourceTree = "<group>"; };
 		7F03FDBC16C50AB40069CBC3 /* UserPinUpsRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinUpsRequester.h; path = classes/network/UserPinUpsRequester.h; sourceTree = "<group>"; };
 		7F03FDBD16C50AB40069CBC3 /* UserPinUpsRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinUpsRequester.m; path = classes/network/UserPinUpsRequester.m; sourceTree = "<group>"; };
+		7F03FDBF16C523010069CBC3 /* UserBlocksRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBlocksRequester.h; path = classes/network/UserBlocksRequester.h; sourceTree = "<group>"; };
+		7F03FDC016C523010069CBC3 /* UserBlocksRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlocksRequester.m; path = classes/network/UserBlocksRequester.m; sourceTree = "<group>"; };
+		7F03FDC216C526630069CBC3 /* UserBlockedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBlockedTableViewCell.h; path = classes/UserBlockedTableViewCell.h; sourceTree = "<group>"; };
+		7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlockedTableViewCell.m; path = classes/UserBlockedTableViewCell.m; sourceTree = "<group>"; };
+		7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserBlockedTableViewCell.xib; path = classes/UserBlockedTableViewCell.xib; sourceTree = "<group>"; };
+		7F03FDC716C526F80069CBC3 /* ic_action_unblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_unblock.png; sourceTree = SOURCE_ROOT; };
 		7F06793516A7F4140043EF6B /* Mapplas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapplas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F06793916A7F4140043EF6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7F06793B16A7F4150043EF6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -539,6 +549,9 @@
 		7F03FDAA16C4F49E0069CBC3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				7F03FDC216C526630069CBC3 /* UserBlockedTableViewCell.h */,
+				7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */,
+				7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */,
 				7F03FDAB16C4F4E70069CBC3 /* UserListTableViewCell.h */,
 				7F03FDAC16C4F4E70069CBC3 /* UserListTableViewCell.m */,
 				7F03FDAE16C4F50A0069CBC3 /* UserListTableViewCell.xib */,
@@ -987,6 +1000,8 @@
 				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
 				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
 				7FED413C16B1592D00581C9D /* DownloadedImageController.m */,
+				7F03FDBF16C523010069CBC3 /* UserBlocksRequester.h */,
+				7F03FDC016C523010069CBC3 /* UserBlocksRequester.m */,
 				7FFFBA9B16A932AB00417499 /* UserIdentificationRequest.h */,
 				7FFFBA9C16A932AB00417499 /* UserIdentificationRequest.m */,
 				7F03FDBC16C50AB40069CBC3 /* UserPinUpsRequester.h */,
@@ -1097,6 +1112,7 @@
 				7FEF544016B9186D00EAEED8 /* ic_action_phone.png */,
 				7FC8548A16B1919B00D73E90 /* ic_action_rate.png */,
 				7FC8548B16B1919B00D73E90 /* ic_action_share.png */,
+				7F03FDC716C526F80069CBC3 /* ic_action_unblock.png */,
 				7F2CE75316B672C500B7E6E5 /* ic_action_unpinup.png */,
 				7FFA5C0A16BBC076002BE898 /* ic_arrow_com.png */,
 				7F2CE75E16B69D3A00B7E6E5 /* ic_badge_free.png */,
@@ -1253,6 +1269,8 @@
 				7F03FDA816C4EEC40069CBC3 /* bgd_tab_pressed_left.png in Resources */,
 				7F03FDA916C4EEC40069CBC3 /* bgd_tab_pressed_right.png in Resources */,
 				7F03FDAF16C4F50A0069CBC3 /* UserListTableViewCell.xib in Resources */,
+				7F03FDC616C5267C0069CBC3 /* UserBlockedTableViewCell.xib in Resources */,
+				7F03FDC816C526F80069CBC3 /* ic_action_unblock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1376,6 +1394,8 @@
 				7F03FDB816C5098C0069CBC3 /* UserBlocksConnector.m in Sources */,
 				7F03FDBB16C509C70069CBC3 /* UserBlocksResponseHandler.m in Sources */,
 				7F03FDBE16C50AB40069CBC3 /* UserPinUpsRequester.m in Sources */,
+				7F03FDC116C523020069CBC3 /* UserBlocksRequester.m in Sources */,
+				7F03FDC416C526630069CBC3 /* UserBlockedTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -171,3 +171,7 @@
 /* User screen list header blocks label */
 "user_list_header_blocks_label" = "blocks";
 
+/* User screen block cell unblock label text */
+"user_list_blocked_cell_unblock_text" = "allow";
+
+

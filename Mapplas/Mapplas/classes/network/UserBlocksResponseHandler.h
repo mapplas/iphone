@@ -7,7 +7,15 @@
 //
 
 #import "GenericRequestHandler.h"
+#import "JSONToAppMapper.h"
+#import "UserViewController.h"
 
-@interface UserBlocksResponseHandler : NSObject <GenericRequestHandler>
+@interface UserBlocksResponseHandler : NSObject <GenericRequestHandler> {
+    JSONToAppMapper *appMapper;
+    User *user;
+    UserViewController *userViewController;
+}
+
+- (id)initWithAppMapper:(JSONToAppMapper *)app_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller;
 
 @end

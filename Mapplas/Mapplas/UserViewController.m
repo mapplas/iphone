@@ -7,6 +7,8 @@
 //
 
 #import "UserViewController.h"
+#import "UserPinUpsRequester.h"
+#import "UserBlocksRequester.h"
 
 @interface UserViewController ()
 - (void)configureLayout;
@@ -42,35 +44,67 @@
     [self configureLayout];
     
     pinUpsRequester = [[UserPinUpsRequester alloc] init];
-    [pinUpsRequester doRequestWithUser:user table:self.list];
+    [pinUpsRequester doRequestWithUser:user viewController:self];
+    
+    blocksRequester = [[UserBlocksRequester alloc] init];
+    [blocksRequester doRequestWithUser:user viewController:self];
     
     [scrollManager organize];
 }
 
+#pragma mark - User pin ups and blocked requests handler methods 
+- (void)requestedDataLoaded {
+    [list reloadData];
+}
+
 #pragma mark - UITableViewDataSource delegate methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    float tableHeight = user.pinnedApps.count * cellHeight;
+    
+    NSMutableArray *loadedList = nil;
+    if (self.listHeaderPinsButton.selected) {
+        loadedList = user.pinnedApps;
+    }
+    else {
+        loadedList = user.blockedApps;
+    }
+    
+    float tableHeight = loadedList.count * cellHeight;
     CGRect listFrame = CGRectMake(self.list.frame.origin.x, self.list.frame.origin.y, self.list.frame.size.width, tableHeight);
     self.list.frame = listFrame;
     
     [scrollManager organize];
     
-    return user.pinnedApps.count;
+    return loadedList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"UserPinsTableItem";
+    static NSString *pinnedAppsTableIdentifier = @"UserPinsTableItem";
+    static NSString *blockedAppsTableIdentifier = @"UserBlocksTableItem";
     
-    UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+    if (self.listHeaderPinsButton.selected) {
+        UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        [cell setApp:[user.pinnedApps objectAtIndex:indexPath.row]];
+        [cell loadData];
+        
+        return cell;
     }
-    
-    [cell setApp:[user.pinnedApps objectAtIndex:indexPath.row]];
-    [cell loadData];
-    
-    return cell;
+    else {
+        UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        [cell setApp:[user.blockedApps objectAtIndex:indexPath.row]];
+        [cell loadData];
+        
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -86,8 +120,11 @@
 - (void)configureLayout {    
     // List header
     self.listHeaderPinsLabel.text =  NSLocalizedString(@"user_list_header_pins_label", @"User screen list header pins label");
-    self.listHeaderBlocksButton.selected = YES;
+    [self.listHeaderPinsButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_left.png"] forState:UIControlStateSelected];
+    self.listHeaderPinsButton.selected = YES;
+    
     self.listHeaderBlocksLabel.text = NSLocalizedString(@"user_list_header_blocks_label", @"User screen list header blocks label");
+    [self.listHeaderBlocksButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_left.png"] forState:UIControlStateSelected];
     self.listHeaderBlocksButton.selected = NO;
     
     [self changeLayoutComponents:[self checkUserState]];
@@ -155,6 +192,18 @@
     else {
         return SIGN_IN;
     }
+}
+
+- (IBAction)userPinnedApps:(id)sender {
+    self.listHeaderPinsButton.selected = YES;
+    self.listHeaderBlocksButton.selected = NO;
+    [list reloadData];
+}
+
+- (IBAction)userBlockedApps:(id)sender {
+    self.listHeaderPinsButton.selected = NO;
+    self.listHeaderBlocksButton.selected = YES;
+    [list reloadData];
 }
 
 @end

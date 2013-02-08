@@ -7,15 +7,16 @@
 //
 
 #import "UserPinUpsResponseHandler.h"
+#import "UserViewController.h"
 
 @implementation UserPinUpsResponseHandler
 
-- (id)initWithAppMapper:(JSONToAppMapper *)app_mapper user:(User *)_user table:(UITableView *)_table {
+- (id)initWithAppMapper:(JSONToAppMapper *)app_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller {
     self = [super init];
     if (self) {
         appMapper = app_mapper;
         user = _user;
-        table = _table;
+        userViewController = user_view_controller;
     }
     return self;
 }
@@ -33,12 +34,12 @@
     }
     
     [user setPinnedApps:pinnedApps];
-    [table reloadData];
+    [userViewController requestedDataLoaded];
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
     [user setPinnedApps:[[NSMutableArray alloc] init]];
-    [table reloadData];
+    [userViewController requestedDataLoaded];
 }
 
 @end
