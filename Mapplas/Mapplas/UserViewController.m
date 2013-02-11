@@ -26,6 +26,7 @@
 @synthesize userInfoPressed, userInfoPressedNameEditText, userInfoPressedEmailEditText, userInfoPressedButtonOk;
 @synthesize listHeaderView, listHeaderPinsButton, listHeaderPinsLabel, listHeaderBlocksButton, listHeaderBlocksLabel;
 @synthesize list;
+@synthesize footerView, footerClearButton, footerClearButtonLabel, footerSignOutButton, footerSignOutButtonLabel;
 
 - (id)initWithUser:(User *)_user {
     self = [super initWithNibName:nil bundle:nil];
@@ -38,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfoUnpressed, self.listHeaderView, self.list, nil];
+    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfoUnpressed, self.listHeaderView, self.list, self.footerView, nil];
     scrollManager = [[ScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
     
     [self configureLayout];
@@ -124,8 +125,12 @@
     self.listHeaderPinsButton.selected = YES;
     
     self.listHeaderBlocksLabel.text = NSLocalizedString(@"user_list_header_blocks_label", @"User screen list header blocks label");
-    [self.listHeaderBlocksButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_left.png"] forState:UIControlStateSelected];
+    [self.listHeaderBlocksButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_right.png"] forState:UIControlStateSelected];
     self.listHeaderBlocksButton.selected = NO;
+    
+    // Footer
+    self.footerClearButtonLabel.text = NSLocalizedString(@"user_footer_clear_button_text", @"Footer clear button label text");
+    self.footerSignOutButtonLabel.text = NSLocalizedString(@"user_footer_sign_out_button_text", @"Footer sign-out button label text");
     
     [self changeLayoutComponents:[self checkUserState]];
 }
@@ -142,7 +147,7 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
-            // Remove buttons view from bottom
+            self.footerView.hidden = YES;
             
             break;
             
@@ -156,7 +161,7 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
-            // Remove buttons view from bottom
+            self.footerView.hidden = YES;
             
             break;
             
@@ -170,7 +175,7 @@
             self.userInfoUnpressedEmail.hidden = NO;
             self.userInfoUnpressedEmail.text = user.email;
             
-            // Add footer buttons
+            self.footerView.hidden = NO;
             
             break;
     }

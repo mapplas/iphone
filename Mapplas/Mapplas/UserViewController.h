@@ -60,6 +60,13 @@ typedef enum {
 
 @property (nonatomic, strong) IBOutlet UITableView *list;
 
+@property (nonatomic, strong) IBOutlet UIView *footerView;
+@property (nonatomic, strong) IBOutlet UIButton *footerClearButton;
+@property (nonatomic, strong) IBOutlet UILabel *footerClearButtonLabel;
+@property (nonatomic, strong) IBOutlet UIButton *footerSignOutButton;
+@property (nonatomic, strong) IBOutlet UILabel *footerSignOutButtonLabel;
+
+
 - (IBAction)userPinnedApps:(id)sender;
 - (IBAction)userBlockedApps:(id)sender;
 

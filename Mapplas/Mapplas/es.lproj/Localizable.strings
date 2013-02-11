@@ -173,3 +173,11 @@
 
 /* User screen block cell unblock label text */
 "user_list_blocked_cell_unblock_text" = "allow";
+
+/* Footer sign-out button label text */
+"user_footer_sign_out_button_text" = "Sign Out";
+
+/* Footer clear button label text */
+"user_footer_clear_button_text" = "TODO";
+
+
