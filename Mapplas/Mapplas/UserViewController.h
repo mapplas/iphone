@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
-#import "ScrollViewOfViews.h"
+#import "MutableScrollViewOfViews.h"
 
 #import "User.h"
 #import "UserListTableViewCell.h"
@@ -34,7 +34,7 @@ typedef enum {
     User *user;
     NSString *currentLocation;
     
-    ScrollViewOfViews *scrollManager;
+    MutableScrollViewOfViews *scrollManager;
     BOOL signInInputsVisible;
     
     UserPinUpsRequester *pinUpsRequester;
@@ -70,6 +70,9 @@ typedef enum {
 @property (nonatomic, strong) IBOutlet UILabel *listHeaderBlocksLabel;
 
 @property (nonatomic, strong) IBOutlet UITableView *list;
+
+@property (nonatomic, strong) IBOutlet UIView *listEmptyView;
+@property (nonatomic, strong) IBOutlet UILabel *listEmptyViewLabel;
 
 @property (nonatomic, strong) IBOutlet UIView *footerView;
 @property (nonatomic, strong) IBOutlet UIButton *footerClearButton;

@@ -28,6 +28,7 @@
 @synthesize userInfoPressed, userInfoPressedNameEditText, userInfoPressedEmailEditText, userInfoPressedButtonOk;
 @synthesize listHeaderView, listHeaderPinsButton, listHeaderPinsLabel, listHeaderBlocksButton, listHeaderBlocksLabel;
 @synthesize list;
+@synthesize listEmptyView, listEmptyViewLabel;
 @synthesize footerView, footerClearButton, footerClearButtonLabel, footerSignOutButton, footerSignOutButtonLabel;
 
 - (id)initWithUser:(User *)_user location:(NSString *)current_location {
@@ -43,8 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfo, self.listHeaderView, self.list, self.footerView, nil];
-    scrollManager = [[ScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
+    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfo, self.listHeaderView, self.list, nil];
+    scrollManager = [[MutableScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
     [self.userInfo addSubview:self.userInfoUnpressed];
     
     [self configureLayout];
@@ -188,7 +189,7 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
-            self.footerView.hidden = YES;
+            [scrollManager removeView:self.footerView];
             
             break;
             
@@ -201,7 +202,7 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
-            self.footerView.hidden = YES;
+            [scrollManager removeView:self.footerView];
             
             break;
             
@@ -215,10 +216,13 @@
             self.userInfoUnpressedEmail.hidden = NO;
             self.userInfoUnpressedEmail.text = user.email;
             
-            self.footerView.hidden = NO;
+            // Add view at index...!
+            [scrollManager addView:self.footerView];
             
             break;
     }
+    
+    [scrollManager organize];
 }
 
 - (int)checkUserState {
@@ -252,6 +256,8 @@
 }
 
 - (IBAction)userLogin:(id)sender {
+    [sender resignFirstResponder];
+    
     NSString *userName = self.userInfoPressedNameEditText.text;
     user.name = userName;
     

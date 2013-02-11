@@ -64,6 +64,7 @@
 		7F14A3CE16C8F76500FC0482 /* UserEditRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */; };
 		7F14A3D116C9061300FC0482 /* ActivityConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3D016C9061200FC0482 /* ActivityConnector.m */; };
 		7F14A3D416C907CC00FC0482 /* AppActivityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3D316C907CC00FC0482 /* AppActivityRequest.m */; };
+		7F14A3D816C9159600FC0482 /* MutableScrollViewOfViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */; };
 		7F1C2EDA16C00B680095ECFC /* star_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C2ED616C00B680095ECFC /* star_highlighted.png */; };
 		7F1C2EDB16C00B680095ECFC /* star_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C2ED716C00B680095ECFC /* star_highlighted@2x.png */; };
 		7F1C2EDC16C00B680095ECFC /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C2ED816C00B680095ECFC /* star.png */; };
@@ -283,6 +284,8 @@
 		7F14A3D016C9061200FC0482 /* ActivityConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityConnector.m; path = classes/network/ActivityConnector.m; sourceTree = "<group>"; };
 		7F14A3D216C907CC00FC0482 /* AppActivityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppActivityRequest.h; path = classes/network/AppActivityRequest.h; sourceTree = "<group>"; };
 		7F14A3D316C907CC00FC0482 /* AppActivityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppActivityRequest.m; path = classes/network/AppActivityRequest.m; sourceTree = "<group>"; };
+		7F14A3D616C9159600FC0482 /* MutableScrollViewOfViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MutableScrollViewOfViews.h; path = classes/utils/MutableScrollViewOfViews.h; sourceTree = "<group>"; };
+		7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MutableScrollViewOfViews.m; path = classes/utils/MutableScrollViewOfViews.m; sourceTree = "<group>"; };
 		7F1C2ED616C00B680095ECFC /* star_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_highlighted.png; sourceTree = SOURCE_ROOT; };
 		7F1C2ED716C00B680095ECFC /* star_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_highlighted@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F1C2ED816C00B680095ECFC /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = SOURCE_ROOT; };
@@ -913,6 +916,8 @@
 		7FEF544216B9211200EAEED8 /* Layout helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7F14A3D616C9159600FC0482 /* MutableScrollViewOfViews.h */,
+				7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */,
 				7FEF544316B9212B00EAEED8 /* PriceImageLabelHelper.h */,
 				7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */,
 				7FD39C6716BA84B600F5EB8E /* ScrollViewOfViews.h */,
@@ -1424,6 +1429,7 @@
 				7F14A3CE16C8F76500FC0482 /* UserEditRequester.m in Sources */,
 				7F14A3D116C9061300FC0482 /* ActivityConnector.m in Sources */,
 				7F14A3D416C907CC00FC0482 /* AppActivityRequest.m in Sources */,
+				7F14A3D816C9159600FC0482 /* MutableScrollViewOfViews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
