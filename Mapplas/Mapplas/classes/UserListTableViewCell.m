@@ -10,7 +10,7 @@
 
 @implementation UserListTableViewCell
 
-@synthesize app;
+@synthesize app, pinnedApps, user, location, modelAppOrderedList, positionInList;
 
 @synthesize appLogo;
 @synthesize appBackgroundLogo;
@@ -48,6 +48,43 @@
     self.appGeoLocation.text = app.pinnedGeocodedLocation;
     
     self.appPinActionLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+}
+
+- (IBAction)unpinApp:(id)sender {
+    // Remove app from pinned app list
+    [self.pinnedApps removeObject:app];
+    
+    // Do requests
+    activityRequest = [[AppActivityRequest alloc] init];
+    [activityRequest doRequestWithLocation:location action:ACTION_ACTIVITY_UNPIN app:app andUser:user];
+    
+    unpinRequest = [[AppPinRequest alloc] init];
+    [unpinRequest doRequestWithAppId:app.appId userId:user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:location];
+    
+    // Remove app from app ordered list at model
+    BOOL found = NO;
+    NSUInteger i = 0;
+    while (!found && i < modelAppOrderedList.count) {
+        App *currentApp = [modelAppOrderedList objectAtIndex:i];
+        if ([currentApp.appId isEqualToString:app.appId]) {
+            if ([currentApp.auxPin isEqualToString:@"0"]) {
+                currentApp.auxPin = @"1";
+            }
+            else {
+                currentApp.auxPin = @"0";
+            }
+            found = YES;
+        }
+        i++;
+    }
+    
+    // Set environment variable of change to yes
+    [[Environment sharedInstance] setAppSomethingChangedInDetail:YES];
+    
+    // Remove row in table for selected app
+    UITableView *table = (UITableView *)self.superview;
+    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
+    [table reloadData];
 }
 
 #pragma mark - AsynchronousImageDownloader protocol methods

@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MutableScrollViewOfViews.h"
 
+#import "SuperModel.h"
 #import "User.h"
 #import "UserListTableViewCell.h"
 #import "UserBlockedTableViewCell.h"
@@ -33,8 +34,7 @@ typedef enum {
 @class UserBlocksRequester;
 
 @interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {
-    User *user;
-    NSString *currentLocation;
+    SuperModel *model;
     
     MutableScrollViewOfViews *scrollManager;
     BOOL signInInputsVisible;
@@ -45,7 +45,8 @@ typedef enum {
     AppActivityRequest *appActivityRequester;
 }
 
-- (id)initWithUser:(User *)_user location:(NSString *)current_location;
+- (id)initWithModel:(SuperModel *)_super_model;
+//- (id)initWithUser:(User *)_user location:(NSString *)current_location;
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 

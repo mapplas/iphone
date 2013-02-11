@@ -10,7 +10,7 @@
 
 @implementation UserBlockedTableViewCell
 
-@synthesize app;
+@synthesize app, blockedApps, user, location, modelAppOrderedList, positionInList;
 
 @synthesize appLogo;
 @synthesize appBackgroundLogo;
@@ -46,6 +46,26 @@
     self.appTitle.text = app.name;
     
     self.appUnblockActionLabel.text = NSLocalizedString(@"user_list_blocked_cell_unblock_text", @"User screen block cell unblock label text");
+}
+
+- (IBAction)unblockApp:(id)sender {
+    activityRequest = [[AppActivityRequest alloc] init];
+    [activityRequest doRequestWithLocation:self.location action:ACTION_ACTIVITY_UNBLOCK app:self.app andUser:self.user];
+    
+    blockRequest = [[AppBlockRequest alloc] init];
+    [blockRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_UNBLOCK];
+    
+    // Remove 
+    [self.blockedApps removeObject:self.app];
+    [self.modelAppOrderedList addObject:self.app];
+    
+    // Set environment variable of change to yes
+    [[Environment sharedInstance] setAppSomethingChangedInDetail:YES];
+    
+    // Remove row in table for selected app
+    UITableView *table = (UITableView *)self.superview;
+    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
+    [table reloadData];
 }
 
 #pragma mark - AsynchronousImageDownloader protocol methods

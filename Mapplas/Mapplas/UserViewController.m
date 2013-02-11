@@ -31,11 +31,10 @@
 @synthesize listEmptyView, listEmptyViewLabel;
 @synthesize footerView, footerClearButton, footerClearButtonLabel, footerSignOutButton, footerSignOutButtonLabel;
 
-- (id)initWithUser:(User *)_user location:(NSString *)current_location {
+- (id)initWithModel:(SuperModel *)_super_model {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        user = _user;
-        currentLocation = current_location;
+        model = _super_model;
         signInInputsVisible = NO;
     }
     return self;
@@ -51,10 +50,10 @@
     [self configureLayout];
     
     pinUpsRequester = [[UserPinUpsRequester alloc] init];
-    [pinUpsRequester doRequestWithUser:user viewController:self];
+    [pinUpsRequester doRequestWithUser:model.user viewController:self];
     
     blocksRequester = [[UserBlocksRequester alloc] init];
-    [blocksRequester doRequestWithUser:user viewController:self];
+    [blocksRequester doRequestWithUser:model.user viewController:self];
     
     [scrollManager organize];
 }
@@ -69,20 +68,14 @@
     
     NSMutableArray *loadedList = nil;
     if (self.listHeaderPinsButton.selected) {
-        loadedList = user.pinnedApps;
+        loadedList = model.user.pinnedApps;
     }
     else {
-        loadedList = user.blockedApps;
+        loadedList = model.user.blockedApps;
     }
     
     NSUInteger count = loadedList.count;
-    float tableHeight = emptyCellHeight;
-    if (count > 0) {
-        tableHeight = count * cellHeight;
-    }
-    else {
-        count = 1;
-    }
+    NSUInteger tableHeight = count * cellHeight;
     
     CGRect listFrame = CGRectMake(self.list.frame.origin.x, self.list.frame.origin.y, self.list.frame.size.width, tableHeight);
     self.list.frame = listFrame;
@@ -95,65 +88,46 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *pinnedAppsTableIdentifier = @"UserPinsTableItem";
     static NSString *blockedAppsTableIdentifier = @"UserBlocksTableItem";
-    static NSString *emptyAppsTableIdentifier = @"EmptyTableItem";
     
     if (self.listHeaderPinsButton.selected) {
-        if (user.pinnedApps.count > 0) {
-            UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
-            if (cell == nil) {
-                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
-                cell = [nib objectAtIndex:0];
-            }
-            
-            [cell setApp:[user.pinnedApps objectAtIndex:indexPath.row]];
-            [cell loadData];
-            
-            return cell;
+        UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
         }
-        else {
-            UserEmptyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyAppsTableIdentifier];
-            if (cell == nil) {
-                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserEmptyTableViewCell" owner:self options:nil];
-                cell = [nib objectAtIndex:0];
-            }
             
-            cell.emptyCellText.text = NSLocalizedString(@"user_screen_empty_pinup_list_text", @"User screen empty pinned list cell message");
-            return cell;
-        }
+        [cell setApp:[model.user.pinnedApps objectAtIndex:indexPath.row]];
+        [cell setPinnedApps:model.user.pinnedApps];
+        [cell setLocation:model.currentLocation];
+        [cell setUser:model.user];
+        [cell setModelAppOrderedList:model.appList];
+        [cell setPositionInList:indexPath.row];
+            
+        [cell loadData];
+        return cell;
+
     }
     else {
-        if (user.blockedApps.count > 0) {
-            UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
-            if (cell == nil) {
-                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
-                cell = [nib objectAtIndex:0];
-            }
-            
-            [cell setApp:[user.blockedApps objectAtIndex:indexPath.row]];
-            [cell loadData];
-            
-            return cell;
+        UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
+               cell = [nib objectAtIndex:0];
         }
-        else {
-            UserEmptyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyAppsTableIdentifier];
-            if (cell == nil) {
-                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserEmptyTableViewCell" owner:self options:nil];
-                cell = [nib objectAtIndex:0];
-            }
             
-            cell.emptyCellText.text = NSLocalizedString(@"user_screen_empty_blocked_list_text", @"User screen empty blocked list cell message");
-            return cell;
-        }
+        [cell setApp:[model.user.blockedApps objectAtIndex:indexPath.row]];
+        [cell setBlockedApps:model.user.blockedApps];
+        [cell setLocation:model.currentLocation];
+        [cell setUser:model.user];
+        [cell setModelAppOrderedList:model.appList];
+        [cell setPositionInList:indexPath.row];
+        
+        [cell loadData];
+        return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ((self.listHeaderPinsButton.selected && user.pinnedApps.count == 0) || (self.listHeaderBlocksButton.selected && user.blockedApps.count == 0)) {
-        return emptyCellHeight;
-    }
-    else {
-        return cellHeight;
-    }
+    return cellHeight;
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -250,9 +224,9 @@
             self.userInfoUnpressedWarningText.hidden = YES;
             
             self.userInfoUnpressedName.hidden = NO;
-            self.userInfoUnpressedName.text = user.name;
+            self.userInfoUnpressedName.text = model.user.name;
             self.userInfoUnpressedEmail.hidden = NO;
-            self.userInfoUnpressedEmail.text = user.email;
+            self.userInfoUnpressedEmail.text = model.user.email;
             
             // Add view at index...!
             [scrollManager addView:self.footerView];
@@ -268,7 +242,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL logged = [userDefaults boolForKey:@"logged"];
     
-    if(![user.email isEqualToString:@""] && logged) {
+    if(![model.user.email isEqualToString:@""] && logged) {
         if(logged) {
             return LOGGED_IN;
         }
@@ -297,7 +271,7 @@
     [sender resignFirstResponder];
     
     NSString *userName = self.userInfoPressedNameEditText.text;
-    user.name = userName;
+    model.user.name = userName;
     
     if ([userName isEqualToString:@""]) {
         userName = NSLocalizedString(@"user_info_name_not_set_text", @"User screen name not set text");
@@ -306,7 +280,7 @@
     
     
     NSString *userEmail =  self.userInfoPressedEmailEditText.text;
-    user.email = userEmail;
+    model.user.email = userEmail;
     
     if ([userEmail isEqualToString:@""]) {
         userEmail = NSLocalizedString(@"user_info_email_not_set_text", @"User screen email not set text");
@@ -315,7 +289,7 @@
     
     // Request
     userEditRequester = [[UserEditRequester alloc] init];
-    [userEditRequester doRequestWithUser:user];
+    [userEditRequester doRequestWithUser:model.user];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:YES forKey:@"logged"];
@@ -340,10 +314,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
-        NSString *name = user.name;
-        user.name = @"";
-        NSString *email = user.email;        
-        user.email = @"";
+        NSString *name = model.user.name;
+        model.user.name = @"";
+        NSString *email = model.user.email;        
+        model.user.email = @"";
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setBool:NO forKey:@"logged"];
@@ -354,11 +328,11 @@
         // Logout request
         NSString *message = [NSString stringWithFormat:@"%@ (%@:%@)", ACTION_ACTIVITY_LOGOUT, name, email];
         appActivityRequester = [[AppActivityRequest alloc] init];
-        [appActivityRequester doRequestWithLocation:currentLocation action:message app:nil andUser:user];
+        [appActivityRequester doRequestWithLocation:model.currentLocation action:message app:nil andUser:model.user];
         
         // User edit request
         userEditRequester = [[UserEditRequester alloc] init];
-        [userEditRequester doRequestWithUser:user];
+        [userEditRequester doRequestWithUser:model.user];
     }
 }
 
