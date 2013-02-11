@@ -185,3 +185,9 @@
 
 /* User screen email not set text */
 "user_info_email_not_set_text" = "Email";
+
+/* User screen sign-out alert dialog title */
+"user_screen_sign_out_alert_title" = "Sign Out";
+
+/* User screen sign-out alert dialog message */
+"user_screen_sign_out_alert_message" = "¿Realmente quieres salir?";

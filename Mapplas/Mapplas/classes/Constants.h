@@ -11,6 +11,8 @@
 #define ACTION_LIKE_REQUEST_BLOCK @"m"
 #define ACTION_LIKE_REQUEST_UNBLOCK @"mr"
 
+#define ACTION_ACTIVITY_LOGOUT @"logout"
+
 @interface Constants : NSObject
 
 @end

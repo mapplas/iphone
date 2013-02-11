@@ -15,6 +15,9 @@
 #import "UserListTableViewCell.h"
 #import "UserBlockedTableViewCell.h"
 #import "UserEditRequester.h"
+#import "AppActivityRequest.h"
+
+#import "Constants.h"
 
 #define cellHeight 72;
 
@@ -27,8 +30,9 @@ typedef enum {
 @class UserPinUpsRequester;
 @class UserBlocksRequester;
 
-@interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+@interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {
     User *user;
+    NSString *currentLocation;
     
     ScrollViewOfViews *scrollManager;
     BOOL signInInputsVisible;
@@ -36,9 +40,10 @@ typedef enum {
     UserPinUpsRequester *pinUpsRequester;
     UserBlocksRequester *blocksRequester;
     UserEditRequester *userEditRequester;
+    AppActivityRequest *appActivityRequester;
 }
 
-- (id)initWithUser:(User *)_user;
+- (id)initWithUser:(User *)_user location:(NSString *)current_location;
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 
@@ -76,6 +81,7 @@ typedef enum {
 - (IBAction)userPinnedApps:(id)sender;
 - (IBAction)userBlockedApps:(id)sender;
 - (IBAction)userLogin:(id)sender;
+- (IBAction)userLogOut:(id)sender;
 
 - (void)requestedDataLoaded;
 

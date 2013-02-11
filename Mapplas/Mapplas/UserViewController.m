@@ -30,10 +30,11 @@
 @synthesize list;
 @synthesize footerView, footerClearButton, footerClearButtonLabel, footerSignOutButton, footerSignOutButtonLabel;
 
-- (id)initWithUser:(User *)_user {
+- (id)initWithUser:(User *)_user location:(NSString *)current_location {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         user = _user;
+        currentLocation = current_location;
         signInInputsVisible = NO;
     }
     return self;
@@ -286,6 +287,35 @@
     [self.userInfo.layer addAnimation:pushTransition forKey:@""];
     [self.userInfo addSubview:self.userInfoUnpressed];
     [self.userInfoPressed removeFromSuperview];
+}
+
+- (IBAction)userLogOut:(id)sender {
+    UIAlertView *logoutAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"user_screen_sign_out_alert_title", @"User screen sign-out alert dialog title") message:NSLocalizedString(@"user_screen_sign_out_alert_message", @"User screen sign-out alert dialog message") delegate:self cancelButtonTitle:NSLocalizedString(@"nav_bar_button_cancel", @"Navigation bar button - Cancel") otherButtonTitles:NSLocalizedString(@"ok_message", @"OK message"), nil];
+    [logoutAlert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        NSString *name = user.name;
+        user.name = @"";
+        NSString *email = user.email;        
+        user.email = @"";
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:NO forKey:@"logged"];
+        [userDefaults synchronize];
+        
+        [self changeLayoutComponents:[self checkUserState]];
+        
+        // Logout request
+        NSString *message = [NSString stringWithFormat:@"%@ (%@:%@)", ACTION_ACTIVITY_LOGOUT, name, email];
+        appActivityRequester = [[AppActivityRequest alloc] init];
+        [appActivityRequester doRequestWithLocation:currentLocation action:message app:nil andUser:user];
+        
+        // User edit request
+        userEditRequester = [[UserEditRequester alloc] init];
+        [userEditRequester doRequestWithUser:user];
+    }
 }
 
 @end

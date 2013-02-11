@@ -14,6 +14,8 @@
 @synthesize port;
 @synthesize relativePath;
 
+@synthesize activity;
+
 @synthesize identifyUser;
 @synthesize editUser;
 
@@ -44,6 +46,8 @@
 }
 
 - (void)reloadAddresses {
+    [self setActivity:[self buildAddresWithPath:@"/ipc_activity.php"]];
+    
 	[self setIdentifyUser:[self buildAddresWithPath:@"/ipc_ii.php"]];
     [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
     

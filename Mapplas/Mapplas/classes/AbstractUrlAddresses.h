@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *port;
 @property (nonatomic, strong) NSString *relativePath;
 
+@property (nonatomic, strong) NSString *activity;
+
 @property (nonatomic, strong) NSString *identifyUser;
 @property (nonatomic, strong) NSString *editUser;
 
