@@ -15,6 +15,8 @@
 @synthesize relativePath;
 
 @synthesize identifyUser;
+@synthesize editUser;
+
 @synthesize getApps;
 @synthesize pinApp;
 @synthesize blockApp;
@@ -43,6 +45,8 @@
 
 - (void)reloadAddresses {
 	[self setIdentifyUser:[self buildAddresWithPath:@"/ipc_ii.php"]];
+    [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
+    
     [self setGetApps:[self buildAddresWithPath:@"/ipc_locations.php"]];
     [self setPinApp:[self buildAddresWithPath:@"/ipc_pin.php"]];
     [self setBlockApp:[self buildAddresWithPath:@"/ipc_like.php"]];

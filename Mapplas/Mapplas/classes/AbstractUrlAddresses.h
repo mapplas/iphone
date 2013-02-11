@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSString *relativePath;
 
 @property (nonatomic, strong) NSString *identifyUser;
+@property (nonatomic, strong) NSString *editUser;
+
 @property (nonatomic, strong) NSString *getApps;
 @property (nonatomic, strong) NSString *pinApp;
 @property (nonatomic, strong) NSString *blockApp;

@@ -11,6 +11,7 @@
 #import "UserBlocksRequester.h"
 
 @interface UserViewController ()
+- (void)setTextToNavigationButton:(NSString *)title;
 - (void)configureLayout;
 - (int)checkUserState;
 - (void)changeLayoutComponents:(int)user_state;
@@ -22,6 +23,7 @@
 @synthesize scroll;
 
 @synthesize userImageView, userImageButton, userImageImageView;
+@synthesize userInfo;
 @synthesize userInfoUnpressed, userInfoUnpressedName, userInfoUnpressedEmail, userInfoUnpressedWarningText;
 @synthesize userInfoPressed, userInfoPressedNameEditText, userInfoPressedEmailEditText, userInfoPressedButtonOk;
 @synthesize listHeaderView, listHeaderPinsButton, listHeaderPinsLabel, listHeaderBlocksButton, listHeaderBlocksLabel;
@@ -32,6 +34,7 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         user = _user;
+        signInInputsVisible = NO;
     }
     return self;
 }
@@ -39,8 +42,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfoUnpressed, self.listHeaderView, self.list, self.footerView, nil];
+    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfo, self.listHeaderView, self.list, self.footerView, nil];
     scrollManager = [[ScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
+    [self.userInfo addSubview:self.userInfoUnpressed];
     
     [self configureLayout];
     
@@ -112,10 +116,47 @@
     return cellHeight;
 }
 
+#pragma mark - UITextFieldDelegate methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.userInfoPressedNameEditText]) {
+        // Found next responder, so set it.
+        [self.userInfoPressedEmailEditText becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
 #pragma mark - Private methods
 
+- (void)setTextToNavigationButton:(NSString *)title {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(actionButtonSelector)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+}
+
 - (void)actionButtonSelector {
+    CATransition *pushTransition = [CATransition animation];
+    pushTransition.type = kCATransitionPush;
     
+    if (signInInputsVisible) {
+        signInInputsVisible = NO;
+        pushTransition.subtype = kCATransitionFromLeft;
+        [self.userInfo.layer addAnimation:pushTransition forKey:@""];
+        [self.userInfo addSubview:self.userInfoUnpressed];
+        [self.userInfoPressed removeFromSuperview];
+        
+        [self setTextToNavigationButton:NSLocalizedString(@"user_action_button_sign_in_text", @"User screen action button sign-in text")];
+    }
+    else {
+        signInInputsVisible = YES;
+        pushTransition.subtype = kCATransitionFromRight;
+        [self.userInfo.layer addAnimation:pushTransition forKey:@""];
+        [self.userInfo addSubview:self.userInfoPressed];
+        [self.userInfoUnpressed removeFromSuperview];
+
+        [self setTextToNavigationButton:NSLocalizedString(@"nav_bar_button_cancel", @"Navigation bar button - Cancel")];
+    }
 }
 
 - (void)configureLayout {    
@@ -138,9 +179,8 @@
 - (void)changeLayoutComponents:(int)user_state {
     switch (user_state) {
         case SIGN_IN:
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"user_action_button_sign_in_text", @"User screen action button sign-in text") style:UIBarButtonItemStylePlain target:self action:@selector(actionButtonSelector)];
-            self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
-            
+            [self setTextToNavigationButton:NSLocalizedString(@"user_action_button_sign_in_text", @"User screen action button sign-in text")];
+                        
             self.userInfoUnpressedWarningText.text = NSLocalizedString(@"user_warning_text_sign_in", @"User screen warning text sign-in");
             self.userInfoUnpressedWarningText.hidden = NO;
             
@@ -152,9 +192,8 @@
             break;
             
         case LOG_IN:
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"user_action_button_log_in_text", @"User screen action button log-in text") style:UIBarButtonItemStylePlain target:self action:@selector(actionButtonSelector)];
-            self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
-            
+            [self setTextToNavigationButton:NSLocalizedString(@"user_action_button_log_in_text", @"User screen action button log-in text")];
+                        
             self.userInfoUnpressedWarningText.text = NSLocalizedString(@"user_warning_text_signed_in", @"Pulsa login para acceder a tus preferencias.");
             self.userInfoUnpressedWarningText.hidden = NO;
             
@@ -167,11 +206,11 @@
             
         case LOGGED_IN:
             self.navigationItem.rightBarButtonItem = nil;
-            
+                        
             self.userInfoUnpressedWarningText.hidden = YES;
             
             self.userInfoUnpressedName.hidden = NO;
-            self.userInfoUnpressedEmail.text = user.name;
+            self.userInfoUnpressedName.text = user.name;
             self.userInfoUnpressedEmail.hidden = NO;
             self.userInfoUnpressedEmail.text = user.email;
             
@@ -188,10 +227,10 @@
     
     if(![user.email isEqualToString:@""] && logged) {
         if(logged) {
-            return LOG_IN;
+            return LOGGED_IN;
         }
         else {
-            return LOGGED_IN;
+            return LOG_IN;
         }
     }
     else {
@@ -209,6 +248,44 @@
     self.listHeaderPinsButton.selected = NO;
     self.listHeaderBlocksButton.selected = YES;
     [list reloadData];
+}
+
+- (IBAction)userLogin:(id)sender {
+    NSString *userName = self.userInfoPressedNameEditText.text;
+    user.name = userName;
+    
+    if ([userName isEqualToString:@""]) {
+        userName = NSLocalizedString(@"user_info_name_not_set_text", @"User screen name not set text");
+    }
+    self.userInfoUnpressedName.text = userName;
+    
+    
+    NSString *userEmail =  self.userInfoPressedEmailEditText.text;
+    user.email = userEmail;
+    
+    if ([userEmail isEqualToString:@""]) {
+        userEmail = NSLocalizedString(@"user_info_email_not_set_text", @"User screen email not set text");
+    }
+    self.userInfoUnpressedEmail.text = userEmail;
+    
+    // Request
+    userEditRequester = [[UserEditRequester alloc] init];
+    [userEditRequester doRequestWithUser:user];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:YES forKey:@"logged"];
+    [userDefaults synchronize];
+    
+    [self changeLayoutComponents:[self checkUserState]];
+
+    // Transition animation
+    CATransition *pushTransition = [CATransition animation];
+    pushTransition.type = kCATransitionPush;
+    signInInputsVisible = NO;
+    pushTransition.subtype = kCATransitionFromLeft;
+    [self.userInfo.layer addAnimation:pushTransition forKey:@""];
+    [self.userInfo addSubview:self.userInfoUnpressed];
+    [self.userInfoPressed removeFromSuperview];
 }
 
 @end

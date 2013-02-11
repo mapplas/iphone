@@ -50,6 +50,6 @@
 
 - (void) addItemsToEndOfTableView;
 
--(void)reloadTableDataAndScrollTop:(BOOL)scroll;
+- (void)reloadTableDataAndScrollTop:(BOOL)scroll;
 
 @end

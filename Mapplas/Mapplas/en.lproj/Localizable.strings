@@ -179,3 +179,9 @@
 
 /* Footer clear button label text */
 "user_footer_clear_button_text" = "TODO";
+
+/* User screen name not set text */
+"user_info_name_not_set_text" = "Name";
+
+/* User screen email not set text */
+"user_info_email_not_set_text" = "Email";
