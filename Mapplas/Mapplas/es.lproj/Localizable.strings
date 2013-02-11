@@ -191,3 +191,9 @@
 
 /* User screen sign-out alert dialog message */
 "user_screen_sign_out_alert_message" = "¿Realmente quieres salir?";
+
+/* User screen empty pinned list cell message */
+"user_screen_empty_pinup_list_text" = "No has pinneado ninguna app";
+
+/* User screen empty blocked list cell message */
+"user_screen_empty_blocked_list_text" = "No has bloqueado ninguna app";

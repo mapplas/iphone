@@ -14,12 +14,14 @@
 #import "User.h"
 #import "UserListTableViewCell.h"
 #import "UserBlockedTableViewCell.h"
+#import "UserEmptyTableViewCell.h"
 #import "UserEditRequester.h"
 #import "AppActivityRequest.h"
 
 #import "Constants.h"
 
 #define cellHeight 72;
+#define emptyCellHeight 100;
 
 typedef enum {
     SIGN_IN,

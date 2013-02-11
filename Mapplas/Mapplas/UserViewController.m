@@ -75,47 +75,85 @@
         loadedList = user.blockedApps;
     }
     
-    float tableHeight = loadedList.count * cellHeight;
+    NSUInteger count = loadedList.count;
+    float tableHeight = emptyCellHeight;
+    if (count > 0) {
+        tableHeight = count * cellHeight;
+    }
+    else {
+        count = 1;
+    }
+    
     CGRect listFrame = CGRectMake(self.list.frame.origin.x, self.list.frame.origin.y, self.list.frame.size.width, tableHeight);
     self.list.frame = listFrame;
     
     [scrollManager organize];
     
-    return loadedList.count;
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *pinnedAppsTableIdentifier = @"UserPinsTableItem";
     static NSString *blockedAppsTableIdentifier = @"UserBlocksTableItem";
+    static NSString *emptyAppsTableIdentifier = @"EmptyTableItem";
     
     if (self.listHeaderPinsButton.selected) {
-        UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
-        if (cell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
-            cell = [nib objectAtIndex:0];
+        if (user.pinnedApps.count > 0) {
+            UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
+            [cell setApp:[user.pinnedApps objectAtIndex:indexPath.row]];
+            [cell loadData];
+            
+            return cell;
         }
-        
-        [cell setApp:[user.pinnedApps objectAtIndex:indexPath.row]];
-        [cell loadData];
-        
-        return cell;
+        else {
+            UserEmptyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyAppsTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserEmptyTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
+            cell.emptyCellText.text = NSLocalizedString(@"user_screen_empty_pinup_list_text", @"User screen empty pinned list cell message");
+            return cell;
+        }
     }
     else {
-        UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
-        if (cell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
-            cell = [nib objectAtIndex:0];
+        if (user.blockedApps.count > 0) {
+            UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
+            [cell setApp:[user.blockedApps objectAtIndex:indexPath.row]];
+            [cell loadData];
+            
+            return cell;
         }
-        
-        [cell setApp:[user.blockedApps objectAtIndex:indexPath.row]];
-        [cell loadData];
-        
-        return cell;
+        else {
+            UserEmptyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyAppsTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserEmptyTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
+            cell.emptyCellText.text = NSLocalizedString(@"user_screen_empty_blocked_list_text", @"User screen empty blocked list cell message");
+            return cell;
+        }
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return cellHeight;
+    if ((self.listHeaderPinsButton.selected && user.pinnedApps.count == 0) || (self.listHeaderBlocksButton.selected && user.blockedApps.count == 0)) {
+        return emptyCellHeight;
+    }
+    else {
+        return cellHeight;
+    }
 }
 
 #pragma mark - UITextFieldDelegate methods
