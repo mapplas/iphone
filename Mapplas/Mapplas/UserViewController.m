@@ -282,6 +282,11 @@
     else {
         [scrollManager addView:self.list];
     }
+    
+    int userState = [self checkUserState];
+    if (userState == LOGGED_IN) {
+        [scrollManager addView:self.footerView];
+    }
 }
 
 - (IBAction)userPinnedApps:(id)sender {
