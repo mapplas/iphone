@@ -1,9 +1,9 @@
 //
 //  DownloadedImageController.m
-//  Quomai
+//  Mapplas
 //
-//  Created by Fran Naranjo on 06/03/11.
-//  Copyright 2011 Quomai. All rights reserved.
+//  Created by Belén  on 12/02/13.
+//  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
 #import "DownloadedImageController.h"

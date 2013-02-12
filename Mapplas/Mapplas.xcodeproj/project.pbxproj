@@ -23,6 +23,19 @@
 		7F0195E516C2563A0040FAD9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0195E416C2563A0040FAD9 /* MessageUI.framework */; };
 		7F0195E916C25F350040FAD9 /* SharingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0195E816C25F350040FAD9 /* SharingHelper.m */; };
 		7F0195EB16C26FC70040FAD9 /* AppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0195EA16C26FC70040FAD9 /* AppCell.xib */; };
+		7F03406016CA818400F5027C /* BatchSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03404E16CA818400F5027C /* BatchSaver.m */; };
+		7F03406116CA818400F5027C /* SQLiteDatabaseConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405116CA818400F5027C /* SQLiteDatabaseConnector.m */; };
+		7F03406216CA818400F5027C /* SQLitePrepareStatment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405316CA818400F5027C /* SQLitePrepareStatment.m */; };
+		7F03406316CA818400F5027C /* SQLiteStatmentExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405516CA818400F5027C /* SQLiteStatmentExecutor.m */; };
+		7F03406416CA818400F5027C /* SQLiteColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405716CA818400F5027C /* SQLiteColumn.m */; };
+		7F03406516CA818400F5027C /* SQLiteQueryMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405916CA818400F5027C /* SQLiteQueryMapper.m */; };
+		7F03406616CA818400F5027C /* SQLiteQueryPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405B16CA818400F5027C /* SQLiteQueryPreprocessor.m */; };
+		7F03406716CA818400F5027C /* SQLiteTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405D16CA818400F5027C /* SQLiteTable.m */; };
+		7F03406816CA818400F5027C /* SQLiteTableBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03405F16CA818400F5027C /* SQLiteTableBaseObject.m */; };
+		7F03406E16CA845400F5027C /* NSStringCamelcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03406D16CA845400F5027C /* NSStringCamelcase.m */; };
+		7F03407116CA84B100F5027C /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03407016CA84B100F5027C /* Notification.m */; };
+		7F03407416CA897700F5027C /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03407316CA897700F5027C /* Unit.m */; };
+		7F03407616CA8F9700F5027C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */; };
 		7F03FDA816C4EEC40069CBC3 /* bgd_tab_pressed_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDA616C4EEC40069CBC3 /* bgd_tab_pressed_left.png */; };
 		7F03FDA916C4EEC40069CBC3 /* bgd_tab_pressed_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDA716C4EEC40069CBC3 /* bgd_tab_pressed_right.png */; };
 		7F03FDAD16C4F4E70069CBC3 /* UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDAC16C4F4E70069CBC3 /* UserListTableViewCell.m */; };
@@ -214,6 +227,31 @@
 		7F0195E716C25F350040FAD9 /* SharingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharingHelper.h; path = classes/utils/SharingHelper.h; sourceTree = "<group>"; };
 		7F0195E816C25F350040FAD9 /* SharingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharingHelper.m; path = classes/utils/SharingHelper.m; sourceTree = "<group>"; };
 		7F0195EA16C26FC70040FAD9 /* AppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppCell.xib; path = classes/AppCell.xib; sourceTree = "<group>"; };
+		7F03404D16CA818400F5027C /* BatchSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatchSaver.h; path = classes/database/BatchSaver.h; sourceTree = "<group>"; };
+		7F03404E16CA818400F5027C /* BatchSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatchSaver.m; path = classes/database/BatchSaver.m; sourceTree = "<group>"; };
+		7F03405016CA818400F5027C /* SQLiteDatabaseConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDatabaseConnector.h; sourceTree = "<group>"; };
+		7F03405116CA818400F5027C /* SQLiteDatabaseConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDatabaseConnector.m; sourceTree = "<group>"; };
+		7F03405216CA818400F5027C /* SQLitePrepareStatment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLitePrepareStatment.h; sourceTree = "<group>"; };
+		7F03405316CA818400F5027C /* SQLitePrepareStatment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLitePrepareStatment.m; sourceTree = "<group>"; };
+		7F03405416CA818400F5027C /* SQLiteStatmentExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteStatmentExecutor.h; sourceTree = "<group>"; };
+		7F03405516CA818400F5027C /* SQLiteStatmentExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteStatmentExecutor.m; sourceTree = "<group>"; };
+		7F03405616CA818400F5027C /* SQLiteColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteColumn.h; path = classes/database/SQLiteColumn.h; sourceTree = "<group>"; };
+		7F03405716CA818400F5027C /* SQLiteColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteColumn.m; path = classes/database/SQLiteColumn.m; sourceTree = "<group>"; };
+		7F03405816CA818400F5027C /* SQLiteQueryMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteQueryMapper.h; path = classes/database/SQLiteQueryMapper.h; sourceTree = "<group>"; };
+		7F03405916CA818400F5027C /* SQLiteQueryMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteQueryMapper.m; path = classes/database/SQLiteQueryMapper.m; sourceTree = "<group>"; };
+		7F03405A16CA818400F5027C /* SQLiteQueryPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteQueryPreprocessor.h; path = classes/database/SQLiteQueryPreprocessor.h; sourceTree = "<group>"; };
+		7F03405B16CA818400F5027C /* SQLiteQueryPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteQueryPreprocessor.m; path = classes/database/SQLiteQueryPreprocessor.m; sourceTree = "<group>"; };
+		7F03405C16CA818400F5027C /* SQLiteTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteTable.h; path = classes/database/SQLiteTable.h; sourceTree = "<group>"; };
+		7F03405D16CA818400F5027C /* SQLiteTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteTable.m; path = classes/database/SQLiteTable.m; sourceTree = "<group>"; };
+		7F03405E16CA818400F5027C /* SQLiteTableBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteTableBaseObject.h; path = classes/database/SQLiteTableBaseObject.h; sourceTree = "<group>"; };
+		7F03405F16CA818400F5027C /* SQLiteTableBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteTableBaseObject.m; path = classes/database/SQLiteTableBaseObject.m; sourceTree = "<group>"; };
+		7F03406C16CA845400F5027C /* NSStringCamelcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringCamelcase.h; path = classes/NSStringCamelcase.h; sourceTree = "<group>"; };
+		7F03406D16CA845400F5027C /* NSStringCamelcase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringCamelcase.m; path = classes/NSStringCamelcase.m; sourceTree = "<group>"; };
+		7F03406F16CA84B100F5027C /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notification.h; path = classes/Notification.h; sourceTree = "<group>"; };
+		7F03407016CA84B100F5027C /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notification.m; path = classes/Notification.m; sourceTree = "<group>"; };
+		7F03407216CA897700F5027C /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = classes/Unit.h; sourceTree = "<group>"; };
+		7F03407316CA897700F5027C /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = classes/Unit.m; sourceTree = "<group>"; };
+		7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		7F03FDA616C4EEC40069CBC3 /* bgd_tab_pressed_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgd_tab_pressed_left.png; sourceTree = SOURCE_ROOT; };
 		7F03FDA716C4EEC40069CBC3 /* bgd_tab_pressed_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgd_tab_pressed_right.png; sourceTree = SOURCE_ROOT; };
 		7F03FDAB16C4F4E70069CBC3 /* UserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserListTableViewCell.h; path = classes/UserListTableViewCell.h; sourceTree = "<group>"; };
@@ -475,6 +513,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F03407616CA8F9700F5027C /* libsqlite3.0.dylib in Frameworks */,
 				7F0195E516C2563A0040FAD9 /* MessageUI.framework in Frameworks */,
 				7F0195E216C24AFA0040FAD9 /* Social.framework in Frameworks */,
 				7FEA32F416C2455200086E11 /* Twitter.framework in Frameworks */,
@@ -568,6 +607,40 @@
 			name = Sharing;
 			sourceTree = "<group>";
 		};
+		7F03404B16CA811E00F5027C /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7F03404F16CA818400F5027C /* helpers */,
+				7F03404D16CA818400F5027C /* BatchSaver.h */,
+				7F03404E16CA818400F5027C /* BatchSaver.m */,
+				7F03405616CA818400F5027C /* SQLiteColumn.h */,
+				7F03405716CA818400F5027C /* SQLiteColumn.m */,
+				7F03405816CA818400F5027C /* SQLiteQueryMapper.h */,
+				7F03405916CA818400F5027C /* SQLiteQueryMapper.m */,
+				7F03405A16CA818400F5027C /* SQLiteQueryPreprocessor.h */,
+				7F03405B16CA818400F5027C /* SQLiteQueryPreprocessor.m */,
+				7F03405C16CA818400F5027C /* SQLiteTable.h */,
+				7F03405D16CA818400F5027C /* SQLiteTable.m */,
+				7F03405E16CA818400F5027C /* SQLiteTableBaseObject.h */,
+				7F03405F16CA818400F5027C /* SQLiteTableBaseObject.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		7F03404F16CA818400F5027C /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7F03405016CA818400F5027C /* SQLiteDatabaseConnector.h */,
+				7F03405116CA818400F5027C /* SQLiteDatabaseConnector.m */,
+				7F03405216CA818400F5027C /* SQLitePrepareStatment.h */,
+				7F03405316CA818400F5027C /* SQLitePrepareStatment.m */,
+				7F03405416CA818400F5027C /* SQLiteStatmentExecutor.h */,
+				7F03405516CA818400F5027C /* SQLiteStatmentExecutor.m */,
+			);
+			name = helpers;
+			path = classes/database/helpers;
+			sourceTree = "<group>";
+		};
 		7F03FDAA16C4F49E0069CBC3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +654,7 @@
 		7F06792A16A7F4140043EF6B = {
 			isa = PBXGroup;
 			children = (
+				7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */,
 				7F06793616A7F4140043EF6B /* Products */,
 				7F06793F16A7F4150043EF6B /* Mapplas */,
 				7F06795716A7F4150043EF6B /* MapplasTests */,
@@ -774,6 +848,7 @@
 			children = (
 				7FC8826716A82656008A06A8 /* Categories */,
 				7FFFBB6D16A9557E00417499 /* Configuration */,
+				7F03404B16CA811E00F5027C /* Database */,
 				7FED412716B156F200581C9D /* File System */,
 				7FED411F16B1561900581C9D /* Images */,
 				7FFFBA9816A9314500417499 /* Localization */,
@@ -861,12 +936,16 @@
 				7FC8828B16A84CE2008A06A8 /* Comment.h */,
 				7FC8828C16A84CE2008A06A8 /* Comment.m */,
 				7FC8829416A853CD008A06A8 /* LocationCurrency.h */,
+				7F03406F16CA84B100F5027C /* Notification.h */,
+				7F03407016CA84B100F5027C /* Notification.m */,
 				7F68781E16A85854005DC098 /* NotificationList.h */,
 				7F68781F16A85854005DC098 /* NotificationList.m */,
 				7FC8828E16A84E6E008A06A8 /* Photo.h */,
 				7FC8828F16A84E6E008A06A8 /* Photo.m */,
 				7FC8829716A85676008A06A8 /* SuperModel.h */,
 				7FC8829816A85676008A06A8 /* SuperModel.m */,
+				7F03407216CA897700F5027C /* Unit.h */,
+				7F03407316CA897700F5027C /* Unit.m */,
 				7FC8829116A85002008A06A8 /* User.h */,
 				7FC8829216A85002008A06A8 /* User.m */,
 			);
@@ -1113,6 +1192,8 @@
 		7FFFBB6916A9520600417499 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				7F03406C16CA845400F5027C /* NSStringCamelcase.h */,
+				7F03406D16CA845400F5027C /* NSStringCamelcase.m */,
 				7FFFBB6A16A9522900417499 /* NSString+UUID.h */,
 				7FFFBB6B16A9522900417499 /* NSString+UUID.m */,
 			);
@@ -1464,6 +1545,18 @@
 				7F14A3D416C907CC00FC0482 /* AppActivityRequest.m in Sources */,
 				7F14A3D816C9159600FC0482 /* MutableScrollViewOfViews.m in Sources */,
 				7F1982DF16C9646B00886FF7 /* UserEmptyTableViewCell.m in Sources */,
+				7F03406016CA818400F5027C /* BatchSaver.m in Sources */,
+				7F03406116CA818400F5027C /* SQLiteDatabaseConnector.m in Sources */,
+				7F03406216CA818400F5027C /* SQLitePrepareStatment.m in Sources */,
+				7F03406316CA818400F5027C /* SQLiteStatmentExecutor.m in Sources */,
+				7F03406416CA818400F5027C /* SQLiteColumn.m in Sources */,
+				7F03406516CA818400F5027C /* SQLiteQueryMapper.m in Sources */,
+				7F03406616CA818400F5027C /* SQLiteQueryPreprocessor.m in Sources */,
+				7F03406716CA818400F5027C /* SQLiteTable.m in Sources */,
+				7F03406816CA818400F5027C /* SQLiteTableBaseObject.m in Sources */,
+				7F03406E16CA845400F5027C /* NSStringCamelcase.m in Sources */,
+				7F03407116CA84B100F5027C /* Notification.m in Sources */,
+				7F03407416CA897700F5027C /* Unit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
