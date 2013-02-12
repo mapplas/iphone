@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
 #import "GenericMapper.h"
 #import "ReturnMapper.h"
 #import "App.h"
@@ -15,7 +16,9 @@
 #import "JSONToCommentMapper.h"
 #import "JSONToPhotoMapper.h"
 
-@interface JSONToAppMapper : GenericMapper <ReturnMapper>
+@interface JSONToAppMapper : GenericMapper <ReturnMapper> {
+    CLGeocoder *geocoder;
+}
 
 - (App *)map:(NSDictionary *)json;
 

@@ -180,7 +180,6 @@
     }
     else {
         [scrollViewConfigurator removeView:self.galleryView];
-        [scrollViewConfigurator organize];
     }
 }
 

@@ -152,3 +152,49 @@
 
 /* Email app developer contact email subject */
 "app_developer_email_contact" = "";
+
+/* User screen action button sign-in text */
+"user_action_button_sign_in_text" = "Sign In";
+
+/* User screen action button log-in text */
+"user_action_button_log_in_text" = "Log In";
+
+/* User screen warning text sign-in */
+"user_warning_text_sign_in" = "If you would like to backup your preferences, signin!";
+
+/* User screen warning text signed-in */
+"user_warning_text_signed_in" = "To access your configuration, login!";
+
+/* User screen list header pins label */
+"user_list_header_pins_label" = "pins";
+
+/* User screen list header blocks label */
+"user_list_header_blocks_label" = "blocks";
+
+/* User screen block cell unblock label text */
+"user_list_blocked_cell_unblock_text" = "allow";
+
+/* Footer sign-out button label text */
+"user_footer_sign_out_button_text" = "Sign Out";
+
+/* Footer clear button label text */
+"user_footer_clear_button_text" = "TODO";
+
+/* User screen name not set text */
+"user_info_name_not_set_text" = "Name";
+
+/* User screen email not set text */
+"user_info_email_not_set_text" = "Email";
+
+/* User screen sign-out alert dialog title */
+"user_screen_sign_out_alert_title" = "Sign Out";
+
+/* User screen sign-out alert dialog message */
+"user_screen_sign_out_alert_message" = "Do you really want to log out?";
+
+/* User screen empty pinned list cell message */
+"user_screen_empty_pinup_list_text" = "You don't have any pinned up apps";
+
+/* User screen empty blocked list cell message */
+"user_screen_empty_blocked_list_text" = "You don't have any blocked apps";
+

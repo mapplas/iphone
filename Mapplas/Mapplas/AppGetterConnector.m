@@ -11,11 +11,7 @@
 @implementation AppGetterConnector
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(AppGetterResponseHandler *)response_handler {
-    self = [super initWithAddresses:_addresses responseHandler:response_handler];
-    if (self) {
-        
-    }
-    return self;
+    return [super initWithAddresses:_addresses responseHandler:response_handler];
 }
 
 - (void)requestWithModel:(SuperModel *)super_model andLocation:(CLLocation *)location {

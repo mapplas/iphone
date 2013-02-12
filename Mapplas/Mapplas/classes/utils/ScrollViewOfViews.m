@@ -73,6 +73,7 @@
 
 - (void)removeView:(UIView *)view_to_remove {
     [self.views removeObject:view_to_remove];
+    [self organize];
 }
 
 @end

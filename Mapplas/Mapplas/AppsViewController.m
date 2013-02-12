@@ -46,7 +46,7 @@
 }
 
 - (void)pushUserPrefScreen {
-    UserViewController *userViewController = [[UserViewController alloc] init];
+    UserViewController *userViewController = [[UserViewController alloc] initWithModel:self.model];
     [self.navigationController pushViewController:userViewController animated:YES];
 }
 

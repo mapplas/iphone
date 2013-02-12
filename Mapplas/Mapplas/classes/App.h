@@ -37,7 +37,7 @@
     
     NSNumber *_pinnedLatitude;
     NSNumber *_pinnedLongitude;
-    NSString *_setPinnedGeocodedLocation;
+    NSString *_pinnedGeocodedLocation;
     
     LocationCurrency *_locationCurrency;
     NSString *_market;
@@ -75,7 +75,7 @@
 
 @property (nonatomic, strong) NSNumber *pinnedLatitude;
 @property (nonatomic, strong) NSNumber *pinnedLongitude;
-@property (nonatomic, strong) NSString *setPinnedGeocodedLocation;
+@property (nonatomic, strong) NSString *pinnedGeocodedLocation;
 
 @property (nonatomic) LocationCurrency *locationCurrency;
 @property (nonatomic, strong) NSString *market;

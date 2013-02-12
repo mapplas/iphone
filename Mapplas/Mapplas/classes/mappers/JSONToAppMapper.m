@@ -63,6 +63,32 @@
         [app setLocationCurrency:EURO];
     }
     
+    if (app.latitude != nil && app.longitude != nil) {
+        CLLocationDegrees latitudeDeg = (CLLocationDegrees)[app.latitude doubleValue];
+        CLLocationDegrees longitudeDeg = (CLLocationDegrees)[app.longitude doubleValue];
+        CLLocation *appPinnedLocation = [[CLLocation alloc] initWithLatitude:latitudeDeg longitude:longitudeDeg];
+        
+        [geocoder reverseGeocodeLocation:appPinnedLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            if (error){
+                [app setPinnedGeocodedLocation:NSLocalizedString(@"descriptive_geoloc_error", @"Reverse geocoding error")];
+                return;
+            }
+            
+            if(placemarks && placemarks.count > 0) {
+                //do something
+                CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                //            NSString *sub = [topResult subThoroughfare];
+                //            NSString *thr = [topResult thoroughfare];
+                //            NSString *local = [topResult locality];
+                NSString *addressTxt = [NSString stringWithFormat:@"%@ %@, %@",
+                                        [topResult subThoroughfare],[topResult thoroughfare],
+                                        [topResult locality]];
+                
+                [app setPinnedGeocodedLocation:addressTxt];
+            }
+        }];
+    }
+    
     return app;
 }
 
