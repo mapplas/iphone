@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
 #import "MutableScrollViewOfViews.h"
 
 #import "SuperModel.h"
@@ -33,7 +35,7 @@ typedef enum {
 @class UserPinUpsRequester;
 @class UserBlocksRequester;
 
-@interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {
+@interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     SuperModel *model;
     
     MutableScrollViewOfViews *scrollManager;
@@ -43,6 +45,8 @@ typedef enum {
     UserBlocksRequester *blocksRequester;
     UserEditRequester *userEditRequester;
     AppActivityRequest *appActivityRequester;
+    
+    ImageLoader *imageLoader;
 }
 
 - (id)initWithModel:(SuperModel *)_super_model;
@@ -88,6 +92,8 @@ typedef enum {
 - (IBAction)userBlockedApps:(id)sender;
 - (IBAction)userLogin:(id)sender;
 - (IBAction)userLogOut:(id)sender;
+
+- (IBAction)loadPhoto:(id)sender;
 
 - (void)requestedDataLoaded;
 

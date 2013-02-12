@@ -43,6 +43,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
+    AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:nil];
+    imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
+    
     NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfo, self.listHeaderView, self.list, nil];
     scrollManager = [[MutableScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
     [self.userInfo addSubview:self.userInfoUnpressed];
@@ -173,7 +177,13 @@
     }
 }
 
-- (void)configureLayout {    
+- (void)configureLayout {
+    // User image photo
+    UIImage *userImage = [imageLoader loadImageFromCache:@"userPhoto"];
+    if (userImage != nil) {
+        self.userImageImageView.image = userImage;
+    }
+    
     // List header
     self.listHeaderPinsLabel.text =  NSLocalizedString(@"user_list_header_pins_label", @"User screen list header pins label");
     [self.listHeaderPinsButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_left.png"] forState:UIControlStateSelected];
@@ -334,6 +344,22 @@
         userEditRequester = [[UserEditRequester alloc] init];
         [userEditRequester doRequestWithUser:model.user];
     }
+}
+
+- (IBAction)loadPhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+    [self presentModalViewController:picker animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissModalViewControllerAnimated:YES];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.userImageImageView.image = image;
+    [imageLoader saveImageInCache:image path:@"userPhoto"];
 }
 
 @end
