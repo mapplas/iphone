@@ -16,7 +16,7 @@
 @synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
 @synthesize priceImage;
 
-@synthesize app = _app, userId = _userId, currentLocation = _currentLocation, currentDescriptiveGeoLoc = _currentDescriptiveGeoLoc, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
+@synthesize app = _app, user = _user, currentLocation = _currentLocation, currentDescriptiveGeoLoc = _currentDescriptiveGeoLoc, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -144,19 +144,27 @@
 }
 
 - (IBAction)pinUnpinApp:(id)sender {
-    NSString *action = @"";
+    NSString *pinRequestConstant = @"";
+    NSString *actionRequestConstant = @"";
+    
     if ([self.app.auxPin isEqualToString:@"0"]) {
-        action = ACTION_PIN_REQUEST_PIN;
+        pinRequestConstant = ACTION_PIN_REQUEST_PIN;
+        actionRequestConstant = ACTION_ACTIVITY_PIN;
         self.app.auxPin = @"1";
     }
     else {
-        action = ACTION_PIN_REQUEST_UNPIN;
+        pinRequestConstant = ACTION_PIN_REQUEST_UNPIN;
+        actionRequestConstant = ACTION_ACTIVITY_UNPIN;
         self.app.auxPin = @"0";
     }
     
+    // Activity request
+    activityRequester = [[AppActivityRequest alloc] init];
+    [activityRequester doRequestWithLocation:self.currentLocation action:actionRequestConstant app:self.app andUser:self.user];
+    
     // Pin/unpin request
     pinRequester = [[AppPinRequest alloc] init];
-    [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:action andLocation:self.currentLocation];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:pinRequestConstant andLocation:self.currentLocation];
 
     // Sort table and reload
     [self.modelList sort];
@@ -164,13 +172,17 @@
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
+    // Activity request
+    activityRequester = [[AppActivityRequest alloc] init];
+    [activityRequester doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_BLOCK app:self.app andUser:self.user];
+    
     // Block request
     blockRequester = [[AppBlockRequest alloc] init];
-    [blockRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_LIKE_REQUEST_BLOCK];
+    [blockRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_BLOCK];
     
     // Pin/unpin request
     pinRequester = [[AppPinRequest alloc] init];
-    [pinRequester doRequestWithAppId:self.app.appId userId:self.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
     
     // Remove app from app list
     [self.modelList deleteApp:self.app];
@@ -184,6 +196,9 @@
 }
 
 - (IBAction)shareApp:(id)sender {
+    activityRequester = [[AppActivityRequest alloc] init];
+    [activityRequester doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_SHARE app:self.app andUser:self.user];
+    
     sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.viewController.navigationController];
     
     // If device has ios6 and up
@@ -206,7 +221,11 @@
 }
 
 - (IBAction)rateApp:(id)sender {
-    RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.userId location:self.currentLocation descriptiveGeoLoc:self.currentDescriptiveGeoLoc andView:self.viewController.navigationController.view];
+    // Activity request
+    activityRequester = [[AppActivityRequest alloc] init];
+    [activityRequester doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_RATE app:self.app andUser:self.user];
+    
+    RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.user.userId location:self.currentLocation descriptiveGeoLoc:self.currentDescriptiveGeoLoc andView:self.viewController.navigationController.view];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
     [SCAppUtils customizeNavigationController:navController];
     ratingController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;

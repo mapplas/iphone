@@ -13,6 +13,7 @@
 #import "AsynchronousImageDownloader.h"
 #import "AppPinRequest.h"
 #import "AppBlockRequest.h"
+#import "AppActivityRequest.h"
 #import "Constants.h"
 #import "AppOrderedList.h"
 #import "PriceImageLabelHelper.h"
@@ -30,7 +31,7 @@
     UIView *cellUnpressed;
     
     App *_app;
-    NSString *_userId;
+    User *_user;
     NSString *_currentLocation;
     NSString *_currentDescriptiveGeoLoc;
     AppOrderedList *_modelList;
@@ -42,6 +43,7 @@
     
     AppPinRequest *pinRequester;
     AppBlockRequest *blockRequester;
+    AppActivityRequest *activityRequester;
     
     SharingHelper *sharingHelper;
 }
@@ -66,7 +68,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *sharePressedText;
 
 @property (nonatomic, strong) App *app;
-@property (nonatomic, strong) NSString *userId;
+@property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *currentLocation;
 @property (nonatomic, strong) NSString *currentDescriptiveGeoLoc;
 @property (nonatomic, strong) AppOrderedList *modelList;
