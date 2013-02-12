@@ -24,8 +24,6 @@
 #import "Constants.h"
 
 #define cellHeight 72;
-#define emptyCellHeight 100;
-
 typedef enum {
     SIGN_IN,
     LOG_IN,

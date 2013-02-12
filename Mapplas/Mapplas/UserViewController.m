@@ -16,6 +16,7 @@
 - (int)checkUserState;
 - (void)changeLayoutComponents:(int)user_state;
 - (void)actionButtonSelector;
+- (void)checkEmptyTable:(NSUInteger)cells;
 @end
 
 @implementation UserViewController
@@ -85,6 +86,8 @@
     self.list.frame = listFrame;
     
     [scrollManager organize];
+    
+    [self checkEmptyTable:count];
     
     return count;
 }
@@ -262,6 +265,22 @@
     }
     else {
         return SIGN_IN;
+    }
+}
+
+- (void)checkEmptyTable:(NSUInteger)cells {
+    [scrollManager emptyFromPosition:3];
+    if (cells == 0) {
+        NSString *textToShow = NSLocalizedString(@"user_screen_empty_blocked_list_text", @"User screen empty blocked list cell message");
+        if (self.listHeaderPinsButton.selected) {
+            textToShow = NSLocalizedString(@"user_screen_empty_pinup_list_text", @"User screen empty pinned list cell message");
+        }
+        
+        [scrollManager addView:self.listEmptyView];
+        self.listEmptyViewLabel.text = textToShow;
+    }
+    else {
+        [scrollManager addView:self.list];
     }
 }
 
