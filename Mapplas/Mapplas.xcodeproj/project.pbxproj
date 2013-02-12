@@ -581,10 +581,10 @@
 		7F06792A16A7F4140043EF6B = {
 			isa = PBXGroup;
 			children = (
+				7F06793616A7F4140043EF6B /* Products */,
 				7F06793F16A7F4150043EF6B /* Mapplas */,
 				7F06795716A7F4150043EF6B /* MapplasTests */,
 				7F06793816A7F4140043EF6B /* Frameworks */,
-				7F06793616A7F4140043EF6B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
