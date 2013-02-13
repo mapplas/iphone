@@ -10,6 +10,7 @@
 
 @implementation Notification
 
+@synthesize autoIncrementIdentifier = _autoIncrementIdentifier;
 @synthesize companyId = _companyId;
 @synthesize appId = _appId;
 @synthesize name = _name;

@@ -37,7 +37,7 @@
 	[self.table startTransaction];
 	
 	Unit *object;
-	for( object in transactionList ){
+	for(object in transactionList){
 		[self.table insertOrReplace:object];
 	}
 	

@@ -13,7 +13,10 @@
 - (id)initWithModel:(SuperModel *)_model {
     self = [super init];
     if (self) {
+        maxNotificationsInDB = 100;
+        
         model = _model;
+        notificationTable = [[NotificationTable alloc] init];
     }
     return self;
 }
@@ -38,21 +41,21 @@
             
             App *notificationApp = [self getAppForId:notification.appId];
             
-            notification.auxApp = notificationApp;
             notification.arrivalTimestamp = currentTimestamp;
+            notification.auxApp = notificationApp;
             notification.currentLocation = model.currentLocation;
             notification.dateInMs = [self getMsForDate:notification.date andHour:notification.hour];
             
             [model.notificationList.list addObject:notification];
             
             // Insert notification into DB
-            
+            [notificationTable saveBatch:notification];
         }
     }
+    [notificationTable flush];
     
     // Delete notifications up to 100 from DB
     
-    // Flush
 }
 
 - (NSMutableArray *)modelNotificationRawList {
@@ -76,7 +79,7 @@
     return nil;
 }
 
-- (long)getMsForDate:(NSString *)_date andHour:(NSString *)_hour {
+- (int)getMsForDate:(NSString *)_date andHour:(NSString *)_hour {
     NSArray *dateSplitted = [_date componentsSeparatedByString:@"-"];
     NSString *year = [dateSplitted objectAtIndex:0];
     NSString *month = [dateSplitted objectAtIndex:1];
@@ -92,5 +95,24 @@
     ms += [year intValue] * 12 * 30 * 24 * 60 * 60 * 1000;
     return ms;
 }
+
+- (void)deleteNotificationsUpTo {
+    int numberOfNotificationsInTable = [notificationTable numberOfRows];
+    
+    if (numberOfNotificationsInTable > maxNotificationsInDB) {
+        // Delete rows up to defined number
+        [notificationTable deleteRowsUpTo:maxNotificationsInDB withModel:model];
+    }
+    
+}
+
+//private void deleteNotificationsUpTo(SuperModel model) {
+//    int numberOfNotificationsInTable = this.notificationsRepository.getNumberOfRows();
+//    
+//    if(numberOfNotificationsInTable > NotificationRepository.MAX_NOTIFICATIONS_IN_TABLE) {
+//        // Delete rows up to defined number
+//        this.notificationsRepository.deleteRowsUpTo(NotificationRepository.MAX_NOTIFICATIONS_IN_TABLE, model);
+//    }
+//}
 
 @end

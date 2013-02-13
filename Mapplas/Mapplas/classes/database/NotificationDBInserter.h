@@ -8,9 +8,13 @@
 
 #import "JSONToNotificationMapper.h"
 #import "SuperModel.h"
+#import "NotificationTable.h"
 
 @interface NotificationDBInserter : NSObject {
+    int maxNotificationsInDB;
+    
     SuperModel *model;
+    NotificationTable *notificationTable;
 }
 
 - (id)initWithModel:(SuperModel *)_model;

@@ -119,43 +119,6 @@
 	return result;
 }
 
-#pragma mark - Update table with new coupon values
-//
-- (BOOL)updateItem:(NSNumber *)card_id withCoupons:(NSNumber *)number_of_coupons {
-	if (![self connect]) {
-		return NO;
-	}
-	
-	if (updateSth == nil) {
-		updateSth = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"UPDATE %@ SET coupons = ? WHERE id = ?", table] database:db];
-	}
-	
-	sqlite3_bind_int(updateSth, 1, [number_of_coupons intValue]);
-	sqlite3_bind_int(updateSth, 2, [card_id intValue]);
-	
-	BOOL result = [self executeStatment:updateSth andReset:YES];
-	
-	return result;
-}
-
-
-//
-- (BOOL)clearCouponsFromTable {
-	if (![self connect]) {
-		return NO;
-	}
-	
-	if (clearCoupons == nil) {
-		clearCoupons = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"UPDATE %@ SET coupons = 0, unviewedCoupons = 0", table] database:db];
-	}
-	
-	BOOL result = [self executeStatment:clearCoupons andReset:YES];
-	
-	
-	return result;	
-}
-
-
 #pragma mark -
 #pragma mark Transaction operations
 - (void) startTransaction {

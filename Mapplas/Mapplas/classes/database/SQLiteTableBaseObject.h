@@ -30,10 +30,6 @@
 - (BOOL)loadWithNumber:(NSNumber *)key target:(NSObject *)target;
 - (BOOL)loadWithString:(NSString *)key target:(NSObject *)target;
 
-- (BOOL)updateItem:(NSNumber *)card_id withCoupons:(NSNumber *)number_of_coupons;
-- (BOOL)clearCouponsFromTable;
-
-
 - (BOOL)insertOrReplace:(Unit *)object;
 - (BOOL)save:(Unit *)object;
 - (BOOL)saveBatch:(Unit *)object;

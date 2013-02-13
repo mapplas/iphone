@@ -10,6 +10,7 @@
 #import "App.h"
 
 @interface Notification : Unit {
+    NSString *_autoIncrementIdentifier;
     NSString *_companyId;
     NSString *_appId;
     NSString *_name;
@@ -21,9 +22,10 @@
     int _shown;
     long _arrivalTimestamp;
     NSString *_currentLocation;
-    long _dateInMs;
+    int _dateInMs;
 }
 
+@property (nonatomic, strong) NSString *autoIncrementIdentifier;
 @property (nonatomic, strong) NSString *companyId;
 @property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *name;
@@ -35,6 +37,6 @@
 @property (nonatomic) int shown;
 @property (nonatomic) long arrivalTimestamp;
 @property (nonatomic, strong) NSString *currentLocation;
-@property (nonatomic) long dateInMs;
+@property (nonatomic) int dateInMs;
 
 @end
