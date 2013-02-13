@@ -36,6 +36,8 @@
 		7F03407116CA84B100F5027C /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03407016CA84B100F5027C /* Notification.m */; };
 		7F03407416CA897700F5027C /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03407316CA897700F5027C /* Unit.m */; };
 		7F03407616CA8F9700F5027C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */; };
+		7F03407A16CA964F00F5027C /* NotificationDBInserter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03407916CA964F00F5027C /* NotificationDBInserter.m */; };
+		7F03407D16CA96A500F5027C /* JSONToNotificationMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03407C16CA96A500F5027C /* JSONToNotificationMapper.m */; };
 		7F03FDA816C4EEC40069CBC3 /* bgd_tab_pressed_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDA616C4EEC40069CBC3 /* bgd_tab_pressed_left.png */; };
 		7F03FDA916C4EEC40069CBC3 /* bgd_tab_pressed_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDA716C4EEC40069CBC3 /* bgd_tab_pressed_right.png */; };
 		7F03FDAD16C4F4E70069CBC3 /* UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDAC16C4F4E70069CBC3 /* UserListTableViewCell.m */; };
@@ -252,6 +254,10 @@
 		7F03407216CA897700F5027C /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = classes/Unit.h; sourceTree = "<group>"; };
 		7F03407316CA897700F5027C /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = classes/Unit.m; sourceTree = "<group>"; };
 		7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		7F03407816CA964F00F5027C /* NotificationDBInserter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationDBInserter.h; path = classes/database/NotificationDBInserter.h; sourceTree = "<group>"; };
+		7F03407916CA964F00F5027C /* NotificationDBInserter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationDBInserter.m; path = classes/database/NotificationDBInserter.m; sourceTree = "<group>"; };
+		7F03407B16CA96A500F5027C /* JSONToNotificationMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToNotificationMapper.h; path = classes/mappers/JSONToNotificationMapper.h; sourceTree = "<group>"; };
+		7F03407C16CA96A500F5027C /* JSONToNotificationMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToNotificationMapper.m; path = classes/mappers/JSONToNotificationMapper.m; sourceTree = "<group>"; };
 		7F03FDA616C4EEC40069CBC3 /* bgd_tab_pressed_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgd_tab_pressed_left.png; sourceTree = SOURCE_ROOT; };
 		7F03FDA716C4EEC40069CBC3 /* bgd_tab_pressed_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgd_tab_pressed_right.png; sourceTree = SOURCE_ROOT; };
 		7F03FDAB16C4F4E70069CBC3 /* UserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserListTableViewCell.h; path = classes/UserListTableViewCell.h; sourceTree = "<group>"; };
@@ -610,7 +616,8 @@
 		7F03404B16CA811E00F5027C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				7F03404F16CA818400F5027C /* helpers */,
+				7F03404F16CA818400F5027C /* Helpers */,
+				7F03407716CA963300F5027C /* Notifications */,
 				7F03404D16CA818400F5027C /* BatchSaver.h */,
 				7F03404E16CA818400F5027C /* BatchSaver.m */,
 				7F03405616CA818400F5027C /* SQLiteColumn.h */,
@@ -627,7 +634,7 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
-		7F03404F16CA818400F5027C /* helpers */ = {
+		7F03404F16CA818400F5027C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				7F03405016CA818400F5027C /* SQLiteDatabaseConnector.h */,
@@ -637,8 +644,17 @@
 				7F03405416CA818400F5027C /* SQLiteStatmentExecutor.h */,
 				7F03405516CA818400F5027C /* SQLiteStatmentExecutor.m */,
 			);
-			name = helpers;
+			name = Helpers;
 			path = classes/database/helpers;
+			sourceTree = "<group>";
+		};
+		7F03407716CA963300F5027C /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				7F03407816CA964F00F5027C /* NotificationDBInserter.h */,
+				7F03407916CA964F00F5027C /* NotificationDBInserter.m */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		7F03FDAA16C4F49E0069CBC3 /* Cell */ = {
@@ -654,7 +670,6 @@
 		7F06792A16A7F4140043EF6B = {
 			isa = PBXGroup;
 			children = (
-				7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */,
 				7F06793616A7F4140043EF6B /* Products */,
 				7F06793F16A7F4150043EF6B /* Mapplas */,
 				7F06795716A7F4150043EF6B /* MapplasTests */,
@@ -674,6 +689,7 @@
 		7F06793816A7F4140043EF6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F03407516CA8F9700F5027C /* libsqlite3.0.dylib */,
 				7F0195E416C2563A0040FAD9 /* MessageUI.framework */,
 				7F0195E116C24AFA0040FAD9 /* Social.framework */,
 				7FEA32F316C2455200086E11 /* Twitter.framework */,
@@ -1217,6 +1233,8 @@
 				7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */,
 				7F585A0216AFD04600DB843A /* JSONToCommentMapper.h */,
 				7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */,
+				7F03407B16CA96A500F5027C /* JSONToNotificationMapper.h */,
+				7F03407C16CA96A500F5027C /* JSONToNotificationMapper.m */,
 				7F585A0516AFD24000DB843A /* JSONToPhotoMapper.h */,
 				7F585A0616AFD24000DB843A /* JSONToPhotoMapper.m */,
 				7FFFBB7D16A9657100417499 /* JSONToUserMapper.h */,
@@ -1557,6 +1575,8 @@
 				7F03406E16CA845400F5027C /* NSStringCamelcase.m in Sources */,
 				7F03407116CA84B100F5027C /* Notification.m in Sources */,
 				7F03407416CA897700F5027C /* Unit.m in Sources */,
+				7F03407A16CA964F00F5027C /* NotificationDBInserter.m in Sources */,
+				7F03407D16CA96A500F5027C /* JSONToNotificationMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,29 +10,29 @@
 #import "App.h"
 
 @interface Notification : Unit {
-    NSUInteger _companyId;
-    NSUInteger _appId;
+    NSString *_companyId;
+    NSString *_appId;
     NSString *_name;
     NSString *_description;
     NSString *_date;
     NSString *_hour;
     App *_auxApp;
-    NSUInteger _seen;
-    NSUInteger _shown;
+    int _seen;
+    int _shown;
     long _arrivalTimestamp;
     NSString *_currentLocation;
     long _dateInMs;
 }
 
-@property (nonatomic) NSUInteger companyId;
-@property (nonatomic) NSUInteger appId;
+@property (nonatomic, strong) NSString *companyId;
+@property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *hour;
 @property (nonatomic, strong) App *auxApp;
-@property (nonatomic) NSUInteger seen;
-@property (nonatomic) NSUInteger shown;
+@property (nonatomic) int seen;
+@property (nonatomic) int shown;
 @property (nonatomic) long arrivalTimestamp;
 @property (nonatomic, strong) NSString *currentLocation;
 @property (nonatomic) long dateInMs;

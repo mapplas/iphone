@@ -26,8 +26,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.companyId = 0;
-        self.appId = 0;
+        self.companyId = @"0";
+        self.appId = @"0";
         self.name = @"";
         self.description = @"";
         self.date = @"";

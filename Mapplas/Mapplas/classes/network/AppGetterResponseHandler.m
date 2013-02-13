@@ -39,6 +39,12 @@
     
     // Do reverse geocoding
     [self doReverseGeocoding];
+    
+    // Notification DB inserter
+    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:model];
+    [dbInserter insertNotificationsToDB];
+    
+    // App info sender
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {

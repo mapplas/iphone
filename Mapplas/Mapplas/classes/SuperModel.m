@@ -19,7 +19,7 @@
 @synthesize notificationList = _notificationList;
 @synthesize operationError = _operationError;
 @synthesize errorText = _errorText;
-//@synthesize notificationRawList = _notificationRawList;
+@synthesize notificationRawList = _notificationRawList;
 
 - (id)init {
     self = [super init];
@@ -33,6 +33,7 @@
         self.notificationList = nil;
         self.operationError = NO;
         self.errorText = @"";
+        self.notificationRawList = nil;
     }
     return self;
 }

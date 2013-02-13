@@ -10,6 +10,7 @@
 #import "GenericRequestHandler.h"
 #import "JSONToAppMapper.h"
 #import "SuperModel.h"
+#import "NotificationDBInserter.h"
 
 @class AppsViewController;
 
