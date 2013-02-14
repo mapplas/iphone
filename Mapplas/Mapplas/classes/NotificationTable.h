@@ -12,10 +12,14 @@
 
 @interface NotificationTable : SQLiteTableBaseObject {
     sqlite3_stmt *loadNumberOfRows;
+    sqlite3_stmt *notificationsShown;
+    sqlite3_stmt *selectNotificationsUpTo;
 }
 
 - (Notification *)load:(NSString *)key;
 - (NSUInteger)numberOfRows;
-- (void)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model;
+- (BOOL)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model;
+
+- (BOOL)setNotificationsAsShown;
 
 @end

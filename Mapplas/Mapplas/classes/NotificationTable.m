@@ -12,7 +12,7 @@
 
 - (id)init {
 	NSArray *fields = [[NSArray alloc] initWithObjects:
-					   [[SQLiteColumn alloc] initWithName:@"autoIncrementIdentifier" type:@"int-as-string" column:@"id"],
+					   [[SQLiteColumn alloc] initWithName:@"autoIncrementIdentifier" type:@"int-as-string"],
 					   [[SQLiteColumn alloc] initWithName:@"identifier" type:@"int-as-string"],
 					   [[SQLiteColumn alloc] initWithName:@"companyId" type:@"int-as-string"],
 					   [[SQLiteColumn alloc] initWithName:@"appId" type:@"int-as-string"],
@@ -63,8 +63,66 @@
     return rows;
 }
 
-- (void)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model {
+- (BOOL)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model {
+    NSMutableArray *firstNotifications;
     
+    if (![self connect]) {
+        return NO;
+    }
+    
+    if (selectNotificationsUpTo == nil) {
+        selectNotificationsUpTo = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ LIMIT %d", table, @"dateInMs", maxNotificationsInDB] database:db];
+    }
+    
+    BOOL result = [self executeStatment:selectNotificationsUpTo andReset:YES];
+    	
+	if(result) {
+		SQLiteQueryMapper *mapper = [[SQLiteQueryMapper alloc] init];
+		[mapper mapToObject:selectNotificationsUpTo object:firstNotifications columns:columns];
+	}
+    
+    [self empty];
+    // this.notificationIds.clear();
+    
+    NotificationList *appNotifications = [[NotificationList alloc] init];
+    for (Notification *current in firstNotifications) {
+        [current setAuxApp:[self getAppForId:current.appId model:model]];
+        [self saveBatch:current];
+        
+        [appNotifications addNotification:current];
+    }
+    
+    model.notificationList = appNotifications;
+    
+    [self flush];
+    
+    return result;
+}
+
+- (App *)getAppForId:(NSString *)appId model:(SuperModel *)model {
+    NSMutableArray *appList = model.appList.list;
+    for (App *app in appList) {
+        if ([app.appId isEqualToString:appId]) {
+            return app;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)setNotificationsAsShown {
+    if (![self connect]) {
+        return NO;
+    }
+    
+    if (notificationsShown == nil) {
+        notificationsShown = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"UPDATE %@ SET shown = 1", table] database:db];
+    }
+    
+    BOOL result = [self executeStatment:notificationsShown andReset:YES];
+    
+    sqlite3_reset(notificationsShown);
+    
+    return result;
 }
 
 @end

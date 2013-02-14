@@ -10,9 +10,9 @@
 #import "SuperModel.h"
 #import "NotificationTable.h"
 
+#define maxNotificationsInDB 100
+
 @interface NotificationDBInserter : NSObject {
-    int maxNotificationsInDB;
-    
     SuperModel *model;
     NotificationTable *notificationTable;
 }

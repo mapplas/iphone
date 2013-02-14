@@ -51,6 +51,8 @@
 		7F03FDC416C526630069CBC3 /* UserBlockedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */; };
 		7F03FDC616C5267C0069CBC3 /* UserBlockedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */; };
 		7F03FDC816C526F80069CBC3 /* ic_action_unblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDC716C526F80069CBC3 /* ic_action_unblock.png */; };
+		7F0448E316CBDB8C001FDB00 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0448E216CBDB8C001FDB00 /* NotificationCell.m */; };
+		7F0448E516CBDBAC001FDB00 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0448E416CBDBAC001FDB00 /* NotificationCell.xib */; };
 		7F0551B716CB957400D993F9 /* NotificationTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0551B616CB957400D993F9 /* NotificationTable.m */; };
 		7F0551BA16CB9B4000D993F9 /* Notifications.db in Resources */ = {isa = PBXBuildFile; fileRef = 7F0551B916CB9B4000D993F9 /* Notifications.db */; };
 		7F06793A16A7F4150043EF6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F06793916A7F4140043EF6B /* UIKit.framework */; };
@@ -281,6 +283,9 @@
 		7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlockedTableViewCell.m; path = classes/UserBlockedTableViewCell.m; sourceTree = "<group>"; };
 		7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserBlockedTableViewCell.xib; path = classes/UserBlockedTableViewCell.xib; sourceTree = "<group>"; };
 		7F03FDC716C526F80069CBC3 /* ic_action_unblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_unblock.png; sourceTree = SOURCE_ROOT; };
+		7F0448E116CBDB8C001FDB00 /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationCell.h; path = classes/NotificationCell.h; sourceTree = "<group>"; };
+		7F0448E216CBDB8C001FDB00 /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationCell.m; path = classes/NotificationCell.m; sourceTree = "<group>"; };
+		7F0448E416CBDBAC001FDB00 /* NotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NotificationCell.xib; path = classes/NotificationCell.xib; sourceTree = "<group>"; };
 		7F0551B516CB957400D993F9 /* NotificationTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationTable.h; path = classes/NotificationTable.h; sourceTree = "<group>"; };
 		7F0551B616CB957400D993F9 /* NotificationTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationTable.m; path = classes/NotificationTable.m; sourceTree = "<group>"; };
 		7F0551B916CB9B4000D993F9 /* Notifications.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Notifications.db; sourceTree = SOURCE_ROOT; };
@@ -672,6 +677,16 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		7F0448E016CBDB76001FDB00 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7F0448E116CBDB8C001FDB00 /* NotificationCell.h */,
+				7F0448E216CBDB8C001FDB00 /* NotificationCell.m */,
+				7F0448E416CBDBAC001FDB00 /* NotificationCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		7F0551B416CB955400D993F9 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +966,7 @@
 		7FC8827116A82A68008A06A8 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				7F0448E016CBDB76001FDB00 /* Cell */,
 				7FC8827416A82A90008A06A8 /* NotificationsViewController.h */,
 				7FC8827516A82A90008A06A8 /* NotificationsViewController.m */,
 				7FC8827616A82A90008A06A8 /* NotificationsViewController.xib */,
@@ -1457,6 +1473,7 @@
 				7F14A3C816C8D95700FC0482 /* textarea.png in Resources */,
 				7F1982E216C9648600886FF7 /* UserEmptyTableViewCell.xib in Resources */,
 				7F0551BA16CB9B4000D993F9 /* Notifications.db in Resources */,
+				7F0448E516CBDBAC001FDB00 /* NotificationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1603,6 +1620,7 @@
 				7F03407A16CA964F00F5027C /* NotificationDBInserter.m in Sources */,
 				7F03407D16CA96A500F5027C /* JSONToNotificationMapper.m in Sources */,
 				7F0551B716CB957400D993F9 /* NotificationTable.m in Sources */,
+				7F0448E316CBDB8C001FDB00 /* NotificationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

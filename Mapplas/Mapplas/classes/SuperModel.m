@@ -30,7 +30,7 @@
         self.currentImei = @"";
         self.currentDescriptiveGeoLoc = @"";
         self.appList = nil;
-        self.notificationList = nil;
+        self.notificationList = [[NotificationList alloc] init];
         self.operationError = NO;
         self.errorText = @"";
         self.notificationRawList = nil;

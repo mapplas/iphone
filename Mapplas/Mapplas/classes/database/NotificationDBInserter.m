@@ -12,9 +12,7 @@
 
 - (id)initWithModel:(SuperModel *)_model {
     self = [super init];
-    if (self) {
-        maxNotificationsInDB = 100;
-        
+    if (self) {        
         model = _model;
         notificationTable = [[NotificationTable alloc] init];
     }
@@ -54,8 +52,7 @@
     }
     [notificationTable flush];
     
-    // Delete notifications up to 100 from DB
-    
+    [self deleteNotificationsUpTo];
 }
 
 - (NSMutableArray *)modelNotificationRawList {
@@ -102,17 +99,8 @@
     if (numberOfNotificationsInTable > maxNotificationsInDB) {
         // Delete rows up to defined number
         [notificationTable deleteRowsUpTo:maxNotificationsInDB withModel:model];
+        [notificationTable flush];
     }
-    
 }
-
-//private void deleteNotificationsUpTo(SuperModel model) {
-//    int numberOfNotificationsInTable = this.notificationsRepository.getNumberOfRows();
-//    
-//    if(numberOfNotificationsInTable > NotificationRepository.MAX_NOTIFICATIONS_IN_TABLE) {
-//        // Delete rows up to defined number
-//        this.notificationsRepository.deleteRowsUpTo(NotificationRepository.MAX_NOTIFICATIONS_IN_TABLE, model);
-//    }
-//}
 
 @end

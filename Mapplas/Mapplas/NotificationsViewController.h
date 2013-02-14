@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotificationTable.h"
+#import "NotificationCell.h"
+#import "SuperModel.h"
 
-@interface NotificationsViewController : UIViewController
+#define cellHeight 72;
+#define sectionHeight 50;
+
+@interface NotificationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    SuperModel *model;
+}
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+
+- (id)initWithModel:(SuperModel *)_model;
 
 @end
