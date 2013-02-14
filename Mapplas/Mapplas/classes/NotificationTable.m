@@ -12,7 +12,6 @@
 
 - (id)init {
 	NSArray *fields = [[NSArray alloc] initWithObjects:
-					   [[SQLiteColumn alloc] initWithName:@"autoIncrementIdentifier" type:@"int-as-string"],
 					   [[SQLiteColumn alloc] initWithName:@"identifier" type:@"int-as-string"],
 					   [[SQLiteColumn alloc] initWithName:@"companyId" type:@"int-as-string"],
 					   [[SQLiteColumn alloc] initWithName:@"appId" type:@"int-as-string"],
