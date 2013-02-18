@@ -17,10 +17,11 @@
 
 @synthesize tableView;
 
-- (id)initWithModel:(SuperModel *)_model {
+- (id)initWithModel:(SuperModel *)_model appsViewController:(UIViewController *)apps_controller {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         model = _model;
+        appsController = apps_controller;
         
         tableData = [[NSMutableDictionary alloc] init];
         notificationSet = [[NSMutableArray alloc] init];
@@ -42,6 +43,13 @@
     
     [self initializeNotificationSet];
     [self setAuxAppToNotifications];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
+    appsController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:appsController action:@selector(pushNotificationScreen)];
 }
 
 #pragma mark - UITableViewDataSource

@@ -41,7 +41,7 @@
     [self doReverseGeocoding];
     
     // Notification DB inserter
-    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:model];
+    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:model viewController:mainController];
     [dbInserter insertNotificationsToDB];
     
     // App info sender

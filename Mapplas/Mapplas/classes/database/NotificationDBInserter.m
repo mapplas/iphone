@@ -10,10 +10,11 @@
 
 @implementation NotificationDBInserter
 
-- (id)initWithModel:(SuperModel *)_model {
+- (id)initWithModel:(SuperModel *)_model viewController:(UIViewController *)view_controller {
     self = [super init];
     if (self) {        
         model = _model;
+        viewController = view_controller;
         notificationTable = [[NotificationTable alloc] init];
     }
     return self;
@@ -50,6 +51,11 @@
             [notificationTable saveBatch:notification];
         }
     }
+    
+    if (count != 0) {
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", count] style:UIBarButtonItemStyleBordered target:viewController action:@selector(pushNotificationScreen)];
+    }
+    
     [notificationTable flush];
     
     [self deleteNotificationsUpTo];

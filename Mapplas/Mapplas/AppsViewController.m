@@ -41,7 +41,7 @@
 }
 
 - (void)pushNotificationScreen {
-    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model];
+    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model appsViewController:self];
     [self.navigationController pushViewController:notifViewController animated:YES];
 }
 
@@ -53,11 +53,9 @@
 - (void)initializeNavigationBarButtons {
     UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     
     UIImage *profileImage = [UIImage imageNamed:@"ic_menu_profile.png"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushUserPrefScreen)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
 }
 
 - (void)viewDidLoad {

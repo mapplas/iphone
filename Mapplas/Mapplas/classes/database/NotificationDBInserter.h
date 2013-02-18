@@ -14,10 +14,11 @@
 
 @interface NotificationDBInserter : NSObject {
     SuperModel *model;
+    UIViewController *viewController;
     NotificationTable *notificationTable;
 }
 
-- (id)initWithModel:(SuperModel *)_model;
+- (id)initWithModel:(SuperModel *)_model viewController:(UIViewController *)view_controller;
 - (void)insertNotificationsToDB;
 
 @end

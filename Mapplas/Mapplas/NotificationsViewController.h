@@ -21,6 +21,7 @@ typedef enum {
 
 @interface NotificationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     SuperModel *model;
+    UIViewController *appsController;
     
     NSMutableDictionary *tableData;
     NSMutableArray *notificationSet;
@@ -30,6 +31,6 @@ typedef enum {
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
-- (id)initWithModel:(SuperModel *)_model;
+- (id)initWithModel:(SuperModel *)_model appsViewController:(UIViewController *)apps_controller;
 
 @end
