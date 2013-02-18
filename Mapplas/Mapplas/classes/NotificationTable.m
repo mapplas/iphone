@@ -192,4 +192,25 @@
     return timestampList;
 }
 
+- (BOOL)removeDuplicateNotificationsFor:(Notification *)notification {
+    if (![self connect]) {
+        return NO;
+    }
+    
+    // 86400 seconds a day
+    int oldNotificationTimestamp = [notification.arrivalTimestamp integerValue] + 86400;
+    
+    if (removeDuplicates == nil) {
+        removeDuplicates = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"DELETE FROM %@ WHERE identifier=%@ AND arrivalTimestamp<%d", table, notification.identifier, oldNotificationTimestamp] database:db];
+    }
+    
+    BOOL result = [self executeStatment:removeDuplicates andReset:YES];
+    
+    sqlite3_reset(removeDuplicates);
+    sqlite3_finalize(removeDuplicates);
+    removeDuplicates = nil;
+    
+    return result;
+}
+
 @end

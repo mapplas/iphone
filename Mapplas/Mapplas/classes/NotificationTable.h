@@ -16,11 +16,14 @@
     sqlite3_stmt *selectNotificationsUpTo;
     sqlite3_stmt *notificationTimestamps;
     sqlite3_stmt *notificationsByTimestamps;
+    sqlite3_stmt *removeDuplicates;
 }
 
 - (Notification *)load:(NSString *)key;
 - (NSUInteger)numberOfRows;
+
 - (BOOL)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model;
+- (BOOL)removeDuplicateNotificationsFor:(Notification *)notification;
 
 - (BOOL)setNotificationsAsShown;
 

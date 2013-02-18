@@ -49,6 +49,9 @@
             
             // Insert notification into DB
             [notificationTable saveBatch:notification];
+            
+            // Check if exist same app in DB before yesterday
+            [self checkSameApps:notification];
         }
     }
     
@@ -108,6 +111,10 @@
         [notificationTable deleteRowsUpTo:maxNotificationsInDB withModel:model];
         [notificationTable flush];
     }
+}
+
+- (void)checkSameApps:(Notification *)notification {
+    [notificationTable removeDuplicateNotificationsFor:notification];
 }
 
 @end
