@@ -41,7 +41,7 @@
 }
 
 - (void)pushNotificationScreen {
-    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] init];
+    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model];
     [self.navigationController pushViewController:notifViewController animated:YES];
 }
 

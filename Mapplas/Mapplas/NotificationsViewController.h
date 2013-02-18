@@ -12,10 +12,20 @@
 #import "SuperModel.h"
 
 #define cellHeight 72;
-#define sectionHeight 50;
+#define sectionHeight 30;
+
+typedef enum {
+    typeItem,
+    typeSeparator
+} CellType;
 
 @interface NotificationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     SuperModel *model;
+    
+    NSMutableDictionary *tableData;
+    NSMutableArray *notificationSet;
+    
+    NSString *currentSectionText;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;

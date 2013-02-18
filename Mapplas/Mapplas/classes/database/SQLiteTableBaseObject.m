@@ -31,7 +31,7 @@
 	}
 	
 	if(removeSth == nil) {
-		removeSth = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"DELETE FROM %@ WHERE id=?", table] database:db];
+		removeSth = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"DELETE FROM %@ WHERE identifier=?", table] database:db];
 	}
 	
 	sqlite3_bind_int(removeSth, 1, [[object identifier] intValue]);
@@ -51,7 +51,7 @@
 	
 	if(selectSth == nil) {
 		NSString *columnNames = [SQLiteQueryPreprocessor columnNames:columns];
-		selectSth = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT %@ FROM %@ WHERE id=?", columnNames, table] database:db];
+		selectSth = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT %@ FROM %@ WHERE autoIncrementIdentifier=?", columnNames, table] database:db];
 	}
 	
 	sqlite3_bind_int(selectSth, 1, key);

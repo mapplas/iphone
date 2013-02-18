@@ -14,6 +14,8 @@
     sqlite3_stmt *loadNumberOfRows;
     sqlite3_stmt *notificationsShown;
     sqlite3_stmt *selectNotificationsUpTo;
+    sqlite3_stmt *notificationTimestamps;
+    sqlite3_stmt *notificationsByTimestamps;
 }
 
 - (Notification *)load:(NSString *)key;
@@ -21,5 +23,7 @@
 - (BOOL)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model;
 
 - (BOOL)setNotificationsAsShown;
+
+- (NSMutableDictionary *)getNotificationsSeparatedByLocation;
 
 @end

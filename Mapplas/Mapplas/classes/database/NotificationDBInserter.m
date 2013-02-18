@@ -25,7 +25,7 @@
     JSONToNotificationMapper *notificationMapper = [[JSONToNotificationMapper alloc] init];
     Notification *notification = nil;
     
-    long currentTimestamp = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]) * 1000;
+    NSTimeInterval date = [[NSDate date] timeIntervalSince1970];
     int count = 0;
     
     NSMutableArray *notificationRaw = model.notificationRawList;
@@ -39,10 +39,10 @@
             
             App *notificationApp = [self getAppForId:notification.appId];
             
-            notification.arrivalTimestamp = currentTimestamp;
+            notification.arrivalTimestamp = [NSNumber numberWithInt:(int)date];
             notification.auxApp = notificationApp;
             notification.currentLocation = model.currentLocation;
-            notification.dateInMs = [self getMsForDate:notification.date andHour:notification.hour];
+            notification.dateInMs = [NSNumber numberWithInt:[self getMsForDate:notification.date andHour:notification.hour]];
             
             [model.notificationList.list addObject:notification];
             
@@ -85,7 +85,8 @@
     NSString *hours = [hourSplitted objectAtIndex:0];
     NSString *mins = [hourSplitted objectAtIndex:1];
     
-    NSUInteger ms = [mins intValue] * 60 * 1000;
+    // Seconds! Not ms
+    NSUInteger ms = [mins intValue] * 60;
     ms += [hours intValue] * 60 * 60 * 1000;
     ms += [day intValue] * 24 * 60 * 60 * 1000;
     ms += [month intValue] * 30 * 24 * 60 * 60 * 1000;

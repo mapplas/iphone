@@ -23,9 +23,9 @@
                         
 					   [[SQLiteColumn alloc] initWithName:@"seen" type:@"boolean"],
 					   [[SQLiteColumn alloc] initWithName:@"shown" type:@"boolean"],
-//					   [[SQLiteColumn alloc] initWithName:@"arrivalTimestamp" type:@"int"],
+					   [[SQLiteColumn alloc] initWithName:@"arrivalTimestamp" type:@"int"],
 					   [[SQLiteColumn alloc] initWithName:@"currentLocation" type:@"text"],
-//					   [[SQLiteColumn alloc] initWithName:@"dateInMs" type:@"int"],
+					   [[SQLiteColumn alloc] initWithName:@"dateInMs" type:@"int"],
 					   nil];
 	
 	self = [super initWithDatabase:@"Notifications.db" table:@"notifications" columns:fields];
@@ -45,7 +45,7 @@
 }
 
 - (NSUInteger)numberOfRows {
-    NSUInteger rows = 0;
+    NSNumber *rows = nil;
     	
 	if(![self connect]) {
 		return NO;
@@ -54,30 +54,42 @@
 	if(loadNumberOfRows == nil) {
 		loadNumberOfRows = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT COUNT(*) FROM %@", table] database:db];
 	}
-	
+    	
 	BOOL result = [self executeStatment:loadNumberOfRows andReset:YES];
+    
+    if(result) {
+        while(sqlite3_step(loadNumberOfRows) == SQLITE_ROW ){
+            int count = sqlite3_column_int(loadNumberOfRows, 0);
+            rows = [NSNumber numberWithInt:count];
+        }
+	}
 	
 	sqlite3_reset(loadNumberOfRows);
     
-    return rows;
+    return [rows integerValue];
 }
 
 - (BOOL)deleteRowsUpTo:(int)maxNotificationsInDB withModel:(SuperModel *)model {
-    NSMutableArray *firstNotifications;
+    NSMutableArray *firstNotifications = [[NSMutableArray alloc] init];
     
     if (![self connect]) {
         return NO;
     }
     
     if (selectNotificationsUpTo == nil) {
-        selectNotificationsUpTo = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ LIMIT %d", table, @"dateInMs", maxNotificationsInDB] database:db];
+        selectNotificationsUpTo = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ DESC LIMIT %d", table, @"arrivalTimestamp", maxNotificationsInDB] database:db];
     }
     
     BOOL result = [self executeStatment:selectNotificationsUpTo andReset:YES];
     	
 	if(result) {
-		SQLiteQueryMapper *mapper = [[SQLiteQueryMapper alloc] init];
-		[mapper mapToObject:selectNotificationsUpTo object:firstNotifications columns:columns];
+		while ([self.executor executeMultiple:selectNotificationsUpTo database:db]) {
+            Notification *notif = [[Notification alloc] init];
+            notif.uniqueIdentifier = [[NSString alloc] initWithBytes:sqlite3_column_text(selectNotificationsUpTo, 0) length:sizeof(sqlite3_column_text(selectNotificationsUpTo, 0)) encoding:NSASCIIStringEncoding];
+            notif = [self load:notif.uniqueIdentifier];
+            
+            [firstNotifications addObject:notif];
+        }
 	}
     
     [self empty];
@@ -122,6 +134,62 @@
     sqlite3_reset(notificationsShown);
     
     return result;
+}
+
+- (NSMutableDictionary *)getNotificationsSeparatedByLocation {
+    if (![self connect]) {
+        return NO;
+    }
+    
+//    Get different timestamp sorted from newer to older
+    NSMutableArray *listOfNotificationTimestamps = [self getNotificationTimestampList];
+    
+//    Get ArrayLists of notifications for each diferent timestamp
+    NSMutableDictionary *notificationData = [[NSMutableDictionary alloc] init];
+    NSNumber *currentNotificationTimestamp = [NSNumber numberWithInt:0];
+    
+    for (Notification *currentNotification in listOfNotificationTimestamps) {
+        NSMutableArray *listOfNotifications = [[NSMutableArray alloc] init];
+
+        currentNotificationTimestamp = currentNotification.arrivalTimestamp;
+        
+        if (notificationsByTimestamps == nil) {
+            notificationsByTimestamps = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = %@ GROUP BY %@", table, @"arrivalTimestamp", currentNotificationTimestamp, @"dateInMs"] database:db];
+        }
+        
+        Notification *notif = [[Notification alloc] init];
+        while ([self.executor executeMultiple:notificationsByTimestamps database:db]) {
+            notif.uniqueIdentifier = [[NSString alloc] initWithBytes:sqlite3_column_text(notificationsByTimestamps, 0) length:sizeof(sqlite3_column_text(notificationsByTimestamps, 0)) encoding:NSASCIIStringEncoding];
+            notif = [self load:notif.uniqueIdentifier];
+            
+            [listOfNotifications addObject:notif];
+        }
+        
+        [notificationData setObject:listOfNotifications forKey:currentNotificationTimestamp];
+        
+        sqlite3_reset(notificationsByTimestamps);
+        sqlite3_finalize(notificationsByTimestamps);
+        notificationsByTimestamps = nil;
+    }
+    
+    return notificationData;
+}
+
+- (NSMutableArray *)getNotificationTimestampList {
+    NSMutableArray *timestampList = [[NSMutableArray alloc] init];
+    
+    if (notificationTimestamps == nil) {
+        notificationTimestamps = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"SELECT DISTINCT %@ FROM %@ ORDER BY %@", @"arrivalTimestamp", table, @"arrivalTimestamp"] database:db];
+    }
+    
+    while([self.executor executeMultiple:notificationTimestamps database:db]) {
+        Notification *notif = [[Notification alloc] init];
+        notif.arrivalTimestamp = [NSNumber numberWithLong:sqlite3_column_int(notificationTimestamps, 0)];
+        
+        [timestampList addObject:notif];
+	}
+    
+    return timestampList;
 }
 
 @end

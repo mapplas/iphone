@@ -10,6 +10,7 @@
 
 @implementation Notification
 
+@synthesize uniqueIdentifier = _uniqueIdentifier;
 @synthesize companyId = _companyId;
 @synthesize appId = _appId;
 @synthesize name = _name;
@@ -26,6 +27,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        self.uniqueIdentifier = @"";
         self.companyId = @"0";
         self.appId = @"0";
         self.name = @"";
@@ -35,9 +37,9 @@
         self.auxApp = nil;
         self.seen = 0;
         self.shown = 0;
-        self.arrivalTimestamp = 0;
+        self.arrivalTimestamp = [NSNumber numberWithInt:0];;
         self.currentLocation = @"";
-        self.dateInMs = 0;
+        self.dateInMs = [NSNumber numberWithInt:0];
     }
     return self;
 }
