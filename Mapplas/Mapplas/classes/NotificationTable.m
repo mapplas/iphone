@@ -136,6 +136,22 @@
     return result;
 }
 
+- (BOOL)setNotificationsAsSeen:(Notification *)notification {
+    if (![self connect]) {
+        return NO;
+    }
+    
+    if (notificationsSeen == nil) {
+        notificationsSeen = [SQLitePrepareStatment prepare:[NSString stringWithFormat:@"UPDATE %@ SET seen = 1 WHERE identifier=%@", table, notification.identifier] database:db];
+    }
+    
+    BOOL result = [self executeStatment:notificationsSeen andReset:YES];
+    
+    sqlite3_reset(notificationsSeen);
+    
+    return result;
+}
+
 - (NSMutableDictionary *)getNotificationsSeparatedByLocation {
     if (![self connect]) {
         return NO;

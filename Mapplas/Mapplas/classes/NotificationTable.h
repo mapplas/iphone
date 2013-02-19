@@ -13,6 +13,7 @@
 @interface NotificationTable : SQLiteTableBaseObject {
     sqlite3_stmt *loadNumberOfRows;
     sqlite3_stmt *notificationsShown;
+    sqlite3_stmt *notificationsSeen;
     sqlite3_stmt *selectNotificationsUpTo;
     sqlite3_stmt *notificationTimestamps;
     sqlite3_stmt *notificationsByTimestamps;
@@ -26,6 +27,7 @@
 - (BOOL)removeDuplicateNotificationsFor:(Notification *)notification;
 
 - (BOOL)setNotificationsAsShown;
+- (BOOL)setNotificationsAsSeen:(Notification *)notification;
 
 - (NSMutableDictionary *)getNotificationsSeparatedByLocation;
 

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
 #import "NotificationTable.h"
 #import "NotificationCell.h"
 #import "SuperModel.h"
@@ -25,6 +27,7 @@ typedef enum {
     
     NSMutableDictionary *tableData;
     NSMutableArray *notificationSet;
+    NSMutableArray *orderedTableDataKeys;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;

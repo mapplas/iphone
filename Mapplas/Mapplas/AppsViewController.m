@@ -42,7 +42,18 @@
 
 - (void)pushNotificationScreen {
     NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model appsViewController:self];
-    [self.navigationController pushViewController:notifViewController animated:YES];
+    [self.navigationController pushViewController:notifViewController animated:NO];
+    [self imgSlideInFromLeft:self.navigationController.view];
+}
+
+-(void)imgSlideInFromLeft:(UIView *)view {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.4;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype =kCATransitionFromLeft;
+    transition.delegate = self;
+    [view.layer addAnimation:transition forKey:nil];
 }
 
 - (void)pushUserPrefScreen {

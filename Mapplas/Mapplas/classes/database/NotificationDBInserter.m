@@ -97,10 +97,10 @@
     
     // Seconds! Not ms
     NSUInteger ms = [mins intValue] * 60;
-    ms += [hours intValue] * 60 * 60 * 1000;
-    ms += [day intValue] * 24 * 60 * 60 * 1000;
-    ms += [month intValue] * 30 * 24 * 60 * 60 * 1000;
-    ms += [year intValue] * 12 * 30 * 24 * 60 * 60 * 1000;
+    ms += [hours intValue] * 60 * 60;
+    ms += [day intValue] * 24 * 60 * 60;
+    ms += [month intValue] * 30 * 24 * 60 * 60;
+    ms += [year intValue] * 12 * 30 * 24 * 60 * 60;
     return ms;
 }
 

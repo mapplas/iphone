@@ -39,9 +39,11 @@
         [self.logo setImage:[UIImage imageNamed:@"ic_template.png"]];
     }
     
-    self.appName.text = self.app.appName;
+    self.appName.text = self.app.name;
     self.description.text = self.notification.description;
-    self.date.text = @"no idea";
+    
+    DateUtils *dateUtils = [[DateUtils alloc] init];
+    self.date.text = [dateUtils formatSinceDate:self.notification.date hour:self.notification.hour];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -13,6 +13,7 @@
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
 #import "ImageLoader.h"
+#import "DateUtils.h"
 
 @interface NotificationCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
     App *_app;
