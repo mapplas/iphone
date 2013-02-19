@@ -25,8 +25,6 @@
         
         tableData = [[NSMutableDictionary alloc] init];
         notificationSet = [[NSMutableArray alloc] init];
-        
-        currentSectionText = @"";
     }
     return self;
 }
@@ -42,7 +40,7 @@
     [table setNotificationsAsShown];
     
     [self initializeNotificationSet];
-    [self setAuxAppToNotifications];
+    [self setAuxAppToNotificationsAndReloadModelData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -72,11 +70,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    Notification *notif = [model.notificationList.list objectAtIndex:indexPath.row];
+    AppDetailViewController *detailViewController = [[AppDetailViewController alloc] initWithApp:notif.auxApp user:model.user model:model andLocation:model.currentLocation];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return sectionHeight;
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([notificationSet objectAtIndex:indexPath.row] == [NSNumber numberWithInt:typeHighlightedItem]) {
+        [cell setBackgroundColor:[UIColor blueColor]];
+    }
+    else {
+        [cell setBackgroundColor:[UIColor clearColor]];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,39 +89,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSEnumerator *keyEnumerator = tableData.keyEnumerator;
-    int count = 0;
-    for (NSNumber *key in keyEnumerator) {
-        if (count == section) {
-            return [[tableData objectForKey:key] count];
-        }
-        count++;
-    }
-    return 0;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return tableData.keyEnumerator.allObjects.count;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSEnumerator *keyEnumerator = tableData.keyEnumerator;
-    int count = 0;
-    CLLocation *location;
-    for (NSNumber *key in keyEnumerator) {
-        if (count == section) {
-            NSMutableArray *notifications = [tableData objectForKey:key];
-            NSString *currentLocation = [[notifications objectAtIndex:0] currentLocation];
-            NSArray *locationSplitted = [currentLocation componentsSeparatedByString:@","];
-            
-            CLLocationDegrees latitudeDegree = (CLLocationDegrees)[locationSplitted[0] doubleValue];
-            CLLocationDegrees longitudeDegree = (CLLocationDegrees)[locationSplitted[1] doubleValue];
-            location = [[CLLocation alloc] initWithLatitude:latitudeDegree longitude:longitudeDegree];
-        }
-    }
-    [self doReverseGeocoding:location];
-    
-    return currentSectionText;
+    return model.notificationList.list.count;
 }
 
 #pragma mark - Private methods
@@ -130,19 +103,26 @@
 }
 
 - (void)initializeNotificationSet {
+    BOOL highlighted = NO;
     NSEnumerator *keyEnumerator = [tableData keyEnumerator];
     
     for (NSNumber *key in keyEnumerator) {
-        [notificationSet addObject:[NSNumber numberWithInt:typeSeparator]];
-        
+        highlighted = !highlighted;
         NSMutableArray *notifs = [tableData objectForKey:key];
         for (Notification *current in notifs) {
-            [notificationSet addObject:[NSNumber numberWithInt:typeItem]];
+            if (highlighted) {
+                [notificationSet addObject:[NSNumber numberWithInt:typeHighlightedItem]];
+            }
+            else {
+                [notificationSet addObject:[NSNumber numberWithInt:typeNormalItem]];
+            }
         }
     }
 }
 
-- (void)setAuxAppToNotifications {
+- (void)setAuxAppToNotificationsAndReloadModelData {
+    [model.notificationList reset];
+    
     NSEnumerator *keyEnumerator = [tableData keyEnumerator];
     
     for (NSNumber *key in keyEnumerator) {
@@ -151,33 +131,10 @@
         for (Notification *currentNotif in value) {
             NSString *appId = currentNotif.appId;
             currentNotif.auxApp = [self getAppForId:appId];
+            
+            [model.notificationList addNotification:currentNotif];
         }
     }
-}
-
-#pragma mark - Reverse geocoding
-- (void)doReverseGeocoding:(CLLocation *)location {
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        if (error){
-            currentSectionText = @"error";
-            return;
-        }
-        
-        if(placemarks && placemarks.count > 0) {
-            //do something
-            CLPlacemark *topResult = [placemarks objectAtIndex:0];
-            //            NSString *sub = [topResult subThoroughfare];
-            //            NSString *thr = [topResult thoroughfare];
-            //            NSString *local = [topResult locality];
-            NSString *addressTxt = [NSString stringWithFormat:@"%@ %@, %@",
-                                    [topResult subThoroughfare],[topResult thoroughfare],
-                                    [topResult locality]];
-            
-            currentSectionText = addressTxt;
-        }
-    }];
 }
 
 @end

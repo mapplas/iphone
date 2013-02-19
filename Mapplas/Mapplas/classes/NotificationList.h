@@ -16,5 +16,6 @@
 
 - (id)init;
 - (void)addNotification:(Notification *)_notification;
+- (void)reset;
 
 @end

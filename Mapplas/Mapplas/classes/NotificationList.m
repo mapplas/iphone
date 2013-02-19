@@ -24,4 +24,8 @@
     [self.list addObject:_notification];
 }
 
+- (void)reset {
+    [self.list removeAllObjects];
+}
+
 @end

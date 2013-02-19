@@ -56,7 +56,8 @@
     }
     
     if (count != 0) {
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%d", count] style:UIBarButtonItemStyleBordered target:viewController action:@selector(pushNotificationScreen)];
+        UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications_alert.png"];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:viewController action:@selector(pushNotificationScreen)];
     }
     
     [notificationTable flush];

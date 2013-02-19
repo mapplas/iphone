@@ -10,13 +10,13 @@
 #import "NotificationTable.h"
 #import "NotificationCell.h"
 #import "SuperModel.h"
+#import "AppDetailViewController.h"
 
 #define cellHeight 72;
-#define sectionHeight 30;
 
 typedef enum {
-    typeItem,
-    typeSeparator
+    typeHighlightedItem,
+    typeNormalItem
 } CellType;
 
 @interface NotificationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
@@ -25,8 +25,6 @@ typedef enum {
     
     NSMutableDictionary *tableData;
     NSMutableArray *notificationSet;
-    
-    NSString *currentSectionText;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
