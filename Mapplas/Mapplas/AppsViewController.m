@@ -41,8 +41,19 @@
 }
 
 - (void)pushNotificationScreen {
-    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] init];
-    [self.navigationController pushViewController:notifViewController animated:YES];
+    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model appsViewController:self];
+    [self.navigationController pushViewController:notifViewController animated:NO];
+    [self imgSlideInFromLeft:self.navigationController.view];
+}
+
+-(void)imgSlideInFromLeft:(UIView *)view {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.4;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype =kCATransitionFromLeft;
+    transition.delegate = self;
+    [view.layer addAnimation:transition forKey:nil];
 }
 
 - (void)pushUserPrefScreen {
@@ -53,11 +64,9 @@
 - (void)initializeNavigationBarButtons {
     UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     
     UIImage *profileImage = [UIImage imageNamed:@"ic_menu_profile.png"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushUserPrefScreen)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
 }
 
 - (void)viewDidLoad {

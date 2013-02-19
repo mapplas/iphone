@@ -20,4 +20,12 @@
     return self;
 }
 
+- (void)addNotification:(Notification *)_notification {
+    [self.list addObject:_notification];
+}
+
+- (void)reset {
+    [self.list removeAllObjects];
+}
+
 @end

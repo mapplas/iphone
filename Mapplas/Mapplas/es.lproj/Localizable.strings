@@ -197,3 +197,33 @@
 
 /* User screen empty blocked list cell message */
 "user_screen_empty_blocked_list_text" = "No has bloqueado ninguna app";
+
+/* Notification cell year text */
+"notif_screen_year_text" = "año";
+
+/* Notification cell years text */
+"notif_screen_years_text" = "años";
+
+/* Notification cell month text */
+"notif_screen_month_text" = "mes";
+
+/* Notification cell months text */
+"notif_screen_months_text" = "meses";
+
+/* Notification cell day text */
+"notif_screen_day_text" = "d";
+
+/* Notification cell days text */
+"notif_screen_days_text" = "d";
+
+/* Notification cell hour text */
+"notif_screen_hour_text" = "h";
+
+/* Notification cell hours text */
+"notif_screen_hours_text" = "h";
+
+/* Notification cell minute text */
+"notif_screen_minute_text" = "m";
+
+/* Notification cell minutes text */
+"notif_screen_minutes_text" = "m";

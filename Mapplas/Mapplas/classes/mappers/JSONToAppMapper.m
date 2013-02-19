@@ -42,7 +42,7 @@
                                   [[TargetIteratingMapper alloc] initWithArrayKey:@"AuxPhotos" elementMapper:photoMapper action:@selector(setAuxPhotosArray:)],
                                   
                                   [[KeyValueScappedMapper alloc] initWithKey:@"Market" action:@selector(setMarket:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"AuxNews" action:@selector(setNotificationRaw:)],
+                                  [[KeyValueMapper alloc] initWithKey:@"AuxNews" action:@selector(setNotificationRaw:)],
                                   
                                   nil];
     

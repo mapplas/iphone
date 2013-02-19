@@ -20,7 +20,7 @@
     NotificationList *_notificationList;
     bool _operationError;
     NSString *_errorText;
-//    NSMutableArray *_notificationRawList;
+    NSMutableArray *_notificationRawList;
 }
 
 @property (nonatomic, strong) NSString *currentLocation;
@@ -32,7 +32,7 @@
 @property (nonatomic, strong) NotificationList *notificationList;
 @property (nonatomic) bool operationError;
 @property (nonatomic, strong) NSString *errorText;
-//@property (nonatomic, strong) NSMutableArray *notificationRawList;
+@property (nonatomic, strong) NSMutableArray *notificationRawList;
 
 - (id)init;
 
