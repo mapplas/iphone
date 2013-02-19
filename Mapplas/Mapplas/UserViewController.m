@@ -27,7 +27,7 @@
 @synthesize userInfo;
 @synthesize userInfoUnpressed, userInfoUnpressedName, userInfoUnpressedEmail, userInfoUnpressedWarningText;
 @synthesize userInfoPressed, userInfoPressedNameEditText, userInfoPressedEmailEditText, userInfoPressedButtonOk;
-@synthesize listHeaderView, listHeaderPinsButton, listHeaderPinsLabel, listHeaderBlocksButton, listHeaderBlocksLabel;
+@synthesize listHeaderView, segmentedControl;
 @synthesize list;
 @synthesize listEmptyView, listEmptyViewLabel;
 @synthesize configTable;
@@ -72,7 +72,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == list) {
         NSMutableArray *loadedList = nil;
-        if (self.listHeaderPinsButton.selected) {
+        if (self.segmentedControl.selectedSegmentIndex == 0) {
             loadedList = model.user.pinnedApps;
         }
         else {
@@ -107,7 +107,7 @@
     static NSString *groupedTableIdentifier = @"GroupedCellItem";
     
     if (tableView == list) {
-        if (self.listHeaderPinsButton.selected) {
+        if (self.segmentedControl.selectedSegmentIndex == 0) {
             UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
             if (cell == nil) {
                 NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
@@ -197,6 +197,10 @@
     return NO;
 }
 
+- (IBAction)segmentedControlIndexChanged {
+    [list reloadData];
+}
+
 #pragma mark - Private methods
 
 - (void)setTextToNavigationButton:(NSString *)title {
@@ -234,15 +238,6 @@
     if (userImage != nil) {
         self.userImageImageView.image = userImage;
     }
-    
-    // List header
-    self.listHeaderPinsLabel.text =  NSLocalizedString(@"user_list_header_pins_label", @"User screen list header pins label");
-    [self.listHeaderPinsButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_left.png"] forState:UIControlStateSelected];
-    self.listHeaderPinsButton.selected = YES;
-    
-    self.listHeaderBlocksLabel.text = NSLocalizedString(@"user_list_header_blocks_label", @"User screen list header blocks label");
-    [self.listHeaderBlocksButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_right.png"] forState:UIControlStateSelected];
-    self.listHeaderBlocksButton.selected = NO;
     
     [self changeLayoutComponents:[self checkUserState]];
 }
@@ -321,7 +316,7 @@
     [scrollManager emptyFromPosition:3];
     if (cells == 0) {
         NSString *textToShow = NSLocalizedString(@"user_screen_empty_blocked_list_text", @"User screen empty blocked list cell message");
-        if (self.listHeaderPinsButton.selected) {
+        if (self.segmentedControl.selectedSegmentIndex == 0) {
             textToShow = NSLocalizedString(@"user_screen_empty_pinup_list_text", @"User screen empty pinned list cell message");
         }
         
@@ -334,18 +329,6 @@
     }
     
     [scrollManager addView:self.configTable];
-}
-
-- (IBAction)userPinnedApps:(id)sender {
-    self.listHeaderPinsButton.selected = YES;
-    self.listHeaderBlocksButton.selected = NO;
-    [list reloadData];
-}
-
-- (IBAction)userBlockedApps:(id)sender {
-    self.listHeaderPinsButton.selected = NO;
-    self.listHeaderBlocksButton.selected = YES;
-    [list reloadData];
 }
 
 - (IBAction)userLogin:(id)sender {

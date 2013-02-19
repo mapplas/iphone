@@ -72,10 +72,7 @@ typedef enum {
 @property (nonatomic, strong) IBOutlet UIView *userInfoPressedButtonOk;
 
 @property (nonatomic, strong) IBOutlet UIView *listHeaderView;
-@property (nonatomic, strong) IBOutlet UIButton *listHeaderPinsButton;
-@property (nonatomic, strong) IBOutlet UILabel *listHeaderPinsLabel;
-@property (nonatomic, strong) IBOutlet UIButton *listHeaderBlocksButton;
-@property (nonatomic, strong) IBOutlet UILabel *listHeaderBlocksLabel;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (nonatomic, strong) IBOutlet UITableView *list;
 
@@ -84,11 +81,11 @@ typedef enum {
 
 @property (nonatomic, strong) IBOutlet UITableView *configTable;
 
-- (IBAction)userPinnedApps:(id)sender;
-- (IBAction)userBlockedApps:(id)sender;
 - (IBAction)userLogin:(id)sender;
 
 - (IBAction)loadPhoto:(id)sender;
+
+- (IBAction)segmentedControlIndexChanged;
 
 - (void)requestedDataLoaded;
 
