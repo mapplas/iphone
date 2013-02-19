@@ -97,6 +97,10 @@
 		7F2CE76C16B6BE0700B7E6E5 /* BlockConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2CE76B16B6BE0600B7E6E5 /* BlockConnector.m */; };
 		7F2CE76F16B6BEA600B7E6E5 /* AppBlockRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2CE76E16B6BEA500B7E6E5 /* AppBlockRequest.m */; };
 		7F2FED5216D36DB700415725 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FED5116D36DB700415725 /* DateUtils.m */; };
+		7F2FED5716D3C78400415725 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FED5516D3C78400415725 /* ConfigurationViewController.m */; };
+		7F2FED5816D3C78400415725 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FED5616D3C78400415725 /* ConfigurationViewController.xib */; };
+		7F2FED5C16D3CC8A00415725 /* TextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FED5A16D3CC8A00415725 /* TextViewViewController.m */; };
+		7F2FED5D16D3CC8A00415725 /* TextViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FED5B16D3CC8A00415725 /* TextViewViewController.xib */; };
 		7F5859F116AFC9A800DB843A /* JSONToAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */; };
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
@@ -364,6 +368,12 @@
 		7F2CE76E16B6BEA500B7E6E5 /* AppBlockRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppBlockRequest.m; path = classes/network/AppBlockRequest.m; sourceTree = "<group>"; };
 		7F2FED5016D36DB700415725 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtils.h; path = classes/utils/DateUtils.h; sourceTree = "<group>"; };
 		7F2FED5116D36DB700415725 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtils.m; path = classes/utils/DateUtils.m; sourceTree = "<group>"; };
+		7F2FED5416D3C78400415725 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationViewController.h; path = classes/ConfigurationViewController.h; sourceTree = "<group>"; };
+		7F2FED5516D3C78400415725 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = classes/ConfigurationViewController.m; sourceTree = "<group>"; };
+		7F2FED5616D3C78400415725 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfigurationViewController.xib; path = classes/ConfigurationViewController.xib; sourceTree = "<group>"; };
+		7F2FED5916D3CC8A00415725 /* TextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextViewViewController.h; path = classes/TextViewViewController.h; sourceTree = "<group>"; };
+		7F2FED5A16D3CC8A00415725 /* TextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextViewViewController.m; path = classes/TextViewViewController.m; sourceTree = "<group>"; };
+		7F2FED5B16D3CC8A00415725 /* TextViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextViewViewController.xib; path = classes/TextViewViewController.xib; sourceTree = "<group>"; };
 		7F5859EF16AFC9A800DB843A /* JSONToAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToAppMapper.h; path = classes/mappers/JSONToAppMapper.h; sourceTree = "<group>"; };
 		7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppMapper.m; path = classes/mappers/JSONToAppMapper.m; sourceTree = "<group>"; };
 		7F5859FF16AFCFB100DB843A /* IteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IteratingMapper.h; path = classes/mappers/IteratingMapper.h; sourceTree = "<group>"; };
@@ -854,6 +864,19 @@
 			name = Blocked;
 			sourceTree = "<group>";
 		};
+		7F2FED5316D3C76700415725 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7F2FED5416D3C78400415725 /* ConfigurationViewController.h */,
+				7F2FED5516D3C78400415725 /* ConfigurationViewController.m */,
+				7F2FED5616D3C78400415725 /* ConfigurationViewController.xib */,
+				7F2FED5916D3CC8A00415725 /* TextViewViewController.h */,
+				7F2FED5A16D3CC8A00415725 /* TextViewViewController.m */,
+				7F2FED5B16D3CC8A00415725 /* TextViewViewController.xib */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		7FBAE92C16B027CC00621B34 /* EGOTableViewPullRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC8827016A82A62008A06A8 /* Apps */,
+				7F2FED5316D3C76700415725 /* Configuration */,
 				7FC8827116A82A68008A06A8 /* Notifications */,
 				7FC8827316A82A7A008A06A8 /* User */,
 			);
@@ -1483,6 +1507,8 @@
 				7F0448E516CBDBAC001FDB00 /* NotificationCell.xib in Resources */,
 				7FED32EC16D2971500AC7C5B /* ic_menu_notifications_alert.png in Resources */,
 				7FED32ED16D2971500AC7C5B /* ic_menu_notifications_alert@2x.png in Resources */,
+				7F2FED5816D3C78400415725 /* ConfigurationViewController.xib in Resources */,
+				7F2FED5D16D3CC8A00415725 /* TextViewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1631,6 +1657,8 @@
 				7F0551B716CB957400D993F9 /* NotificationTable.m in Sources */,
 				7F0448E316CBDB8C001FDB00 /* NotificationCell.m in Sources */,
 				7F2FED5216D36DB700415725 /* DateUtils.m in Sources */,
+				7F2FED5716D3C78400415725 /* ConfigurationViewController.m in Sources */,
+				7F2FED5C16D3CC8A00415725 /* TextViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@
 #import "AppActivityRequest.h"
 
 #import "Constants.h"
+#import "ConfigurationViewController.h"
 
 #define cellHeight 72;
 #define groupedCellHeight 44;
@@ -86,7 +87,6 @@ typedef enum {
 - (IBAction)userPinnedApps:(id)sender;
 - (IBAction)userBlockedApps:(id)sender;
 - (IBAction)userLogin:(id)sender;
-- (IBAction)userLogOut:(id)sender;
 
 - (IBAction)loadPhoto:(id)sender;
 

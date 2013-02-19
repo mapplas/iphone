@@ -227,3 +227,15 @@
 
 /* Notification cell minutes text */
 "notif_screen_minutes_text" = "m";
+
+/* Configuration screen terms title */
+"conf_screen_terms_title" = "Términos de uso";
+
+/* Configuration screen terms text */
+"conf_screen_terms_text" = "Terminos de uso. \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tellus sapien. Nullam placerat, lorem nec lobortis gravida, nisi ipsum placerat augue, non auctor justo diam non nisi. Phasellus ullamcorper sodales dolor sed tincidunt. Nulla aliquet quam vel nisi dignissim id elementum tellus aliquet. Vivamus sodales posuere augue sed accumsan. Vivamus fermentum erat quis quam hendrerit dapibus faucibus ligula condimentum. Fusce convallis vulputate turpis, in iaculis orci tempus non. Nulla varius augue quis nibh venenatis pharetra. Proin luctus, turpis id ultrices convallis, massa lectus hendrerit purus, eu vehicula velit arcu vel turpis.";
+
+/* Configuration screen policy title */
+"conf_screen_policy_title" = "Política de privacidad.";
+
+/* Configuration screen policy text */
+"conf_screen_policy_text" = "Política de privacidad. \n  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tellus sapien. Nullam placerat, lorem nec lobortis gravida, nisi ipsu";

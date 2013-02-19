@@ -171,6 +171,20 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == configTable) {
+        if (indexPath.row == 0) {
+            ConfigurationViewController *configVC = [[ConfigurationViewController alloc] init];
+            [self.navigationController pushViewController:configVC animated:YES];
+        }
+        else {
+            [self userLogOut];
+        }
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - UITextFieldDelegate methods
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField isEqual:self.userInfoPressedNameEditText]) {
@@ -244,6 +258,8 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
+            CGRect newFrame = CGRectMake(self.configTable.frame.origin.x, self.configTable.frame.origin.y, self.configTable.frame.size.width, 64);
+            self.configTable.frame = newFrame;
             [self.configTable reloadData];
             
             break;
@@ -257,6 +273,8 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
+            CGRect newFrame2 = CGRectMake(self.configTable.frame.origin.x, self.configTable.frame.origin.y, self.configTable.frame.size.width, 64);
+            self.configTable.frame = newFrame2;
             [self.configTable reloadData];
             
             break;
@@ -271,6 +289,8 @@
             self.userInfoUnpressedEmail.hidden = NO;
             self.userInfoUnpressedEmail.text = model.user.email;
             
+            CGRect newFrame3 = CGRectMake(self.configTable.frame.origin.x, self.configTable.frame.origin.y, self.configTable.frame.size.width, 108);
+            self.configTable.frame = newFrame3;
             [self.configTable reloadData];
             
             break;
@@ -368,7 +388,7 @@
     [self.userInfoPressed removeFromSuperview];
 }
 
-- (IBAction)userLogOut:(id)sender {
+- (void)userLogOut {
     UIAlertView *logoutAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"user_screen_sign_out_alert_title", @"User screen sign-out alert dialog title") message:NSLocalizedString(@"user_screen_sign_out_alert_message", @"User screen sign-out alert dialog message") delegate:self cancelButtonTitle:NSLocalizedString(@"nav_bar_button_cancel", @"Navigation bar button - Cancel") otherButtonTitles:NSLocalizedString(@"ok_message", @"OK message"), nil];
     [logoutAlert show];
 }
