@@ -30,7 +30,7 @@
 @synthesize listHeaderView, listHeaderPinsButton, listHeaderPinsLabel, listHeaderBlocksButton, listHeaderBlocksLabel;
 @synthesize list;
 @synthesize listEmptyView, listEmptyViewLabel;
-@synthesize footerView, footerClearButton, footerClearButtonLabel, footerSignOutButton, footerSignOutButtonLabel;
+@synthesize configTable;
 
 - (id)initWithModel:(SuperModel *)_super_model {
     self = [super initWithNibName:nil bundle:nil];
@@ -48,7 +48,7 @@
     AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:nil];
     imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
     
-    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfo, self.listHeaderView, self.list, nil];
+    NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:self.userImageView, self.userInfo, self.listHeaderView, self.list, self.configTable, nil];
     scrollManager = [[MutableScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
     [self.userInfo addSubview:self.userInfoUnpressed];
     
@@ -70,71 +70,105 @@
 
 #pragma mark - UITableViewDataSource delegate methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    NSMutableArray *loadedList = nil;
-    if (self.listHeaderPinsButton.selected) {
-        loadedList = model.user.pinnedApps;
+    if (tableView == list) {
+        NSMutableArray *loadedList = nil;
+        if (self.listHeaderPinsButton.selected) {
+            loadedList = model.user.pinnedApps;
+        }
+        else {
+            loadedList = model.user.blockedApps;
+        }
+        
+        NSUInteger count = loadedList.count;
+        NSUInteger tableHeight = count * cellHeight;
+        
+        CGRect listFrame = CGRectMake(self.list.frame.origin.x, self.list.frame.origin.y, self.list.frame.size.width, tableHeight);
+        self.list.frame = listFrame;
+        
+        [scrollManager organize];
+        
+        [self checkEmptyTable:count];
+        
+        return count;
     }
     else {
-        loadedList = model.user.blockedApps;
+        if ([self checkUserState] == LOGGED_IN) {
+            return 2;
+        }
+        else {
+            return 1;
+        }
     }
-    
-    NSUInteger count = loadedList.count;
-    NSUInteger tableHeight = count * cellHeight;
-    
-    CGRect listFrame = CGRectMake(self.list.frame.origin.x, self.list.frame.origin.y, self.list.frame.size.width, tableHeight);
-    self.list.frame = listFrame;
-    
-    [scrollManager organize];
-    
-    [self checkEmptyTable:count];
-    
-    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *pinnedAppsTableIdentifier = @"UserPinsTableItem";
     static NSString *blockedAppsTableIdentifier = @"UserBlocksTableItem";
+    static NSString *groupedTableIdentifier = @"GroupedCellItem";
     
-    if (self.listHeaderPinsButton.selected) {
-        UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
-        if (cell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
-            cell = [nib objectAtIndex:0];
+    if (tableView == list) {
+        if (self.listHeaderPinsButton.selected) {
+            UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pinnedAppsTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserListTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
+            [cell setApp:[model.user.pinnedApps objectAtIndex:indexPath.row]];
+            [cell setPinnedApps:model.user.pinnedApps];
+            [cell setLocation:model.currentLocation];
+            [cell setUser:model.user];
+            [cell setModelAppOrderedList:model.appList];
+            [cell setPositionInList:indexPath.row];
+            
+            [cell loadData];
+            return cell;
+            
         }
+        else {
+            UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
             
-        [cell setApp:[model.user.pinnedApps objectAtIndex:indexPath.row]];
-        [cell setPinnedApps:model.user.pinnedApps];
-        [cell setLocation:model.currentLocation];
-        [cell setUser:model.user];
-        [cell setModelAppOrderedList:model.appList];
-        [cell setPositionInList:indexPath.row];
+            [cell setApp:[model.user.blockedApps objectAtIndex:indexPath.row]];
+            [cell setBlockedApps:model.user.blockedApps];
+            [cell setLocation:model.currentLocation];
+            [cell setUser:model.user];
+            [cell setModelAppOrderedList:model.appList];
+            [cell setPositionInList:indexPath.row];
             
-        [cell loadData];
-        return cell;
-
+            [cell loadData];
+            return cell;
+        }
     }
     else {
-        UserBlockedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:blockedAppsTableIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:groupedTableIdentifier];
         if (cell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserBlockedTableViewCell" owner:self options:nil];
-               cell = [nib objectAtIndex:0];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:groupedTableIdentifier];
         }
-            
-        [cell setApp:[model.user.blockedApps objectAtIndex:indexPath.row]];
-        [cell setBlockedApps:model.user.blockedApps];
-        [cell setLocation:model.currentLocation];
-        [cell setUser:model.user];
-        [cell setModelAppOrderedList:model.appList];
-        [cell setPositionInList:indexPath.row];
         
-        [cell loadData];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        if (indexPath.row == 0) {
+            cell.textLabel.text = NSLocalizedString(@"user_footer_config_button_text", @"Footer config button label text");
+        }
+        else {
+            cell.textLabel.text = NSLocalizedString(@"user_footer_sign_out_button_text", @"Footer sign-out button label text");
+        }
+        
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return cellHeight;
+    if (tableView == list) {
+        return cellHeight;
+    }
+    else {
+        return groupedCellHeight;
+    }
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -196,10 +230,6 @@
     [self.listHeaderBlocksButton setBackgroundImage:[UIImage imageNamed:@"bgd_tab_pressed_right.png"] forState:UIControlStateSelected];
     self.listHeaderBlocksButton.selected = NO;
     
-    // Footer
-    self.footerClearButtonLabel.text = NSLocalizedString(@"user_footer_clear_button_text", @"Footer clear button label text");
-    self.footerSignOutButtonLabel.text = NSLocalizedString(@"user_footer_sign_out_button_text", @"Footer sign-out button label text");
-    
     [self changeLayoutComponents:[self checkUserState]];
 }
 
@@ -214,7 +244,7 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
-            [scrollManager removeView:self.footerView];
+            [self.configTable reloadData];
             
             break;
             
@@ -227,7 +257,7 @@
             self.userInfoUnpressedName.hidden = YES;
             self.userInfoUnpressedEmail.hidden = YES;
             
-            [scrollManager removeView:self.footerView];
+            [self.configTable reloadData];
             
             break;
             
@@ -241,8 +271,7 @@
             self.userInfoUnpressedEmail.hidden = NO;
             self.userInfoUnpressedEmail.text = model.user.email;
             
-            // Add view at index...!
-            [scrollManager addView:self.footerView];
+            [self.configTable reloadData];
             
             break;
     }
@@ -277,16 +306,14 @@
         }
         
         [scrollManager addView:self.listEmptyView];
+        
         self.listEmptyViewLabel.text = textToShow;
     }
     else {
         [scrollManager addView:self.list];
     }
     
-    int userState = [self checkUserState];
-    if (userState == LOGGED_IN) {
-        [scrollManager addView:self.footerView];
-    }
+    [scrollManager addView:self.configTable];
 }
 
 - (IBAction)userPinnedApps:(id)sender {

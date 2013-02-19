@@ -78,7 +78,6 @@
 		7F0C5BB416AEEC8A0093C850 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C5BA916AEEC8A0093C850 /* AFURLConnectionOperation.m */; };
 		7F0C5BB516AEEC8A0093C850 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C5BAB16AEEC8A0093C850 /* AFXMLRequestOperation.m */; };
 		7F0C5BB616AEEC8A0093C850 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C5BAD16AEEC8A0093C850 /* UIImageView+AFNetworking.m */; };
-		7F14A3C816C8D95700FC0482 /* textarea.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F14A3C716C8D95700FC0482 /* textarea.png */; };
 		7F14A3CB16C8F60200FC0482 /* UserEditConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CA16C8F60200FC0482 /* UserEditConnector.m */; };
 		7F14A3CE16C8F76500FC0482 /* UserEditRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */; };
 		7F14A3D116C9061300FC0482 /* ActivityConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3D016C9061200FC0482 /* ActivityConnector.m */; };
@@ -334,7 +333,6 @@
 		7F0C5BAC16AEEC8A0093C850 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		7F0C5BAD16AEEC8A0093C850 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		7F0C5BB816AEF6200093C850 /* GenericRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericRequestHandler.h; path = classes/network/GenericRequestHandler.h; sourceTree = "<group>"; };
-		7F14A3C716C8D95700FC0482 /* textarea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textarea.png; sourceTree = SOURCE_ROOT; };
 		7F14A3C916C8F60200FC0482 /* UserEditConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEditConnector.h; path = classes/network/UserEditConnector.h; sourceTree = "<group>"; };
 		7F14A3CA16C8F60200FC0482 /* UserEditConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEditConnector.m; path = classes/network/UserEditConnector.m; sourceTree = "<group>"; };
 		7F14A3CC16C8F76500FC0482 /* UserEditRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEditRequester.h; path = classes/network/UserEditRequester.h; sourceTree = "<group>"; };
@@ -1352,7 +1350,6 @@
 				7FBAE93316B0430F00621B34 /* bgd_pull_to_refresh.png */,
 				7F03FDA616C4EEC40069CBC3 /* bgd_tab_pressed_left.png */,
 				7F03FDA716C4EEC40069CBC3 /* bgd_tab_pressed_right.png */,
-				7F14A3C716C8D95700FC0482 /* textarea.png */,
 			);
 			name = Backgrounds;
 			sourceTree = "<group>";
@@ -1481,7 +1478,6 @@
 				7F03FDAF16C4F50A0069CBC3 /* UserListTableViewCell.xib in Resources */,
 				7F03FDC616C5267C0069CBC3 /* UserBlockedTableViewCell.xib in Resources */,
 				7F03FDC816C526F80069CBC3 /* ic_action_unblock.png in Resources */,
-				7F14A3C816C8D95700FC0482 /* textarea.png in Resources */,
 				7F1982E216C9648600886FF7 /* UserEmptyTableViewCell.xib in Resources */,
 				7F0551BA16CB9B4000D993F9 /* Notifications.db in Resources */,
 				7F0448E516CBDBAC001FDB00 /* NotificationCell.xib in Resources */,

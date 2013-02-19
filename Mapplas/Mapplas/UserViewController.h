@@ -24,6 +24,8 @@
 #import "Constants.h"
 
 #define cellHeight 72;
+#define groupedCellHeight 44;
+
 typedef enum {
     SIGN_IN,
     LOG_IN,
@@ -79,12 +81,7 @@ typedef enum {
 @property (nonatomic, strong) IBOutlet UIView *listEmptyView;
 @property (nonatomic, strong) IBOutlet UILabel *listEmptyViewLabel;
 
-@property (nonatomic, strong) IBOutlet UIView *footerView;
-@property (nonatomic, strong) IBOutlet UIButton *footerClearButton;
-@property (nonatomic, strong) IBOutlet UILabel *footerClearButtonLabel;
-@property (nonatomic, strong) IBOutlet UIButton *footerSignOutButton;
-@property (nonatomic, strong) IBOutlet UILabel *footerSignOutButtonLabel;
-
+@property (nonatomic, strong) IBOutlet UITableView *configTable;
 
 - (IBAction)userPinnedApps:(id)sender;
 - (IBAction)userBlockedApps:(id)sender;

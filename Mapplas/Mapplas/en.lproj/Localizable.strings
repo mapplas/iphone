@@ -177,8 +177,8 @@
 /* Footer sign-out button label text */
 "user_footer_sign_out_button_text" = "Sign Out";
 
-/* Footer clear button label text */
-"user_footer_clear_button_text" = "TODO";
+/* Footer config button label text */
+"user_footer_config_button_text" = "Configuration";
 
 /* User screen name not set text */
 "user_info_name_not_set_text" = "Name";
