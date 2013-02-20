@@ -44,6 +44,9 @@
                                   [[KeyValueScappedMapper alloc] initWithKey:@"Market" action:@selector(setMarket:)],
                                   [[KeyValueMapper alloc] initWithKey:@"AuxNews" action:@selector(setNotificationRaw:)],
                                   
+                                  [[KeyValueMapper alloc] initWithKey:@"la" action:@selector(setPinnedLatitude:)],
+                                  [[KeyValueMapper alloc] initWithKey:@"lo" action:@selector(setPinnedLongitude:)],
+                                  
                                   nil];
     
     self = [super initWithMappers:mappingProperties];
@@ -63,7 +66,7 @@
         [app setLocationCurrency:EURO];
     }
     
-    if (app.latitude != nil && app.longitude != nil) {
+    if (app.pinnedLatitude != nil && app.pinnedLongitude != nil) {
         CLLocationDegrees latitudeDeg = (CLLocationDegrees)[app.latitude doubleValue];
         CLLocationDegrees longitudeDeg = (CLLocationDegrees)[app.longitude doubleValue];
         CLLocation *appPinnedLocation = [[CLLocation alloc] initWithLatitude:latitudeDeg longitude:longitudeDeg];
