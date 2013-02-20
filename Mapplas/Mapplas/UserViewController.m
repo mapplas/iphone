@@ -198,7 +198,7 @@
 }
 
 - (IBAction)segmentedControlIndexChanged {
-    [list reloadData];
+    [self reloadDataAnimated:YES];
 }
 
 #pragma mark - Private methods
@@ -414,6 +414,60 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.userImageImageView.image = image;
     [imageLoader saveImageInCache:image path:@"userPhoto"];
+}
+
+- (void)reloadDataAnimated:(BOOL)animated {
+    
+    // Get pinned or blocked apps list height
+    NSUInteger listHeight = 0;
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
+        if (model.user.pinnedApps.count != 0) {
+            listHeight = model.user.pinnedApps.count * cellHeight;
+        }
+        else {
+            listHeight = self.listEmptyView.frame.size.height;
+        }
+    }
+    else {
+        if (model.user.blockedApps.count != 0) {
+            listHeight = model.user.blockedApps.count * cellHeight;
+        }
+        else {
+            listHeight = self.listEmptyView.frame.size.height;
+        }
+    }
+    
+    // Screen component sizes
+    NSUInteger screenHeight = self.view.frame.size.height;
+    // Content offset is not real. Scroll hasn't been resized
+    NSUInteger scrollViewContentOffset = scroll.contentOffset.y;
+    NSUInteger segmentListAndConfigViewsHeight = self.segmentedControl.frame.size.height + listHeight + self.configTable.frame.size.height;
+    NSUInteger scrollViewHeight = self.userImageView.frame.size.height + self.userInfo.frame.size.height + segmentListAndConfigViewsHeight;
+    
+    if (scrollViewHeight - scrollViewContentOffset < screenHeight) {
+        [UIView animateWithDuration:1.2
+                              delay:0.02
+                            options:UIViewAnimationOptionTransitionFlipFromTop
+                         animations:^{
+                             [scroll setContentOffset:CGPointMake(0, scrollViewHeight - screenHeight)];
+                         }
+                         completion:^(BOOL finished)
+         {}
+         ];
+    }
+    
+    
+    [list reloadData];
+    
+//    if (animated) {
+//        CATransition *animation = [CATransition animation];
+//        [animation setType:kCATransitionFade];
+//        [animation setSubtype:kCAAnimationDiscrete];
+//        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+//        [animation setFillMode:kCAFillModeBoth];
+//        [animation setDuration:.3];
+//        [self.scroll.layer addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
+//    }
 }
 
 @end
