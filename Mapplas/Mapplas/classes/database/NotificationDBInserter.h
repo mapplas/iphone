@@ -16,6 +16,11 @@
     SuperModel *model;
     UIViewController *viewController;
     NotificationTable *notificationTable;
+    
+    BOOL flagAnimate;
+    NSInteger numberOfAnimations;
+    NSInteger animationCount;
+    NSTimer *buttonAnimationTimer;
 }
 
 - (id)initWithModel:(SuperModel *)_model viewController:(UIViewController *)view_controller;

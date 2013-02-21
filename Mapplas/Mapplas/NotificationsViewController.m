@@ -49,9 +49,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:NO];
     
-    UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
-    appsController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:appsController action:@selector(pushNotificationScreen)];
-    
     [self imgSlideInFromLeft:self.navigationController.view];
 }
 
