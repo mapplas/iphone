@@ -178,7 +178,7 @@
 "user_footer_sign_out_button_text" = "Sign Out";
 
 /* Footer config button label text */
-"user_footer_config_button_text" = "Configuration";
+"user_footer_config_button_text" = "Menu";
 
 /* User screen name not set text */
 "user_info_name_not_set_text" = "Name";
@@ -239,3 +239,12 @@
 
 /* Configuration screen policy text */
 "conf_screen_policy_text" = "Privacy policy. \n  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tellus sapien. Nullam placerat, lorem nec lobortis gravida, nisi ipsu";
+
+/* Configuration screen contact title */
+"conf_screen_contact_title" = "Contact us";
+
+/* Config contact us email */
+"config_contact_us_email" = "support@mapplas.com";
+
+/* Config contact us email subject */
+"config_contact_us_email_subject" = "Hello!";

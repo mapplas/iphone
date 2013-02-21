@@ -108,10 +108,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *developerLabel;
 @property (nonatomic, strong) IBOutlet UIButton *devWebButton;
 @property (nonatomic, strong) IBOutlet UIButton *devEmailButton;
-@property (nonatomic, strong) IBOutlet UIButton *asistencyButton;
-
-@property (nonatomic, strong) IBOutlet UIView *supportModalView;
-@property (nonatomic, strong) IBOutlet UIView *actionView;
 
 - (IBAction)pinUp:(id)sender;
 - (IBAction)block:(id)sender;
@@ -121,6 +117,5 @@
 
 - (IBAction)toToDeveloperWeb:(id)sender;
 - (IBAction)toDeveloperMail:(id)sender;
-- (IBAction)sendAsistency:(id)sender;
 
 @end
