@@ -16,7 +16,12 @@
         model = _model;
         viewController = view_controller;
         notificationTable = [[NotificationTable alloc] init];
+        
+        flagAnimate = NO;
+        numberOfAnimations = 2;
+        animationCount = 0;
     }
+    
     return self;
 }
 
@@ -56,8 +61,7 @@
     }
     
     if (count != 0) {
-        UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications_alert.png"];
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:viewController action:@selector(pushNotificationScreen)];
+        buttonAnimationTimer = [NSTimer scheduledTimerWithTimeInterval:0.65f target:self selector:@selector(animate) userInfo:nil repeats:YES];
     }
     
     [notificationTable flush];
@@ -116,6 +120,22 @@
 
 - (void)checkSameApps:(Notification *)notification {
     [notificationTable removeDuplicateNotificationsFor:notification];
+}
+
+-(void)animate {
+    if (flagAnimate == 0 && animationCount < numberOfAnimations) {
+        UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications_alert.png"];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
+        flagAnimate = 1;
+    } else if (flagAnimate == 1) {
+        UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
+        flagAnimate = 0;
+        animationCount ++;
+    } else if (animationCount == numberOfAnimations) {
+        [buttonAnimationTimer invalidate];
+        buttonAnimationTimer = nil;
+    }
 }
 
 @end

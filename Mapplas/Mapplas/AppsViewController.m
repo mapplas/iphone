@@ -149,6 +149,10 @@
     
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
+    
+    // Notification DB inserter
+    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:self.model viewController:self];
+    [dbInserter insertNotificationsToDB];
 }
 
 - (void)userDataLoaded {
