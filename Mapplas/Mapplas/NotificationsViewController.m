@@ -46,22 +46,6 @@
     [self setAuxAppToNotificationsAndReloadModelData];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:NO];
-    
-    [self imgSlideInFromLeft:self.navigationController.view];
-}
-
--(void)imgSlideInFromLeft:(UIView *)view {
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.4;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype =kCATransitionFromRight;
-    transition.delegate = self;
-    [view.layer addAnimation:transition forKey:nil];
-}
-
 #pragma mark - UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"NotificationTableItem";

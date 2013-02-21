@@ -125,11 +125,11 @@
 -(void)animate {
     if (flagAnimate == 0 && animationCount < numberOfAnimations) {
         UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications_alert.png"];
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:viewController action:@selector(pushNotificationScreen)];
         flagAnimate = 1;
     } else if (flagAnimate == 1) {
         UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:viewController action:@selector(pushNotificationScreen)];
         flagAnimate = 0;
         animationCount ++;
     } else if (animationCount == numberOfAnimations) {
