@@ -16,6 +16,7 @@
 - (void)showAppCompleteDescription;
 - (void)adjustLabel:(CGSize)max_label_size;
 - (void)initPinActionLayout;
+- (void)toDeveloperWeb;
 @end
 
 @implementation AppDetailViewController
@@ -31,7 +32,7 @@
 @synthesize actionBarWithoutTeleph, pinWithoutPhoneButton, pinWithoutPhoneLabel, rateWithoutPhoneLabel, blockWithoutPhoneLabel, shareWithoutPhoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
-@synthesize supportView, developerLabel, devWebButton, devEmailButton;
+@synthesize developerTable;
 
 - (id)initWithApp:(App *)app user:(User *)user model:(SuperModel *)super_model andLocation:(NSString *)current_location {
     self = [super initWithNibName:@"AppDetailViewController" bundle:nil];
@@ -64,10 +65,10 @@
     if ([self.app.phone isEqualToString:@""]) {
         whatActionBar = self.actionBarWithoutTeleph;
     }
-    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.supportView, nil];
+    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.developerTable, nil];
 
     
-    scrollViewConfigurator = [[ScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
+    scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
     [self downloadGalleryImages];
     [self initLayout];
@@ -138,13 +139,6 @@
     
     // Description
     [self showAppSmallDescription];
-    
-    // Support
-    self.developerLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
-    
-    [self.devWebButton setTitle:NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web") forState:UIControlStateNormal];
-    [self.devEmailButton setTitle:NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email") forState:UIControlStateNormal];
-//    [self.asistencyButton setTitle:NSLocalizedString(@"app_detail_developer_support_button", @"App detail - support button") forState:UIControlStateNormal];
 }
 
 - (void)configureGallery {
@@ -371,7 +365,7 @@
     [activityRequest doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_CALL app:self.app andUser:self.user];
 }
 
-- (IBAction)toDeveloperMail:(id)sender {
+- (void)toDeveloperMail {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setMailComposeDelegate:self];
     
@@ -404,7 +398,7 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)toToDeveloperWeb:(id)sender {
+- (void)toDeveloperWeb {
     if (![self.app.appUrl isEqualToString:@""]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.app.appUrl]];
     }
@@ -413,5 +407,100 @@
         [errorToast show];
     }
 }
+
+#pragma mark - UITableViewDataSource and UITableViewDelegate methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger rows = 0;
+
+    if (![self.app.appUrl isEqualToString:@""]) {
+        rows++;
+    }
+    
+//    if (![self.app.appEmail isEqualToString:@""]) {
+//        rows++;
+//    }
+    
+    if (rows == 0) {
+        [scrollViewConfigurator removeView:self.developerTable];
+    }
+    else {
+        NSUInteger tableHeight = rows * groupedCellHeight;
+        NSUInteger headerHeight = 10;
+        NSUInteger margin = 50;
+        
+        CGRect listFrame = CGRectMake(self.developerTable.frame.origin.x, self.developerTable.frame.origin.y, self.developerTable.frame.size.width, tableHeight + headerHeight + margin);
+        self.developerTable.frame = listFrame;
+    }
+    [scrollViewConfigurator organize];
+
+    return rows;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *customTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 300, 44)];
+    titleLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
+    titleLabel.textColor = [UIColor colorWithRed:33.f/255.f green:33.f/255.f blue:33.f/255.f alpha:1];
+    titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    
+    [customTitleView addSubview:titleLabel];
+    
+    return customTitleView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 44;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *groupedTableIdentifier = @"GroupedCellItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:groupedTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:groupedTableIdentifier];
+    }
+        
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    switch (indexPath.row) {
+        case 0:
+            if (![self.app.appUrl isEqualToString:@""]) {
+                cell.textLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
+            }
+            else {
+                cell.textLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
+            }
+            break;
+        
+        case 1:
+            cell.textLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return groupedCellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 && ![self.app.appUrl isEqualToString:@""]) {
+        // Developer web link
+        [self toDeveloperWeb];
+    }
+    else {
+        // Developer mail link
+        [self toDeveloperMail];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 @end

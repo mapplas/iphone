@@ -19,7 +19,7 @@
 #import "PriceImageLabelHelper.h"
 #import "ImageResizer.h"
 
-#import "ScrollViewOfViews.h"
+#import "MutableScrollViewOfViews.h"
 
 #import "AppDetailCommentsViewController.h"
 #import "SCAppUtils.h"
@@ -34,7 +34,9 @@
 
 #import "SharingHelper.h"
 
-@interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate, MFMailComposeViewControllerDelegate> {
+#define groupedCellHeight 44;
+
+@interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate, MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
     App *_app;
     User *_user;
     NSString *_current_location;
@@ -44,7 +46,7 @@
     NSMutableDictionary *imagesArray;
     NSUInteger downloadedImages;
     
-    ScrollViewOfViews *scrollViewConfigurator;
+    MutableScrollViewOfViews *scrollViewConfigurator;
     
     BOOL descriptionOpened;
     
@@ -104,18 +106,12 @@
 @property (nonatomic, strong) IBOutlet UIButton *morebutton;
 @property (nonatomic, strong) IBOutlet UIButton *moreBigButton;
 
-@property (nonatomic, strong) IBOutlet UIView *supportView;
-@property (nonatomic, strong) IBOutlet UILabel *developerLabel;
-@property (nonatomic, strong) IBOutlet UIButton *devWebButton;
-@property (nonatomic, strong) IBOutlet UIButton *devEmailButton;
+@property (nonatomic, strong) IBOutlet UITableView *developerTable;
 
 - (IBAction)pinUp:(id)sender;
 - (IBAction)block:(id)sender;
 - (IBAction)rate:(id)sender;
 - (IBAction)share:(id)sender;
 - (IBAction)call:(id)sender;
-
-- (IBAction)toToDeveloperWeb:(id)sender;
-- (IBAction)toDeveloperMail:(id)sender;
 
 @end
