@@ -32,31 +32,28 @@
 }
 
 - (UIImage *)resizeImage:(UIImage *)_image {
-    NSUInteger constantw = 480;
     
-    NSUInteger h = _image.size.height;
-    NSUInteger w = _image.size.width;
-    float ratio = (float)w / (float)h;
+    NSUInteger constantw = 280;
     
-    if (w > h) {
-        h = constantw / ratio;
+    NSUInteger height = _image.size.height;
+    NSUInteger width = _image.size.width;
+    float ratio = (float)width / (float)height;
+    
+    height = constantw;
+    width = constantw;
+    
+    if (_image.size.width > _image.size.height) {
+        height = constantw / ratio;
+        height = height * .9;
+        width = width * .9;
     }
     else {
-        w = constantw * ratio;
+        width = constantw * ratio;
+        height = height * .9;
+        width = width * .9;
     }
     
-    UIImage *newImage = _image;
-    
-    if (h > scroll.frame.size.height) {
-        // Resize image    
-        CGSize newSize = CGSizeMake(w/1.5, h/1.5);  //whaterver size
-        UIGraphicsBeginImageContext(newSize);
-        [_image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-        newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
-    
-    return newImage;
+    return [_image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationHigh];
 }
 
 @end

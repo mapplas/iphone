@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
+#import "UIImage+Resize.h"
 
 @interface ImageResizer : NSObject {
     UIScrollView *scroll;
