@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "TextViewViewController.h"
 
 #define groupedCellHeight 44
 
-@interface ConfigurationViewController : UITableViewController
+@interface ConfigurationViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @end
