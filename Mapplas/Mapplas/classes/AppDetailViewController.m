@@ -179,14 +179,8 @@
     }
 }
 
-- (void)galleryFullscreen {
-    UIImage *image = [imagesArray objectForKey:[[imagesArray allKeys] objectAtIndex:0]];
-    BOOL portrait = YES;
-    if (image.size.width > image.size.height) {
-        portrait = NO;
-    }
-    
-    ImageGalleryViewController *galleryVC = [[ImageGalleryViewController alloc] initWithImagesArray:imagesArray];
+- (void)galleryFullscreen {    
+    UIViewController *galleryVC = [[ImageGalleryViewController alloc] initWithImagesArray:imagesArray];    
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
     [SCAppUtils customizeNavigationController:navController];
     

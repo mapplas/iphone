@@ -53,12 +53,19 @@
     
     if (keys.count > 0) {
         for (NSString *currentKey in keys) {
+            UIImage *currentImage = [imagesArray objectForKey:currentKey];
             
-            if ([imagesArray objectForKey:currentKey] != nil && ![[imagesArray objectForKey:currentKey] isKindOfClass:[NSString class]]) {
-                UIImageView *imageView = [resizer getImageViewForImage:[imagesArray objectForKey:currentKey] contentOffset:contentOffset background:self.background container:self.view];
+            if (currentImage != nil && ![currentImage isKindOfClass:[NSString class]]) {
+                UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset background:self.background container:self.view];
                 
-                imageView.image = [resizer resizeImageForFullscreenView:[imagesArray objectForKey:currentKey]];
+                imageView.image = [resizer resizeImageForFullscreenView:currentImage];
                 imageView.contentMode = UIViewContentModeCenter;
+                
+                if (currentImage.size.height < currentImage.size.width) {
+                    // Rotate
+                    imageView.center = CGPointMake(100.0, 100.0);
+                    imageView.transform = CGAffineTransformMakeRotation(M_PI_2); // Rotation in radians
+                }
                 
                 [self.scroll addSubview:imageView];
                 
