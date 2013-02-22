@@ -56,4 +56,28 @@
     return [_image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationHigh];
 }
 
+- (UIImage *)resizeImageForFullscreenView:(UIImage *)_image {
+    NSUInteger constantw = 280;
+    
+    NSUInteger height = _image.size.height;
+    NSUInteger width = _image.size.width;
+    float ratio = (float)width / (float)height;
+    
+    height = constantw;
+    width = constantw;
+    
+    if (_image.size.width > _image.size.height) {
+        height = constantw / ratio;
+        height = height * .9;
+        width = width * .9;
+    }
+    else {
+        width = constantw * ratio;
+        height = height * 1.3;
+        width = width * 1.3;
+    }
+    
+    return [_image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationHigh];
+}
+
 @end
