@@ -37,10 +37,8 @@
     [super viewDidLoad];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"nav_bar_button_done", @"Navigation bar button - Done") style:UIBarButtonSystemItemCancel target:self action:@selector(popAndSave)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"nav_bar_button_cancel", @" Navigation bar button - Cancel") style:UIBarButtonSystemItemCancel target:self action:@selector(pop)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     
     [self initLayoutComponents];
 }

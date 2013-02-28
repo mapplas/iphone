@@ -33,6 +33,7 @@
 #import "RatingModalViewController.h"
 
 #import "SharingHelper.h"
+#import "WebViewViewController.h"
 
 #define groupedCellHeight 44;
 

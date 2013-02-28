@@ -400,7 +400,13 @@
 
 - (void)toDeveloperWeb {
     if (![self.app.appUrl isEqualToString:@""]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.app.appUrl]];
+        WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithApp:self.app];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewViewController];
+        [SCAppUtils customizeNavigationController:navController];
+        
+        [self presentModalViewController:navController animated:YES];
+        
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.app.appUrl]];
     }
     else {
         Toast *errorToast = [[Toast alloc] initAndShowIn:self.view withText:@"Developer website is not avaliable"];
