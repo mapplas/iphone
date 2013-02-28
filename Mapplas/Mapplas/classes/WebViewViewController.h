@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "App.h"
 #import "Toast.h"
 
-@interface WebViewViewController : UIViewController <UIWebViewDelegate> {
+@interface WebViewViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate> {
     App *app;
 }
 
