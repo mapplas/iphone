@@ -106,13 +106,13 @@
 "nav_bar_button_done" = "Done";
 
 /* Toast after send rate info - OK */
-"toast_after_rate_ok" = "Rate correctly sent!";
+"toast_after_rate_ok" = "Rating correctly sent!";
 
 /* Toast after send rate info - NOK */
-"toast_after_rate_nok" = "Error sending rate... Try again!";
+"toast_after_rate_nok" = "Error sending rating... Try again!";
 
 /* Share message Spanish part 1 */
-"share_message_part_1" = "Compartiendo ";
+"share_message_part_1" = "Sharing ";
 
 /* Share message Spanish part 2 */
 "share_message_part_2" = " via Mapplas";

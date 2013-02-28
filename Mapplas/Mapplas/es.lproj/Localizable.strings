@@ -112,10 +112,10 @@
 "toast_after_rate_nok" = "Error al enviar la valoración... Inténtalo de nuevo!";
 
 /* Share message Spanish part 1 */
-"share_message_part_1" = "";
+"share_message_part_1" = "Compartiendo";
 
 /* Share message Spanish part 2 */
-"share_message_part_2" = " sharing via Mapplas";
+"share_message_part_2" = " via Mapplas";
 
 /* Twitter sharing not avaliable */
 "share_twitter_error" = "Twitter no está disponible";
