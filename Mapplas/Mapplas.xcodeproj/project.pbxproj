@@ -101,6 +101,10 @@
 		7F2FED5816D3C78400415725 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FED5616D3C78400415725 /* ConfigurationViewController.xib */; };
 		7F2FED5C16D3CC8A00415725 /* TextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FED5A16D3CC8A00415725 /* TextViewViewController.m */; };
 		7F2FED5D16D3CC8A00415725 /* TextViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FED5B16D3CC8A00415725 /* TextViewViewController.xib */; };
+		7F37956F16E48D54005332A1 /* ic_animation_radar_measures.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F37956B16E48D54005332A1 /* ic_animation_radar_measures.png */; };
+		7F37957016E48D54005332A1 /* ic_animation_radar_outer.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F37956C16E48D54005332A1 /* ic_animation_radar_outer.png */; };
+		7F37957116E48D54005332A1 /* ic_animation_radar_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F37956D16E48D54005332A1 /* ic_animation_radar_shadow.png */; };
+		7F37957216E48D54005332A1 /* ic_animation_radar_triangles.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F37956E16E48D54005332A1 /* ic_animation_radar_triangles.png */; };
 		7F5859F116AFC9A800DB843A /* JSONToAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */; };
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
@@ -376,6 +380,10 @@
 		7F2FED5916D3CC8A00415725 /* TextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextViewViewController.h; path = classes/TextViewViewController.h; sourceTree = "<group>"; };
 		7F2FED5A16D3CC8A00415725 /* TextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextViewViewController.m; path = classes/TextViewViewController.m; sourceTree = "<group>"; };
 		7F2FED5B16D3CC8A00415725 /* TextViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextViewViewController.xib; path = classes/TextViewViewController.xib; sourceTree = "<group>"; };
+		7F37956B16E48D54005332A1 /* ic_animation_radar_measures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_animation_radar_measures.png; sourceTree = SOURCE_ROOT; };
+		7F37956C16E48D54005332A1 /* ic_animation_radar_outer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_animation_radar_outer.png; sourceTree = SOURCE_ROOT; };
+		7F37956D16E48D54005332A1 /* ic_animation_radar_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_animation_radar_shadow.png; sourceTree = SOURCE_ROOT; };
+		7F37956E16E48D54005332A1 /* ic_animation_radar_triangles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_animation_radar_triangles.png; sourceTree = SOURCE_ROOT; };
 		7F5859EF16AFC9A800DB843A /* JSONToAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToAppMapper.h; path = classes/mappers/JSONToAppMapper.h; sourceTree = "<group>"; };
 		7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppMapper.m; path = classes/mappers/JSONToAppMapper.m; sourceTree = "<group>"; };
 		7F5859FF16AFCFB100DB843A /* IteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IteratingMapper.h; path = classes/mappers/IteratingMapper.h; sourceTree = "<group>"; };
@@ -1352,6 +1360,10 @@
 		7FFFBBB616A97E2500417499 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				7F37956B16E48D54005332A1 /* ic_animation_radar_measures.png */,
+				7F37956C16E48D54005332A1 /* ic_animation_radar_outer.png */,
+				7F37956D16E48D54005332A1 /* ic_animation_radar_shadow.png */,
+				7F37956E16E48D54005332A1 /* ic_animation_radar_triangles.png */,
 				7FC8548916B1919B00D73E90 /* ic_action_block.png */,
 				7FC8548516B18ED200D73E90 /* ic_action_pinup.png */,
 				7FEF544016B9186D00EAEED8 /* ic_action_phone.png */,
@@ -1526,6 +1538,10 @@
 				7F2FED5816D3C78400415725 /* ConfigurationViewController.xib in Resources */,
 				7F2FED5D16D3CC8A00415725 /* TextViewViewController.xib in Resources */,
 				7FDB528016DFA4E40069061A /* WebViewViewController.xib in Resources */,
+				7F37956F16E48D54005332A1 /* ic_animation_radar_measures.png in Resources */,
+				7F37957016E48D54005332A1 /* ic_animation_radar_outer.png in Resources */,
+				7F37957116E48D54005332A1 /* ic_animation_radar_shadow.png in Resources */,
+				7F37957216E48D54005332A1 /* ic_animation_radar_triangles.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
 #import "NotificationsViewController.h"
 #import "UserViewController.h"
@@ -32,6 +33,8 @@
     
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
+    
+    UIView *_radarAnim;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
@@ -40,6 +43,14 @@
 @property (nonatomic, strong) IBOutlet UILabel *loadingText;
 @property (nonatomic, strong) NSMutableArray *loadedAppsArray;
 @property (nonatomic) NSUInteger loadedListCount;
+
+@property (nonatomic, strong) IBOutlet UIView *radarAnim;
+@property (nonatomic, strong) IBOutlet UIImageView *outerImage;
+@property (nonatomic, strong) IBOutlet UIImageView *pointsImage;
+@property (nonatomic, strong) IBOutlet UIImageView *trianglesImage;
+@property (nonatomic, strong) IBOutlet UIImageView *blueShadowImage;
+@property (nonatomic, strong) IBOutlet UILabel *latitudeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *longitudeLabel;
 
 @property (nonatomic, strong) UserIdentificationRequest *userIdentRequest;
 @property (nonatomic, strong) SuperModel *model;
