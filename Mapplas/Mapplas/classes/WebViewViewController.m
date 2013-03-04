@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         app = _app;
+        webFinished = NO;
     }
     return self;
 }
@@ -35,7 +36,6 @@
     self.webView.scrollView.delegate = self;
     
     [self.activityIndicator startAnimating];
-    [self startTimer];
     [self loadUrl];
 }
 
@@ -45,8 +45,12 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self.activityIndicator stopAnimating];
-    [self.activityIndicator removeFromSuperview];
+    if (!webFinished) {
+        webFinished = YES;
+        [self.activityIndicator stopAnimating];
+        [self.activityIndicator removeFromSuperview];
+        [self startTimer];
+    }
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -82,6 +86,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint scrollPosition = scrollView.contentOffset;
+
     if (scrollPosition.y == 0) {
         [self hideAndShowNavigationBar];
         [self startTimer];

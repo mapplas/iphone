@@ -13,6 +13,7 @@
 
 @interface WebViewViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate> {
     App *app;
+    BOOL webFinished;
 }
 
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
