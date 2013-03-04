@@ -24,6 +24,10 @@
 @synthesize loadedAppsArray = _loadedAppsArray;
 @synthesize loadedListCount = _loadedListCount;
 
+@synthesize radarAnim = _radarAnim;
+@synthesize outerImage, pointsImage, trianglesImage, blueShadowImage;
+@synthesize latitudeLabel, longitudeLabel;
+
 @synthesize table;
 @synthesize cellLoading;
 @synthesize loading;
@@ -58,8 +62,73 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushUserPrefScreen)];
 }
 
+- (void)initializeRadarAnimation {
+    CABasicAnimation *outerRotation;
+    outerRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    outerRotation.fromValue = [NSNumber numberWithFloat:0];
+    outerRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    outerRotation.duration = 0.75f;
+    outerRotation.repeatCount = 6;
+    outerRotation.speed = .5;
+    [self.outerImage.layer addAnimation:outerRotation forKey:@"360"];
+    
+    CABasicAnimation *pointsRotation;
+    pointsRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    pointsRotation.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    pointsRotation.toValue = [NSNumber numberWithFloat:0];
+    pointsRotation.duration = 0.75f;
+    pointsRotation.repeatCount = 6;
+    pointsRotation.speed = .5;
+    [self.pointsImage.layer addAnimation:pointsRotation forKey:@"360"];
+    
+    CABasicAnimation *trianglesRotation;
+    trianglesRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    trianglesRotation.fromValue = [NSNumber numberWithFloat:0];
+    trianglesRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    trianglesRotation.duration = 0.75f;
+    trianglesRotation.repeatCount = 6;
+    trianglesRotation.speed = .3;
+    [self.trianglesImage.layer addAnimation:trianglesRotation forKey:@"360"];
+    
+    CABasicAnimation *shadowRotation;
+    shadowRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    shadowRotation.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    shadowRotation.toValue = [NSNumber numberWithFloat:0];
+    shadowRotation.duration = 0.75f;
+    shadowRotation.repeatCount = 6;
+    shadowRotation.speed = .3;
+    [self.blueShadowImage.layer addAnimation:shadowRotation forKey:@"360"];
+}
+
+- (void)initializeLatitudeLongitude {
+    [NSTimer scheduledTimerWithTimeInterval:.1f
+                                     target:self
+                                   selector:@selector(setData)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+-(int) getRandomNumberBetweenMin:(int)min andMax:(int)max {
+	return ((arc4random() % (max-min+1)) + min);
+}
+
+- (void)setData {
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-90 andMax:90], [self getRandomNumberBetweenMin:0 andMax:99999]];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%d, %d", [self getRandomNumberBetweenMin:-180 andMax:180], [self getRandomNumberBetweenMin:0 andMax:99999]];
+}
+
+- (void)stopAnimations {
+    [self.outerImage.layer removeAnimationForKey:@"360"];
+    [self.pointsImage.layer removeAnimationForKey:@"360"];
+    [self.trianglesImage.layer removeAnimationForKey:@"360"];
+    [self.blueShadowImage.layer removeAnimationForKey:@"360"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initializeRadarAnimation];
+    [self initializeLatitudeLongitude];
     
     [self initializeNavigationBarButtons];
 
@@ -126,6 +195,9 @@
 }
 
 - (void)appsDataParsedFromServer {
+    self.view = table;
+    [self stopAnimations];
+    
     // Create scroll manager
     scrollManager = [[InfiniteScrollManager alloc] initWithAppList:self.model.appList.getArray];
     [self.loadedAppsArray removeAllObjects];
