@@ -141,7 +141,6 @@
 		7FD39C6316BA5F7A00F5EB8E /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6216BA5F7A00F5EB8E /* ImageResizer.m */; };
 		7FD39C6516BA7CF000F5EB8E /* ic_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD39C6416BA7CF000F5EB8E /* ic_more.png */; };
 		7FD39C6916BA84B600F5EB8E /* ScrollViewOfViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD39C6816BA84B600F5EB8E /* ScrollViewOfViews.m */; };
-		7FDB527F16DFA4E40069061A /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB527D16DFA4E40069061A /* WebViewViewController.m */; };
 		7FDB528016DFA4E40069061A /* WebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB527E16DFA4E40069061A /* WebViewViewController.xib */; };
 		7FEA32F416C2455200086E11 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEA32F316C2455200086E11 /* Twitter.framework */; };
 		7FED32EC16D2971500AC7C5B /* ic_menu_notifications_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED32EA16D2971500AC7C5B /* ic_menu_notifications_alert.png */; };
@@ -169,6 +168,7 @@
 		7FEF544116B9186D00EAEED8 /* ic_action_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEF544016B9186D00EAEED8 /* ic_action_phone.png */; };
 		7FEF544516B9212B00EAEED8 /* PriceImageLabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */; };
 		7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF545016B93AE300EAEED8 /* ARScrollViewEnhancer.m */; };
+		7FF0A5C416E5F0BE0028561F /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB527D16DFA4E40069061A /* WebViewViewController.m */; };
 		7FF760F216D6635D00DF29C8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */; };
 		7FF760F716D6737C00DF29C8 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F516D6737C00DF29C8 /* ImageGalleryViewController.m */; };
 		7FFA007116B7CC31003E53E1 /* InfiniteScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */; };
@@ -1563,7 +1563,6 @@
 				7F37957016E48D54005332A1 /* ic_animation_radar_outer.png in Resources */,
 				7F37957116E48D54005332A1 /* ic_animation_radar_shadow.png in Resources */,
 				7F37957216E48D54005332A1 /* ic_animation_radar_triangles.png in Resources */,
-				7FEF30D116D7779900F6703B /* LandscapeImageGalleryViewController.xib in Resources */,
 				7FEF30D316D777F500F6703B /* ImageGalleryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1599,6 +1598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF0A5C416E5F0BE0028561F /* WebViewViewController.m in Sources */,
 				7F06794616A7F4150043EF6B /* main.m in Sources */,
 				7F06794A16A7F4150043EF6B /* AppDelegate.m in Sources */,
 				7FC8825D16A81E5A008A06A8 /* AppsViewController.m in Sources */,
