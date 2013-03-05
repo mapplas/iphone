@@ -46,6 +46,7 @@
     self.scroll.clipsToBounds = NO;
 	self.scroll.pagingEnabled = YES;
     self.scroll.showsHorizontalScrollIndicator = NO;
+    self.scroll.showsVerticalScrollIndicator = NO;
     self.scroll.delegate = self;
     
     self.pageControl.numberOfPages = keys.count;
@@ -57,20 +58,24 @@
             
             if (currentImage != nil && ![currentImage isKindOfClass:[NSString class]]) {
                 UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset background:self.background container:self.view];
-                
+                                
                 imageView.image = [resizer resizeImageForFullscreenView:currentImage];
                 imageView.contentMode = UIViewContentModeCenter;
                 
-                if (currentImage.size.height < currentImage.size.width) {
+                if (imageView.image.size.height < imageView.image.size.width) {
                     // Rotate
                     imageView.center = CGPointMake(100.0, 100.0);
                     imageView.transform = CGAffineTransformMakeRotation(M_PI_2); // Rotation in radians
+                    
+                    imageView.frame = CGRectMake(contentOffset, 15, imageView.frame.size.width, imageView.frame.size.height);
                 }
+                
+                imageView.contentMode = UIViewContentModeCenter;
                 
                 [self.scroll addSubview:imageView];
                 
                 contentOffset += imageView.frame.size.width;
-                self.scroll.contentSize = CGSizeMake(contentOffset, self.scroll.frame.size.height);
+                self.scroll.contentSize = CGSizeMake(contentOffset, 300);
             }
         }
     }

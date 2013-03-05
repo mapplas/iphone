@@ -68,8 +68,8 @@
     
     if (_image.size.width > _image.size.height) {
         height = constantw / ratio;
-        height = height * .9;
-        width = width * .9;
+        height = height * 1.3;
+        width = width * 1.3;
     }
     else {
         width = constantw * ratio;
