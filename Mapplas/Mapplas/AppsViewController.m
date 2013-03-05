@@ -101,7 +101,7 @@
 }
 
 - (void)initializeLatitudeLongitude {
-    [NSTimer scheduledTimerWithTimeInterval:.1f
+    latLongTextTimer = [NSTimer scheduledTimerWithTimeInterval:.1f
                                      target:self
                                    selector:@selector(setData)
                                    userInfo:nil
@@ -122,6 +122,12 @@
     [self.pointsImage.layer removeAnimationForKey:@"360"];
     [self.trianglesImage.layer removeAnimationForKey:@"360"];
     [self.blueShadowImage.layer removeAnimationForKey:@"360"];
+    
+    self.latitudeLabel.text = @"00.00000";
+    self.longitudeLabel.text = @"00.00000";
+    
+    [latLongTextTimer invalidate];
+    latLongTextTimer = nil;
 }
 
 - (void)viewDidLoad {

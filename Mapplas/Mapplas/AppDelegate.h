@@ -10,6 +10,7 @@
 #import "AppsViewController.h"
 
 #define UUID_USER_DEFAULTS_KEY @"UUID"
+#define APP_HAS_TO_RESTART @"HAS_TO_RESTART"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UINavigationController *_navigationController;

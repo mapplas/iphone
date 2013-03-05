@@ -254,3 +254,9 @@
 
 /* User screen segmented control pinned title */
 "user_screen_segmented_control_pins" = "Pineadas";
+
+/* Location not found error message */
+"location_error_dialog_message" = "No ha sido posible posicionarte. Pulsa el boton Home e inténtalo de nuevo mas tarde.";
+
+/* Location not found error title */
+"location_error_dialog_title" = "Problema de localización";

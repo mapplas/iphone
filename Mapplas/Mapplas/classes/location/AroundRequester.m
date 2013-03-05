@@ -8,6 +8,7 @@
 
 #import "AroundRequester.h"
 #import "AppsViewController.h"
+#import "AppDelegate.h"
 
 @implementation AroundRequester
 
@@ -47,8 +48,17 @@
 }
 
 - (void)locationSearchDidTimeout {
-    // SHOW TOAST
-    NSLog(@"LOCATION DID TIMEOUT!!");
+    [viewController stopAnimations];
+    
+    UIAlertView *loactionAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"location_error_dialog_title", @"Location not found error title") message:NSLocalizedString(@"location_error_dialog_message", @"Location not found error message") delegate:self cancelButtonTitle:NSLocalizedString(@"ok_message", @"OK message") otherButtonTitles:nil, nil];
+    
+    [loactionAlert show];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:APP_HAS_TO_RESTART] == nil) {
+        [defaults setBool:YES forKey:APP_HAS_TO_RESTART];
+        [defaults synchronize];
+    }
 }
 
 @end

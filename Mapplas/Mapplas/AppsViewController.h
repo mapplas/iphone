@@ -35,6 +35,7 @@
     BOOL _reloading;
     
     UIView *_radarAnim;
+    NSTimer *latLongTextTimer;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
@@ -62,5 +63,6 @@
 - (void) addItemsToEndOfTableView;
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll;
+- (void)stopAnimations;
 
 @end
