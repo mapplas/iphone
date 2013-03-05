@@ -17,7 +17,7 @@
 - (void)requestWithModel:(SuperModel *)super_model {
     model = super_model;
     
-    [parameters setValue:[model currentLocation] forKey:@"l"];
+//    [parameters setValue:[model currentLocation] forKey:@"l"];
     [parameters setValue:[model currentImei] forKey:@"ii"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];

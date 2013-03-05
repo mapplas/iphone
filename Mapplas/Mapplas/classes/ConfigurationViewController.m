@@ -8,6 +8,8 @@
 
 #import "ConfigurationViewController.h"
 
+#define groupedCellHeight 44
+
 @interface ConfigurationViewController ()
 
 @end

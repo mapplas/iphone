@@ -17,6 +17,7 @@
 - (void)adjustLabel:(CGSize)max_label_size;
 - (void)initPinActionLayout;
 - (void)toDeveloperWeb;
+- (void)galleryFullscreen;
 @end
 
 @implementation AppDetailViewController
@@ -67,7 +68,6 @@
     }
     viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.developerTable, nil];
 
-    
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
     [self downloadGalleryImages];
@@ -170,10 +170,21 @@
                 self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
             }
         }
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(galleryFullscreen)];
+        [galleryScroll addGestureRecognizer:tapGestureRecognizer];
     }
     else {
         [scrollViewConfigurator removeView:self.galleryView];
     }
+}
+
+- (void)galleryFullscreen {    
+    UIViewController *galleryVC = [[ImageGalleryViewController alloc] initWithImagesArray:imagesArray];    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
+    [SCAppUtils customizeNavigationController:navController];
+    
+    [self presentModalViewController:navController animated:YES];
 }
 
 - (void)showAppSmallDescription {
