@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #import "NotificationsViewController.h"
 #import "UserViewController.h"
 #import "UserIdentificationRequest.h"
 #import "LocationManager.h"
 #import "AroundRequester.h"
+#import "Reachability.h"
 
 #import "EGORefreshTableHeaderView.h"
 #import "AppCell.h"

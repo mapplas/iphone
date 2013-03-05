@@ -169,6 +169,7 @@
 		7FEF544516B9212B00EAEED8 /* PriceImageLabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */; };
 		7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEF545016B93AE300EAEED8 /* ARScrollViewEnhancer.m */; };
 		7FF0A5C416E5F0BE0028561F /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB527D16DFA4E40069061A /* WebViewViewController.m */; };
+		7FF0A5C816E635A40028561F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0A5C716E635A40028561F /* Reachability.m */; };
 		7FF760F216D6635D00DF29C8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */; };
 		7FF760F716D6737C00DF29C8 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F516D6737C00DF29C8 /* ImageGalleryViewController.m */; };
 		7FFA007116B7CC31003E53E1 /* InfiniteScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */; };
@@ -494,6 +495,8 @@
 		7FEF544416B9212B00EAEED8 /* PriceImageLabelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceImageLabelHelper.m; path = classes/PriceImageLabelHelper.m; sourceTree = "<group>"; };
 		7FEF544F16B93AE300EAEED8 /* ARScrollViewEnhancer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARScrollViewEnhancer.h; sourceTree = "<group>"; };
 		7FEF545016B93AE300EAEED8 /* ARScrollViewEnhancer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARScrollViewEnhancer.m; sourceTree = "<group>"; };
+		7FF0A5C616E635A40028561F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "Mapplas/classes/Third party/Reachability/Reachability.h"; sourceTree = "<group>"; };
+		7FF0A5C716E635A40028561F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "Mapplas/classes/Third party/Reachability/Reachability.m"; sourceTree = "<group>"; };
 		7FF760F016D6635D00DF29C8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "classes/UIImage+Resize.h"; sourceTree = "<group>"; };
 		7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "classes/UIImage+Resize.m"; sourceTree = "<group>"; };
 		7FF760F416D6737C00DF29C8 /* ImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageGalleryViewController.h; path = classes/ImageGalleryViewController.h; sourceTree = "<group>"; };
@@ -1167,6 +1170,15 @@
 			path = "Mapplas/classes/Third party/ARScrollViewEnhancer";
 			sourceTree = "<group>";
 		};
+		7FF0A5C516E6356A0028561F /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				7FF0A5C616E635A40028561F /* Reachability.h */,
+				7FF0A5C716E635A40028561F /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		7FF760F316D6736500DF29C8 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -1297,6 +1309,7 @@
 				7F00029916C0F79C00A2C86F /* DYRateView */,
 				7FBAE92C16B027CC00621B34 /* EGOTableViewPullRefresh */,
 				7F0002AD16C1357000A2C86F /* MBProgressHUD */,
+				7FF0A5C516E6356A0028561F /* Reachability */,
 				7FED412B16B1579600581C9D /* RegexKit */,
 			);
 			name = "Third party";
@@ -1717,6 +1730,7 @@
 				7F2FED5C16D3CC8A00415725 /* TextViewViewController.m in Sources */,
 				7FF760F216D6635D00DF29C8 /* UIImage+Resize.m in Sources */,
 				7FF760F716D6737C00DF29C8 /* ImageGalleryViewController.m in Sources */,
+				7FF0A5C816E635A40028561F /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,7 +55,7 @@
     [loactionAlert show];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:APP_HAS_TO_RESTART] == nil) {
+    if ([defaults objectForKey:APP_HAS_TO_RESTART] != nil) {
         [defaults setBool:YES forKey:APP_HAS_TO_RESTART];
         [defaults synchronize];
     }
