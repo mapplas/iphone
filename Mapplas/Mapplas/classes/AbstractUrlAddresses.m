@@ -32,8 +32,8 @@
 	
 	if(self) {
 //        Old domain
-        [self setDomain:@"h1975711.stratoserver.net"];
-//        [self setDomain:@"mapplas.com"];
+//        [self setDomain:@"h1975711.stratoserver.net"];
+        [self setDomain:@"mapplas.com"];
         [self setPort:@"80"];
 		[self setRelativePath:@"/Publico"];
         

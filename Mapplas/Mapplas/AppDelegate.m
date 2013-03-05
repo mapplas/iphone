@@ -15,6 +15,12 @@
 @synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self initComponents];
+    
+    return YES;
+}
+
+- (void)initComponents {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Set user unique identifier in defaults
@@ -24,17 +30,20 @@
         [defaults synchronize];
     }
     
+    if ([defaults objectForKey:APP_HAS_TO_RESTART] == nil) {
+        [defaults setBool:NO forKey:APP_HAS_TO_RESTART];
+        [defaults synchronize];
+    }
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-
+    
     // Set navigationController
     AppsViewController *rootViewController = [[AppsViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     [SCAppUtils customizeNavigationController:self.navigationController];
     self.window.rootViewController = self.navigationController;
-    
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -53,6 +62,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:APP_HAS_TO_RESTART]) {
+        [self initComponents];
+        [defaults setBool:NO forKey:APP_HAS_TO_RESTART];
+        [defaults synchronize];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

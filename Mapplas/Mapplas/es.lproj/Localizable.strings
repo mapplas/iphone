@@ -248,3 +248,24 @@
 
 /* Config contact us email subject */
 "config_contact_us_email_subject" = "¡Hola!";
+
+/* User screen segmented control blocks title */
+"user_screen_segmented_control_blocks" = "Bloqueadas";
+
+/* User screen segmented control pinned title */
+"user_screen_segmented_control_pins" = "Pineadas";
+
+/* Location not found error message */
+"location_error_dialog_message" = "No ha sido posible posicionarte. Pulsa el boton Home e inténtalo de nuevo mas tarde.";
+
+/* Network not found error title */
+"network_error_dialog_title" = "Problema de red";
+
+/* Network connection not found error message */
+"network_error_dialog_message" = "Activa el wifi o las conexiones de red para continuar...";
+
+/* Location not found error title */
+"location_error_dialog_title" = "Problema de localización";
+
+/* Wifi not connected toast text */
+"wifi_error_toast" = "Obten una busqueda más precisa! Activa la conexión Wi-Fi. Funcionará incluso sin que te conectes a una red.";

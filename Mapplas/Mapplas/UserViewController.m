@@ -239,6 +239,13 @@
         self.userImageImageView.image = userImage;
     }
     
+    // Segmented control button names
+    NSString *segmentedControlPinnedText = NSLocalizedString(@"user_screen_segmented_control_pins", @"User screen segmented control pinned title");
+    [self.segmentedControl setTitle:segmentedControlPinnedText forSegmentAtIndex:0];
+    
+    NSString *segmentedControlBlockedText = NSLocalizedString(@"user_screen_segmented_control_blocks", @"User screen segmented control blocks title");
+    [self.segmentedControl setTitle:segmentedControlBlockedText forSegmentAtIndex:1];
+    
     [self changeLayoutComponents:[self checkUserState]];
 }
 

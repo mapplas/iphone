@@ -33,7 +33,6 @@
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
     NSLog(@"Response delegate error, %@, %@", [error description], JSON);
-    [viewController.navigationController popViewControllerAnimated:YES];
 }
 
 @end

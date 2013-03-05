@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #import "NotificationsViewController.h"
 #import "UserViewController.h"
 #import "UserIdentificationRequest.h"
 #import "LocationManager.h"
 #import "AroundRequester.h"
+#import "Reachability.h"
 
 #import "EGORefreshTableHeaderView.h"
 #import "AppCell.h"
@@ -35,6 +37,7 @@
     BOOL _reloading;
     
     UIView *_radarAnim;
+    NSTimer *latLongTextTimer;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;
@@ -62,5 +65,6 @@
 - (void) addItemsToEndOfTableView;
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll;
+- (void)stopAnimations;
 
 @end

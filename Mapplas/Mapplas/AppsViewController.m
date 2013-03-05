@@ -101,7 +101,7 @@
 }
 
 - (void)initializeLatitudeLongitude {
-    [NSTimer scheduledTimerWithTimeInterval:.1f
+    latLongTextTimer = [NSTimer scheduledTimerWithTimeInterval:.1f
                                      target:self
                                    selector:@selector(setData)
                                    userInfo:nil
@@ -122,6 +122,12 @@
     [self.pointsImage.layer removeAnimationForKey:@"360"];
     [self.trianglesImage.layer removeAnimationForKey:@"360"];
     [self.blueShadowImage.layer removeAnimationForKey:@"360"];
+    
+    self.latitudeLabel.text = @"00.00000";
+    self.longitudeLabel.text = @"00.00000";
+    
+    [latLongTextTimer invalidate];
+    latLongTextTimer = nil;
 }
 
 - (void)viewDidLoad {
@@ -131,7 +137,7 @@
     [self initializeLatitudeLongitude];
     
     [self initializeNavigationBarButtons];
-
+    
     self.loadingText.text = NSLocalizedString(@"loading_cell_text", @"Apps refreshing cell text");
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -155,6 +161,10 @@
         [self.model.appList sort];
         [self reloadTableDataAndScrollTop:YES];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self checkNetworkStatus];    
 }
 
 - (void)viewDidUnload {
@@ -191,6 +201,30 @@
     if (scroll) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.table scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
+}
+
+- (void)checkNetworkStatus {
+    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    if (![reach isReachable]) {
+        [self stopAnimations];
+        
+        UIAlertView *networkAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"network_error_dialog_title", @"Network not found error title") message:NSLocalizedString(@"network_error_dialog_message", @"Network connection not found error message") delegate:self cancelButtonTitle:NSLocalizedString(@"ok_message", @"OK message") otherButtonTitles:nil, nil];
+        
+        [networkAlert show];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults objectForKey:APP_HAS_TO_RESTART] != nil) {
+            [defaults setBool:YES forKey:APP_HAS_TO_RESTART];
+            [defaults synchronize];
+        }
+    }
+    else {
+        if (![reach isReachableViaWiFi]) {
+            Toast *wifiToast = [[Toast alloc] initAndShowIn:self.view withText:NSLocalizedString(@"wifi_error_toast", @"Obten una busqueda más precisa! Activa la conexión Wi-Fi. Funcionará incluso sin que te conectes a una red.")];
+            [wifiToast show];
+        }
     }
 }
 

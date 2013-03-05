@@ -70,7 +70,6 @@ static NSTimeInterval validCacheTime;
     if(error.code == kCLErrorDenied) {
 		[self stopLocationNotifications];
 		[[self listener] locationSearchDidTimeout];
-        NSLog(@"Location permission is required");
 	}
 }
 
