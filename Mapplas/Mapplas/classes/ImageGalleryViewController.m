@@ -60,14 +60,13 @@
                 UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset background:self.background container:self.view];
                                 
                 imageView.image = [resizer resizeImageForFullscreenView:currentImage];
-                imageView.contentMode = UIViewContentModeCenter;
                 
                 if (imageView.image.size.height < imageView.image.size.width) {
                     // Rotate
                     imageView.center = CGPointMake(100.0, 100.0);
                     imageView.transform = CGAffineTransformMakeRotation(M_PI_2); // Rotation in radians
                     
-                    imageView.frame = CGRectMake(contentOffset, 15, imageView.frame.size.width, imageView.frame.size.height);
+                    imageView.frame = CGRectMake(contentOffset, -20, imageView.frame.size.height, imageView.frame.size.width);
                 }
                 
                 imageView.contentMode = UIViewContentModeCenter;
