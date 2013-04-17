@@ -17,10 +17,12 @@
 				<string>ic_mapplas.png</string>
 				<string>ic_mapplas@2x.png</string>
 			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.mapplas.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.mapplas.SEFO</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -36,7 +38,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
-	<string>YES</string>
+	<string>no</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
