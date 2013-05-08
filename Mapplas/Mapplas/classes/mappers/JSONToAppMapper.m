@@ -35,7 +35,7 @@
 //                                  [[KeyValueMapper alloc] initWithKey:@"Phone" action:@selector(setPhone:)],
 //                                  [[KeyValueMapper alloc] initWithKey:@"AppPrice" action:@selector(setAppPrice:)],
 //                                  
-//                                  [[KeyValueScappedMapper alloc] initWithKey:@"AuxPin" action:@selector(setAuxPin:)],
+                                  [[KeyValueScappedMapper alloc] initWithKey:@"pin" action:@selector(setAuxPin:)],
 //                                  [[KeyValueScappedMapper alloc] initWithKey:@"AuxBlock" action:@selector(setAuxBlocked:)],
 //                                  [[KeyValueMapper alloc] initWithKey:@"AuxRate" action:@selector(setAuxRate:)],
 //                                  [[KeyValueMapper alloc] initWithKey:@"AuxComment" action:@selector(setAuxComment:)],

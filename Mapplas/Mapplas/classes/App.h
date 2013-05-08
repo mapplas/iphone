@@ -24,7 +24,7 @@
     NSString *_phone;
     NSString *_appPrice;
     
-    NSString *_auxPin;
+    NSNumber *_auxPin;
     NSString *_auxBlocked;
     NSNumber *_auxRate;
     NSString *_auxComment;
@@ -63,7 +63,7 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *appPrice;
 
-@property (nonatomic, strong) NSString *auxPin;
+@property (nonatomic, strong) NSNumber *auxPin;
 @property (nonatomic, strong) NSString *auxBlocked;
 @property (nonatomic, strong) NSNumber *auxRate;
 @property (nonatomic, strong) NSString *auxComment;

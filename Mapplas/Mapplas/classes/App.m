@@ -60,7 +60,7 @@
         self.phone = @"";
         self.appPrice = @"0";
         
-        self.auxPin = @"0";
+        self.auxPin = [NSNumber numberWithInt:0];
         self.auxBlocked = @"0";
         self.auxRate = [NSNumber numberWithDouble:0.0f];
         self.auxTotalRate = [NSNumber numberWithDouble:0.0f];

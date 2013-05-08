@@ -269,16 +269,16 @@
     NSString *pinRequestConstant = @"";
     NSString *activityRequestConstant = @"";
     
-    if ([self.app.auxPin isEqualToString:@"1"]) {
+    if ([self.app.auxPin intValue] == 1) {
         pinRequestConstant = ACTION_PIN_REQUEST_UNPIN;
         activityRequestConstant = ACTION_ACTIVITY_UNPIN;
-        self.app.auxPin = @"0";
+        self.app.auxPin = [NSNumber numberWithInt:0];
         self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] - 1];
     }
     else {
         pinRequestConstant = ACTION_PIN_REQUEST_PIN;
         activityRequestConstant = ACTION_ACTIVITY_PIN;
-        self.app.auxPin = @"1";
+        self.app.auxPin = [NSNumber numberWithInt:1];
         self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] + 1];
     }
     
@@ -296,7 +296,7 @@
 }
 
 - (void)initPinActionLayout {
-    if ([self.app.auxPin isEqualToString:@"1"]) {
+    if ([self.app.auxPin intValue] == 1) {
         self.pinButton.selected = YES;
         self.pinWithoutPhoneButton.selected = YES;
         

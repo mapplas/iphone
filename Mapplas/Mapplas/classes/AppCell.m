@@ -63,7 +63,7 @@
     }
     
     // Unpressed data - Set image round view
-    if ([self.app.auxPin isEqualToString:@"1"]) {
+    if ([self.app.auxPin intValue] == 1) {
         [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_pinup.png"]];
     }
     else {
@@ -94,7 +94,7 @@
 
 - (void)loadPressedCellData {
     // Pin
-    if ([self.app.auxPin isEqualToString:@"0"]) {
+    if ([self.app.auxPin intValue] == 0) {
         self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_pinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
     }
@@ -147,15 +147,15 @@
     NSString *pinRequestConstant = @"";
     NSString *actionRequestConstant = @"";
     
-    if ([self.app.auxPin isEqualToString:@"0"]) {
+    if ([self.app.auxPin intValue] == 0) {
         pinRequestConstant = ACTION_PIN_REQUEST_PIN;
         actionRequestConstant = ACTION_ACTIVITY_PIN;
-        self.app.auxPin = @"1";
+        self.app.auxPin = [NSNumber numberWithInt:1];
     }
     else {
         pinRequestConstant = ACTION_PIN_REQUEST_UNPIN;
         actionRequestConstant = ACTION_ACTIVITY_UNPIN;
-        self.app.auxPin = @"0";
+        self.app.auxPin = [NSNumber numberWithInt:0];
     }
     
     // Activity request

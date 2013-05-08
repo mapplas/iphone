@@ -44,10 +44,10 @@
                                 App *app1 = obj1;
                                 App *app2 = obj2;
                                 
-                                if([app1.auxPin isEqualToString:@"1"] && [app2.auxPin isEqualToString:@"0"]) {
+                                if([app1.auxPin intValue] == 1 && [app2.auxPin intValue] == 0) {
                                     return NSOrderedAscending;
                                 }
-                                else if ([app1.auxPin isEqualToString:@"0"] && [app2.auxPin isEqualToString:@"1"]) {
+                                else if ([app1.auxPin intValue] == 0 && [app2.auxPin intValue] == 1) {
                                     return NSOrderedDescending;
                                 }
                                 else {
