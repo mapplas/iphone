@@ -33,9 +33,9 @@
 	if(self) {
 //        Old domain
 //        [self setDomain:@"h1975711.stratoserver.net"];
-        [self setDomain:@"mapplas.com"];
+        [self setDomain:@"54.217.243.16"];
         [self setPort:@"80"];
-		[self setRelativePath:@"/Publico"];
+		[self setRelativePath:@"/api"];
         
         [self reloadAddresses];
 	}
@@ -50,7 +50,7 @@
 - (void)reloadAddresses {
     [self setActivity:[self buildAddresWithPath:@"/ipc_activity.php"]];
     
-	[self setIdentifyUser:[self buildAddresWithPath:@"/ipc_ii.php"]];
+	[self setIdentifyUser:[self buildAddresWithPath:@"/user/add"]];
     [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
     
     [self setGetApps:[self buildAddresWithPath:@"/ipc_locations.php"]];

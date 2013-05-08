@@ -15,15 +15,9 @@
 - (id)init {
     
 	NSArray *mappingProperties = [[NSArray alloc] initWithObjects:
-								  [[KeyValueMapper alloc] initWithKey:@"IDUser" action:@selector(setUserId:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Name" action:@selector(setName:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Lastname" action:@selector(setLastName:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Gender" action:@selector(setGender:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Birthdate" action:@selector(setBirthdate:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Login" action:@selector(setLogin:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Password" action:@selector(setPassword:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Email" action:@selector(setEmail:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"Imei" action:@selector(setImei:)],
+								  [[KeyValueMapper alloc] initWithKey:@"user" action:@selector(setUserId:)],
+                                  [[KeyValueScappedMapper alloc] initWithKey:@"tel" action:@selector(setTel:)],
+                                  [[KeyValueScappedMapper alloc] initWithKey:@"imei" action:@selector(setImei:)],
                                   nil];
     self = [super initWithMappers:mappingProperties];
     

@@ -11,13 +11,7 @@
 @implementation User
 
 @synthesize userId = _userId;
-@synthesize name = _name;
-@synthesize lastName = _lastName;
-@synthesize gender = _gender;
-@synthesize birthdate = _birthdate;
-@synthesize login = _login;
-@synthesize password = _password;
-@synthesize email = _email;
+@synthesize tel = _tel;
 @synthesize imei = _imei;
 @synthesize pinnedApps = _pinnedApps;
 @synthesize blockedApps = _blockedApps;
@@ -25,15 +19,9 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.userId = @"0";
-        self.name = @"";
-        self.lastName = @"";
-        self.gender = @"";
-        self.birthdate = @"";
-        self.login = @"";
-        self.password = @"";
-        self.email = @"";
+        self.userId = [NSNumber numberWithInt:0];
         self.imei = @"";
+        self.tel = @"iPhone";
         self.pinnedApps = [[NSMutableArray alloc] init];
         self.blockedApps = [[NSMutableArray alloc] init];
     }
