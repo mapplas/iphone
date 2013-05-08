@@ -287,9 +287,9 @@
             self.userInfoUnpressedWarningText.hidden = YES;
             
             self.userInfoUnpressedName.hidden = NO;
-            self.userInfoUnpressedName.text = model.user.name;
+//            self.userInfoUnpressedName.text = model.user.name;
             self.userInfoUnpressedEmail.hidden = NO;
-            self.userInfoUnpressedEmail.text = model.user.email;
+//            self.userInfoUnpressedEmail.text = model.user.email;
             
             CGRect newFrame3 = CGRectMake(self.configTable.frame.origin.x, self.configTable.frame.origin.y, self.configTable.frame.size.width, 108);
             self.configTable.frame = newFrame3;
@@ -305,18 +305,19 @@
     // Read from NSUserDefaults if user is logged before
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL logged = [userDefaults boolForKey:@"logged"];
-    
-    if(![model.user.email isEqualToString:@""] && logged) {
-        if(logged) {
-            return LOGGED_IN;
-        }
-        else {
-            return LOG_IN;
-        }
-    }
-    else {
-        return SIGN_IN;
-    }
+
+    return SIGN_IN;
+//    if(![model.user.email isEqualToString:@""] && logged) {
+//        if(logged) {
+//            return LOGGED_IN;
+//        }
+//        else {
+//            return LOG_IN;
+//        }
+//    }
+//    else {
+//        return SIGN_IN;
+//    }
 }
 
 - (void)checkEmptyTable:(NSUInteger)cells {
@@ -342,7 +343,7 @@
     [sender resignFirstResponder];
     
     NSString *userName = self.userInfoPressedNameEditText.text;
-    model.user.name = userName;
+//    model.user.name = userName;
     
     if ([userName isEqualToString:@""]) {
         userName = NSLocalizedString(@"user_info_name_not_set_text", @"User screen name not set text");
@@ -351,7 +352,7 @@
     
     
     NSString *userEmail =  self.userInfoPressedEmailEditText.text;
-    model.user.email = userEmail;
+//    model.user.email = userEmail;
     
     if ([userEmail isEqualToString:@""]) {
         userEmail = NSLocalizedString(@"user_info_email_not_set_text", @"User screen email not set text");
@@ -385,10 +386,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
-        NSString *name = model.user.name;
-        model.user.name = @"";
-        NSString *email = model.user.email;        
-        model.user.email = @"";
+//        NSString *name = model.user.name;
+//        model.user.name = @"";
+//        NSString *email = model.user.email;        
+//        model.user.email = @"";
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setBool:NO forKey:@"logged"];
@@ -397,9 +398,9 @@
         [self changeLayoutComponents:[self checkUserState]];
         
         // Logout request
-        NSString *message = [NSString stringWithFormat:@"%@ (%@:%@)", ACTION_ACTIVITY_LOGOUT, name, email];
+//        NSString *message = [NSString stringWithFormat:@"%@ (%@:%@)", ACTION_ACTIVITY_LOGOUT, name, email];
         appActivityRequester = [[AppActivityRequest alloc] init];
-        [appActivityRequester doRequestWithLocation:model.currentLocation action:message app:nil andUser:model.user];
+//        [appActivityRequester doRequestWithLocation:model.currentLocation action:message app:nil andUser:model.user];
         
         // User edit request
         userEditRequester = [[UserEditRequester alloc] init];

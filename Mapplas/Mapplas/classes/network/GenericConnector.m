@@ -27,11 +27,11 @@
 }
 
 - (void)initializeVariablesWithUrlAndSend:(NSString *)url {
-    [parameters setValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] forKey:@"v"];
+//    [parameters setValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] forKey:@"v"];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
-    NSMutableURLRequest *jsonRequest = [httpClient requestWithMethod:@"GET"
+    NSMutableURLRequest *jsonRequest = [httpClient requestWithMethod:@"POST"
                                                                 path:@""
                                                           parameters:parameters];
     

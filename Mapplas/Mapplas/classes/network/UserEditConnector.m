@@ -16,8 +16,8 @@
 
 - (void)requestWithUser:(User *)user {
     
-    [parameters setValue:user.name forKey:@"n"];
-    [parameters setValue:user.email forKey:@"e"];
+//    [parameters setValue:user.name forKey:@"n"];
+//    [parameters setValue:user.email forKey:@"e"];
     [parameters setValue:user.imei forKey:@"ii"];
     [parameters setValue:user.userId forKey:@"uid"];
     
