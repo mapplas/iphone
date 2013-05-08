@@ -53,7 +53,7 @@
 	[self setIdentifyUser:[self buildAddresWithPath:@"/user/add"]];
     [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
     
-    [self setGetApps:[self buildAddresWithPath:@"/ipc_locations.php"]];
+    [self setGetApps:[self buildAddresWithPath:@"/apps"]];
     [self setPinApp:[self buildAddresWithPath:@"/ipc_pin.php"]];
     [self setBlockApp:[self buildAddresWithPath:@"/ipc_like.php"]];
     [self setRateApp:[self buildAddresWithPath:@"/ipc_rate.php"]];

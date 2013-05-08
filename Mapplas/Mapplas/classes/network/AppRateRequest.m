@@ -10,7 +10,7 @@
 
 @implementation AppRateRequest
 
-- (void)doRequestWithRate:(NSString *)rate comment:(NSString *)comment appId:(NSString *)app_id userId:(NSString *)user_id location:(NSString *)c_location descriptiveGeoloc:(NSString *)descr_geoloc andViewToShowToast:(UIView *)view {
+- (void)doRequestWithRate:(NSString *)rate comment:(NSString *)comment appId:(NSString *)app_id userId:(NSNumber *)user_id location:(NSString *)c_location descriptiveGeoloc:(NSString *)descr_geoloc andViewToShowToast:(UIView *)view {
     
     Environment *environment = [Environment sharedInstance];
 	AbstractUrlAddresses *urlAdresses = [environment addresses];

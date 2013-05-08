@@ -303,8 +303,8 @@
 
 - (int)checkUserState {
     // Read from NSUserDefaults if user is logged before
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL logged = [userDefaults boolForKey:@"logged"];
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    BOOL logged = [userDefaults boolForKey:@"logged"];
 
     return SIGN_IN;
 //    if(![model.user.email isEqualToString:@""] && logged) {

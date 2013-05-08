@@ -14,6 +14,7 @@
     NSNumber *_latitude;
     NSNumber *_longitude;
     NSString *_type;
+    NSString *_appUrlScheme;
     
     NSString *_appName;
     NSString *_appLogo;
@@ -52,6 +53,7 @@
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *appUrlScheme;
 
 @property (nonatomic, strong) NSString *appName;
 @property (nonatomic, strong) NSString *appLogo;

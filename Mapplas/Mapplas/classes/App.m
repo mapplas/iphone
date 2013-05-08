@@ -15,6 +15,7 @@
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
 @synthesize type = _type;
+@synthesize appUrlScheme = _appUrlScheme;
 
 @synthesize appName = _appName;
 @synthesize appLogo = _appLogo;
@@ -53,6 +54,7 @@
         self.latitude = [NSNumber numberWithDouble:0.0f];
         self.longitude = [NSNumber numberWithDouble:0.0f];
         self.type = @"";
+        self.appUrlScheme = @"";
         
         self.appUrl = @"";
         self.phone = @"";

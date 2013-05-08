@@ -14,7 +14,7 @@
     return [super initWithAddresses:_addresses responseHandler:nil];
 }
 
-- (void)requestWithAppId:(NSString *)app_id userId:(NSString *)user_id action:(NSString *)_action{
+- (void)requestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action{
     
     [parameters setValue:app_id forKey:@"id"];
     [parameters setValue:user_id forKey:@"uid"];
