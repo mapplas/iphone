@@ -54,10 +54,6 @@
     // Remove app from pinned app list
     [self.pinnedApps removeObject:app];
     
-    // Do requests
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:location action:ACTION_ACTIVITY_UNPIN app:app andUser:user];
-    
     unpinRequest = [[AppPinRequest alloc] init];
     [unpinRequest doRequestWithAppId:app.appId userId:user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:location];
     
@@ -67,11 +63,11 @@
     while (!found && i < modelAppOrderedList.count) {
         App *currentApp = [modelAppOrderedList objectAtIndex:i];
         if ([currentApp.appId isEqualToString:app.appId]) {
-            if ([currentApp.auxPin isEqualToString:@"0"]) {
-                currentApp.auxPin = @"1";
+            if ([currentApp.auxPin intValue] == 0) {
+                currentApp.auxPin = [NSNumber numberWithInt:1];
             }
             else {
-                currentApp.auxPin = @"0";
+                currentApp.auxPin = [NSNumber numberWithInt:0];
             }
             found = YES;
         }

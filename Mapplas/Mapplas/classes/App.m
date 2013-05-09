@@ -15,6 +15,7 @@
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
 @synthesize type = _type;
+@synthesize appUrlScheme = _appUrlScheme;
 
 @synthesize appName = _appName;
 @synthesize appLogo = _appLogo;
@@ -22,7 +23,6 @@
 @synthesize appUrl = _appUrl;
 @synthesize appDescription = _appDescription;
 @synthesize phone = _phone;
-@synthesize appPrice = _appPrice;
 
 @synthesize auxPin = _auxPin;
 @synthesize auxBlocked = _auxBlocked;
@@ -40,7 +40,8 @@
 @synthesize pinnedLongitude = _pinnedLongitude;
 @synthesize pinnedGeocodedLocation = _pinnedGeocodedLocation;
 
-@synthesize locationCurrency = _locationCurrency;
+@synthesize appPrice = _appPrice;
+@synthesize currencyCode = _currencyCode;
 @synthesize market = _market;
 
 @synthesize notificationRaw = _notificationRaw;
@@ -53,12 +54,12 @@
         self.latitude = [NSNumber numberWithDouble:0.0f];
         self.longitude = [NSNumber numberWithDouble:0.0f];
         self.type = @"";
+        self.appUrlScheme = @"";
         
         self.appUrl = @"";
         self.phone = @"";
-        self.appPrice = @"0";
         
-        self.auxPin = @"0";
+        self.auxPin = [NSNumber numberWithInt:0];
         self.auxBlocked = @"0";
         self.auxRate = [NSNumber numberWithDouble:0.0f];
         self.auxTotalRate = [NSNumber numberWithDouble:0.0f];
@@ -67,9 +68,6 @@
         
         self.auxCommentsArray = [[NSMutableArray alloc] init];
         self.auxPhotosArray = [[NSMutableArray alloc] init];
-        
-        self.locationCurrency = EURO;
-        self.market = @"Eur";
         
         self.notificationRaw = [[NSArray alloc] init];
     }

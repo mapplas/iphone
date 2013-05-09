@@ -63,7 +63,7 @@
     }
     
     // Unpressed data - Set image round view
-    if ([self.app.auxPin isEqualToString:@"1"]) {
+    if ([self.app.auxPin intValue] == 1) {
         [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_pinup.png"]];
     }
     else {
@@ -94,7 +94,7 @@
 
 - (void)loadPressedCellData {
     // Pin
-    if ([self.app.auxPin isEqualToString:@"0"]) {
+    if ([self.app.auxPin intValue] == 0) {
         self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_pinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
     }
@@ -145,22 +145,17 @@
 
 - (IBAction)pinUnpinApp:(id)sender {
     NSString *pinRequestConstant = @"";
-    NSString *actionRequestConstant = @"";
     
-    if ([self.app.auxPin isEqualToString:@"0"]) {
+    if ([self.app.auxPin intValue] == 0) {
         pinRequestConstant = ACTION_PIN_REQUEST_PIN;
-        actionRequestConstant = ACTION_ACTIVITY_PIN;
-        self.app.auxPin = @"1";
+        self.app.auxPin = [NSNumber numberWithInt:1];
+        self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] + 1];
     }
     else {
         pinRequestConstant = ACTION_PIN_REQUEST_UNPIN;
-        actionRequestConstant = ACTION_ACTIVITY_UNPIN;
-        self.app.auxPin = @"0";
+        self.app.auxPin = [NSNumber numberWithInt:0];
+        self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] - 1];
     }
-    
-    // Activity request
-    activityRequester = [[AppActivityRequest alloc] init];
-    [activityRequester doRequestWithLocation:self.currentLocation action:actionRequestConstant app:self.app andUser:self.user];
     
     // Pin/unpin request
     pinRequester = [[AppPinRequest alloc] init];
@@ -172,10 +167,6 @@
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
-    // Activity request
-    activityRequester = [[AppActivityRequest alloc] init];
-    [activityRequester doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_BLOCK app:self.app andUser:self.user];
-    
     // Block request
     blockRequester = [[AppBlockRequest alloc] init];
     [blockRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_BLOCK];
@@ -196,9 +187,6 @@
 }
 
 - (IBAction)shareApp:(id)sender {
-    activityRequester = [[AppActivityRequest alloc] init];
-    [activityRequester doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_SHARE app:self.app andUser:self.user];
-    
     sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.viewController.navigationController];
     
     // If device has ios6 and up
@@ -221,10 +209,6 @@
 }
 
 - (IBAction)rateApp:(id)sender {
-    // Activity request
-    activityRequester = [[AppActivityRequest alloc] init];
-    [activityRequester doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_RATE app:self.app andUser:self.user];
-    
     RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.user.userId location:self.currentLocation descriptiveGeoLoc:self.currentDescriptiveGeoLoc andView:self.viewController.navigationController.view];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
     [SCAppUtils customizeNavigationController:navController];

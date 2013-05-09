@@ -20,7 +20,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     NSNumber *actualRate;
     
     NSString *appId;
-    NSString *userId;
+    NSNumber *userId;
     NSString *currentLocation;
     NSString *descriptiveGeoloc;
     UIView *detailView;
@@ -29,7 +29,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     AppRateRequest *rateRequester;
 }
 
-- (id)initWithAppId:(NSString *)app_id userId:(NSString *)user_id location:(NSString *)location descriptiveGeoLoc:(NSString *)descr_geoloc andView:(UIView *)view;
+- (id)initWithAppId:(NSString *)app_id userId:(NSNumber *)user_id location:(NSString *)location descriptiveGeoLoc:(NSString *)descr_geoloc andView:(UIView *)view;
 
 @property (nonatomic, strong) IBOutlet UILabel *rateItLabel;
 @property (nonatomic, strong) IBOutlet UIView *ratingView;

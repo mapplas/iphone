@@ -19,29 +19,39 @@
 }
 
 - (UIImage *)getImage {
-    if ([app.appPrice isEqualToString:@"0"]) {
-        return [UIImage imageNamed:@"ic_badge_free.png"];
+    if ([app.type isEqualToString:@"HTML"]) {
+        return [UIImage imageNamed:@"ic_badge_html5.png"];
     }
     else {
-        return [UIImage imageNamed:@"ic_badge_price.png"];
+        if ([app.appPrice intValue] == 0) {
+            return [UIImage imageNamed:@"ic_badge_free.png"];
+        }
+        else {
+            return [UIImage imageNamed:@"ic_badge_price.png"];
+        }
     }
 }
 
 - (NSString *)getPriceText {
     NSString *currency = @"";
-    if (app.locationCurrency == EURO) {
+    if ([app.currencyCode isEqualToString:@"EUR"]) {
         currency = NSLocalizedString(@"currency_euro", @"Euro currency");
     }
     else {
         currency = NSLocalizedString(@"currency_dollar", @"Dollar currency");
     }
     
-    if ([app.appPrice isEqualToString:@"0"]) {
-        return NSLocalizedString(@"free_text", @"Free");
+    if (![app.type isEqualToString:@"HTML"]) {
+        if ([app.appPrice intValue] == 0) {
+            return NSLocalizedString(@"free_text", @"Free");
+        }
+        else {
+            return [NSString stringWithFormat:@"%@ %@", currency, app.appPrice];
+        }
+    } else {
+        return @"";
     }
-    else {
-        return [NSString stringWithFormat:@"%@ %@", currency, app.appPrice];
-    }
+    
 }
 
 @end

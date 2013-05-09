@@ -14,8 +14,6 @@
 @synthesize port;
 @synthesize relativePath;
 
-@synthesize activity;
-
 @synthesize identifyUser;
 @synthesize editUser;
 
@@ -47,14 +45,12 @@
 	return [NSString stringWithFormat:@"http://%@:%@%@%@", [self domain], [self port], [self relativePath], path];
 }
 
-- (void)reloadAddresses {
-    [self setActivity:[self buildAddresWithPath:@"/ipc_activity.php"]];
-    
+- (void)reloadAddresses {    
 	[self setIdentifyUser:[self buildAddresWithPath:@"/user/add"]];
-    [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
+//    [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
     
-    [self setGetApps:[self buildAddresWithPath:@"/ipc_locations.php"]];
-    [self setPinApp:[self buildAddresWithPath:@"/ipc_pin.php"]];
+    [self setGetApps:[self buildAddresWithPath:@"/apps"]];
+    [self setPinApp:[self buildAddresWithPath:@"/user/pin"]];
     [self setBlockApp:[self buildAddresWithPath:@"/ipc_like.php"]];
     [self setRateApp:[self buildAddresWithPath:@"/ipc_rate.php"]];
     

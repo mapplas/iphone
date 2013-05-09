@@ -303,8 +303,8 @@
 
 - (int)checkUserState {
     // Read from NSUserDefaults if user is logged before
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL logged = [userDefaults boolForKey:@"logged"];
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    BOOL logged = [userDefaults boolForKey:@"logged"];
 
     return SIGN_IN;
 //    if(![model.user.email isEqualToString:@""] && logged) {
@@ -396,11 +396,6 @@
         [userDefaults synchronize];
         
         [self changeLayoutComponents:[self checkUserState]];
-        
-        // Logout request
-//        NSString *message = [NSString stringWithFormat:@"%@ (%@:%@)", ACTION_ACTIVITY_LOGOUT, name, email];
-        appActivityRequester = [[AppActivityRequest alloc] init];
-//        [appActivityRequester doRequestWithLocation:model.currentLocation action:message app:nil andUser:model.user];
         
         // User edit request
         userEditRequester = [[UserEditRequester alloc] init];

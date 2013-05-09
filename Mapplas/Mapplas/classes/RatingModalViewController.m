@@ -19,7 +19,7 @@
 @synthesize ratingView, rateItLabel, ratingLabel;
 @synthesize titleField, commentField;
 
-- (id)initWithAppId:(NSString *)app_id userId:(NSString *)user_id location:(NSString *)location descriptiveGeoLoc:(NSString *)descr_geoloc andView:(UIView *)view {
+- (id)initWithAppId:(NSString *)app_id userId:(NSNumber *)user_id location:(NSString *)location descriptiveGeoLoc:(NSString *)descr_geoloc andView:(UIView *)view {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         actualRate = [NSNumber numberWithInt:5];

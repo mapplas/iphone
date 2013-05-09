@@ -10,17 +10,16 @@
 #import "App.h"
 #import "Constants.h"
 #import "AppOrderedList.h"
+#import "User.h"
 
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
 
-#import "AppActivityRequest.h"
 #import "AppPinRequest.h"
 
 @interface UserListTableViewCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
     ImageLoader *imageLoader;
     
-    AppActivityRequest *activityRequest;
     AppPinRequest *unpinRequest;
 }
 

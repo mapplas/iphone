@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "App.h"
+#import "User.h"
 
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
 
-#import "AppActivityRequest.h"
 #import "AppBlockRequest.h"
 #import "AppOrderedList.h"
 #import "Constants.h"
@@ -20,7 +20,6 @@
 @interface UserBlockedTableViewCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
     ImageLoader *imageLoader;
     
-    AppActivityRequest *activityRequest;
     AppBlockRequest *blockRequest;
 }
 

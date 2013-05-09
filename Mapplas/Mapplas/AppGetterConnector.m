@@ -16,12 +16,11 @@
 
 - (void)requestWithModel:(SuperModel *)super_model andLocation:(CLLocation *)location {
     CLLocationCoordinate2D coord = location.coordinate;
-    NSString *stringLocation = [NSString stringWithFormat:@"%g, %g", coord.latitude, coord.longitude];
     
-    [parameters setValue:stringLocation forKey:@"l"];
+    [parameters setValue:[NSString stringWithFormat:@"%g", coord.latitude] forKey:@"lat"];
+    [parameters setValue:[NSString stringWithFormat:@"%g", coord.longitude] forKey:@"lon"];
     [parameters setValue:[[super_model user] userId] forKey:@"uid"];
     [parameters setValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] forKey:@"p"];
-    [parameters setValue:@"" forKey:@"ln"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
