@@ -16,9 +16,9 @@
 
 - (void)requestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action{
     
-    [parameters setValue:app_id forKey:@"id"];
+    [parameters setValue:app_id forKey:@"app"];
     [parameters setValue:user_id forKey:@"uid"];
-    [parameters setValue:_action forKey:@"t"];
+    [parameters setValue:_action forKey:@"s"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
