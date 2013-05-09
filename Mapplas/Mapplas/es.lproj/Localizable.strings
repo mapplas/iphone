@@ -132,6 +132,12 @@
 /* iOS5 sharing action sheet twitter button - twitter sharing */
 "ios5_sharing_action_sheet_twitter_button" = "Compartir vía Twitter";
 
+/* iOS5 sharing action sheet sms button - sms sharing */
+"ios5_sharing_action_sheet_sms_button" = "Compartir vía sms";
+
+/* iOS5 sharing action sheet email button - email sharing */
+"ios5_sharing_action_sheet_email_button" = "Compartir vía email";
+
 /* OK message */
 "ok_message" = "Aceptar";
 

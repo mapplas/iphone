@@ -10,12 +10,12 @@
 
 @implementation AppShareRequest
 
-- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)current_location {
+- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)current_location via:(NSString *)_via {
     Environment *environment = [Environment sharedInstance];
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
     
     connector = [[AppShareConnector alloc] initWithAddresses:urlAdresses];
-    [connector requestWithAppId:app_id userId:user_id andLocation:current_location];
+    [connector requestWithAppId:app_id userId:user_id andLocation:current_location via:_via];
 }
 
 @end

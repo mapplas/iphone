@@ -12,6 +12,6 @@
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses;
 
-- (void)requestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)currentLocation;
+- (void)requestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)currentLocation via:(NSString *)_via;
 
 @end

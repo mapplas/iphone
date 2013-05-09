@@ -13,6 +13,6 @@
     AppShareConnector *connector;
 }
 
-- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)current_location;
+- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)current_location via:(NSString *)_via;
 
 @end

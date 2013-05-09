@@ -187,7 +187,7 @@
 }
 
 - (IBAction)shareApp:(id)sender {
-    sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.viewController.navigationController];
+    sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.viewController.navigationController user:self.user andLocation:self.currentLocation];
     
     // If device has ios6 and up
 	if ([UIActivityViewController class]) {

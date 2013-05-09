@@ -12,13 +12,19 @@
 #import <Accounts/Accounts.h>
 
 #import "App.h"
+#import "User.h"
+#import "AppShareRequest.h"
+#import "Constants.h"
 
 @interface SharingHelper : NSObject <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate> {
     App *app;
+    User *user;
+    NSString *current_location;
+    AppShareRequest *appShareRequester;
     UINavigationController *navController;
 }
 
-- (id)initWithApp:(App *)_app navigationController:(UINavigationController *)nav_controller;
+- (id)initWithApp:(App *)_app navigationController:(UINavigationController *)nav_controller user:(User *)_user andLocation:(NSString *)_current_location;
 - (NSString *)getShareMessage;
 
 @end
