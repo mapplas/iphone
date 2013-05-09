@@ -9,8 +9,8 @@
 #define ACTION_PIN_REQUEST_PIN @"pin"
 #define ACTION_PIN_REQUEST_UNPIN @"unpin"
 
-#define ACTION_LIKE_REQUEST_BLOCK @"m"
-#define ACTION_LIKE_REQUEST_UNBLOCK @"mr"
+#define ACTION_LIKE_REQUEST_BLOCK @"block"
+#define ACTION_LIKE_REQUEST_UNBLOCK @"unblock"
 
 #define ACTION_ACTIVITY_LOGOUT @"logout"
 #define ACTION_ACTIVITY_START @"start"

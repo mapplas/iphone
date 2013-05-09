@@ -51,7 +51,7 @@
     
     [self setGetApps:[self buildAddresWithPath:@"/apps"]];
     [self setPinApp:[self buildAddresWithPath:@"/user/pin"]];
-    [self setBlockApp:[self buildAddresWithPath:@"/ipc_like.php"]];
+    [self setBlockApp:[self buildAddresWithPath:@"/user/block"]];
     [self setRateApp:[self buildAddresWithPath:@"/ipc_rate.php"]];
     
     [self setUserPinUps:[self buildAddresWithPath:@"/ipc_userPinups.php"]];
