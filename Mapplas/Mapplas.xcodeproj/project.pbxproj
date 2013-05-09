@@ -113,6 +113,7 @@
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
+		7F9352D2173A67F8001B17FB /* ic_badge_html5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9352D1173A67F8001B17FB /* ic_badge_html5.png */; };
 		7FBAE92F16B027CC00621B34 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */; };
 		7FBAE93216B0280500621B34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBAE93116B0280500621B34 /* QuartzCore.framework */; };
 		7FBAE93416B0430F00621B34 /* bgd_pull_to_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAE93316B0430F00621B34 /* bgd_pull_to_refresh.png */; };
@@ -406,6 +407,7 @@
 		7F68783A16A86065005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F68783C16A86083005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F68783E16A86087005DC098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F9352D1173A67F8001B17FB /* ic_badge_html5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_badge_html5.png; sourceTree = SOURCE_ROOT; };
 		7FBAE92D16B027CC00621B34 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		7FBAE93116B0280500621B34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -441,7 +443,6 @@
 		7FC8828F16A84E6E008A06A8 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = classes/Photo.m; sourceTree = "<group>"; };
 		7FC8829116A85002008A06A8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = classes/User.h; sourceTree = "<group>"; };
 		7FC8829216A85002008A06A8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = classes/User.m; sourceTree = "<group>"; };
-		7FC8829416A853CD008A06A8 /* LocationCurrency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCurrency.h; path = classes/LocationCurrency.h; sourceTree = "<group>"; };
 		7FC8829716A85676008A06A8 /* SuperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperModel.h; path = classes/SuperModel.h; sourceTree = "<group>"; };
 		7FC8829816A85676008A06A8 /* SuperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperModel.m; path = classes/SuperModel.m; sourceTree = "<group>"; };
 		7FD39C6116BA5F7A00F5EB8E /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageResizer.h; path = classes/ImageResizer.h; sourceTree = "<group>"; };
@@ -1052,7 +1053,6 @@
 				7F68781B16A857DC005DC098 /* AppOrderedList.m */,
 				7FC8828B16A84CE2008A06A8 /* Comment.h */,
 				7FC8828C16A84CE2008A06A8 /* Comment.m */,
-				7FC8829416A853CD008A06A8 /* LocationCurrency.h */,
 				7FC8828E16A84E6E008A06A8 /* Photo.h */,
 				7FC8828F16A84E6E008A06A8 /* Photo.m */,
 				7FC8829716A85676008A06A8 /* SuperModel.h */,
@@ -1407,6 +1407,7 @@
 				7F2CE75316B672C500B7E6E5 /* ic_action_unpinup.png */,
 				7FFA5C0A16BBC076002BE898 /* ic_arrow_com.png */,
 				7F2CE75E16B69D3A00B7E6E5 /* ic_badge_free.png */,
+				7F9352D1173A67F8001B17FB /* ic_badge_html5.png */,
 				7FC8548716B18F3900D73E90 /* ic_badge_nav.png */,
 				7FC8548316B18A9300D73E90 /* ic_badge_price.png */,
 				7FED40F516B12E5100581C9D /* ic_map.png */,
@@ -1577,6 +1578,7 @@
 				7F37957116E48D54005332A1 /* ic_animation_radar_shadow.png in Resources */,
 				7F37957216E48D54005332A1 /* ic_animation_radar_triangles.png in Resources */,
 				7FEF30D316D777F500F6703B /* ImageGalleryViewController.xib in Resources */,
+				7F9352D2173A67F8001B17FB /* ic_badge_html5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
