@@ -55,6 +55,7 @@
     AppBlockRequest *blockRequest;
     
     SharingHelper *sharingHelper;
+    AppShareRequest *appShareRequester;
 }
 
 - (id)initWithApp:(App *)app user:(User *)user model:(SuperModel *)super_model andLocation:(NSString *)current_location;

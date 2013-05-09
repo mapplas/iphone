@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString *getApps;
 @property (nonatomic, strong) NSString *pinApp;
 @property (nonatomic, strong) NSString *blockApp;
+@property (nonatomic, strong) NSString *shareApp;
 
 @property (nonatomic, strong) NSString *userPinUps;
 @property (nonatomic, strong) NSString *userBlocks;

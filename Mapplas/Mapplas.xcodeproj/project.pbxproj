@@ -107,6 +107,8 @@
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
+		7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EF4B9173BC96500625C53 /* AppShareConnector.m */; };
+		7F8EF4BD173BCA8B00625C53 /* AppShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EF4BC173BCA8B00625C53 /* AppShareRequest.m */; };
 		7F9352D2173A67F8001B17FB /* ic_badge_html5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9352D1173A67F8001B17FB /* ic_badge_html5.png */; };
 		7FBAE92F16B027CC00621B34 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */; };
 		7FBAE93216B0280500621B34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBAE93116B0280500621B34 /* QuartzCore.framework */; };
@@ -390,6 +392,10 @@
 		7F68783A16A86065005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F68783C16A86083005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F68783E16A86087005DC098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F8EF4B8173BC96500625C53 /* AppShareConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppShareConnector.h; path = classes/network/AppShareConnector.h; sourceTree = "<group>"; };
+		7F8EF4B9173BC96500625C53 /* AppShareConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppShareConnector.m; path = classes/network/AppShareConnector.m; sourceTree = "<group>"; };
+		7F8EF4BB173BCA8B00625C53 /* AppShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppShareRequest.h; path = classes/network/AppShareRequest.h; sourceTree = "<group>"; };
+		7F8EF4BC173BCA8B00625C53 /* AppShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppShareRequest.m; path = classes/network/AppShareRequest.m; sourceTree = "<group>"; };
 		7F9352D1173A67F8001B17FB /* ic_badge_html5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_badge_html5.png; sourceTree = SOURCE_ROOT; };
 		7FBAE92D16B027CC00621B34 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		7FBAE92E16B027CC00621B34 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
@@ -1215,6 +1221,8 @@
 			children = (
 				7F0C5B7016AEB2BE0093C850 /* AppGetterConnector.h */,
 				7F0C5B7116AEB2BE0093C850 /* AppGetterConnector.m */,
+				7F8EF4B8173BC96500625C53 /* AppShareConnector.h */,
+				7F8EF4B9173BC96500625C53 /* AppShareConnector.m */,
 				7F2CE76A16B6BE0600B7E6E5 /* BlockConnector.h */,
 				7F2CE76B16B6BE0600B7E6E5 /* BlockConnector.m */,
 				7F0C5B7316AEB3620093C850 /* GenericConnector.h */,
@@ -1240,6 +1248,8 @@
 				7F2CE76E16B6BEA500B7E6E5 /* AppBlockRequest.m */,
 				7F2CE76116B6A75E00B7E6E5 /* AppPinRequest.h */,
 				7F2CE76216B6A75E00B7E6E5 /* AppPinRequest.m */,
+				7F8EF4BB173BCA8B00625C53 /* AppShareRequest.h */,
+				7F8EF4BC173BCA8B00625C53 /* AppShareRequest.m */,
 				7FED413E16B15DB500581C9D /* AsynchronousImageDownloader.h */,
 				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
 				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
@@ -1691,6 +1701,8 @@
 				7FF760F216D6635D00DF29C8 /* UIImage+Resize.m in Sources */,
 				7FF760F716D6737C00DF29C8 /* ImageGalleryViewController.m in Sources */,
 				7FF0A5C816E635A40028561F /* Reachability.m in Sources */,
+				7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */,
+				7F8EF4BD173BCA8B00625C53 /* AppShareRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,13 @@
 
 @implementation SharingHelper
 
-- (id)initWithApp:(id)_app navigationController:(UINavigationController *)nav_controller {
+- (id)initWithApp:(id)_app navigationController:(UINavigationController *)nav_controller user:(User *)_user andLocation:(NSString *)_current_location {
     self = [super init];
     if (self) {
         app = _app;
         navController = nav_controller;
+        user = _user;
+        current_location = _current_location;
     }
     return self;
 }
@@ -47,6 +49,10 @@
             [errorAlert show];
 			break;
 		case MessageComposeResultSent:
+            // Share request
+            appShareRequester = [[AppShareRequest alloc] init];
+            [appShareRequester doRequestWithAppId:app.appId userId:user.userId andLocation:current_location via:ACTION_SHARE_REQUEST_VIA_SMS];
+            
             [okAlert show];
 			break;
 		default:
@@ -76,6 +82,10 @@
             [errorAlert show];
 			break;
 		case MessageComposeResultSent:
+            // Share request
+            appShareRequester = [[AppShareRequest alloc] init];
+            [appShareRequester doRequestWithAppId:app.appId userId:user.userId andLocation:current_location via:ACTION_SHARE_REQUEST_VIA_EMAIL];
+            
             [okAlert show];
 			break;
 		default:
@@ -97,6 +107,9 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {
         [self shareWithTwitter];
+        // Share request
+        appShareRequester = [[AppShareRequest alloc] init];
+        [appShareRequester doRequestWithAppId:app.appId userId:user.userId andLocation:current_location via:ACTION_SHARE_REQUEST_VIA_TWITTER];
     }
     else if(buttonIndex == 1) {
 		[self shareViaInAppSMS];

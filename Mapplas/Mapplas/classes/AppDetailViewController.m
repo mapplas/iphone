@@ -327,7 +327,7 @@
 }
 
 - (IBAction)share:(id)sender {
-    sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.navigationController];
+    sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.navigationController user:self.user andLocation:self.currentLocation];
     
     // If device has ios6 and up
 	if ([UIActivityViewController class]) {
@@ -336,16 +336,41 @@
 		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
 		activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
         
+        activityViewController.completionHandler = ^(NSString *activityType, BOOL completed){
+            if (completed) {
+                [self shareType:activityType];
+            }
+        };
+        
 		[self presentViewController:activityViewController animated:YES completion:nil];
 	}
 	else {
         // iOS 5
 		NSString *cancelButton = NSLocalizedString(@"ios5_sharing_action_sheet_cancel_button", @"iOS5 sharing action sheet cancel button - twitter sharing");
 		NSString *twitterButton = NSLocalizedString(@"ios5_sharing_action_sheet_twitter_button", @"iOS5 sharing action sheet twitter button - twitter sharing");
+        NSString *smsButton = NSLocalizedString(@"ios5_sharing_action_sheet_sms_button", @"iOS5 sharing action sheet sms button - sms sharing");
+        NSString *emailButton = NSLocalizedString(@"ios5_sharing_action_sheet_email_button", @"iOS5 sharing action sheet email button - email sharing");
         
-		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, @"Share via SMS", @"Share via email", nil];
+		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, smsButton, emailButton, nil];
 		[alertView showInView:self.view];
 	}
+}
+
+- (void)shareType:(NSString *)activity_type {
+    NSString *myActivityConstant = ACTION_SHARE_REQUEST_VIA_UNKNOWN;
+    
+    if ([activity_type isEqualToString:@"com.apple.UIKit.activity.PostToFacebook"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_FACEBOOK;
+    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.PostToTwitter"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_TWITTER;
+    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.Mail"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_EMAIL;
+    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.Message"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_SMS;
+    }
+    
+    appShareRequester = [[AppShareRequest alloc] init];
+    [appShareRequester doRequestWithAppId:self.app.appId userId:self.user.userId andLocation:self.currentLocation via:myActivityConstant];
 }
 
 - (IBAction)call:(id)sender {
