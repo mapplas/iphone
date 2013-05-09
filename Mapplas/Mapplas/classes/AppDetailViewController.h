@@ -28,7 +28,6 @@
 #import "Constants.h"
 #import "AppPinRequest.h"
 #import "AppBlockRequest.h"
-#import "AppActivityRequest.h"
 
 #import "RatingHelper.h"
 #import "RatingModalViewController.h"
@@ -55,7 +54,6 @@
     BOOL somethingChangedOnApp;
     AppPinRequest *pinRequest;
     AppBlockRequest *blockRequest;
-    AppActivityRequest *activityRequest;
     
     SharingHelper *sharingHelper;
 }

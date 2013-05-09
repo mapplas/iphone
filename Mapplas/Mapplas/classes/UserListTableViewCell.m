@@ -54,10 +54,6 @@
     // Remove app from pinned app list
     [self.pinnedApps removeObject:app];
     
-    // Do requests
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:location action:ACTION_ACTIVITY_UNPIN app:app andUser:user];
-    
     unpinRequest = [[AppPinRequest alloc] init];
     [unpinRequest doRequestWithAppId:app.appId userId:user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:location];
     

@@ -14,8 +14,6 @@
 @synthesize port;
 @synthesize relativePath;
 
-@synthesize activity;
-
 @synthesize identifyUser;
 @synthesize editUser;
 
@@ -47,9 +45,7 @@
 	return [NSString stringWithFormat:@"http://%@:%@%@%@", [self domain], [self port], [self relativePath], path];
 }
 
-- (void)reloadAddresses {
-    [self setActivity:[self buildAddresWithPath:@"/ipc_activity.php"]];
-    
+- (void)reloadAddresses {    
 	[self setIdentifyUser:[self buildAddresWithPath:@"/user/add"]];
     [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
     

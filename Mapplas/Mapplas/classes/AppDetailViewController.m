@@ -193,9 +193,6 @@
 }
 
 - (void)showAppCompleteDescription {
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_SHOW_COMMENTS app:self.app andUser:self.user];
-    
     CGSize maximumLabelSize = CGSizeMake(self.descriptionText.frame.size.width, FLT_MAX);
     [self adjustLabel:maximumLabelSize];
 }
@@ -284,10 +281,6 @@
     
     somethingChangedOnApp = YES;
     
-    // Activity request
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.currentLocation action:activityRequestConstant app:self.app andUser:self.user];
-    
     // Pin/unpin request
     pinRequest = [[AppPinRequest alloc] init];
     [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:pinRequestConstant andLocation:self.currentLocation];
@@ -319,10 +312,7 @@
     somethingChangedOnApp = YES;
     
     [self.model.appList deleteApp:self.app];
-    
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_BLOCK app:self.app andUser:self.user];
-    
+  
     blockRequest = [[AppBlockRequest alloc] init];
     [blockRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_BLOCK];
     
@@ -333,9 +323,6 @@
 }
 
 - (IBAction)rate:(id)sender {
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_RATE app:self.app andUser:self.user];
-    
     RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.user.userId location:self.model.currentLocation descriptiveGeoLoc:self.model.currentDescriptiveGeoLoc andView:self.view];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
     [SCAppUtils customizeNavigationController:navController];
@@ -345,9 +332,6 @@
 }
 
 - (IBAction)share:(id)sender {
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_SHARE app:self.app andUser:self.user];
-    
     sharingHelper = [[SharingHelper alloc] initWithApp:self.app navigationController:self.navigationController];
     
     // If device has ios6 and up
@@ -371,9 +355,6 @@
 
 - (IBAction)call:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", self.app.phone]]];
-    
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.currentLocation action:ACTION_ACTIVITY_CALL app:self.app andUser:self.user];
 }
 
 - (void)toDeveloperMail {

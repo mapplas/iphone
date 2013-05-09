@@ -49,9 +49,6 @@
 }
 
 - (IBAction)unblockApp:(id)sender {
-    activityRequest = [[AppActivityRequest alloc] init];
-    [activityRequest doRequestWithLocation:self.location action:ACTION_ACTIVITY_UNBLOCK app:self.app andUser:self.user];
-    
     blockRequest = [[AppBlockRequest alloc] init];
     [blockRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_UNBLOCK];
     

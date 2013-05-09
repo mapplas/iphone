@@ -397,11 +397,6 @@
         
         [self changeLayoutComponents:[self checkUserState]];
         
-        // Logout request
-//        NSString *message = [NSString stringWithFormat:@"%@ (%@:%@)", ACTION_ACTIVITY_LOGOUT, name, email];
-        appActivityRequester = [[AppActivityRequest alloc] init];
-//        [appActivityRequester doRequestWithLocation:model.currentLocation action:message app:nil andUser:model.user];
-        
         // User edit request
         userEditRequester = [[UserEditRequester alloc] init];
         [userEditRequester doRequestWithUser:model.user];

@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "App.h"
+#import "User.h"
 #import "ImageLoaderFactory.h"
 #import "AsynchronousImageDownloader.h"
 #import "AppPinRequest.h"
 #import "AppBlockRequest.h"
-#import "AppActivityRequest.h"
 #import "Constants.h"
 #import "AppOrderedList.h"
 #import "PriceImageLabelHelper.h"
@@ -43,7 +43,6 @@
     
     AppPinRequest *pinRequester;
     AppBlockRequest *blockRequester;
-    AppActivityRequest *activityRequester;
     
     SharingHelper *sharingHelper;
 }

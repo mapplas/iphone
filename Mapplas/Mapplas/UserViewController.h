@@ -19,7 +19,6 @@
 #import "UserBlockedTableViewCell.h"
 #import "UserEmptyTableViewCell.h"
 #import "UserEditRequester.h"
-#import "AppActivityRequest.h"
 
 #import "Constants.h"
 #import "ConfigurationViewController.h"
@@ -45,7 +44,6 @@ typedef enum {
     UserPinUpsRequester *pinUpsRequester;
     UserBlocksRequester *blocksRequester;
     UserEditRequester *userEditRequester;
-    AppActivityRequest *appActivityRequester;
     
     ImageLoader *imageLoader;
 }

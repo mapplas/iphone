@@ -40,7 +40,7 @@
     // Do reverse geocoding
     [self doReverseGeocoding];
     
-    // App info sender
+    // App info sender - url scheme request to server and verify wit canOpenURL:
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
