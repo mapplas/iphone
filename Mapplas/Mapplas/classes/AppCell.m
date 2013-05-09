@@ -145,17 +145,16 @@
 
 - (IBAction)pinUnpinApp:(id)sender {
     NSString *pinRequestConstant = @"";
-    NSString *actionRequestConstant = @"";
     
     if ([self.app.auxPin intValue] == 0) {
         pinRequestConstant = ACTION_PIN_REQUEST_PIN;
-        actionRequestConstant = ACTION_ACTIVITY_PIN;
         self.app.auxPin = [NSNumber numberWithInt:1];
+        self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] + 1];
     }
     else {
         pinRequestConstant = ACTION_PIN_REQUEST_UNPIN;
-        actionRequestConstant = ACTION_ACTIVITY_UNPIN;
         self.app.auxPin = [NSNumber numberWithInt:0];
+        self.app.auxTotalPins = [NSNumber numberWithInt:[self.app.auxTotalPins intValue] - 1];
     }
     
     // Pin/unpin request

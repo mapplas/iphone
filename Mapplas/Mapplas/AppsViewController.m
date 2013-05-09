@@ -188,6 +188,9 @@
     else if(maxIndex < self.loadedListCount) {
         to = self.model.appList.count;
     }
+    else if(self.model.appList.count <= NUMBER_OF_APPS) {
+        to = self.model.appList.count;
+    }
     else {
         to = (NUMBER_OF_APPS * self.loadedListCount) + [scrollManager getRest];
     }
