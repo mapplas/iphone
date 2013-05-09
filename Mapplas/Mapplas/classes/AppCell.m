@@ -209,12 +209,7 @@
 }
 
 - (IBAction)rateApp:(id)sender {
-    RatingModalViewController *ratingController = [[RatingModalViewController alloc] initWithAppId:self.app.appId userId:self.user.userId location:self.currentLocation descriptiveGeoLoc:self.currentDescriptiveGeoLoc andView:self.viewController.navigationController.view];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ratingController];
-    [SCAppUtils customizeNavigationController:navController];
-    ratingController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    
-    [self.viewController.navigationController presentModalViewController:navController animated:YES];
+    // TODO: sent user to appstore rating to current app
 }
 
 @end

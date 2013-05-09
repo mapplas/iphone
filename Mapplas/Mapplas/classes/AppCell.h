@@ -18,7 +18,6 @@
 #import "AppOrderedList.h"
 #import "PriceImageLabelHelper.h"
 
-#import "RatingModalViewController.h"
 #import "RatingHelper.h"
 #import "DYRateView.h"
 

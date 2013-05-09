@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F00029816C0F2B800A2C86F /* RatingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00029716C0F2B800A2C86F /* RatingHelper.m */; };
 		7F00029C16C0F79C00A2C86F /* DYRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00029B16C0F79C00A2C86F /* DYRateView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7F0002A116C1069A00A2C86F /* RatingModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F00029F16C1069A00A2C86F /* RatingModalViewController.m */; };
-		7F0002A216C1069A00A2C86F /* RatingModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0002A016C1069A00A2C86F /* RatingModalViewController.xib */; };
-		7F0002A516C12C1900A2C86F /* RateConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002A416C12C1900A2C86F /* RateConnector.m */; };
-		7F0002A816C12D3700A2C86F /* AppRateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002A716C12D3700A2C86F /* AppRateRequest.m */; };
 		7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */; };
 		7F0002B016C1357000A2C86F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002AF16C1357000A2C86F /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F0002B516C13A8000A2C86F /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0002B416C13A8000A2C86F /* Toast.m */; };
@@ -227,13 +223,6 @@
 		7F00029716C0F2B800A2C86F /* RatingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingHelper.m; path = classes/RatingHelper.m; sourceTree = "<group>"; };
 		7F00029A16C0F79C00A2C86F /* DYRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYRateView.h; sourceTree = "<group>"; };
 		7F00029B16C0F79C00A2C86F /* DYRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYRateView.m; sourceTree = "<group>"; };
-		7F00029E16C1069A00A2C86F /* RatingModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RatingModalViewController.h; path = classes/RatingModalViewController.h; sourceTree = "<group>"; };
-		7F00029F16C1069A00A2C86F /* RatingModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RatingModalViewController.m; path = classes/RatingModalViewController.m; sourceTree = "<group>"; };
-		7F0002A016C1069A00A2C86F /* RatingModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingModalViewController.xib; path = classes/RatingModalViewController.xib; sourceTree = "<group>"; };
-		7F0002A316C12C1900A2C86F /* RateConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RateConnector.h; path = classes/network/RateConnector.h; sourceTree = "<group>"; };
-		7F0002A416C12C1900A2C86F /* RateConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RateConnector.m; path = classes/network/RateConnector.m; sourceTree = "<group>"; };
-		7F0002A616C12D3700A2C86F /* AppRateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppRateRequest.h; path = classes/network/AppRateRequest.h; sourceTree = "<group>"; };
-		7F0002A716C12D3700A2C86F /* AppRateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppRateRequest.m; path = classes/network/AppRateRequest.m; sourceTree = "<group>"; };
 		7F0002A916C1325500A2C86F /* AppRateRequestResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppRateRequestResponseHandler.h; path = classes/network/AppRateRequestResponseHandler.h; sourceTree = "<group>"; };
 		7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppRateRequestResponseHandler.m; path = classes/network/AppRateRequestResponseHandler.m; sourceTree = "<group>"; };
 		7F0002AE16C1357000A2C86F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -609,16 +598,6 @@
 			);
 			name = DYRateView;
 			path = "Mapplas/classes/Third party/DYRateView";
-			sourceTree = "<group>";
-		};
-		7F00029D16C1067C00A2C86F /* Rating */ = {
-			isa = PBXGroup;
-			children = (
-				7F00029E16C1069A00A2C86F /* RatingModalViewController.h */,
-				7F00029F16C1069A00A2C86F /* RatingModalViewController.m */,
-				7F0002A016C1069A00A2C86F /* RatingModalViewController.xib */,
-			);
-			name = Rating;
 			sourceTree = "<group>";
 		};
 		7F0002AD16C1357000A2C86F /* MBProgressHUD */ = {
@@ -1188,7 +1167,6 @@
 			children = (
 				7FFA5BFF16BBB99C002BE898 /* Comments */,
 				7FF760F316D6736500DF29C8 /* Gallery */,
-				7F00029D16C1067C00A2C86F /* Rating */,
 				7FDB527B16DFA4CF0069061A /* WebView */,
 				7FFA007E16B82D8C003E53E1 /* AppDetailViewController.h */,
 				7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */,
@@ -1243,8 +1221,6 @@
 				7F0C5B7416AEB3620093C850 /* GenericConnector.m */,
 				7F2CE76416B6A79300B7E6E5 /* PinConnector.h */,
 				7F2CE76516B6A79400B7E6E5 /* PinConnector.m */,
-				7F0002A316C12C1900A2C86F /* RateConnector.h */,
-				7F0002A416C12C1900A2C86F /* RateConnector.m */,
 				7F03FDB616C5098C0069CBC3 /* UserBlocksConnector.h */,
 				7F03FDB716C5098C0069CBC3 /* UserBlocksConnector.m */,
 				7F14A3C916C8F60200FC0482 /* UserEditConnector.h */,
@@ -1264,8 +1240,6 @@
 				7F2CE76E16B6BEA500B7E6E5 /* AppBlockRequest.m */,
 				7F2CE76116B6A75E00B7E6E5 /* AppPinRequest.h */,
 				7F2CE76216B6A75E00B7E6E5 /* AppPinRequest.m */,
-				7F0002A616C12D3700A2C86F /* AppRateRequest.h */,
-				7F0002A716C12D3700A2C86F /* AppRateRequest.m */,
 				7FED413E16B15DB500581C9D /* AsynchronousImageDownloader.h */,
 				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
 				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
@@ -1545,7 +1519,6 @@
 				7F1C2EDB16C00B680095ECFC /* star_highlighted@2x.png in Resources */,
 				7F1C2EDC16C00B680095ECFC /* star.png in Resources */,
 				7F1C2EDD16C00B680095ECFC /* star@2x.png in Resources */,
-				7F0002A216C1069A00A2C86F /* RatingModalViewController.xib in Resources */,
 				7F0195EB16C26FC70040FAD9 /* AppCell.xib in Resources */,
 				7F00B84E16C3F2D000F91B56 /* ic_profile_photo_frame.png in Resources */,
 				7F00B84F16C3F2D000F91B56 /* ic_profile_photo.png in Resources */,
@@ -1680,9 +1653,6 @@
 				7FFA5C0616BBB9D4002BE898 /* AppDetailCommentsViewController.m in Sources */,
 				7F00029816C0F2B800A2C86F /* RatingHelper.m in Sources */,
 				7F00029C16C0F79C00A2C86F /* DYRateView.m in Sources */,
-				7F0002A116C1069A00A2C86F /* RatingModalViewController.m in Sources */,
-				7F0002A516C12C1900A2C86F /* RateConnector.m in Sources */,
-				7F0002A816C12D3700A2C86F /* AppRateRequest.m in Sources */,
 				7F0002AB16C1325600A2C86F /* AppRateRequestResponseHandler.m in Sources */,
 				7F0002B016C1357000A2C86F /* MBProgressHUD.m in Sources */,
 				7F0002B516C13A8000A2C86F /* Toast.m in Sources */,

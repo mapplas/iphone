@@ -30,7 +30,6 @@
 #import "AppBlockRequest.h"
 
 #import "RatingHelper.h"
-#import "RatingModalViewController.h"
 
 #import "SharingHelper.h"
 #import "WebViewViewController.h"
