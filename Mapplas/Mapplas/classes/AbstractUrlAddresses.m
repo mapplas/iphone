@@ -18,8 +18,10 @@
 @synthesize editUser;
 
 @synthesize getApps;
+
 @synthesize pinApp;
 @synthesize blockApp;
+@synthesize shareApp;
 
 @synthesize userPinUps;
 @synthesize userBlocks;
@@ -52,6 +54,7 @@
     
     [self setPinApp:[self buildAddresWithPath:@"/user/pin"]];
     [self setBlockApp:[self buildAddresWithPath:@"/user/block"]];
+    [self setShareApp:[self buildAddresWithPath:@"/user/share"]];
     
     [self setUserPinUps:[self buildAddresWithPath:@"/ipc_userPinups.php"]];
     [self setUserBlocks:[self buildAddresWithPath:@"/ipc_userBlocks.php"]];
