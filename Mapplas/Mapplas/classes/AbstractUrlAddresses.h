@@ -22,10 +22,9 @@
 @property (nonatomic, strong) NSString *blockApp;
 @property (nonatomic, strong) NSString *shareApp;
 
-@property (nonatomic, strong) NSString *userPinUps;
-@property (nonatomic, strong) NSString *userBlocks;
-
+@property (nonatomic, strong) NSString *userPinAndBlocks;
 
 - (void)reloadAddresses;
+- (NSString *)userPinAndBlocks:(NSNumber *)user_id;
 
 @end

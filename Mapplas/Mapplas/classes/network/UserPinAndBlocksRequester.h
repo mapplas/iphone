@@ -1,5 +1,5 @@
 //
-//  UserPinUpsRequester.h
+//  UserPinAndBlocksRequester.h
 //  Mapplas
 //
 //  Created by Belén  on 08/02/13.
@@ -7,13 +7,13 @@
 //
 
 #import "Environment.h"
-#import "UserPinUpsConnector.h"
-#import "UserPinUpsResponseHandler.h"
+#import "UserPinAndBlocksConnector.h"
+#import "UserPinAndBlocksResponseHandler.h"
 #import "UserViewController.h"
-#import "JSONToAppMapper.h"
+#import "JSONToPinnedBlockedAppMapper.h"
 
-@interface UserPinUpsRequester : NSObject {
-    UserPinUpsConnector *connector;
+@interface UserPinAndBlocksRequester : NSObject {
+    UserPinAndBlocksConnector *connector;
 }
 
 - (void)doRequestWithUser:(User *)_user viewController:(UserViewController *)user_view_controller;
