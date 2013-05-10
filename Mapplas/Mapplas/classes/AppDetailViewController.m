@@ -338,7 +338,7 @@
         
         activityViewController.completionHandler = ^(NSString *activityType, BOOL completed){
             if (completed) {
-                [self shareType:activityType];
+                [sharingHelper shareType:activityType];
             }
         };
         
@@ -354,23 +354,6 @@
 		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, smsButton, emailButton, nil];
 		[alertView showInView:self.view];
 	}
-}
-
-- (void)shareType:(NSString *)activity_type {
-    NSString *myActivityConstant = ACTION_SHARE_REQUEST_VIA_UNKNOWN;
-    
-    if ([activity_type isEqualToString:@"com.apple.UIKit.activity.PostToFacebook"]) {
-        myActivityConstant = ACTION_SHARE_REQUEST_VIA_FACEBOOK;
-    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.PostToTwitter"]) {
-        myActivityConstant = ACTION_SHARE_REQUEST_VIA_TWITTER;
-    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.Mail"]) {
-        myActivityConstant = ACTION_SHARE_REQUEST_VIA_EMAIL;
-    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.Message"]) {
-        myActivityConstant = ACTION_SHARE_REQUEST_VIA_SMS;
-    }
-    
-    appShareRequester = [[AppShareRequest alloc] init];
-    [appShareRequester doRequestWithAppId:self.app.appId userId:self.user.userId andLocation:self.currentLocation via:myActivityConstant];
 }
 
 - (IBAction)call:(id)sender {

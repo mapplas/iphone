@@ -196,6 +196,12 @@
 		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
 		activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
         
+        activityViewController.completionHandler = ^(NSString *activityType, BOOL completed){
+            if (completed) {
+                [sharingHelper shareType:activityType];
+            }
+        };
+        
 		[self.viewController.navigationController presentViewController:activityViewController animated:YES completion:nil];
 	}
 	else {
