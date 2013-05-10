@@ -38,12 +38,9 @@
 		7F03FDA916C4EEC40069CBC3 /* bgd_tab_pressed_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDA716C4EEC40069CBC3 /* bgd_tab_pressed_right.png */; };
 		7F03FDAD16C4F4E70069CBC3 /* UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDAC16C4F4E70069CBC3 /* UserListTableViewCell.m */; };
 		7F03FDAF16C4F50A0069CBC3 /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDAE16C4F50A0069CBC3 /* UserListTableViewCell.xib */; };
-		7F03FDB216C507A30069CBC3 /* UserPinUpsConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDB116C507A30069CBC3 /* UserPinUpsConnector.m */; };
-		7F03FDB516C507D90069CBC3 /* UserPinUpsResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDB416C507D90069CBC3 /* UserPinUpsResponseHandler.m */; };
-		7F03FDB816C5098C0069CBC3 /* UserBlocksConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDB716C5098C0069CBC3 /* UserBlocksConnector.m */; };
-		7F03FDBB16C509C70069CBC3 /* UserBlocksResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDBA16C509C70069CBC3 /* UserBlocksResponseHandler.m */; };
-		7F03FDBE16C50AB40069CBC3 /* UserPinUpsRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDBD16C50AB40069CBC3 /* UserPinUpsRequester.m */; };
-		7F03FDC116C523020069CBC3 /* UserBlocksRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDC016C523010069CBC3 /* UserBlocksRequester.m */; };
+		7F03FDB216C507A30069CBC3 /* UserPinAndBlocksConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDB116C507A30069CBC3 /* UserPinAndBlocksConnector.m */; };
+		7F03FDB516C507D90069CBC3 /* UserPinAndBlocksResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDB416C507D90069CBC3 /* UserPinAndBlocksResponseHandler.m */; };
+		7F03FDBE16C50AB40069CBC3 /* UserPinAndBlocksRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDBD16C50AB40069CBC3 /* UserPinAndBlocksRequester.m */; };
 		7F03FDC416C526630069CBC3 /* UserBlockedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */; };
 		7F03FDC616C5267C0069CBC3 /* UserBlockedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */; };
 		7F03FDC816C526F80069CBC3 /* ic_action_unblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F03FDC716C526F80069CBC3 /* ic_action_unblock.png */; };
@@ -77,6 +74,7 @@
 		7F14A3CB16C8F60200FC0482 /* UserEditConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CA16C8F60200FC0482 /* UserEditConnector.m */; };
 		7F14A3CE16C8F76500FC0482 /* UserEditRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */; };
 		7F14A3D816C9159600FC0482 /* MutableScrollViewOfViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */; };
+		7F191B87173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F191B86173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m */; };
 		7F1982DF16C9646B00886FF7 /* UserEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1982DE16C9646B00886FF7 /* UserEmptyTableViewCell.m */; };
 		7F1982E216C9648600886FF7 /* UserEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1982E116C9648600886FF7 /* UserEmptyTableViewCell.xib */; };
 		7F1C2EDA16C00B680095ECFC /* star_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C2ED616C00B680095ECFC /* star_highlighted.png */; };
@@ -273,18 +271,12 @@
 		7F03FDAB16C4F4E70069CBC3 /* UserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserListTableViewCell.h; path = classes/UserListTableViewCell.h; sourceTree = "<group>"; };
 		7F03FDAC16C4F4E70069CBC3 /* UserListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserListTableViewCell.m; path = classes/UserListTableViewCell.m; sourceTree = "<group>"; };
 		7F03FDAE16C4F50A0069CBC3 /* UserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserListTableViewCell.xib; path = classes/UserListTableViewCell.xib; sourceTree = "<group>"; };
-		7F03FDB016C507A30069CBC3 /* UserPinUpsConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinUpsConnector.h; path = classes/network/UserPinUpsConnector.h; sourceTree = "<group>"; };
-		7F03FDB116C507A30069CBC3 /* UserPinUpsConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinUpsConnector.m; path = classes/network/UserPinUpsConnector.m; sourceTree = "<group>"; };
-		7F03FDB316C507D90069CBC3 /* UserPinUpsResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinUpsResponseHandler.h; path = classes/network/UserPinUpsResponseHandler.h; sourceTree = "<group>"; };
-		7F03FDB416C507D90069CBC3 /* UserPinUpsResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinUpsResponseHandler.m; path = classes/network/UserPinUpsResponseHandler.m; sourceTree = "<group>"; };
-		7F03FDB616C5098C0069CBC3 /* UserBlocksConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBlocksConnector.h; path = classes/network/UserBlocksConnector.h; sourceTree = "<group>"; };
-		7F03FDB716C5098C0069CBC3 /* UserBlocksConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlocksConnector.m; path = classes/network/UserBlocksConnector.m; sourceTree = "<group>"; };
-		7F03FDB916C509C70069CBC3 /* UserBlocksResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBlocksResponseHandler.h; path = classes/network/UserBlocksResponseHandler.h; sourceTree = "<group>"; };
-		7F03FDBA16C509C70069CBC3 /* UserBlocksResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlocksResponseHandler.m; path = classes/network/UserBlocksResponseHandler.m; sourceTree = "<group>"; };
-		7F03FDBC16C50AB40069CBC3 /* UserPinUpsRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinUpsRequester.h; path = classes/network/UserPinUpsRequester.h; sourceTree = "<group>"; };
-		7F03FDBD16C50AB40069CBC3 /* UserPinUpsRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinUpsRequester.m; path = classes/network/UserPinUpsRequester.m; sourceTree = "<group>"; };
-		7F03FDBF16C523010069CBC3 /* UserBlocksRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBlocksRequester.h; path = classes/network/UserBlocksRequester.h; sourceTree = "<group>"; };
-		7F03FDC016C523010069CBC3 /* UserBlocksRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlocksRequester.m; path = classes/network/UserBlocksRequester.m; sourceTree = "<group>"; };
+		7F03FDB016C507A30069CBC3 /* UserPinAndBlocksConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinAndBlocksConnector.h; path = classes/network/UserPinAndBlocksConnector.h; sourceTree = "<group>"; };
+		7F03FDB116C507A30069CBC3 /* UserPinAndBlocksConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinAndBlocksConnector.m; path = classes/network/UserPinAndBlocksConnector.m; sourceTree = "<group>"; };
+		7F03FDB316C507D90069CBC3 /* UserPinAndBlocksResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinAndBlocksResponseHandler.h; path = classes/network/UserPinAndBlocksResponseHandler.h; sourceTree = "<group>"; };
+		7F03FDB416C507D90069CBC3 /* UserPinAndBlocksResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinAndBlocksResponseHandler.m; path = classes/network/UserPinAndBlocksResponseHandler.m; sourceTree = "<group>"; };
+		7F03FDBC16C50AB40069CBC3 /* UserPinAndBlocksRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPinAndBlocksRequester.h; path = classes/network/UserPinAndBlocksRequester.h; sourceTree = "<group>"; };
+		7F03FDBD16C50AB40069CBC3 /* UserPinAndBlocksRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPinAndBlocksRequester.m; path = classes/network/UserPinAndBlocksRequester.m; sourceTree = "<group>"; };
 		7F03FDC216C526630069CBC3 /* UserBlockedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBlockedTableViewCell.h; path = classes/UserBlockedTableViewCell.h; sourceTree = "<group>"; };
 		7F03FDC316C526630069CBC3 /* UserBlockedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBlockedTableViewCell.m; path = classes/UserBlockedTableViewCell.m; sourceTree = "<group>"; };
 		7F03FDC516C5267C0069CBC3 /* UserBlockedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserBlockedTableViewCell.xib; path = classes/UserBlockedTableViewCell.xib; sourceTree = "<group>"; };
@@ -343,6 +335,8 @@
 		7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEditRequester.m; path = classes/network/UserEditRequester.m; sourceTree = "<group>"; };
 		7F14A3D616C9159600FC0482 /* MutableScrollViewOfViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MutableScrollViewOfViews.h; path = classes/utils/MutableScrollViewOfViews.h; sourceTree = "<group>"; };
 		7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MutableScrollViewOfViews.m; path = classes/utils/MutableScrollViewOfViews.m; sourceTree = "<group>"; };
+		7F191B85173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToPinnedBlockedAppMapper.h; path = classes/mappers/JSONToPinnedBlockedAppMapper.h; sourceTree = "<group>"; };
+		7F191B86173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToPinnedBlockedAppMapper.m; path = classes/mappers/JSONToPinnedBlockedAppMapper.m; sourceTree = "<group>"; };
 		7F1982DD16C9646B00886FF7 /* UserEmptyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserEmptyTableViewCell.h; path = classes/UserEmptyTableViewCell.h; sourceTree = "<group>"; };
 		7F1982DE16C9646B00886FF7 /* UserEmptyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEmptyTableViewCell.m; path = classes/UserEmptyTableViewCell.m; sourceTree = "<group>"; };
 		7F1982E116C9648600886FF7 /* UserEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserEmptyTableViewCell.xib; path = classes/UserEmptyTableViewCell.xib; sourceTree = "<group>"; };
@@ -1229,14 +1223,12 @@
 				7F0C5B7416AEB3620093C850 /* GenericConnector.m */,
 				7F2CE76416B6A79300B7E6E5 /* PinConnector.h */,
 				7F2CE76516B6A79400B7E6E5 /* PinConnector.m */,
-				7F03FDB616C5098C0069CBC3 /* UserBlocksConnector.h */,
-				7F03FDB716C5098C0069CBC3 /* UserBlocksConnector.m */,
 				7F14A3C916C8F60200FC0482 /* UserEditConnector.h */,
 				7F14A3CA16C8F60200FC0482 /* UserEditConnector.m */,
 				7FFFBAAC16A9351100417499 /* UserIdentificationConnector.h */,
 				7FFFBAAD16A9351100417499 /* UserIdentificationConnector.m */,
-				7F03FDB016C507A30069CBC3 /* UserPinUpsConnector.h */,
-				7F03FDB116C507A30069CBC3 /* UserPinUpsConnector.m */,
+				7F03FDB016C507A30069CBC3 /* UserPinAndBlocksConnector.h */,
+				7F03FDB116C507A30069CBC3 /* UserPinAndBlocksConnector.m */,
 			);
 			name = Connectors;
 			sourceTree = "<group>";
@@ -1254,14 +1246,12 @@
 				7FED413F16B15DB500581C9D /* AsynchronousImageDownloader.m */,
 				7FED413B16B1592D00581C9D /* DownloadedImageController.h */,
 				7FED413C16B1592D00581C9D /* DownloadedImageController.m */,
-				7F03FDBF16C523010069CBC3 /* UserBlocksRequester.h */,
-				7F03FDC016C523010069CBC3 /* UserBlocksRequester.m */,
 				7F14A3CC16C8F76500FC0482 /* UserEditRequester.h */,
 				7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */,
 				7FFFBA9B16A932AB00417499 /* UserIdentificationRequest.h */,
 				7FFFBA9C16A932AB00417499 /* UserIdentificationRequest.m */,
-				7F03FDBC16C50AB40069CBC3 /* UserPinUpsRequester.h */,
-				7F03FDBD16C50AB40069CBC3 /* UserPinUpsRequester.m */,
+				7F03FDBC16C50AB40069CBC3 /* UserPinAndBlocksRequester.h */,
+				7F03FDBD16C50AB40069CBC3 /* UserPinAndBlocksRequester.m */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -1298,12 +1288,10 @@
 				7F0002A916C1325500A2C86F /* AppRateRequestResponseHandler.h */,
 				7F0002AA16C1325500A2C86F /* AppRateRequestResponseHandler.m */,
 				7F0C5BB816AEF6200093C850 /* GenericRequestHandler.h */,
-				7F03FDB916C509C70069CBC3 /* UserBlocksResponseHandler.h */,
-				7F03FDBA16C509C70069CBC3 /* UserBlocksResponseHandler.m */,
 				7FFFBAE116A9428C00417499 /* UserIdentificationResponseHandler.h */,
 				7FFFBAE216A9428C00417499 /* UserIdentificationResponseHandler.m */,
-				7F03FDB316C507D90069CBC3 /* UserPinUpsResponseHandler.h */,
-				7F03FDB416C507D90069CBC3 /* UserPinUpsResponseHandler.m */,
+				7F03FDB316C507D90069CBC3 /* UserPinAndBlocksResponseHandler.h */,
+				7F03FDB416C507D90069CBC3 /* UserPinAndBlocksResponseHandler.m */,
 			);
 			name = Handlers;
 			sourceTree = "<group>";
@@ -1338,6 +1326,8 @@
 				7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */,
 				7F03407B16CA96A500F5027C /* JSONToNotificationMapper.h */,
 				7F03407C16CA96A500F5027C /* JSONToNotificationMapper.m */,
+				7F191B85173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.h */,
+				7F191B86173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m */,
 				7F585A0516AFD24000DB843A /* JSONToPhotoMapper.h */,
 				7F585A0616AFD24000DB843A /* JSONToPhotoMapper.m */,
 				7FFFBB7D16A9657100417499 /* JSONToUserMapper.h */,
@@ -1668,12 +1658,9 @@
 				7F0002B516C13A8000A2C86F /* Toast.m in Sources */,
 				7F0195E916C25F350040FAD9 /* SharingHelper.m in Sources */,
 				7F03FDAD16C4F4E70069CBC3 /* UserListTableViewCell.m in Sources */,
-				7F03FDB216C507A30069CBC3 /* UserPinUpsConnector.m in Sources */,
-				7F03FDB516C507D90069CBC3 /* UserPinUpsResponseHandler.m in Sources */,
-				7F03FDB816C5098C0069CBC3 /* UserBlocksConnector.m in Sources */,
-				7F03FDBB16C509C70069CBC3 /* UserBlocksResponseHandler.m in Sources */,
-				7F03FDBE16C50AB40069CBC3 /* UserPinUpsRequester.m in Sources */,
-				7F03FDC116C523020069CBC3 /* UserBlocksRequester.m in Sources */,
+				7F03FDB216C507A30069CBC3 /* UserPinAndBlocksConnector.m in Sources */,
+				7F03FDB516C507D90069CBC3 /* UserPinAndBlocksResponseHandler.m in Sources */,
+				7F03FDBE16C50AB40069CBC3 /* UserPinAndBlocksRequester.m in Sources */,
 				7F03FDC416C526630069CBC3 /* UserBlockedTableViewCell.m in Sources */,
 				7F14A3CB16C8F60200FC0482 /* UserEditConnector.m in Sources */,
 				7F14A3CE16C8F76500FC0482 /* UserEditRequester.m in Sources */,
@@ -1703,6 +1690,7 @@
 				7FF0A5C816E635A40028561F /* Reachability.m in Sources */,
 				7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */,
 				7F8EF4BD173BCA8B00625C53 /* AppShareRequest.m in Sources */,
+				7F191B87173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

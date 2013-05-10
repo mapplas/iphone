@@ -23,8 +23,7 @@
 @synthesize blockApp;
 @synthesize shareApp;
 
-@synthesize userPinUps;
-@synthesize userBlocks;
+@synthesize userPinAndBlocks;
 
 - (id)init {
 	self = [super init];
@@ -55,9 +54,10 @@
     [self setPinApp:[self buildAddresWithPath:@"/user/pin"]];
     [self setBlockApp:[self buildAddresWithPath:@"/user/block"]];
     [self setShareApp:[self buildAddresWithPath:@"/user/share"]];
-    
-    [self setUserPinUps:[self buildAddresWithPath:@"/ipc_userPinups.php"]];
-    [self setUserBlocks:[self buildAddresWithPath:@"/ipc_userBlocks.php"]];
+}
+
+- (NSString *)userPinAndBlocks:(NSNumber *)user_id {
+    return [self buildAddresWithPath:[NSString stringWithFormat:@"/user-apps-info/%d", [user_id integerValue]]];
 }
 
 @end
