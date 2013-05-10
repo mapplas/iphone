@@ -44,6 +44,7 @@
     AppBlockRequest *blockRequester;
     
     SharingHelper *sharingHelper;
+    AppShareRequest *appShareRequester;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *cellContent;

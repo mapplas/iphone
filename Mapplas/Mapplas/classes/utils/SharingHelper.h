@@ -27,4 +27,6 @@
 - (id)initWithApp:(App *)_app navigationController:(UINavigationController *)nav_controller user:(User *)_user andLocation:(NSString *)_current_location;
 - (NSString *)getShareMessage;
 
+- (void)shareType:(NSString *)activity_type;
+
 @end

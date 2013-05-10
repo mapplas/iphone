@@ -119,4 +119,21 @@
     }
 }
 
+- (void)shareType:(NSString *)activity_type {
+    NSString *myActivityConstant = ACTION_SHARE_REQUEST_VIA_UNKNOWN;
+    
+    if ([activity_type isEqualToString:@"com.apple.UIKit.activity.PostToFacebook"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_FACEBOOK;
+    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.PostToTwitter"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_TWITTER;
+    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.Mail"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_EMAIL;
+    } else if ([activity_type isEqualToString:@"com.apple.UIKit.activity.Message"]) {
+        myActivityConstant = ACTION_SHARE_REQUEST_VIA_SMS;
+    }
+    
+    appShareRequester = [[AppShareRequest alloc] init];
+    [appShareRequester doRequestWithAppId:app.appId userId:user.userId andLocation:current_location via:myActivityConstant];
+}
+
 @end
