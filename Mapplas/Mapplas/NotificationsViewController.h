@@ -32,6 +32,6 @@ typedef enum {
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
-- (id)initWithModel:(SuperModel *)_model appsViewController:(UIViewController *)apps_controller;
+//- (id)initWithModel:(SuperModel *)_model appsViewController:(UIViewController *)apps_controller;
 
 @end

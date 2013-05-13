@@ -275,3 +275,15 @@
 
 /* Wifi not connected toast text */
 "wifi_error_toast" = "Obten una busqueda más precisa! Activa la conexión Wi-Fi. Funcionará incluso sin que te conectes a una red.";
+
+/* Título de alert view de valora la app */
+"review_alert_title" = "Valora la aplicación";
+
+/* Mensaje de alert view de valora la app */
+"review_alert_message" = "¿Deseas valorar";
+
+/* Review alert ok button title */
+"review_alert_ok_button" = "Valorar ahora";
+
+/* Review alert cancell button title */
+"review_alert_cancel_button" = "No, gracias";

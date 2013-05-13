@@ -10,7 +10,6 @@
 #import <MessageUI/MessageUI.h>
 
 #import "App.h"
-#import "Photo.h"
 #import "User.h"
 #import "SuperModel.h"
 
@@ -22,7 +21,6 @@
 
 #import "MutableScrollViewOfViews.h"
 
-#import "AppDetailCommentsViewController.h"
 #import "SCAppUtils.h"
 
 #import "Constants.h"
@@ -30,7 +28,6 @@
 #import "AppBlockRequest.h"
 
 #import "RatingHelper.h"
-
 #import "SharingHelper.h"
 #import "WebViewViewController.h"
 
@@ -57,6 +54,7 @@
     AppBlockRequest *blockRequest;
     
     SharingHelper *sharingHelper;
+    RatingHelper *rateHelper;
     AppShareRequest *appShareRequester;
     AppDetailRequester *appDetailRequester;
 }

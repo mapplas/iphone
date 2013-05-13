@@ -32,6 +32,7 @@
 @synthesize cellLoading;
 @synthesize loading;
 @synthesize loadingText;
+@synthesize cellLoadingEmpty;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -140,8 +141,7 @@
     
     self.loadingText.text = NSLocalizedString(@"loading_cell_text", @"Apps refreshing cell text");
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *uniqueCode = [defaults objectForKey:UUID_USER_DEFAULTS_KEY];
+    NSString *uniqueCode = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
     uniqueCode = [uniqueCode stringByReplacingOccurrencesOfString:@"-" withString:@""];
     [self.model setCurrentImei:uniqueCode];
     
@@ -241,8 +241,14 @@
     self.loadedListCount = 0;
     
     // Endless adapter
-    [self.table setTableFooterView:self.cellLoading];
-    //populate the tableview with some data
+    int height = CELL_HEIGHT;
+    if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
+        [self.table setTableFooterView:self.cellLoading];
+    } else {
+        [self.table setTableFooterView:self.cellLoadingEmpty];
+    }
+    
+    // Populate the tableview with some data
     [self addItemsToEndOfTableView];
     
     [_refreshHeaderView refreshLastUpdatedDate];
@@ -306,7 +312,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 72;
+    return CELL_HEIGHT;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

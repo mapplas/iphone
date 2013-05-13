@@ -275,3 +275,15 @@
 
 /* Wifi not connected toast text */
 "wifi_error_toast" = "Improve the search! For more accurate recommendations, turn Wi-Fi on. This works even when not connected to a network.";
+
+/* Review alert title */
+"review_alert_title" = "Review application";
+
+/* Review alert message */
+"review_alert_message" = "Would you like to rate";
+
+/* Review alert ok button title */
+"review_alert_ok_button" = "Rate now";
+
+/* Review alert cancell button title */
+"review_alert_cancel_button" = "No, thanks";

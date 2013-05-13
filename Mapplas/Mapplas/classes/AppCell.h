@@ -18,10 +18,10 @@
 #import "AppOrderedList.h"
 #import "PriceImageLabelHelper.h"
 
-#import "RatingHelper.h"
 #import "DYRateView.h"
 
 #import "SharingHelper.h"
+#import "RatingHelper.h"
 
 @class AppsViewController;
 
@@ -43,6 +43,7 @@
     AppPinRequest *pinRequester;
     AppBlockRequest *blockRequester;
     
+    RatingHelper *rateHelper;
     SharingHelper *sharingHelper;
     AppShareRequest *appShareRequester;
 }

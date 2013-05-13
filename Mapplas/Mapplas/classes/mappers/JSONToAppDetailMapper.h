@@ -12,7 +12,6 @@
 
 #import "KeyValueMapper.h"
 #import "KeyValueScappedMapper.h"
-#import "JSONToPhotoMapper.h"
 #import "TargetIteratingMapper.h"
 
 @interface JSONToAppDetailMapper : GenericMapper <TargetMapper>

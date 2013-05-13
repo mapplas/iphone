@@ -136,10 +136,6 @@
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
     self.priceLabel.text = [priceHelper getPriceText];
     self.priceBackground.image = [priceHelper getImage];
-    
-    // Rating
-    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
-    [self.topBar addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
 
     // Action layout
     [self initPinActionLayout];
@@ -326,7 +322,7 @@
 }
 
 - (IBAction)block:(id)sender {
-    self.app.auxBlocked = @"1";
+//    self.app.auxBlocked = @"1";
     somethingChangedOnApp = YES;
     
     [self.model.appList deleteApp:self.app];
@@ -341,7 +337,8 @@
 }
 
 - (IBAction)rate:(id)sender {
-    // TODO: sent user to appstore rating to current app
+    rateHelper = [[RatingHelper alloc] init];
+    [rateHelper rateApp:self.app];
 }
 
 - (IBAction)share:(id)sender {
