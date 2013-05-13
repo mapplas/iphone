@@ -18,6 +18,7 @@
     NSString *_appLogo;
     NSString *_appLogoMini;
     NSString *_appUrl;
+    NSString *_appSupportUrl;
     NSString *_appDescription;
     NSString *_phone;
     
@@ -58,6 +59,7 @@
 @property (nonatomic, strong) NSString *appLogo;
 @property (nonatomic, strong) NSString *appLogoMini;
 @property (nonatomic, strong) NSString *appUrl;
+@property (nonatomic, strong) NSString *appSupportUrl;
 @property (nonatomic, strong) NSString *appDescription;
 @property (nonatomic, strong) NSString *phone;
 

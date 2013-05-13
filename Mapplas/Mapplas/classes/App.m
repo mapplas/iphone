@@ -21,6 +21,7 @@
 @synthesize appLogo = _appLogo;
 @synthesize appLogoMini = _appLogoMini;
 @synthesize appUrl = _appUrl;
+@synthesize appSupportUrl = _appSupportUrl;
 @synthesize appDescription = _appDescription;
 @synthesize phone = _phone;
 

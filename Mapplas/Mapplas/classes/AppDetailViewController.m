@@ -65,7 +65,7 @@
     }
     
     NSMutableArray *viewsToAddToScroll = nil;
-    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.developerTable, nil];
+    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, nil];
 
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
@@ -83,11 +83,25 @@
 }
 
 - (void)detailDataLoaded {
-    [self downloadGalleryImages];
-    [self configureGallery];
+    // Gallery
+    if ([self.app.auxPhotosArray count] > 0) {
+        [self downloadGalleryImages];
+        [self configureGallery];
+        
+        [scrollViewConfigurator addView:self.galleryView];
+    }
     
     // Description
-    [self showAppSmallDescription];
+    if (![self.app.description isEqualToString:@""]) {
+        [self showAppSmallDescription];
+        [scrollViewConfigurator addView:self.descriptionView];
+    }
+    
+    if (![self.app.appUrl isEqualToString:@""]) {
+        [scrollViewConfigurator addView:self.developerTable];
+    }
+    
+    [scrollViewConfigurator organize];
 }
 
 - (void)downloadGalleryImages {
@@ -368,7 +382,7 @@
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setMailComposeDelegate:self];
     
-    NSString *mail = @"developer email";
+    NSString *mail = self.app.appSupportUrl;
     [controller setToRecipients:[NSArray arrayWithObject:mail]];
     NSString *subject = NSLocalizedString(@"app_developer_email_contact", @"Email app developer contact email subject");
     [controller setSubject:subject];
@@ -421,9 +435,9 @@
         rows++;
     }
     
-//    if (![self.app.appEmail isEqualToString:@""]) {
-//        rows++;
-//    }
+    if (![self.app.appSupportUrl isEqualToString:@""]) {
+        rows++;
+    }
     
     if (rows == 0) {
         [scrollViewConfigurator removeView:self.developerTable];
@@ -474,7 +488,7 @@
             if (![self.app.appUrl isEqualToString:@""]) {
                 cell.textLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
             }
-            else {
+            else if (![self.app.appSupportUrl isEqualToString:@""]) {
                 cell.textLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
             }
             break;

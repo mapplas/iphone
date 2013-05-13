@@ -13,9 +13,8 @@
 - (id)init {    
 	NSArray *mappingProperties = [[NSArray alloc] initWithObjects:
                                   [[KeyValueScappedMapper alloc] initWithKey:@"curl" action:@selector(setAppUrl:)],
-//                                  [[KeyValueScappedMapper alloc] initWithKey:@"surl" action:@selector(setRate:)],
+                                  [[KeyValueScappedMapper alloc] initWithKey:@"surl" action:@selector(setAppSupportUrl:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"d" action:@selector(setAppDescription:)],
-//                                  [[KeyValueMapper alloc] initWithKey:@"v" action:@selector(setHour:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"scr" action:@selector(setAuxPhotosStr:)],
                                   nil];
     
