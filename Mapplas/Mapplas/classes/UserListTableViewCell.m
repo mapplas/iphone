@@ -45,7 +45,7 @@
     }
     
     self.appTitle.text = app.name;
-    self.appGeoLocation.text = app.pinnedGeocodedLocation;
+    self.appGeoLocation.text = app.appPinnedGeocodedLocation;
     
     self.appPinActionLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
 }

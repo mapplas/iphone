@@ -68,15 +68,7 @@
                                         return NSOrderedAscending;
                                     }
                                     else {
-                                        if(app1.auxTotalRate > app2.auxTotalRate) {
-                                            return NSOrderedDescending;
-                                        }
-                                        else if(app1.auxTotalRate < app2.auxTotalRate) {
-                                            return NSOrderedAscending;
-                                        }
-                                        else {
-                                            return NSOrderedSame;
-                                        }
+                                        return NSOrderedSame;
                                     }
                                 }
                             }];

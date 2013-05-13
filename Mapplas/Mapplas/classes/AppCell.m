@@ -87,9 +87,9 @@
     [self.cellContent addSubview:self.cellUnpressed];
     
     // Rating
-    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
-    [self.cellUnpressed addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
-    self.ratingLabel.text = [ratingHelper getRatingTextForApp:self.app];
+//    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
+//    [self.cellUnpressed addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
+//    self.ratingLabel.text = [ratingHelper getRatingTextForApp:self.app];
 }
 
 - (void)loadPressedCellData {
@@ -215,7 +215,8 @@
 }
 
 - (IBAction)rateApp:(id)sender {
-    // TODO: sent user to appstore rating to current app
+    rateHelper = [[RatingHelper alloc] init];
+    [rateHelper rateApp:self.app];
 }
 
 @end

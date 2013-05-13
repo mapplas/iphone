@@ -14,7 +14,6 @@
 #import "KeyValueScappedMapper.h"
 #import "TargetIteratingMapper.h"
 #import "JSONToCommentMapper.h"
-#import "JSONToPhotoMapper.h"
 
 @interface JSONToAppMapper : GenericMapper <ReturnMapper> {
     CLGeocoder *geocoder;
