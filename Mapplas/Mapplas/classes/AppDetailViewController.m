@@ -7,6 +7,7 @@
 //
 
 #import "AppDetailViewController.h"
+#import "AppDetailRequester.h"
 
 @interface AppDetailViewController ()
 - (void)downloadGalleryImages;
@@ -54,25 +55,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *viewsToAddToScroll = nil;
-//    if (self.app.auxCommentsArray.count > 0) {
-//        self.commentsViewController = [[AppDetailCommentsViewController alloc] initWithApp:self.app];
-//        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.commentsViewController, self.supportView, nil];
-//    }
-//    else {
+    appDetailRequester = [[AppDetailRequester alloc] init];
+    [appDetailRequester doRequestWithApp:self.app andViewController:self];
     
     // Telephone icon or not
     UIView *whatActionBar = self.actionBar;
     if ([self.app.phone isEqualToString:@""]) {
         whatActionBar = self.actionBarWithoutTeleph;
     }
-    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.developerTable, nil];
+    
+    NSMutableArray *viewsToAddToScroll = nil;
+    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, nil];
 
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
-    [self downloadGalleryImages];
+    ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
+    AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
+    imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
+    
     [self initLayout];
-    [self configureGallery];
     
     [scrollViewConfigurator organize];
 }
@@ -85,19 +86,39 @@
     }
 }
 
-- (void)downloadGalleryImages {
-    ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
-    AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
-    imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
+- (void)detailDataLoaded {
+    // Gallery
+    if ([self.app.auxPhotosArray count] > 0) {
+        [self downloadGalleryImages];
+        [self configureGallery];
+        
+        [scrollViewConfigurator addView:self.galleryView];
+    }
     
-    for (Photo *currenPhoto in self.app.auxPhotosArray) {
-        UIImage *currentImage = [imageLoader load:currenPhoto.photo withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+    // Description
+    if (![self.app.description isEqualToString:@""]) {
+        [self showAppSmallDescription];
+        [scrollViewConfigurator addView:self.descriptionView];
+    }
+    
+    if (![self.app.appUrl isEqualToString:@""]) {
+        [scrollViewConfigurator addView:self.developerTable];
+    }
+    
+    [scrollViewConfigurator organize];
+}
+
+- (void)downloadGalleryImages {
+    int i = 0;
+    for (NSString *currenPhoto in self.app.auxPhotosArray) {
+        UIImage *currentImage = [imageLoader load:currenPhoto withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         if (currentImage == nil) {
-            [imagesArray setValue:@"" forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+            [imagesArray setValue:@"" forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         }
         else {
-            [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+            [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         }
+        i++;
     }
 }
 
@@ -136,9 +157,6 @@
     self.shareWithoutPhoneLabel.text = shareLabelText;
     
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
-    
-    // Description
-    [self showAppSmallDescription];
 }
 
 - (void)configureGallery {
@@ -364,7 +382,7 @@
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setMailComposeDelegate:self];
     
-    NSString *mail = @"developer email";
+    NSString *mail = self.app.appSupportUrl;
     [controller setToRecipients:[NSArray arrayWithObject:mail]];
     NSString *subject = NSLocalizedString(@"app_developer_email_contact", @"Email app developer contact email subject");
     [controller setSubject:subject];
@@ -417,9 +435,9 @@
         rows++;
     }
     
-//    if (![self.app.appEmail isEqualToString:@""]) {
-//        rows++;
-//    }
+    if (![self.app.appSupportUrl isEqualToString:@""]) {
+        rows++;
+    }
     
     if (rows == 0) {
         [scrollViewConfigurator removeView:self.developerTable];
@@ -470,7 +488,7 @@
             if (![self.app.appUrl isEqualToString:@""]) {
                 cell.textLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
             }
-            else {
+            else if (![self.app.appSupportUrl isEqualToString:@""]) {
                 cell.textLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
             }
             break;
@@ -502,6 +520,5 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 @end
