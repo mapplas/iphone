@@ -171,7 +171,6 @@
 		7FF0A5C816E635A40028561F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0A5C716E635A40028561F /* Reachability.m */; };
 		7FF760F216D6635D00DF29C8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */; };
 		7FF760F716D6737C00DF29C8 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F516D6737C00DF29C8 /* ImageGalleryViewController.m */; };
-		7FFA007116B7CC31003E53E1 /* InfiniteScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */; };
 		7FFA007316B7E5A5003E53E1 /* ic_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA007216B7E5A5003E53E1 /* ic_refresh.png */; };
 		7FFA008116B82D8C003E53E1 /* AppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */; };
 		7FFA008216B82D8C003E53E1 /* AppDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA008016B82D8C003E53E1 /* AppDetailViewController.xib */; };
@@ -495,8 +494,6 @@
 		7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "classes/UIImage+Resize.m"; sourceTree = "<group>"; };
 		7FF760F416D6737C00DF29C8 /* ImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageGalleryViewController.h; path = classes/ImageGalleryViewController.h; sourceTree = "<group>"; };
 		7FF760F516D6737C00DF29C8 /* ImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageGalleryViewController.m; path = classes/ImageGalleryViewController.m; sourceTree = "<group>"; };
-		7FFA006F16B7CC31003E53E1 /* InfiniteScrollManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfiniteScrollManager.h; path = classes/InfiniteScrollManager.h; sourceTree = "<group>"; };
-		7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfiniteScrollManager.m; path = classes/InfiniteScrollManager.m; sourceTree = "<group>"; };
 		7FFA007216B7E5A5003E53E1 /* ic_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh.png; sourceTree = SOURCE_ROOT; };
 		7FFA007E16B82D8C003E53E1 /* AppDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDetailViewController.h; path = classes/AppDetailViewController.h; sourceTree = "<group>"; };
 		7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDetailViewController.m; path = classes/AppDetailViewController.m; sourceTree = "<group>"; };
@@ -977,8 +974,6 @@
 				7F2FED5116D36DB700415725 /* DateUtils.m */,
 				7FFFBB8616A9689900417499 /* HtmlEntitiesConversor.h */,
 				7FFFBB8716A9689900417499 /* HtmlEntitiesConversor.m */,
-				7FFA006F16B7CC31003E53E1 /* InfiniteScrollManager.h */,
-				7FFA007016B7CC31003E53E1 /* InfiniteScrollManager.m */,
 				7FFFBB8916A968E600417499 /* MREntitiesConverter.h */,
 				7FFFBB8A16A968E700417499 /* MREntitiesConverter.m */,
 				7FC8826416A825D0008A06A8 /* SCAppUtils.h */,
@@ -1653,7 +1648,6 @@
 				7F2CE76916B6AB4B00B7E6E5 /* Constants.m in Sources */,
 				7F2CE76C16B6BE0700B7E6E5 /* BlockConnector.m in Sources */,
 				7F2CE76F16B6BEA600B7E6E5 /* AppBlockRequest.m in Sources */,
-				7FFA007116B7CC31003E53E1 /* InfiniteScrollManager.m in Sources */,
 				7FFA008116B82D8C003E53E1 /* AppDetailViewController.m in Sources */,
 				7FEF544516B9212B00EAEED8 /* PriceImageLabelHelper.m in Sources */,
 				7FEF545116B93AE300EAEED8 /* ARScrollViewEnhancer.m in Sources */,

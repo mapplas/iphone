@@ -12,7 +12,6 @@
 #import "CoreLocationManagerConfigurator.h"
 
 @interface AppsViewController ()
-//- (void)pushNotificationScreen;
 - (void)pushUserPrefScreen;
 @end
 
@@ -21,8 +20,6 @@
 @synthesize userIdentRequest = _userIdentRequester;
 @synthesize model = _model;
 @synthesize aroundRequester = _aroundRequester;
-@synthesize loadedAppsArray = _loadedAppsArray;
-@synthesize loadedListCount = _loadedListCount;
 
 @synthesize radarAnim = _radarAnim;
 @synthesize outerImage, pointsImage, trianglesImage, blueShadowImage;
@@ -38,9 +35,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.model = [[SuperModel alloc] init];
-        
-        self.loadedAppsArray = [[NSMutableArray alloc] init];
-        self.loadedListCount = 0;
+        _moreData = YES;
     }
     return self;
 }
@@ -176,29 +171,10 @@
 }
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll {
-    [scrollManager resetAppList:self.model.appList.list];
-    
-    [self.loadedAppsArray removeAllObjects];
-    
-    int maxIndex = [scrollManager getMaxCount];
-    int to = 0;
-    if (maxIndex > self.loadedListCount) {
-        to = NUMBER_OF_APPS * self.loadedListCount;
+    for (int i=0; i < self.model.appList.getArray.count; i++) {
+        [self.self.model.appList.getArray addObject:[self.model.appList objectAtIndex:i]];
     }
-    else if(maxIndex < self.loadedListCount) {
-        to = self.model.appList.count;
-    }
-    else if(self.model.appList.count <= NUMBER_OF_APPS) {
-        to = self.model.appList.count;
-    }
-    else {
-        to = (NUMBER_OF_APPS * self.loadedListCount) + [scrollManager getRest];
-    }
-    
-    for (int i=0; i < to; i++) {
-        [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
-    }
-    
+
     [self.table reloadData];
     
     if (scroll) {
@@ -234,12 +210,7 @@
 - (void)appsDataParsedFromServer {
     self.view = table;
     [self stopAnimations];
-    
-    // Create scroll manager
-    scrollManager = [[InfiniteScrollManager alloc] initWithAppList:self.model.appList.getArray];
-    [self.loadedAppsArray removeAllObjects];
-    self.loadedListCount = 0;
-    
+        
     // Endless adapter
     int height = CELL_HEIGHT;
     if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
@@ -247,9 +218,6 @@
     } else {
         [self.table setTableFooterView:self.cellLoadingEmpty];
     }
-    
-    // Populate the tableview with some data
-    [self addItemsToEndOfTableView];
     
     [_refreshHeaderView refreshLastUpdatedDate];
     [self doneLoadingTableViewData];
@@ -285,7 +253,7 @@
 #pragma mark Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.loadedAppsArray.count;
+    return self.model.appList.getArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -297,12 +265,12 @@
         cell = [nib objectAtIndex:0];
     }
 
-    [cell setApp:[self.loadedAppsArray objectAtIndex:indexPath.row]];
+    [cell setApp:[self.model.appList.getArray objectAtIndex:indexPath.row]];
     [cell setUser:self.model.user];
     [cell setCurrentLocation:self.model.currentLocation];
     [cell setCurrentDescriptiveGeoLoc:self.model.currentDescriptiveGeoLoc];
     [cell setModelList:self.model.appList];
-    [cell setAppsList:self.loadedAppsArray];
+    [cell setAppsList:self.model.appList.getArray];
     [cell setViewController:self];
     [cell setPositionInList:indexPath.row];
     [cell resetState];
@@ -325,10 +293,10 @@
 
 - (void)reloadTableViewDataSource {
 	//  should be calling your tableviews data source model to reload
-    [self.table reloadData];
     // request new location
 	_reloading = YES;
-    
+    _moreData = YES;
+        
     self.aroundRequester = [[AroundRequester alloc] initWithLocationManager:locationManager model:self.model mainViewController:self];
     [self.aroundRequester startRequesting];
 }
@@ -349,10 +317,9 @@
 	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
     
     // Endless tableView
-    if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height) {
+    if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height && _moreData) {
         [self animateRadar];
-        [self performSelector:@selector(stopAnimatingFooter) withObject:nil afterDelay:0.5];
-        return;
+        [self requestMoreApps];
 	}
 }
 
@@ -379,41 +346,25 @@
 #pragma mark -
 #pragma mark Endless UITableView
 
-- (void)addItemsToEndOfTableView {
+- (void)requestMoreApps {
+    Environment *environment = [Environment sharedInstance];
+    AbstractUrlAddresses *urlAdresses = [environment addresses];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    handler = [[AppGetterResponseHandler alloc] initWithModel:self.model mainController:self reverseGeocoder:geocoder location:self.model.location firstRequest:NO];
     
-//    int appsArrayLen = self.loadedAppsArray.count;
-//    int modelArrayLen = self.model.appList.count;
-    
-    if (self.loadedAppsArray.count < self.model.appList.count) {
-        
-//        int count = self.loadedListCount;
-//        int maxCount = [scrollManager getMaxCount];
-//        int resto = [scrollManager getRest];
-        
-        if (self.loadedListCount == scrollManager.getMaxCount - 1 && !scrollManager.isRestZero) {
-            NSUInteger rest = scrollManager.getRest;
-            for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + rest - 1; i++) {
-                [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
-            }
-        }
-        else {
-            for (int i = NUMBER_OF_APPS * self.loadedListCount; i <= (NUMBER_OF_APPS * self.loadedListCount) + (NUMBER_OF_APPS - 1); i++) {
-                [self.loadedAppsArray addObject:[self.model.appList objectAtIndex:i]];
-            }
-        }
-        self.loadedListCount ++;
-    }
+    appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
+    [appGetterConnector requestWithModel:self.model andLocation:self.model.location];
 }
 
-- (void)stopAnimatingFooter {
-    // If there is no more data delete row
-    if (self.loadedAppsArray.count == self.model.appList.count) {
-        [self.table setTableFooterView:nil];
-    } else {
-        [self stopAnimatingRadar];
-        [self addItemsToEndOfTableView];
-        [self.table reloadData];
-    }
+- (void)appsPaginationRequestOk {
+    [self appsDataParsedFromServer];
+}
+
+- (void)appsPaginationRequestNok {
+    _moreData = NO;
+    
+    [self stopAnimatingRadar];
+    [self.table setTableFooterView:nil];
 }
 
 - (void)animateRadar {

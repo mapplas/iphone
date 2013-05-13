@@ -28,6 +28,7 @@
 
 - (void)reloadAddresses;
 
+- (NSString *)getApps:(NSNumber *)apps_multiple;
 - (NSString *)userPinAndBlocks:(NSNumber *)user_id;
 - (NSString *)appDetail:(NSString *)app_id;
 

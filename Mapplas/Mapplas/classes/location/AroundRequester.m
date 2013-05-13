@@ -38,13 +38,14 @@
     
     CLLocationCoordinate2D coordinate = location.coordinate;
     model.currentLocation = [NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude];
+    model.location = location;
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController reverseGeocoder:geocoder location:location];
+    handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController reverseGeocoder:geocoder location:model.location firstRequest:YES];
     
     appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
-    [appGetterConnector requestWithModel:model andLocation:location];
+    [appGetterConnector requestWithModel:model andLocation:model.location];
 }
 
 - (void)locationSearchDidTimeout {

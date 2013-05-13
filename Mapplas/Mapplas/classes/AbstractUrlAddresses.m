@@ -50,11 +50,13 @@
 - (void)reloadAddresses {    
 	[self setIdentifyUser:[self buildAddresWithPath:@"/user/add"]];
     
-    [self setGetApps:[self buildAddresWithPath:@"/apps"]];
-    
     [self setPinApp:[self buildAddresWithPath:@"/user/pin"]];
     [self setBlockApp:[self buildAddresWithPath:@"/user/block"]];
     [self setShareApp:[self buildAddresWithPath:@"/user/share"]];
+}
+
+- (NSString *)getApps:(NSNumber *)apps_multiple {
+    return [self buildAddresWithPath:[NSString stringWithFormat:@"/apps/%d", [apps_multiple integerValue]]];
 }
 
 - (NSString *)userPinAndBlocks:(NSNumber *)user_id {
