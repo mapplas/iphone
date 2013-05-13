@@ -69,6 +69,10 @@
 
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
+    ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
+    AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
+    imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
+    
     [self initLayout];
     
     [scrollViewConfigurator organize];
@@ -105,10 +109,6 @@
 }
 
 - (void)downloadGalleryImages {
-    ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
-    AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
-    imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
-    
     int i = 0;
     for (NSString *currenPhoto in self.app.auxPhotosArray) {
         UIImage *currentImage = [imageLoader load:currenPhoto withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];

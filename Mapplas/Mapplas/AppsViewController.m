@@ -12,7 +12,7 @@
 #import "CoreLocationManagerConfigurator.h"
 
 @interface AppsViewController ()
-- (void)pushNotificationScreen;
+//- (void)pushNotificationScreen;
 - (void)pushUserPrefScreen;
 @end
 
@@ -44,10 +44,10 @@
     return self;
 }
 
-- (void)pushNotificationScreen {
-    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model appsViewController:self];
-    [self.navigationController pushViewController:notifViewController animated:YES];
-}
+//- (void)pushNotificationScreen {
+//    NotificationsViewController *notifViewController = [[NotificationsViewController alloc] initWithModel:self.model appsViewController:self];
+//    [self.navigationController pushViewController:notifViewController animated:YES];
+//}
 
 - (void)pushUserPrefScreen {
     UserViewController *userViewController = [[UserViewController alloc] initWithModel:self.model];
@@ -55,8 +55,8 @@
 }
 
 - (void)initializeNavigationBarButtons {
-    UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
+//    UIImage *notificationImage = [UIImage imageNamed:@"ic_menu_notifications.png"];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:notificationImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushNotificationScreen)];
     
     UIImage *profileImage = [UIImage imageNamed:@"ic_menu_profile.png"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileImage style:UIBarButtonItemStyleBordered target:self action:@selector(pushUserPrefScreen)];
@@ -249,8 +249,8 @@
     [self doneLoadingTableViewData];
     
     // Notification DB inserter
-    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:self.model viewController:self];
-    [dbInserter insertNotificationsToDB];
+//    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:self.model viewController:self];
+//    [dbInserter insertNotificationsToDB];
 }
 
 - (void)userDataLoaded {
