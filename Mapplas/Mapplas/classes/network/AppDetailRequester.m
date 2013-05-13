@@ -13,7 +13,7 @@
 - (void)doRequestWithApp:(App *)_app andViewController:(AppDetailViewController *)view_controller {
     Environment *environment = [Environment sharedInstance];
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
-    AppDetailRequestHandler *handler = [[AppDetailRequestHandler alloc] initWithViewController:view_controller];
+    AppDetailRequestHandler *handler = [[AppDetailRequestHandler alloc] initWithViewController:view_controller app:_app];
     
     connector = [[AppDetailConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
     [connector requestWithApp:_app];

@@ -30,7 +30,8 @@
     NSNumber *_auxTotalComments;
     
     NSMutableArray *_auxCommentsArray;
-    NSMutableArray *_auxPhotosArray;
+    NSString *_auxPhotosStr;
+    NSArray *_auxPhotosArray;
     // ApplicationInfo internalApplicationInfo = null;
     
     NSNumber *_pinnedLatitude;
@@ -69,8 +70,8 @@
 @property (nonatomic, strong) NSNumber *auxTotalComments;
 
 @property (nonatomic, strong) NSMutableArray *auxCommentsArray;
-@property (nonatomic, strong) NSMutableArray *auxPhotosArray;
-//@property (nonatomic, strong) NSNumber *appId;
+@property (nonatomic, strong) NSString *auxPhotosStr;
+@property (nonatomic, strong) NSArray *auxPhotosArray;
 
 @property (nonatomic, strong) NSNumber *pinnedLatitude;
 @property (nonatomic, strong) NSNumber *pinnedLongitude;

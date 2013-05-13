@@ -11,17 +11,21 @@
 
 @implementation AppDetailRequestHandler
 
-- (id)initWithViewController:(AppDetailViewController *)view_controller {
+- (id)initWithViewController:(AppDetailViewController *)view_controller app:(App *)_app {
     self = [super init];
     if (self) {
         viewController = view_controller;
+        app = _app;
     }
     return self;
 }
 
 #pragma mark - AppDetailRequestHandler
 - (void)requestFinished:(id)JSON {
-    NSLog(@"ok");
+    JSONToAppDetailMapper *appDetailMapper = [[JSONToAppDetailMapper alloc] init];
+    [appDetailMapper map:JSON app:app];
+    
+    [viewController detailDataLoaded];
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {

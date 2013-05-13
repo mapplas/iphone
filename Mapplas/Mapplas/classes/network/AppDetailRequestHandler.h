@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "GenericRequestHandler.h"
+#import "App.h"
+#import "JSONToAppDetailMapper.h"
 
 @class AppDetailViewController;
 
 @interface AppDetailRequestHandler : NSObject <GenericRequestHandler> {
     AppDetailViewController *viewController;
+    App *app;
 }
 
-- (id)initWithViewController:(AppDetailViewController *)view_controller;
+- (id)initWithViewController:(AppDetailViewController *)view_controller app:(App *)_app;
 
 @end

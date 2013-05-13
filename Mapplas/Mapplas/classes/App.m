@@ -33,6 +33,7 @@
 @synthesize auxTotalComments = _auxTotalComments;
 
 @synthesize auxCommentsArray = _auxCommentsArray;
+@synthesize auxPhotosStr = _auxPhotosStr;
 @synthesize auxPhotosArray = _auxPhotosArray;
 //@synthesize
 
@@ -67,7 +68,8 @@
         self.pinnedLongitude = [NSNumber numberWithDouble:0.0f];
         
         self.auxCommentsArray = [[NSMutableArray alloc] init];
-        self.auxPhotosArray = [[NSMutableArray alloc] init];
+        self.auxPhotosStr = @"";
+        self.auxPhotosArray = [[NSArray alloc] init];
         
         self.notificationRaw = [[NSArray alloc] init];
     }

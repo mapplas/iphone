@@ -69,9 +69,7 @@
 
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
-    [self downloadGalleryImages];
     [self initLayout];
-    [self configureGallery];
     
     [scrollViewConfigurator organize];
 }
@@ -84,19 +82,29 @@
     }
 }
 
+- (void)detailDataLoaded {
+    [self downloadGalleryImages];
+    [self configureGallery];
+    
+    // Description
+    [self showAppSmallDescription];
+}
+
 - (void)downloadGalleryImages {
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
     AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:self];
     imageLoader = [factory createUsingCacheFolderWithDownloader:downloader];
     
-    for (Photo *currenPhoto in self.app.auxPhotosArray) {
-        UIImage *currentImage = [imageLoader load:currenPhoto.photo withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+    int i = 0;
+    for (NSString *currenPhoto in self.app.auxPhotosArray) {
+        UIImage *currentImage = [imageLoader load:currenPhoto withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         if (currentImage == nil) {
-            [imagesArray setValue:@"" forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+            [imagesArray setValue:@"" forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         }
         else {
-            [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, [currenPhoto.photoId intValue]]];
+            [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         }
+        i++;
     }
 }
 
@@ -135,9 +143,6 @@
     self.shareWithoutPhoneLabel.text = shareLabelText;
     
     self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
-    
-    // Description
-    [self showAppSmallDescription];
 }
 
 - (void)configureGallery {

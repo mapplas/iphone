@@ -117,4 +117,6 @@
 - (IBAction)share:(id)sender;
 - (IBAction)call:(id)sender;
 
+- (void)detailDataLoaded;
+
 @end
