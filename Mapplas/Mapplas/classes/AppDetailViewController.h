@@ -36,6 +36,8 @@
 
 #define groupedCellHeight 44;
 
+@class AppDetailRequester;
+
 @interface AppDetailViewController : UIViewController <AsynchronousImageDownloaderProtocol, UIScrollViewDelegate, MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
     App *_app;
     User *_user;
@@ -56,6 +58,7 @@
     
     SharingHelper *sharingHelper;
     AppShareRequest *appShareRequester;
+    AppDetailRequester *appDetailRequester;
 }
 
 - (id)initWithApp:(App *)app user:(User *)user model:(SuperModel *)super_model andLocation:(NSString *)current_location;

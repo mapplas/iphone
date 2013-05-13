@@ -23,6 +23,8 @@
 @synthesize blockApp;
 @synthesize shareApp;
 
+@synthesize appDetail;
+
 @synthesize userPinAndBlocks;
 
 - (id)init {
@@ -47,7 +49,6 @@
 
 - (void)reloadAddresses {    
 	[self setIdentifyUser:[self buildAddresWithPath:@"/user/add"]];
-//    [self setEditUser:[self buildAddresWithPath:@"/ipc_userEdit.php"]];
     
     [self setGetApps:[self buildAddresWithPath:@"/apps"]];
     
@@ -58,6 +59,10 @@
 
 - (NSString *)userPinAndBlocks:(NSNumber *)user_id {
     return [self buildAddresWithPath:[NSString stringWithFormat:@"/user-apps-info/%d", [user_id integerValue]]];
+}
+
+- (NSString *)appDetail:(NSString *)app_id {
+    return [self buildAddresWithPath:[NSString stringWithFormat:@"/app-detail/%@", app_id]];
 }
 
 @end

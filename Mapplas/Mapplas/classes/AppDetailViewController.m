@@ -7,6 +7,7 @@
 //
 
 #import "AppDetailViewController.h"
+#import "AppDetailRequester.h"
 
 @interface AppDetailViewController ()
 - (void)downloadGalleryImages;
@@ -54,18 +55,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *viewsToAddToScroll = nil;
-//    if (self.app.auxCommentsArray.count > 0) {
-//        self.commentsViewController = [[AppDetailCommentsViewController alloc] initWithApp:self.app];
-//        viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, self.galleryView, self.descriptionView, self.commentsViewController, self.supportView, nil];
-//    }
-//    else {
+    appDetailRequester = [[AppDetailRequester alloc] init];
+    [appDetailRequester doRequestWithApp:self.app andViewController:self];
     
     // Telephone icon or not
     UIView *whatActionBar = self.actionBar;
     if ([self.app.phone isEqualToString:@""]) {
         whatActionBar = self.actionBarWithoutTeleph;
     }
+    
+    NSMutableArray *viewsToAddToScroll = nil;
     viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, self.galleryView, self.descriptionView, self.developerTable, nil];
 
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
@@ -502,6 +501,5 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 @end
