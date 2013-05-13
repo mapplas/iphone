@@ -29,15 +29,15 @@
     UserIdentificationRequest *_userIdentRequester;
     SuperModel *_model;
     
-    NSMutableArray *_loadedAppsArray;
-    NSUInteger _loadedListCount;
-    InfiniteScrollManager *scrollManager;
+    AppGetterResponseHandler *handler;
     
+    AppGetterConnector *appGetterConnector;
     AroundRequester *_aroundRequester;
     LocationManager *locationManager;
     
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
+    BOOL _moreData;
     
     UIView *_radarAnim;
     NSTimer *latLongTextTimer;
@@ -48,8 +48,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *loading;
 @property (nonatomic, strong) IBOutlet UILabel *loadingText;
 @property (nonatomic, strong) IBOutlet UIView *cellLoadingEmpty;
-@property (nonatomic, strong) NSMutableArray *loadedAppsArray;
-@property (nonatomic) NSUInteger loadedListCount;
 
 @property (nonatomic, strong) IBOutlet UIView *radarAnim;
 @property (nonatomic, strong) IBOutlet UIImageView *outerImage;
@@ -66,9 +64,10 @@
 - (void)appsDataParsedFromServer;
 - (void)userDataLoaded;
 
-- (void) addItemsToEndOfTableView;
-
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll;
 - (void)stopAnimations;
+
+- (void)appsPaginationRequestOk;
+- (void)appsPaginationRequestNok;
 
 @end

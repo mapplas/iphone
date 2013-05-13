@@ -19,8 +19,9 @@
     AppsViewController *mainController;
     CLGeocoder *geocoder;
     CLLocation *location;
+    BOOL isFirstRequest;
 }
 
-- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller reverseGeocoder:(CLGeocoder *)_geocoder location:(CLLocation *)_location;
+- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller reverseGeocoder:(CLGeocoder *)_geocoder location:(CLLocation *)_location firstRequest:(BOOL)is_first_request;
 
 @end

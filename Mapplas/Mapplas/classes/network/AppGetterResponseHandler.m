@@ -11,36 +11,57 @@
 
 @implementation AppGetterResponseHandler
 
-- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller reverseGeocoder:(CLGeocoder *)_geocoder location:(CLLocation *)_location {
+- (id)initWithModel:(SuperModel *)_model mainController:(AppsViewController *)main_controller reverseGeocoder:(CLGeocoder *)_geocoder location:(CLLocation *)_location firstRequest:(BOOL)is_first_request {
     self = [super init];
     if (self) {
         model = _model;
         mainController = main_controller;
         geocoder = _geocoder;
         location = _location;
+        isFirstRequest = is_first_request;
     }
     return self;
 }
 - (void)requestFinished:(id)JSON {
     // Parse apps
-    NSArray *jsonObjects = JSON;
-    JSONToAppMapper *appMapper = [[JSONToAppMapper alloc] init];
+    NSDictionary *response = JSON;
+
+    NSArray *jsonApps = [response objectForKey:@"apps"];
+    NSNumber *lastApps = [response objectForKey:@"last"];
     
-    App *app = nil;
-    AppOrderedList *list = [[AppOrderedList alloc] init];
-    for (int i=0; i < jsonObjects.count; i++) {
-        app = [appMapper map:[jsonObjects objectAtIndex:i]];
-        [list addObject:app];
+    if (isFirstRequest) {
+        model.appList = [[AppOrderedList alloc] init];
     }
     
-    [model setAppList:list];
-    model.appList.currentLocation = model.currentLocation;
-    [model.appList sort];
-    
-    // Do reverse geocoding
-    [self doReverseGeocoding];
-    
-    // App info sender - url scheme request to server and verify wit canOpenURL:
+    if (jsonApps != nil && lastApps != nil) {
+        JSONToAppMapper *appMapper = [[JSONToAppMapper alloc] init];
+        
+        App *app = nil;
+        AppOrderedList *list = model.appList;
+        
+        for (int i=0; i < jsonApps.count; i++) {
+            app = [appMapper map:[jsonApps objectAtIndex:i]];
+            [list addObject:app];
+        }
+        
+        [model setAppList:list];
+        model.appList.currentLocation = model.currentLocation;
+        [model.appList sort];
+        
+        if (isFirstRequest) {
+            // Do reverse geocoding
+            [self doReverseGeocoding];
+            
+            // App info sender - url scheme request to server and verify wit canOpenURL:
+        } else {
+            // Go to app screen directly. Reverse geocoding done before.
+            if (lastApps.intValue == 0) {
+                [mainController appsPaginationRequestOk];
+            } else {
+                [mainController appsPaginationRequestNok];
+            }
+        }
+    }
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {

@@ -11,7 +11,11 @@
 #import "SuperModel.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface AppGetterConnector : GenericConnector
+#define APPS_PAGINATION_NUMBER 8;
+
+@interface AppGetterConnector : GenericConnector {
+    SuperModel *model;
+}
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(AppGetterResponseHandler *)response_handler;
 

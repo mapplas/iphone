@@ -11,6 +11,7 @@
 @implementation SuperModel
 
 @synthesize currentLocation = _currentLocation;
+@synthesize location = _location;
 @synthesize user = _user;
 @synthesize currentRadius = _currentRadius;
 @synthesize currentImei = _currentImei;
@@ -25,11 +26,12 @@
     self = [super init];
     if (self) {
         self.currentLocation = @"";
+        self.location = nil;
         self.user = nil;
         self.currentRadius = @"0.1";
         self.currentImei = @"";
         self.currentDescriptiveGeoLoc = @"";
-        self.appList = nil;
+        self.appList = [[AppOrderedList alloc] init];
         self.notificationList = [[NotificationList alloc] init];
         self.operationError = NO;
         self.errorText = @"";

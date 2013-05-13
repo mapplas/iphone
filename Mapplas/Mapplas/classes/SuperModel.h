@@ -12,6 +12,7 @@
 
 @interface SuperModel : NSObject {
     NSString *_currentLocation;
+    CLLocation *_location;
     User *_user;
     NSString *_currentRadius;
     NSString *_currentImei;
@@ -24,6 +25,7 @@
 }
 
 @property (nonatomic, strong) NSString *currentLocation;
+@property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *currentRadius;
 @property (nonatomic, strong) NSString *currentImei;
