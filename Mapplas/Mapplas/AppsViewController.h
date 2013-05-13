@@ -23,6 +23,8 @@
 #import "AppDetailViewController.h"
 #import "UIDevice+IdentifierAddition.h"
 
+#define CELL_HEIGHT 72;
+
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;
     SuperModel *_model;
@@ -45,6 +47,7 @@
 @property (nonatomic, strong) IBOutlet UIView *cellLoading;
 @property (nonatomic, strong) IBOutlet UIImageView *loading;
 @property (nonatomic, strong) IBOutlet UILabel *loadingText;
+@property (nonatomic, strong) IBOutlet UIView *cellLoadingEmpty;
 @property (nonatomic, strong) NSMutableArray *loadedAppsArray;
 @property (nonatomic) NSUInteger loadedListCount;
 
