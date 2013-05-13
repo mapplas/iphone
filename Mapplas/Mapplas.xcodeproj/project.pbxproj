@@ -92,6 +92,8 @@
 		7F2FD6811740C1AB00E53F1A /* AppDetailRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FD6801740C1AB00E53F1A /* AppDetailRequestHandler.m */; };
 		7F2FD6841740C82B00E53F1A /* JSONToAppDetailMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FD6831740C82B00E53F1A /* JSONToAppDetailMapper.m */; };
 		7F2FD6881740E96000E53F1A /* RatingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FD6871740E96000E53F1A /* RatingHelper.m */; };
+		7F2FD68B1740EE9C00E53F1A /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FD68A1740EE9C00E53F1A /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F2FD68E1740EECD00E53F1A /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FD68D1740EECD00E53F1A /* UIDevice+IdentifierAddition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F2FED5216D36DB700415725 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FED5116D36DB700415725 /* DateUtils.m */; };
 		7F2FED5716D3C78400415725 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2FED5516D3C78400415725 /* ConfigurationViewController.m */; };
 		7F2FED5816D3C78400415725 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2FED5616D3C78400415725 /* ConfigurationViewController.xib */; };
@@ -364,6 +366,10 @@
 		7F2FD6831740C82B00E53F1A /* JSONToAppDetailMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppDetailMapper.m; path = classes/mappers/JSONToAppDetailMapper.m; sourceTree = "<group>"; };
 		7F2FD6861740E96000E53F1A /* RatingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingHelper.h; sourceTree = "<group>"; };
 		7F2FD6871740E96000E53F1A /* RatingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingHelper.m; sourceTree = "<group>"; };
+		7F2FD6891740EE9C00E53F1A /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5Addition.h"; path = "classes/NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		7F2FD68A1740EE9C00E53F1A /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Addition.m"; path = "classes/NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		7F2FD68C1740EECC00E53F1A /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		7F2FD68D1740EECD00E53F1A /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		7F2FED5016D36DB700415725 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtils.h; path = classes/utils/DateUtils.h; sourceTree = "<group>"; };
 		7F2FED5116D36DB700415725 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtils.m; path = classes/utils/DateUtils.m; sourceTree = "<group>"; };
 		7F2FED5416D3C78400415725 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationViewController.h; path = classes/ConfigurationViewController.h; sourceTree = "<group>"; };
@@ -864,6 +870,17 @@
 			name = Rating;
 			sourceTree = "<group>";
 		};
+		7F2FD68F1740EED400E53F1A /* User unique identifier */ = {
+			isa = PBXGroup;
+			children = (
+				7F2FD6891740EE9C00E53F1A /* NSString+MD5Addition.h */,
+				7F2FD68A1740EE9C00E53F1A /* NSString+MD5Addition.m */,
+				7F2FD68C1740EECC00E53F1A /* UIDevice+IdentifierAddition.h */,
+				7F2FD68D1740EECD00E53F1A /* UIDevice+IdentifierAddition.m */,
+			);
+			name = "User unique identifier";
+			sourceTree = "<group>";
+		};
 		7F2FED5316D3C76700415725 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,6 +992,7 @@
 		7FC8826716A82656008A06A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				7F2FD68F1740EED400E53F1A /* User unique identifier */,
 				7FFFBB6916A9520600417499 /* NSString */,
 				7FF760F016D6635D00DF29C8 /* UIImage+Resize.h */,
 				7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */,
@@ -1685,6 +1703,8 @@
 				7F2FD6811740C1AB00E53F1A /* AppDetailRequestHandler.m in Sources */,
 				7F2FD6841740C82B00E53F1A /* JSONToAppDetailMapper.m in Sources */,
 				7F2FD6881740E96000E53F1A /* RatingHelper.m in Sources */,
+				7F2FD68B1740EE9C00E53F1A /* NSString+MD5Addition.m in Sources */,
+				7F2FD68E1740EECD00E53F1A /* UIDevice+IdentifierAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

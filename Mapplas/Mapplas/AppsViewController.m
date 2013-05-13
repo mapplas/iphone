@@ -141,7 +141,7 @@
     self.loadingText.text = NSLocalizedString(@"loading_cell_text", @"Apps refreshing cell text");
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *uniqueCode = [defaults objectForKey:UUID_USER_DEFAULTS_KEY];
+    NSString *uniqueCode = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
     uniqueCode = [uniqueCode stringByReplacingOccurrencesOfString:@"-" withString:@""];
     [self.model setCurrentImei:uniqueCode];
     

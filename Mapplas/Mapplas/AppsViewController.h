@@ -21,6 +21,7 @@
 #import "AppCell.h"
 #import "InfiniteScrollManager.h"
 #import "AppDetailViewController.h"
+#import "UIDevice+IdentifierAddition.h"
 
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;
