@@ -31,8 +31,6 @@
 	self = [super init];
 	
 	if(self) {
-//        Old domain
-//        [self setDomain:@"h1975711.stratoserver.net"];
         [self setDomain:@"54.217.243.16"];
         [self setPort:@"80"];
 		[self setRelativePath:@"/api"];

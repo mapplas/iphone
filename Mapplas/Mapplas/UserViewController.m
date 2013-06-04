@@ -10,7 +10,7 @@
 #import "UserPinAndBlocksRequester.h"
 
 @interface UserViewController ()
-- (void)setTextToNavigationButton:(NSString *)title;
+//- (void)setTextToNavigationButton:(NSString *)title;
 - (void)configureLayout;
 //- (int)checkUserState;
 //- (void)changeLayoutComponents:(int)user_state;
