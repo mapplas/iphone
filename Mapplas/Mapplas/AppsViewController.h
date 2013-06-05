@@ -19,7 +19,6 @@
 
 #import "EGORefreshTableHeaderView.h"
 #import "AppCell.h"
-#import "InfiniteScrollManager.h"
 #import "AppDetailViewController.h"
 #import "UIDevice+IdentifierAddition.h"
 

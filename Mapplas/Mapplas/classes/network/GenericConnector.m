@@ -26,9 +26,7 @@
     return @"IMPLEMENT IN SUBCLASS";
 }
 
-- (void)initializeVariablesWithUrlAndSend:(NSString *)url {
-//    [parameters setValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] forKey:@"v"];
-    
+- (void)initializeVariablesWithUrlAndSend:(NSString *)url {    
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
     NSMutableURLRequest *jsonRequest = [httpClient requestWithMethod:@"POST"

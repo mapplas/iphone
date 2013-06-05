@@ -171,8 +171,9 @@
 }
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll {
-    for (int i=0; i < self.model.appList.getArray.count; i++) {
-        [self.self.model.appList.getArray addObject:[self.model.appList objectAtIndex:i]];
+    int list_length = self.model.appList.getArray.count;
+    for (int i=0; i < list_length; i++) {
+        [self.model.appList.getArray addObject:[self.model.appList objectAtIndex:i]];
     }
 
     [self.table reloadData];
@@ -361,6 +362,8 @@
 }
 
 - (void)appsPaginationRequestNok {
+    [self appsDataParsedFromServer];
+    
     _moreData = NO;
     
     [self stopAnimatingRadar];
@@ -373,7 +376,7 @@
     fullRotation.fromValue = [NSNumber numberWithFloat:0];
     fullRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
     fullRotation.duration = 0.75f;
-    fullRotation.repeatCount = 3;
+    fullRotation.repeatCount = 20;
     
     [self.loading.layer addAnimation:fullRotation forKey:@"360"];
 }
