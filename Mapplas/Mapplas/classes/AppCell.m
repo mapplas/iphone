@@ -14,7 +14,7 @@
 @synthesize cellPressed, cellUnpressed, cellContent;
 @synthesize imageLogo, imageRoundView, appName, appPrice, pinsUnpressedText, ratingView, ratingLabel;
 @synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
-@synthesize priceImage;
+@synthesize priceButton;
 
 @synthesize app = _app, user = _user, currentLocation = _currentLocation, currentDescriptiveGeoLoc = _currentDescriptiveGeoLoc, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
 
@@ -82,7 +82,7 @@
     // Price label and image
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
     self.appPrice.text = [priceHelper getPriceText];
-    self.priceImage.image = [priceHelper getImage];
+    [self.priceButton setImage:[priceHelper getImage] forState:UIControlStateNormal];
 
     [self.cellContent addSubview:self.cellUnpressed];
     
@@ -217,6 +217,11 @@
 - (IBAction)rateApp:(id)sender {
     rateHelper = [[RatingHelper alloc] init];
     [rateHelper rateApp:self.app];
+}
+
+- (void)launchApp:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 @end
