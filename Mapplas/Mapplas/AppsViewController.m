@@ -362,6 +362,8 @@
 }
 
 - (void)appsPaginationRequestNok {
+    [self appsDataParsedFromServer];
+    
     _moreData = NO;
     
     [self stopAnimatingRadar];
@@ -374,7 +376,7 @@
     fullRotation.fromValue = [NSNumber numberWithFloat:0];
     fullRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
     fullRotation.duration = 0.75f;
-    fullRotation.repeatCount = 3;
+    fullRotation.repeatCount = 20;
     
     [self.loading.layer addAnimation:fullRotation forKey:@"360"];
 }

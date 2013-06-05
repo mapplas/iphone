@@ -27,6 +27,11 @@
     [super map:data target:app];
     
     NSString *photosStr = app.auxPhotosStr;
+    photosStr = [photosStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    photosStr = [photosStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    photosStr = [photosStr stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    photosStr = [photosStr stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    photosStr = [photosStr stringByReplacingOccurrencesOfString:@")" withString:@""];
     [app setAuxPhotosArray:[photosStr componentsSeparatedByString:@","]];
 }
 
