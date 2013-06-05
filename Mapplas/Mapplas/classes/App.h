@@ -9,7 +9,6 @@
 @interface App : NSObject {
     // App mapper
     NSString *_appId;
-    NSNumber *_appAppStoreId;
     NSString *_name;
     NSString *_appLogo;
     NSString *_appUrlScheme;
@@ -41,7 +40,6 @@
 - (id)init;
 
 @property (nonatomic, strong) NSString *appId;
-@property (nonatomic, strong) NSNumber *appAppStoreId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *appLogo;
 @property (nonatomic, strong) NSString *appUrlScheme;

@@ -17,7 +17,7 @@
                                   [[KeyValueScappedMapper alloc] initWithKey:@"n" action:@selector(setName:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"i" action:@selector(setAppLogo:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"sc" action:@selector(setAppUrlScheme:)],
-                                  [[KeyValueMapper alloc] initWithKey:@"asid" action:@selector(setAppAppStoreId:)],
+//                                  [[KeyValueMapper alloc] initWithKey:@"asid" action:@selector(setAppAppStoreId:)],
                                   
                                   [[KeyValueScappedMapper alloc] initWithKey:@"type" action:@selector(setType:)],
 
@@ -39,40 +39,7 @@
     App *app = [[App alloc] init];
     
     [super map:json target:app];
-    
-//    if ([[app market] isEqualToString:@"Usa"]) {
-//        [app setLocationCurrency:DOLLAR];
-//    }
-//    else {
-//        [app setLocationCurrency:EURO];
-//    }
-    
-//    if (app.pinnedLatitude != nil && app.pinnedLongitude != nil) {
-//        CLLocationDegrees latitudeDeg = (CLLocationDegrees)[app.latitude doubleValue];
-//        CLLocationDegrees longitudeDeg = (CLLocationDegrees)[app.longitude doubleValue];
-//        CLLocation *appPinnedLocation = [[CLLocation alloc] initWithLatitude:latitudeDeg longitude:longitudeDeg];
-//        
-//        [geocoder reverseGeocodeLocation:appPinnedLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-//            if (error){
-//                [app setPinnedGeocodedLocation:NSLocalizedString(@"descriptive_geoloc_error", @"Reverse geocoding error")];
-//                return;
-//            }
-//            
-//            if(placemarks && placemarks.count > 0) {
-//                //do something
-//                CLPlacemark *topResult = [placemarks objectAtIndex:0];
-//                //            NSString *sub = [topResult subThoroughfare];
-//                //            NSString *thr = [topResult thoroughfare];
-//                //            NSString *local = [topResult locality];
-//                NSString *addressTxt = [NSString stringWithFormat:@"%@ %@, %@",
-//                                        [topResult subThoroughfare],[topResult thoroughfare],
-//                                        [topResult locality]];
-//                
-//                [app setPinnedGeocodedLocation:addressTxt];
-//            }
-//        }];
-//    }
-    
+        
     return app;
 }
 

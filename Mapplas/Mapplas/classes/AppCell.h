@@ -55,7 +55,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imageLogo;
 @property (nonatomic, strong) IBOutlet UIImageView *imageRoundView;
 @property (nonatomic, strong) IBOutlet UILabel *appName;
-@property (nonatomic, strong) IBOutlet UIImageView *priceImage;
+@property (nonatomic, strong) IBOutlet UIButton *priceButton;
 @property (nonatomic, strong) IBOutlet UILabel *appPrice;
 @property (nonatomic, strong) IBOutlet UILabel *pinsUnpressedText;
 @property (nonatomic, strong) IBOutlet UIView *ratingView;
@@ -85,5 +85,6 @@
 - (IBAction)blockUnblockApp:(id)sender;
 - (IBAction)shareApp:(id)sender;
 - (IBAction)rateApp:(id)sender;
+- (IBAction)launchApp:(id)sender;
 
 @end

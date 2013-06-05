@@ -11,7 +11,6 @@
 @implementation App
 
 @synthesize appId = _appId;
-@synthesize appAppStoreId = _appAppStoreId;
 @synthesize name = _name;
 @synthesize appLogo = _appLogo;
 @synthesize appUrlScheme = _appUrlScheme;
