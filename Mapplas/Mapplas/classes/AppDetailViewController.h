@@ -73,8 +73,7 @@
 @property (nonatomic, strong) IBOutlet UIView *topBar;
 @property (nonatomic, strong) IBOutlet UIImageView *logo;
 @property (nonatomic, strong) IBOutlet UILabel *name;
-@property (nonatomic, strong) IBOutlet UIImageView *priceBackground;
-@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
+@property (nonatomic, strong) IBOutlet UIButton *priceButton;
 @property (nonatomic, strong) IBOutlet UIView *ratingView;
 @property (nonatomic, strong) IBOutlet UIButton *ratingViewButton;
 
@@ -114,6 +113,8 @@
 - (IBAction)rate:(id)sender;
 - (IBAction)share:(id)sender;
 - (IBAction)call:(id)sender;
+
+- (IBAction)launchApp:(id)sender;
 
 - (void)detailDataLoaded;
 

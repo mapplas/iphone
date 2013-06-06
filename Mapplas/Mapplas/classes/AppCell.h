@@ -56,7 +56,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imageRoundView;
 @property (nonatomic, strong) IBOutlet UILabel *appName;
 @property (nonatomic, strong) IBOutlet UIButton *priceButton;
-@property (nonatomic, strong) IBOutlet UILabel *appPrice;
 @property (nonatomic, strong) IBOutlet UILabel *pinsUnpressedText;
 @property (nonatomic, strong) IBOutlet UIView *ratingView;
 @property (nonatomic, strong) IBOutlet UILabel *ratingLabel;
