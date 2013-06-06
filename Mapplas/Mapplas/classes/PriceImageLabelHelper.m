@@ -23,7 +23,7 @@
         return [UIImage imageNamed:@"ic_badge_html5.png"];
     }
     else {
-        if ([app.appPrice intValue] == 0) {
+        if ([app.appPrice floatValue] == 0.0) {
             return [UIImage imageNamed:@"ic_badge_free.png"];
         }
         else {
@@ -42,7 +42,7 @@
     }
     
     if (![app.type isEqualToString:@"HTML"]) {
-        if ([app.appPrice intValue] == 0) {
+        if ([app.appPrice floatValue] == 0.0) {
             return NSLocalizedString(@"free_text", @"Free");
         }
         else {
