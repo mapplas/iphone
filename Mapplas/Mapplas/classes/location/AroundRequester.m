@@ -45,7 +45,7 @@
     handler = [[AppGetterResponseHandler alloc] initWithModel:model mainController:viewController reverseGeocoder:geocoder location:model.location firstRequest:YES];
     
     appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
-    [appGetterConnector requestWithModel:model andLocation:model.location];
+    [appGetterConnector requestWithModel:model andLocation:model.location resetPagination:YES];
 }
 
 - (void)locationSearchDidTimeout {

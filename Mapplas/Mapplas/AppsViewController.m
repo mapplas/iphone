@@ -322,7 +322,7 @@
     // Endless tableView
     if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height && _moreData) {
         [self animateRadar];
-        [self requestMoreApps];
+        [self requestMoreAppsAndRestartList:NO];
 	}
 }
 
@@ -349,14 +349,14 @@
 #pragma mark -
 #pragma mark Endless UITableView
 
-- (void)requestMoreApps {
+- (void)requestMoreAppsAndRestartList:(BOOL)restart {
     Environment *environment = [Environment sharedInstance];
     AbstractUrlAddresses *urlAdresses = [environment addresses];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     handler = [[AppGetterResponseHandler alloc] initWithModel:self.model mainController:self reverseGeocoder:geocoder location:self.model.location firstRequest:NO];
     
     appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
-    [appGetterConnector requestWithModel:self.model andLocation:self.model.location];
+    [appGetterConnector requestWithModel:self.model andLocation:self.model.location resetPagination:restart];
 }
 
 - (void)appsPaginationRequestOk {
