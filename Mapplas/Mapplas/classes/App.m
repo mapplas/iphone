@@ -14,6 +14,7 @@
 @synthesize name = _name;
 @synthesize appLogo = _appLogo;
 @synthesize appUrlScheme = _appUrlScheme;
+@synthesize appShortDescription = _appShortDescription;
 
 @synthesize type = _type;
 
@@ -44,6 +45,7 @@
 
         self.type = @"";
         self.appUrlScheme = @"";
+        self.appShortDescription = @"";
         
         self.appUrl = @"";
         self.phone = @"";

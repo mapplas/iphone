@@ -17,6 +17,7 @@
                                   [[KeyValueScappedMapper alloc] initWithKey:@"n" action:@selector(setName:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"i" action:@selector(setAppLogo:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"sc" action:@selector(setAppUrlScheme:)],
+                                  [[KeyValueScappedMapper alloc] initWithKey:@"sd" action:@selector(setAppShortDescription:)],
                                   
                                   [[KeyValueScappedMapper alloc] initWithKey:@"type" action:@selector(setType:)],
 

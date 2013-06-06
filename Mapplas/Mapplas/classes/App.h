@@ -12,6 +12,7 @@
     NSString *_name;
     NSString *_appLogo;
     NSString *_appUrlScheme;
+    NSString *_appShortDescription;
 
     NSString *_type;
     
@@ -43,6 +44,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *appLogo;
 @property (nonatomic, strong) NSString *appUrlScheme;
+@property (nonatomic, strong) NSString *appShortDescription;
 
 @property (nonatomic, strong) NSString *type;
 

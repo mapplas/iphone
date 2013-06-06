@@ -24,6 +24,7 @@
     [parameters setValue:[NSString stringWithFormat:@"%g", coord.longitude] forKey:@"lon"];
     [parameters setValue:[[model user] userId] forKey:@"uid"];
     [parameters setValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] forKey:@"p"];
+    [parameters setValue:[[NSLocale preferredLanguages] objectAtIndex:0] forKey:@"l"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }

@@ -12,7 +12,7 @@
 @implementation AppCell
 
 @synthesize cellPressed, cellUnpressed, cellContent;
-@synthesize imageLogo, imageRoundView, appName, pinsUnpressedText, ratingView, ratingLabel;
+@synthesize imageLogo, imageRoundView, appName, description;
 @synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
 @synthesize priceButton;
 
@@ -70,14 +70,9 @@
         [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_btn.png"]];
     }
     
-    // Unpressed data - pins
-    NSNumber *pins = self.app.auxTotalPins;
-    NSString *pinText = NSLocalizedString(@"pin_plural_text", @"Pin plural text");
- 
-    if (pins == [NSNumber numberWithInt:1]) {
-        pinText = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
-    }
-    self.pinsUnpressedText.text = [NSString stringWithFormat:@"%@ %@", pins, pinText];
+    // Unpressed data - Description
+    self.description.text = self.app.appShortDescription;
+
     
     // Price label and image
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
