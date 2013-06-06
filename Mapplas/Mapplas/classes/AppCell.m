@@ -177,7 +177,8 @@
     
     // Remove app from app list
     [self.modelList deleteApp:self.app];
-    [self.appsList removeObject:self.app];
+    // It is not necessary to delete again the app from the list!
+//    [self.appsList removeObject:self.app];
     
     // Remove row in table for selected app
     UITableView *table = (UITableView *)self.superview;

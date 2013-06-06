@@ -172,8 +172,10 @@
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll {
     int list_length = self.model.appList.getArray.count;
+    AppOrderedList *oldList = self.model.appList;
+    self.model.appList = [[AppOrderedList alloc] init];
     for (int i=0; i < list_length; i++) {
-        [self.model.appList.getArray addObject:[self.model.appList objectAtIndex:i]];
+        [self.model.appList.getArray addObject:[oldList objectAtIndex:i]];
     }
 
     [self.table reloadData];
