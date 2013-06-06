@@ -12,7 +12,7 @@
 @implementation AppCell
 
 @synthesize cellPressed, cellUnpressed, cellContent;
-@synthesize imageLogo, imageRoundView, appName, appPrice, pinsUnpressedText, ratingView, ratingLabel;
+@synthesize imageLogo, imageRoundView, appName, pinsUnpressedText, ratingView, ratingLabel;
 @synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
 @synthesize priceButton;
 
@@ -81,8 +81,8 @@
     
     // Price label and image
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
-    self.appPrice.text = [priceHelper getPriceText];
-    [self.priceButton setImage:[priceHelper getImage] forState:UIControlStateNormal];
+    [self.priceButton setTitle:[priceHelper getPriceText] forState:UIControlStateNormal];
+    [self.priceButton setBackgroundImage:[priceHelper getImage] forState:UIControlStateNormal];
 
     [self.cellContent addSubview:self.cellUnpressed];
     

@@ -29,7 +29,7 @@
 
 @synthesize scroll;
 
-@synthesize topBar, logo, name, priceBackground, priceLabel, ratingView, ratingViewButton;
+@synthesize topBar, logo, name, priceButton, ratingView, ratingViewButton;
 @synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
 @synthesize actionBarWithoutTeleph, pinWithoutPhoneButton, pinWithoutPhoneLabel, rateWithoutPhoneLabel, blockWithoutPhoneLabel, shareWithoutPhoneLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
@@ -134,8 +134,8 @@
     
     // Price label and image
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
-    self.priceLabel.text = [priceHelper getPriceText];
-    self.priceBackground.image = [priceHelper getImage];
+    [self.priceButton setTitle:[priceHelper getPriceText] forState:UIControlStateNormal];
+    [self.priceButton setBackgroundImage:[priceHelper getImage] forState:UIControlStateNormal];
 
     // Action layout
     [self initPinActionLayout];
@@ -516,6 +516,11 @@
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (IBAction)launchApp:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 @end
