@@ -172,8 +172,10 @@
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll {
     int list_length = self.model.appList.getArray.count;
+    AppOrderedList *oldList = self.model.appList;
+    self.model.appList = [[AppOrderedList alloc] init];
     for (int i=0; i < list_length; i++) {
-        [self.model.appList.getArray addObject:[self.model.appList objectAtIndex:i]];
+        [self.model.appList.getArray addObject:[oldList objectAtIndex:i]];
     }
 
     [self.table reloadData];
@@ -320,7 +322,7 @@
     // Endless tableView
     if (([scrollView contentOffset].y + scrollView.frame.size.height) == [scrollView contentSize].height && _moreData) {
         [self animateRadar];
-        [self requestMoreApps];
+        [self requestMoreAppsAndRestartList:NO];
 	}
 }
 
@@ -347,14 +349,14 @@
 #pragma mark -
 #pragma mark Endless UITableView
 
-- (void)requestMoreApps {
+- (void)requestMoreAppsAndRestartList:(BOOL)restart {
     Environment *environment = [Environment sharedInstance];
     AbstractUrlAddresses *urlAdresses = [environment addresses];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     handler = [[AppGetterResponseHandler alloc] initWithModel:self.model mainController:self reverseGeocoder:geocoder location:self.model.location firstRequest:NO];
     
     appGetterConnector = [[AppGetterConnector alloc] initWithAddresses:urlAdresses responseHandler:handler];
-    [appGetterConnector requestWithModel:self.model andLocation:self.model.location];
+    [appGetterConnector requestWithModel:self.model andLocation:self.model.location resetPagination:restart];
 }
 
 - (void)appsPaginationRequestOk {

@@ -15,10 +15,11 @@
 
 @interface AppGetterConnector : GenericConnector {
     SuperModel *model;
+    BOOL reset_pagination;
 }
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses responseHandler:(AppGetterResponseHandler *)response_handler;
 
-- (void)requestWithModel:(SuperModel *)super_model andLocation:(CLLocation *)location;
+- (void)requestWithModel:(SuperModel *)super_model andLocation:(CLLocation *)location resetPagination:(BOOL)_reset_pagination;
 
 @end
