@@ -107,6 +107,7 @@
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
 		7F585A0A16AFD67500DB843A /* TargetIteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */; };
+		7F68051F1761EF2500C42C5E /* ic_badge_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F68051E1761EF2500C42C5E /* ic_badge_launch.png */; };
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
@@ -389,6 +390,7 @@
 		7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToCommentMapper.m; path = classes/mappers/JSONToCommentMapper.m; sourceTree = "<group>"; };
 		7F585A0816AFD67500DB843A /* TargetIteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetIteratingMapper.h; path = classes/mappers/TargetIteratingMapper.h; sourceTree = "<group>"; };
 		7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TargetIteratingMapper.m; path = classes/mappers/TargetIteratingMapper.m; sourceTree = "<group>"; };
+		7F68051E1761EF2500C42C5E /* ic_badge_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_badge_launch.png; sourceTree = SOURCE_ROOT; };
 		7F68781A16A857DC005DC098 /* AppOrderedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppOrderedList.h; path = classes/AppOrderedList.h; sourceTree = "<group>"; };
 		7F68781B16A857DC005DC098 /* AppOrderedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppOrderedList.m; path = classes/AppOrderedList.m; sourceTree = "<group>"; };
 		7F68781E16A85854005DC098 /* NotificationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationList.h; path = classes/NotificationList.h; sourceTree = "<group>"; };
@@ -1379,6 +1381,7 @@
 				7FFA5C0A16BBC076002BE898 /* ic_arrow_com.png */,
 				7F2CE75E16B69D3A00B7E6E5 /* ic_badge_free.png */,
 				7F9352D1173A67F8001B17FB /* ic_badge_html5.png */,
+				7F68051E1761EF2500C42C5E /* ic_badge_launch.png */,
 				7FC8548716B18F3900D73E90 /* ic_badge_nav.png */,
 				7FC8548316B18A9300D73E90 /* ic_badge_price.png */,
 				7FED40F516B12E5100581C9D /* ic_map.png */,
@@ -1548,6 +1551,7 @@
 				7F37957216E48D54005332A1 /* ic_animation_radar_triangles.png in Resources */,
 				7FEF30D316D777F500F6703B /* ImageGalleryViewController.xib in Resources */,
 				7F9352D2173A67F8001B17FB /* ic_badge_html5.png in Resources */,
+				7F68051F1761EF2500C42C5E /* ic_badge_launch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
