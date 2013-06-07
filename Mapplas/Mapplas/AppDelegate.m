@@ -35,6 +35,12 @@
         [defaults synchronize];
     }
     
+    // Initialize to NO app request default
+    if ([defaults objectForKey:APP_REQUEST_BEING_DONE] == nil) {
+        [defaults setBool:NO forKey:APP_REQUEST_BEING_DONE];
+        [defaults synchronize];
+    }
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
