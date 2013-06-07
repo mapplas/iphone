@@ -11,6 +11,7 @@
 
 #define UUID_USER_DEFAULTS_KEY @"UUID"
 #define APP_HAS_TO_RESTART @"HAS_TO_RESTART"
+#define APP_REQUEST_BEING_DONE @"APP_REQUEST_BEING_DONE"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     UINavigationController *_navigationController;

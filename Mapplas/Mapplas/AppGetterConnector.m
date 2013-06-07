@@ -7,6 +7,7 @@
 //
 
 #import "AppGetterConnector.h"
+#import "AppDelegate.h"
 
 @implementation AppGetterConnector
 
@@ -26,7 +27,13 @@
     [parameters setValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] forKey:@"p"];
     [parameters setValue:[[NSLocale preferredLanguages] objectAtIndex:0] forKey:@"l"];
     
-    [super initializeVariablesWithUrlAndSend:[self getUrl]];
+    if (![self checkAppRequests]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:YES forKey:APP_REQUEST_BEING_DONE];
+        [defaults synchronize];
+        
+        [super initializeVariablesWithUrlAndSend:[self getUrl]];
+    }
 }
 
 - (NSString *)getUrl {
@@ -39,6 +46,12 @@
     }
     
     return [adresses getApps:[NSNumber numberWithInt:page]];
+}
+
+- (BOOL)checkAppRequests {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    return [defaults boolForKey:APP_REQUEST_BEING_DONE];
 }
 
 @end

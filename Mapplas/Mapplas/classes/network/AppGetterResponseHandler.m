@@ -8,6 +8,7 @@
 
 #import "AppGetterResponseHandler.h"
 #import "AppsViewController.h"
+#import "AppDelegate.h"
 
 @implementation AppGetterResponseHandler
 
@@ -23,6 +24,8 @@
     return self;
 }
 - (void)requestFinished:(id)JSON {
+    [self setDefaultsForAppRequest];
+    
     // Parse apps
     NSDictionary *response = JSON;
 
@@ -65,7 +68,15 @@
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
+    [self setDefaultsForAppRequest];
+
     NSLog(@"Response delegate error, %@, %@", [error description], JSON);
+}
+
+- (void)setDefaultsForAppRequest {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:APP_REQUEST_BEING_DONE];
+    [defaults synchronize];
 }
 
 #pragma mark - Reverse geocoding
