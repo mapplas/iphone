@@ -22,6 +22,9 @@
     if ([app.type isEqualToString:@"HTML"]) {
         return [UIImage imageNamed:@"ic_badge_html5.png"];
     }
+    else if (![app.appUrlScheme isEqualToString:@""] && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", app.appUrlScheme]]]){
+        return [UIImage imageNamed:@"ic_badge_launch.png"];
+    }
     else {
         if ([app.appPrice floatValue] == 0.0) {
             return [UIImage imageNamed:@"ic_badge_free.png"];
@@ -34,24 +37,29 @@
 
 - (NSString *)getPriceText {
     NSString *currency = @"";
-    if ([app.currencyCode isEqualToString:@"EUR"]) {
-        currency = NSLocalizedString(@"currency_euro", @"Euro currency");
+    
+    if (![app.appUrlScheme isEqualToString:@""]) {
+        return currency;
     }
     else {
-        currency = NSLocalizedString(@"currency_dollar", @"Dollar currency");
-    }
-    
-    if (![app.type isEqualToString:@"HTML"]) {
-        if ([app.appPrice floatValue] == 0.0) {
-            return NSLocalizedString(@"free_text", @"Free");
+        if ([app.currencyCode isEqualToString:@"EUR"]) {
+            currency = NSLocalizedString(@"currency_euro", @"Euro currency");
         }
         else {
-            return [NSString stringWithFormat:@"%@ %@", currency, app.appPrice];
+            currency = NSLocalizedString(@"currency_dollar", @"Dollar currency");
         }
-    } else {
-        return @"";
+        
+        if (![app.type isEqualToString:@"HTML"]) {
+            if ([app.appPrice floatValue] == 0.0) {
+                return NSLocalizedString(@"free_text", @"Free");
+            }
+            else {
+                return [NSString stringWithFormat:@"%@ %@", currency, app.appPrice];
+            }
+        } else {
+            return @"";
+        }
     }
-    
 }
 
 @end
