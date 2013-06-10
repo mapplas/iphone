@@ -90,17 +90,28 @@
         if(placemarks && placemarks.count > 0) {
             //do something
             CLPlacemark *topResult = [placemarks objectAtIndex:0];
-//            NSString *sub = [topResult subThoroughfare];
-//            NSString *thr = [topResult thoroughfare];
-//            NSString *local = [topResult locality];
-            NSString *addressTxt = [NSString stringWithFormat:@"%@ %@, %@",
-                                    [topResult subThoroughfare],[topResult thoroughfare],
-                                    [topResult locality]];
+
+            NSString *addressTxt = @"";
+            addressTxt = [self addString:[topResult subThoroughfare] toString:addressTxt withComa:NO];
+            addressTxt = [self addString:[topResult thoroughfare] toString:addressTxt withComa:NO];
+            addressTxt = [self addString:[topResult locality] toString:addressTxt withComa:YES];
             
             [model setCurrentDescriptiveGeoLoc:addressTxt];
             [mainController appsDataParsedFromServer];
         }
     }];
+}
+
+- (NSString *)addString:(NSString *)str_to_add toString:(NSString *)main_str withComa:(BOOL)coma {
+    if (![str_to_add isEqualToString:@""] && ![str_to_add isEqualToString:@"(null)"] && str_to_add != nil) {
+        if (coma) {
+            main_str = [NSString stringWithFormat:@"%@, %@", main_str, str_to_add];
+        }
+        else {
+            main_str = [NSString stringWithFormat:@"%@ %@", main_str, str_to_add];
+        }
+    }
+    return main_str;
 }
 
 @end
