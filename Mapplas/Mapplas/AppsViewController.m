@@ -132,6 +132,11 @@
     [self initializeRadarAnimation];
     [self initializeLatitudeLongitude];
     
+    // Initialize to NO app request default
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:APP_REQUEST_BEING_DONE];
+    [defaults synchronize];
+    
     [self initializeNavigationBarButtons];
     
     self.loadingText.text = NSLocalizedString(@"loading_cell_text", @"Apps refreshing cell text");

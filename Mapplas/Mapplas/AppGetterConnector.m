@@ -50,7 +50,6 @@
 
 - (BOOL)checkAppRequests {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     return [defaults boolForKey:APP_REQUEST_BEING_DONE];
 }
 
