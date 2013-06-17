@@ -19,10 +19,10 @@
 @synthesize webView;
 @synthesize activityIndicator;
 
-- (id)initWithApp:(App *)_app {
+- (id)initWithUrl:(NSString *)_url{
     self = [super init];
     if (self) {
-        app = _app;
+        url = _url;
         webFinished = NO;
     }
     return self;
@@ -68,8 +68,7 @@
 //}
 
 - (void)loadUrl {
-    NSURL *url = [NSURL URLWithString:app.appUrl];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView loadRequest:requestObj];
 }
 
