@@ -104,7 +104,7 @@
 
 - (NSString *)addString:(NSString *)str_to_add toString:(NSString *)main_str withComa:(BOOL)coma {
     if (![str_to_add isEqualToString:@""] && ![str_to_add isEqualToString:@"(null)"] && str_to_add != nil) {
-        if (coma) {
+        if (coma && ![main_str isEqualToString:@""]) {
             main_str = [NSString stringWithFormat:@"%@, %@", main_str, str_to_add];
         }
         else {
