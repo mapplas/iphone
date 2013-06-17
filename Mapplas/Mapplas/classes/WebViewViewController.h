@@ -11,7 +11,7 @@
 #import "App.h"
 #import "Toast.h"
 
-@interface WebViewViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate> {
+@interface WebViewViewController : UIViewController <UIWebViewDelegate> {
     App *app;
     BOOL webFinished;
 }
