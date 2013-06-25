@@ -53,7 +53,7 @@
         
         if (isFirstRequest) {
             // Do reverse geocoding
-            [self doReverseGeocoding];
+            [self doReverseGeocoding:lastApps.intValue];
             
             // App info sender - url scheme request to server and verify wit canOpenURL:
         } else {
@@ -80,7 +80,7 @@
 }
 
 #pragma mark - Reverse geocoding
-- (void)doReverseGeocoding {    
+- (void)doReverseGeocoding:(NSInteger)last_apps {
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error){
             [model setCurrentDescriptiveGeoLoc:NSLocalizedString(@"descriptive_geoloc_error", @"Reverse geocoding error")];
@@ -97,7 +97,12 @@
             addressTxt = [self addString:[topResult locality] toString:addressTxt withComa:YES];
             
             [model setCurrentDescriptiveGeoLoc:addressTxt];
-            [mainController appsDataParsedFromServer];
+            
+            if (last_apps == 0) {
+                [mainController appsPaginationRequestOk];
+            } else {
+                [mainController appsPaginationRequestNok];
+            }
         }
     }];
 }
