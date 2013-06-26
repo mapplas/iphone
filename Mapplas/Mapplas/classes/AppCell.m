@@ -158,7 +158,21 @@
 
     // Sort table and reload
     [self.modelList sort];
-    [self.viewController reloadTableDataAndScrollTop:YES];
+    
+    // Animation
+    [self.viewController.table beginUpdates];
+    NSInteger scroll_to = [self.modelList numberOfPins] - 1;
+    if (scroll_to < 0) {
+        scroll_to = 0;
+    }
+    [self.viewController.table moveRowAtIndexPath:[NSIndexPath indexPathForRow:self.positionInList inSection:0] toIndexPath:[NSIndexPath indexPathForRow:scroll_to inSection:0]];
+    [self.viewController.table endUpdates];
+    [self animate:nil];
+    [self performSelector:@selector(reload) withObject:nil afterDelay:0.2];
+}
+
+- (void)reload {
+    [self.viewController.table reloadData];
 }
 
 - (IBAction)blockUnblockApp:(id)sender {
@@ -173,7 +187,7 @@
     // Remove app from app list
     [self.modelList deleteApp:self.app];
     // It is not necessary to delete again the app from the list!
-//    [self.appsList removeObject:self.app];
+    //[self.appsList removeObject:self.app];
     
     // Remove row in table for selected app
     UITableView *table = (UITableView *)self.superview;
