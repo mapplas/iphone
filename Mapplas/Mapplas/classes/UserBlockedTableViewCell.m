@@ -61,7 +61,7 @@
     
     // Remove row in table for selected app
     UITableView *table = (UITableView *)self.superview;
-    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
+    [table deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.positionInList inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
     [table reloadData];
 }
 
