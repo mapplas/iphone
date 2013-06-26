@@ -24,5 +24,6 @@
 - (App *)objectAtIndex:(NSUInteger)index;
 - (void)sort;
 - (NSMutableArray *)getArray;
+- (NSUInteger)numberOfPins;
 
 @end

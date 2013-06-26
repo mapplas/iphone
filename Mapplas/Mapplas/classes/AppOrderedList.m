@@ -81,4 +81,19 @@
     return self.list;
 }
 
+- (NSUInteger)numberOfPins {
+    
+    NSUInteger pinnedApps = 0;
+    NSUInteger i = 0;
+    
+    while (i < self.list.count) {
+        App *app = [self.list objectAtIndex:i];
+        if ([app.auxPin intValue] == 1) {
+            pinnedApps ++;
+        }
+        i++;
+    }
+    return pinnedApps;
+}
+
 @end
