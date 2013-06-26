@@ -11,7 +11,7 @@
 #import "SuperModel.h"
 #import <CoreLocation/CoreLocation.h>
 
-#define APPS_PAGINATION_NUMBER 8;
+#define APPS_PAGINATION_NUMBER 20;
 
 @interface AppGetterConnector : GenericConnector {
     SuperModel *model;
