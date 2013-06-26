@@ -11,14 +11,14 @@
 #import "App.h"
 #import "Toast.h"
 
-@interface WebViewViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate> {
-    App *app;
+@interface WebViewViewController : UIViewController <UIWebViewDelegate> {
+    NSString *url;
     BOOL webFinished;
 }
 
 @property (nonatomic, strong) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-- (id)initWithApp:(App *)_app;
+- (id)initWithUrl:(NSString *)_url;
 
 @end

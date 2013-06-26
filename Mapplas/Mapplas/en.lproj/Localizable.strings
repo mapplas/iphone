@@ -60,8 +60,8 @@
 /* App detail - developer text */
 "app_detail_developer_label_text" = "Developer";
 
-/* App detail - developer email */
-"app_detail_developer_email_button" = "Developer Mail";
+/* App detail - app support */
+"app_detail_developer_email_button" = "Support";
 
 /* App detail - developer web */
 "app_detail_developer_web_button" = "Developer Web";

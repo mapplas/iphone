@@ -17,7 +17,7 @@
 - (void)showAppCompleteDescription;
 - (void)adjustLabel:(CGSize)max_label_size;
 - (void)initPinActionLayout;
-- (void)toDeveloperWeb;
+- (void)toDeveloperWeb:(NSString *)url;
 - (void)galleryFullscreen;
 @end
 
@@ -380,11 +380,26 @@
     [controller setMailComposeDelegate:self];
     
     NSString *mail = self.app.appSupportUrl;
-    [controller setToRecipients:[NSArray arrayWithObject:mail]];
-    NSString *subject = NSLocalizedString(@"app_developer_email_contact", @"Email app developer contact email subject");
-    [controller setSubject:subject];
     
-    [self presentModalViewController:controller animated:YES];
+    if ([self NSStringIsValidEmail:mail]) {
+        [controller setToRecipients:[NSArray arrayWithObject:mail]];
+        NSString *subject = NSLocalizedString(@"app_developer_email_contact", @"Email app developer contact email subject");
+        [controller setSubject:subject];
+        
+        [self presentModalViewController:controller animated:YES];
+    }
+    else {
+        [self toDeveloperWeb:mail];
+    }
+}
+
+-(BOOL)NSStringIsValidEmail:(NSString *)checkString {
+    BOOL stricterFilter = YES; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSString *laxString = @".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
 }
 
 // Developer email delegate
@@ -408,15 +423,13 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)toDeveloperWeb {
-    if (![self.app.appUrl isEqualToString:@""]) {
-        WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithApp:self.app];
+- (void)toDeveloperWeb:(NSString *)url {
+    if (![url isEqualToString:@""]) {
+        WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithUrl:url];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewViewController];
         [SCAppUtils customizeNavigationController:navController];
         
         [self presentModalViewController:navController animated:YES];
-        
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.app.appUrl]];
     }
     else {
         Toast *errorToast = [[Toast alloc] initAndShowIn:self.view withText:@"Developer website is not avaliable"];
@@ -486,7 +499,7 @@
                 cell.textLabel.text = NSLocalizedString(@"app_detail_developer_web_button", @"App detail - developer web");
             }
             else if (![self.app.appSupportUrl isEqualToString:@""]) {
-                cell.textLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - developer email");
+                cell.textLabel.text = NSLocalizedString(@"app_detail_developer_email_button", @"App detail - app support");
             }
             break;
         
@@ -508,7 +521,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0 && ![self.app.appUrl isEqualToString:@""]) {
         // Developer web link
-        [self toDeveloperWeb];
+        [self toDeveloperWeb:self.app.appUrl];
     }
     else {
         // Developer mail link
