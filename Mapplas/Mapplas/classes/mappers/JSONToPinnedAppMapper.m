@@ -1,14 +1,14 @@
 //
-//  JSONToPinnedBlockedAppMapper.m
+//  JSONToPinnedAppMapper.m
 //  Mapplas
 //
-//  Created by Belén  on 10/05/13.
+//  Created by Belén  on 26/06/13.
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
-#import "JSONToPinnedBlockedAppMapper.h"
+#import "JSONToPinnedAppMapper.h"
 
-@implementation JSONToPinnedBlockedAppMapper
+@implementation JSONToPinnedAppMapper
 
 - (id)init {
     
@@ -16,6 +16,7 @@
                                   [[KeyValueScappedMapper alloc] initWithKey:@"id" action:@selector(setAppId:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"n" action:@selector(setName:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"i" action:@selector(setAppLogo:)],
+                                  [[KeyValueScappedMapper alloc] initWithKey:@"a" action:@selector(setAppPinnedGeocodedLocation:)],
                                   nil];
     
     self = [super initWithMappers:mappingProperties];
@@ -30,6 +31,5 @@
     
     return app;
 }
-
 
 @end

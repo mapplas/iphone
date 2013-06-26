@@ -73,7 +73,7 @@
 		7F14A3CB16C8F60200FC0482 /* UserEditConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CA16C8F60200FC0482 /* UserEditConnector.m */; };
 		7F14A3CE16C8F76500FC0482 /* UserEditRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */; };
 		7F14A3D816C9159600FC0482 /* MutableScrollViewOfViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */; };
-		7F191B87173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F191B86173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m */; };
+		7F191B87173CF85C00C45156 /* JSONToBlockedAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F191B86173CF85C00C45156 /* JSONToBlockedAppMapper.m */; };
 		7F191B8A173D383B00C45156 /* AppDetailConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F191B89173D383A00C45156 /* AppDetailConnector.m */; };
 		7F191B90173D3A6D00C45156 /* AppDetailRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F191B8F173D3A6D00C45156 /* AppDetailRequester.m */; };
 		7F1982DF16C9646B00886FF7 /* UserEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1982DE16C9646B00886FF7 /* UserEmptyTableViewCell.m */; };
@@ -111,6 +111,8 @@
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
+		7F8E24CB177AECFE00A86C10 /* ReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */; };
+		7F8E24CF177AF39500A86C10 /* JSONToPinnedAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E24CE177AF39500A86C10 /* JSONToPinnedAppMapper.m */; };
 		7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EF4B9173BC96500625C53 /* AppShareConnector.m */; };
 		7F8EF4BD173BCA8B00625C53 /* AppShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EF4BC173BCA8B00625C53 /* AppShareRequest.m */; };
 		7F9352D2173A67F8001B17FB /* ic_badge_html5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9352D1173A67F8001B17FB /* ic_badge_html5.png */; };
@@ -335,8 +337,8 @@
 		7F14A3CD16C8F76500FC0482 /* UserEditRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserEditRequester.m; path = classes/network/UserEditRequester.m; sourceTree = "<group>"; };
 		7F14A3D616C9159600FC0482 /* MutableScrollViewOfViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MutableScrollViewOfViews.h; path = classes/utils/MutableScrollViewOfViews.h; sourceTree = "<group>"; };
 		7F14A3D716C9159600FC0482 /* MutableScrollViewOfViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MutableScrollViewOfViews.m; path = classes/utils/MutableScrollViewOfViews.m; sourceTree = "<group>"; };
-		7F191B85173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToPinnedBlockedAppMapper.h; path = classes/mappers/JSONToPinnedBlockedAppMapper.h; sourceTree = "<group>"; };
-		7F191B86173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToPinnedBlockedAppMapper.m; path = classes/mappers/JSONToPinnedBlockedAppMapper.m; sourceTree = "<group>"; };
+		7F191B85173CF85C00C45156 /* JSONToBlockedAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToBlockedAppMapper.h; path = classes/mappers/JSONToBlockedAppMapper.h; sourceTree = "<group>"; };
+		7F191B86173CF85C00C45156 /* JSONToBlockedAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToBlockedAppMapper.m; path = classes/mappers/JSONToBlockedAppMapper.m; sourceTree = "<group>"; };
 		7F191B88173D383A00C45156 /* AppDetailConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDetailConnector.h; path = classes/network/AppDetailConnector.h; sourceTree = "<group>"; };
 		7F191B89173D383A00C45156 /* AppDetailConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDetailConnector.m; path = classes/network/AppDetailConnector.m; sourceTree = "<group>"; };
 		7F191B8E173D3A6D00C45156 /* AppDetailRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDetailRequester.h; path = classes/network/AppDetailRequester.h; sourceTree = "<group>"; };
@@ -399,6 +401,11 @@
 		7F68783A16A86065005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F68783C16A86083005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F68783E16A86087005DC098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F8E24C9177AECFE00A86C10 /* ReverseGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverseGeocoder.h; path = classes/utils/ReverseGeocoder.h; sourceTree = "<group>"; };
+		7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverseGeocoder.m; path = classes/utils/ReverseGeocoder.m; sourceTree = "<group>"; };
+		7F8E24CC177AEF0900A86C10 /* ReverseGeocoderHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ReverseGeocoderHandler.h; path = classes/utils/ReverseGeocoderHandler.h; sourceTree = "<group>"; };
+		7F8E24CD177AF39500A86C10 /* JSONToPinnedAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToPinnedAppMapper.h; path = classes/mappers/JSONToPinnedAppMapper.h; sourceTree = "<group>"; };
+		7F8E24CE177AF39500A86C10 /* JSONToPinnedAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToPinnedAppMapper.m; path = classes/mappers/JSONToPinnedAppMapper.m; sourceTree = "<group>"; };
 		7F8EF4B8173BC96500625C53 /* AppShareConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppShareConnector.h; path = classes/network/AppShareConnector.h; sourceTree = "<group>"; };
 		7F8EF4B9173BC96500625C53 /* AppShareConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppShareConnector.m; path = classes/network/AppShareConnector.m; sourceTree = "<group>"; };
 		7F8EF4BB173BCA8B00625C53 /* AppShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppShareRequest.h; path = classes/network/AppShareRequest.h; sourceTree = "<group>"; };
@@ -978,6 +985,9 @@
 				7FFFBB8716A9689900417499 /* HtmlEntitiesConversor.m */,
 				7FFFBB8916A968E600417499 /* MREntitiesConverter.h */,
 				7FFFBB8A16A968E700417499 /* MREntitiesConverter.m */,
+				7F8E24C9177AECFE00A86C10 /* ReverseGeocoder.h */,
+				7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */,
+				7F8E24CC177AEF0900A86C10 /* ReverseGeocoderHandler.h */,
 				7FC8826416A825D0008A06A8 /* SCAppUtils.h */,
 				7FC8826516A825D0008A06A8 /* SCAppUtils.m */,
 				7FC8826B16A82724008A06A8 /* SCClassUtils.h */,
@@ -1337,10 +1347,12 @@
 				7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */,
 				7F03407B16CA96A500F5027C /* JSONToNotificationMapper.h */,
 				7F03407C16CA96A500F5027C /* JSONToNotificationMapper.m */,
-				7F191B85173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.h */,
-				7F191B86173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m */,
+				7F191B85173CF85C00C45156 /* JSONToBlockedAppMapper.h */,
+				7F191B86173CF85C00C45156 /* JSONToBlockedAppMapper.m */,
 				7FFFBB7D16A9657100417499 /* JSONToUserMapper.h */,
 				7FFFBB7E16A9657100417499 /* JSONToUserMapper.m */,
+				7F8E24CD177AF39500A86C10 /* JSONToPinnedAppMapper.h */,
+				7F8E24CE177AF39500A86C10 /* JSONToPinnedAppMapper.m */,
 			);
 			name = Mappers;
 			sourceTree = "<group>";
@@ -1695,7 +1707,7 @@
 				7FF0A5C816E635A40028561F /* Reachability.m in Sources */,
 				7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */,
 				7F8EF4BD173BCA8B00625C53 /* AppShareRequest.m in Sources */,
-				7F191B87173CF85C00C45156 /* JSONToPinnedBlockedAppMapper.m in Sources */,
+				7F191B87173CF85C00C45156 /* JSONToBlockedAppMapper.m in Sources */,
 				7F191B8A173D383B00C45156 /* AppDetailConnector.m in Sources */,
 				7F191B90173D3A6D00C45156 /* AppDetailRequester.m in Sources */,
 				7F2FD6811740C1AB00E53F1A /* AppDetailRequestHandler.m in Sources */,
@@ -1703,6 +1715,8 @@
 				7F2FD6881740E96000E53F1A /* RatingHelper.m in Sources */,
 				7F2FD68B1740EE9C00E53F1A /* NSString+MD5Addition.m in Sources */,
 				7F2FD68E1740EECD00E53F1A /* UIDevice+IdentifierAddition.m in Sources */,
+				7F8E24CB177AECFE00A86C10 /* ReverseGeocoder.m in Sources */,
+				7F8E24CF177AF39500A86C10 /* JSONToPinnedAppMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

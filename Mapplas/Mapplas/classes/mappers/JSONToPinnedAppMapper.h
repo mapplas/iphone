@@ -1,8 +1,8 @@
 //
-//  JSONToPinnedBlockedAppMapper.h
+//  JSONToPinnedAppMapper.h
 //  Mapplas
 //
-//  Created by Belén  on 10/05/13.
+//  Created by Belén  on 26/06/13.
 //  Copyright (c) 2013 Mapplas. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 #import "KeyValueMapper.h"
 #import "KeyValueScappedMapper.h"
 
-@interface JSONToPinnedBlockedAppMapper : GenericMapper <ReturnMapper>
+@interface JSONToPinnedAppMapper : GenericMapper <ReturnMapper>
 
 - (App *)map:(NSDictionary *)json;
 

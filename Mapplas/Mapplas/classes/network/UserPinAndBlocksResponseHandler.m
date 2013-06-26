@@ -11,10 +11,11 @@
 
 @implementation UserPinAndBlocksResponseHandler
 
-- (id)initWithAppMapper:(JSONToPinnedBlockedAppMapper *)app_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller {
+- (id)initWithAppBlockedMapper:(JSONToBlockedAppMapper *)app_blocked_mapper pinnedMapper:(JSONToPinnedAppMapper *)app_pinned_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller {
     self = [super init];
     if (self) {
-        mapper = app_mapper;
+        blockedMapper = app_blocked_mapper;
+        pinnedMapper = app_pinned_mapper;
         user = _user;
         userViewController = user_view_controller;
     }
@@ -32,13 +33,13 @@
     App *app = nil;
     NSMutableArray *pinnedAppsArray = [[NSMutableArray alloc] init];
     for (int i=0; i < pinnedApps.count; i++) {
-        app = [mapper map:[pinnedApps objectAtIndex:i]];
+        app = [pinnedMapper map:[pinnedApps objectAtIndex:i]];
         [pinnedAppsArray addObject:app];
     }
     
     NSMutableArray *blockedAppsArray = [[NSMutableArray alloc] init];
     for (int i=0; i < blockedApps.count; i++) {
-        app = [mapper map:[blockedApps objectAtIndex:i]];
+        app = [blockedMapper map:[blockedApps objectAtIndex:i]];
         [blockedAppsArray addObject:app];
     }
     

@@ -10,7 +10,8 @@
 #import "UserPinAndBlocksConnector.h"
 #import "UserPinAndBlocksResponseHandler.h"
 #import "UserViewController.h"
-#import "JSONToPinnedBlockedAppMapper.h"
+#import "JSONToBlockedAppMapper.h"
+#import "JSONToPinnedAppMapper.h"
 
 @interface UserPinAndBlocksRequester : NSObject {
     UserPinAndBlocksConnector *connector;

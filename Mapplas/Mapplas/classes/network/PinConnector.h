@@ -7,8 +7,12 @@
 //
 
 #import "GenericConnector.h"
+#import "ReverseGeocoder.h"
+#import "ReverseGeocoderHandler.h"
 
-@interface PinConnector : GenericConnector
+@interface PinConnector : GenericConnector <ReverseGeocoderHandler> {
+    ReverseGeocoder *geocoder;
+}
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses;
 

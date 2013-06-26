@@ -12,6 +12,7 @@
 @implementation PinConnector
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses {
+    geocoder = [[ReverseGeocoder alloc] init];
     return [super initWithAddresses:_addresses responseHandler:nil];
 }
 
@@ -21,16 +22,35 @@
     [parameters setValue:app_id forKey:@"app"];
     [parameters setValue:user_id forKey:@"uid"];
     [parameters setValue:_action forKey:@"s"];
+    
     if ([_action isEqualToString:ACTION_PIN_REQUEST_PIN]) {
+        
+        [geocoder doReverseGeocodingFromLat:[splitedLocation objectAtIndex:0] andLong:[splitedLocation objectAtIndex:1] handler:self];
+        
         [parameters setValue:[splitedLocation objectAtIndex:0] forKey:@"lat"];
         [parameters setValue:[splitedLocation objectAtIndex:1] forKey:@"lon"];
     }
-    
-    [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
 
 - (NSString *)getUrl {
     return [adresses pinApp];
+}
+
+# pragma mark - Reverse geooder handler
+- (void)geocodedOK:(NSString *)address {
+    NSData *newdata = [address dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *mystring = [[NSString alloc] initWithData:newdata encoding:NSNonLossyASCIIStringEncoding];
+    
+    
+    NSLog(@"%@", address);
+    NSLog(@"%@", mystring);
+    [parameters setValue:mystring forKey:@"a"];
+    
+    [super initializeVariablesWithUrlAndSend:[self getUrl]];
+}
+
+- (void)geocodedNOK {
+    [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
 
 @end

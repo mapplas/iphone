@@ -7,17 +7,19 @@
 //
 
 #import "GenericRequestHandler.h"
-#import "JSONToPinnedBlockedAppMapper.h"
+#import "JSONToBlockedAppMapper.h"
+#import "JSONToPinnedAppMapper.h"
 #import "User.h"
 
 @class UserViewController;
 
 @interface UserPinAndBlocksResponseHandler : NSObject <GenericRequestHandler> {
-    JSONToPinnedBlockedAppMapper *mapper;
+    JSONToBlockedAppMapper *blockedMapper;
+    JSONToPinnedAppMapper *pinnedMapper;
     User *user;
     UserViewController *userViewController;
 }
 
-- (id)initWithAppMapper:(JSONToPinnedBlockedAppMapper *)app_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller;
+- (id)initWithAppBlockedMapper:(JSONToBlockedAppMapper *)app_blocked_mapper pinnedMapper:(JSONToPinnedAppMapper *)app_pinned_mapper user:(User *)_user viewController:(UserViewController *)user_view_controller;
 
 @end
