@@ -223,6 +223,8 @@
     int height = CELL_HEIGHT;
     if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
         [self.table setTableFooterView:self.cellLoading];
+    } else if(self.model.appList.getArray.count == 0) {
+        [self.table setTableFooterView:nil];
     } else {
         [self.table setTableFooterView:self.cellLoadingEmpty];
     }
@@ -261,39 +263,81 @@
 #pragma mark Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.model.appList.getArray.count;
+    NSInteger sizeOfList = self.model.appList.getArray.count;
+    if (sizeOfList == 0) {
+        return 1;
+    } else {
+        return sizeOfList;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"AppTableItem";
+    static NSString *emtpyTableIdentifier = @"AppEmtpyTableItem";
     
-    AppCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+    if (self.model.appList.getArray.count > 0) {
+        AppCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        [cell setApp:[self.model.appList.getArray objectAtIndex:indexPath.row]];
+        [cell setUser:self.model.user];
+        [cell setCurrentLocation:self.model.currentLocation];
+        [cell setCurrentDescriptiveGeoLoc:self.model.currentDescriptiveGeoLoc];
+        [cell setModelList:self.model.appList];
+        [cell setAppsList:self.model.appList.getArray];
+        [cell setViewController:self];
+        [cell setPositionInList:indexPath.row];
+        [cell resetState];
+        [cell loadData];
+        
+        return cell;
     }
-
-    [cell setApp:[self.model.appList.getArray objectAtIndex:indexPath.row]];
-    [cell setUser:self.model.user];
-    [cell setCurrentLocation:self.model.currentLocation];
-    [cell setCurrentDescriptiveGeoLoc:self.model.currentDescriptiveGeoLoc];
-    [cell setModelList:self.model.appList];
-    [cell setAppsList:self.model.appList.getArray];
-    [cell setViewController:self];
-    [cell setPositionInList:indexPath.row];
-    [cell resetState];
-    [cell loadData];
-    
-    return cell;
+    else {
+        
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        if (bounds.size.height == 480) {
+            EmptyCell4 *cell = [tableView dequeueReusableCellWithIdentifier:emtpyTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EmptyCell4" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            return cell;
+        }
+        else {
+            EmptyCell *cell = [tableView dequeueReusableCellWithIdentifier:emtpyTableIdentifier];
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EmptyCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            return cell;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return CELL_HEIGHT;
+    if (self.model.appList.getArray.count > 0) {
+        return CELL_HEIGHT;
+    }
+    else {
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        if (bounds.size.height == 480) {
+            return CELL_EMPTY_HEIGHT_4;
+        }
+        else {
+            return CELL_EMPTY_HEIGHT;
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row] user:self.model.user model:self.model andLocation:self.model.currentLocation];
-    [self.navigationController pushViewController:appViewController animated:YES];
+    if (self.model.appList.getArray.count > 0) {
+        AppDetailViewController *appViewController = [[AppDetailViewController alloc] initWithApp:[self.model.appList objectAtIndex:indexPath.row] user:self.model.user model:self.model andLocation:self.model.currentLocation];
+        [self.navigationController pushViewController:appViewController animated:YES];
+    }
 }
 
 #pragma mark -

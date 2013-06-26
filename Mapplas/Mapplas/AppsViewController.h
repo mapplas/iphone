@@ -19,10 +19,14 @@
 
 #import "EGORefreshTableHeaderView.h"
 #import "AppCell.h"
+#import "EmptyCell.h"
+#import "EmptyCell4.h"
 #import "AppDetailViewController.h"
 #import "UIDevice+IdentifierAddition.h"
 
 #define CELL_HEIGHT 72;
+#define CELL_EMPTY_HEIGHT 504;
+#define CELL_EMPTY_HEIGHT_4 416;
 
 @interface AppsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate> {
     UserIdentificationRequest *_userIdentRequester;

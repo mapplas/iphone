@@ -174,6 +174,11 @@
 		7FF0A5C816E635A40028561F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0A5C716E635A40028561F /* Reachability.m */; };
 		7FF760F216D6635D00DF29C8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */; };
 		7FF760F716D6737C00DF29C8 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF760F516D6737C00DF29C8 /* ImageGalleryViewController.m */; };
+		7FF8E1AF177B0A5500BC9EA3 /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8E1AE177B0A5500BC9EA3 /* EmptyCell.m */; };
+		7FF8E1B3177B0A9400BC9EA3 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8E1B2177B0A9400BC9EA3 /* EmptyCell.xib */; };
+		7FF8E1B5177B12AF00BC9EA3 /* EmptyCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8E1B4177B12AF00BC9EA3 /* EmptyCell4.xib */; };
+		7FF8E1B8177B12DA00BC9EA3 /* EmptyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8E1B7177B12DA00BC9EA3 /* EmptyCell4.m */; };
+		7FF8E1BA177B228B00BC9EA3 /* img_coming_soon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8E1B9177B228B00BC9EA3 /* img_coming_soon.png */; };
 		7FFA007316B7E5A5003E53E1 /* ic_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA007216B7E5A5003E53E1 /* ic_refresh.png */; };
 		7FFA008116B82D8C003E53E1 /* AppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */; };
 		7FFA008216B82D8C003E53E1 /* AppDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA008016B82D8C003E53E1 /* AppDetailViewController.xib */; };
@@ -503,6 +508,13 @@
 		7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "classes/UIImage+Resize.m"; sourceTree = "<group>"; };
 		7FF760F416D6737C00DF29C8 /* ImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageGalleryViewController.h; path = classes/ImageGalleryViewController.h; sourceTree = "<group>"; };
 		7FF760F516D6737C00DF29C8 /* ImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageGalleryViewController.m; path = classes/ImageGalleryViewController.m; sourceTree = "<group>"; };
+		7FF8E1AD177B0A5500BC9EA3 /* EmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCell.h; sourceTree = "<group>"; };
+		7FF8E1AE177B0A5500BC9EA3 /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell.m; sourceTree = "<group>"; };
+		7FF8E1B2177B0A9400BC9EA3 /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
+		7FF8E1B4177B12AF00BC9EA3 /* EmptyCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell4.xib; sourceTree = "<group>"; };
+		7FF8E1B6177B12DA00BC9EA3 /* EmptyCell4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCell4.h; sourceTree = "<group>"; };
+		7FF8E1B7177B12DA00BC9EA3 /* EmptyCell4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell4.m; sourceTree = "<group>"; };
+		7FF8E1B9177B228B00BC9EA3 /* img_coming_soon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_coming_soon.png; sourceTree = SOURCE_ROOT; };
 		7FFA007216B7E5A5003E53E1 /* ic_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh.png; sourceTree = SOURCE_ROOT; };
 		7FFA007E16B82D8C003E53E1 /* AppDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDetailViewController.h; path = classes/AppDetailViewController.h; sourceTree = "<group>"; };
 		7FFA007F16B82D8C003E53E1 /* AppDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDetailViewController.m; path = classes/AppDetailViewController.m; sourceTree = "<group>"; };
@@ -913,6 +925,7 @@
 		7FBAE93516B0443E00621B34 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7FF8E1B9177B228B00BC9EA3 /* img_coming_soon.png */,
 				7FBAE93616B0444C00621B34 /* img_gray_arrow.png */,
 				7FBAE93716B0444C00621B34 /* img_gray_arrow@2x.png */,
 				7FEF543D16B913DC00EAEED8 /* img_roundc.png */,
@@ -1087,6 +1100,12 @@
 				7F0195EA16C26FC70040FAD9 /* AppCell.xib */,
 				7FED411616B141CE00581C9D /* AppCell.h */,
 				7FED411716B141CE00581C9D /* AppCell.m */,
+				7FF8E1AD177B0A5500BC9EA3 /* EmptyCell.h */,
+				7FF8E1AE177B0A5500BC9EA3 /* EmptyCell.m */,
+				7FF8E1B2177B0A9400BC9EA3 /* EmptyCell.xib */,
+				7FF8E1B6177B12DA00BC9EA3 /* EmptyCell4.h */,
+				7FF8E1B7177B12DA00BC9EA3 /* EmptyCell4.m */,
+				7FF8E1B4177B12AF00BC9EA3 /* EmptyCell4.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1564,6 +1583,9 @@
 				7FEF30D316D777F500F6703B /* ImageGalleryViewController.xib in Resources */,
 				7F9352D2173A67F8001B17FB /* ic_badge_html5.png in Resources */,
 				7F68051F1761EF2500C42C5E /* ic_badge_launch.png in Resources */,
+				7FF8E1B3177B0A9400BC9EA3 /* EmptyCell.xib in Resources */,
+				7FF8E1B5177B12AF00BC9EA3 /* EmptyCell4.xib in Resources */,
+				7FF8E1BA177B228B00BC9EA3 /* img_coming_soon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1717,6 +1739,8 @@
 				7F2FD68E1740EECD00E53F1A /* UIDevice+IdentifierAddition.m in Sources */,
 				7F8E24CB177AECFE00A86C10 /* ReverseGeocoder.m in Sources */,
 				7F8E24CF177AF39500A86C10 /* JSONToPinnedAppMapper.m in Sources */,
+				7FF8E1AF177B0A5500BC9EA3 /* EmptyCell.m in Sources */,
+				7FF8E1B8177B12DA00BC9EA3 /* EmptyCell4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
