@@ -30,6 +30,9 @@
         [parameters setValue:[splitedLocation objectAtIndex:0] forKey:@"lat"];
         [parameters setValue:[splitedLocation objectAtIndex:1] forKey:@"lon"];
     }
+    else {
+        [super initializeVariablesWithUrlAndSend:[self getUrl]];
+    }
 }
 
 - (NSString *)getUrl {
@@ -38,18 +41,14 @@
 
 # pragma mark - Reverse geooder handler
 - (void)geocodedOK:(NSString *)address {
-    NSData *newdata = [address dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    NSString *mystring = [[NSString alloc] initWithData:newdata encoding:NSNonLossyASCIIStringEncoding];
-    
-    
-    NSLog(@"%@", address);
-    NSLog(@"%@", mystring);
-    [parameters setValue:mystring forKey:@"a"];
+    [parameters setValue:address forKey:@"a"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
 
 - (void)geocodedNOK {
+    [parameters setValue:@"" forKey:@"a"];
+    
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }
 
