@@ -44,6 +44,9 @@
         [self.appLogo setImage:[UIImage imageNamed:@"ic_template.png"]];
     }
     
+    // Touch edge insets bigger
+    [self.appUnpinButton setHitTestEdgeInsets:UIEdgeInsetsMake(-20, -20, -20, -20)];
+    
     self.appTitle.text = app.name;
     self.appGeoLocation.text = app.appPinnedGeocodedLocation;
     

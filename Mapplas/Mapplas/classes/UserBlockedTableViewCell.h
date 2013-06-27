@@ -17,6 +17,8 @@
 #import "AppOrderedList.h"
 #import "Constants.h"
 
+#import "UIButton+Extensions.h"
+
 @interface UserBlockedTableViewCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
     ImageLoader *imageLoader;
     
@@ -38,4 +40,5 @@
 
 - (void)loadData;
 - (IBAction)unblockApp:(id)sender;
+
 @end

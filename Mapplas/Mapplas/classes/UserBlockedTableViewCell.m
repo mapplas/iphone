@@ -43,6 +43,9 @@
         [self.appLogo setImage:[UIImage imageNamed:@"ic_template.png"]];
     }
     
+    // Touch edge insets bigger
+    [self.appUnblockButton setHitTestEdgeInsets:UIEdgeInsetsMake(-20, -20, -20, -20)];
+    
     self.appTitle.text = app.name;
     
     self.appUnblockActionLabel.text = NSLocalizedString(@"user_list_blocked_cell_unblock_text", @"User screen block cell unblock label text");
