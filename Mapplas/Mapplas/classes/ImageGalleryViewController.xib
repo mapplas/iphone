@@ -4459,9 +4459,9 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					</object>
 					<object class="IBUIScrollView" id="1048886681">
 						<reference key="NSNextResponder" ref="740452293"/>
-						<int key="NSvFlags">314</int>
+						<int key="NSvFlags">256</int>
 						<array class="NSMutableArray" key="NSSubviews"/>
-						<string key="NSFrame">{{20, 39}, {280, 359}}</string>
+						<string key="NSFrame">{{20, 20}, {280, 378}}</string>
 						<reference key="NSSuperview" ref="740452293"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="302443353"/>
@@ -4525,6 +4525,14 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="destination" ref="1048886681"/>
 					</object>
 					<int key="connectionID">82</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">_scrollView</string>
+						<reference key="source" ref="424778581"/>
+						<reference key="destination" ref="1048886681"/>
+					</object>
+					<int key="connectionID">92</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4593,7 +4601,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">90</int>
+			<int key="maxID">92</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
