@@ -43,6 +43,7 @@
 				<string key="NSFrame">{{0, 44}, {320, 524}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -147,6 +148,7 @@
 						<string key="NSFrame">{{255, 4}, {64, 64}}</string>
 						<reference key="NSSuperview" ref="513621850"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -724,6 +726,7 @@
 						<string key="NSFrame">{{274, 27}, {38, 10}}</string>
 						<reference key="NSSuperview" ref="53944536"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -783,10 +786,10 @@
 								<reference key="NSNextResponder" ref="293154876"/>
 								<int key="NSvFlags">1288</int>
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
-								<string key="NSFrame">{{141, 519}, {38, 36}}</string>
+								<string key="NSFrame">{{141, 389}, {38, 36}}</string>
 								<reference key="NSSuperview" ref="293154876"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="809119614"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -794,11 +797,26 @@
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<int key="IBUINumberOfPages">3</int>
 							</object>
+							<object class="IBUIScrollView" id="809119614">
+								<reference key="NSNextResponder" ref="293154876"/>
+								<int key="NSvFlags">264</int>
+								<array class="NSMutableArray" key="NSSubviews"/>
+								<string key="NSFrame">{{50, 51}, {220, 330}}</string>
+								<reference key="NSSuperview" ref="293154876"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="292483550"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIMultipleTouchEnabled">YES</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIAlwaysBounceHorizontal">YES</bool>
+								<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
+							</object>
 						</array>
-						<string key="NSFrame">{{0, -305}, {320, 562}}</string>
+						<string key="NSFrameSize">{320, 432}</string>
 						<reference key="NSSuperview" ref="16484293"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="292483550"/>
+						<reference key="NSNextKeyView" ref="809119614"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">10</int>
@@ -5194,22 +5212,8 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
-					<object class="IBUIScrollView" id="809119614">
-						<reference key="NSNextResponder" ref="16484293"/>
-						<int key="NSvFlags">264</int>
-						<array class="NSMutableArray" key="NSSubviews"/>
-						<string key="NSFrame">{{20, 61}, {280, 151}}</string>
-						<reference key="NSSuperview" ref="16484293"/>
-						<reference key="NSWindow"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<bool key="IBUIAlwaysBounceHorizontal">YES</bool>
-						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
-					</object>
 				</array>
-				<string key="NSFrameSize">{320, 250}</string>
+				<string key="NSFrameSize">{320, 432}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="293154876"/>
@@ -5911,7 +5915,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="object" ref="16484293"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="293154876"/>
-							<reference ref="809119614"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Gallery portrait</string>
@@ -5921,6 +5924,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="object" ref="293154876"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="292483550"/>
+							<reference ref="809119614"/>
 						</array>
 						<reference key="parent" ref="16484293"/>
 						<string key="objectName">Image gallery enhancer</string>
@@ -5933,7 +5937,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">815</int>
 						<reference key="object" ref="809119614"/>
-						<reference key="parent" ref="16484293"/>
+						<reference key="parent" ref="293154876"/>
 						<string key="objectName">Image gallery</string>
 					</object>
 				</array>
@@ -6024,7 +6028,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="pinUp:">id</string>
 						<string key="rate:">id</string>
 						<string key="share:">id</string>
-						<string key="showCompleteDescription:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="block:">
@@ -6049,10 +6052,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						</object>
 						<object class="IBActionInfo" key="share:">
 							<string key="name">share:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showCompleteDescription:">
-							<string key="name">showCompleteDescription:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

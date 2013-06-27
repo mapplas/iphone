@@ -10,49 +10,58 @@
 
 @implementation ImageResizer
 
-- (id)initWithScroll:(UIScrollView *)_scroll {
-    self = [super init];
-    if (self) {
-        scroll = _scroll;
-    }
-    return self;
-}
+static inline double radians (double degrees) {return degrees * M_PI/180;}
 
-- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset background:(UIView *)gallery_background container:(UIView *)gallery_container {
-    CGRect imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
-    
-    if (_image.size.width < _image.size.height) {
-        scroll.frame = CGRectMake(20, 40, 280, 300);
-        gallery_background.frame = CGRectMake(0, 0, 320, scroll.frame.size.height + 100);
-        gallery_container.frame = CGRectMake(0, 0, 320, scroll.frame.size.height + 100);
-        imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
-    }
-    
-    return [[UIImageView alloc] initWithFrame:imageViewFrame];
+- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset scroll:(UIScrollView *)scroll {
+    return [[UIImageView alloc] initWithFrame:CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height)];
 }
 
 - (UIImage *)resizeImage:(UIImage *)_image {
-    NSUInteger constantw = 280;
+    CGSize newSize = CGSizeMake(220, 330);
+    int height = newSize.height;
+    int width = newSize.width;
     
-    NSUInteger height = _image.size.height;
-    NSUInteger width = _image.size.width;
-    float ratio = (float)width / (float)height;
+    CGImageRef imageRef = [_image CGImage];
+    CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef);
+    CGColorSpaceRef colorSpaceInfo = CGColorSpaceCreateDeviceRGB();
     
-    height = constantw;
-    width = constantw;
+    if (alphaInfo == kCGImageAlphaNone)
+        alphaInfo = kCGImageAlphaNoneSkipLast;
     
-    if (_image.size.width > _image.size.height) {
-        height = constantw / ratio;
-        height = height * 1.1;
-        width = width * 1.1;
+    CGContextRef bitmap;
+    
+    if (_image.imageOrientation == UIImageOrientationUp | _image.imageOrientation == UIImageOrientationDown) {
+        bitmap = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
+        
+    } else {
+        bitmap = CGBitmapContextCreate(NULL, height, width, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, alphaInfo);
+        
     }
-    else {
-        width = constantw * ratio;
-        height = height * 1.1;
-        width = width * 1.1;
+    
+    if (_image.imageOrientation == UIImageOrientationLeft) {
+        CGContextRotateCTM (bitmap, radians(90));
+        CGContextTranslateCTM (bitmap, 0, -height);
+        
+    } else if (_image.imageOrientation == UIImageOrientationRight) {
+        CGContextRotateCTM (bitmap, radians(-90));
+        CGContextTranslateCTM (bitmap, -width, 0);
+        
+    } else if (_image.imageOrientation == UIImageOrientationUp) {
+        
+    } else if (_image.imageOrientation == UIImageOrientationDown) {
+        CGContextTranslateCTM (bitmap, width,height);
+        CGContextRotateCTM (bitmap, radians(-180.));
+        
     }
     
-    return [_image resizedImage:CGSizeMake((NSInteger)width, (NSInteger)height) interpolationQuality:kCGInterpolationHigh];
+    CGContextDrawImage(bitmap, CGRectMake(0, 0, width, height), imageRef);
+    CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+    UIImage *result = [UIImage imageWithCGImage:ref];
+    
+    CGContextRelease(bitmap);
+    CGImageRelease(ref);
+    
+    return result;
 }
 
 - (UIImage *)resizeImageForFullscreenView:(UIImage *)_image {

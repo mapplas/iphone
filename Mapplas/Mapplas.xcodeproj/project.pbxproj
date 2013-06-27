@@ -106,6 +106,7 @@
 		7F3F6544177C19CE0014FBCC /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F6543177C19CE0014FBCC /* UIButton+Extensions.m */; };
 		7F3F6548177C421D0014FBCC /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F6547177C421D0014FBCC /* UIImage+Alpha.m */; };
 		7F3F654E177C426C0014FBCC /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F654D177C426C0014FBCC /* UIImage+RoundedCorner.m */; };
+		7F3F6551177C7A8F0014FBCC /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F6550177C7A8F0014FBCC /* UIImage+Extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F5859F116AFC9A800DB843A /* JSONToAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */; };
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
@@ -396,6 +397,8 @@
 		7F3F6547177C421D0014FBCC /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		7F3F654C177C426C0014FBCC /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		7F3F654D177C426C0014FBCC /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		7F3F654F177C7A8F0014FBCC /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
+		7F3F6550177C7A8F0014FBCC /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
 		7F5859EF16AFC9A800DB843A /* JSONToAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToAppMapper.h; path = classes/mappers/JSONToAppMapper.h; sourceTree = "<group>"; };
 		7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppMapper.m; path = classes/mappers/JSONToAppMapper.m; sourceTree = "<group>"; };
 		7F5859FF16AFCFB100DB843A /* IteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IteratingMapper.h; path = classes/mappers/IteratingMapper.h; sourceTree = "<group>"; };
@@ -921,6 +924,8 @@
 			children = (
 				7F3F6546177C421D0014FBCC /* UIImage+Alpha.h */,
 				7F3F6547177C421D0014FBCC /* UIImage+Alpha.m */,
+				7F3F654F177C7A8F0014FBCC /* UIImage+Extensions.h */,
+				7F3F6550177C7A8F0014FBCC /* UIImage+Extensions.m */,
 				7FF760F016D6635D00DF29C8 /* UIImage+Resize.h */,
 				7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */,
 				7F3F654C177C426C0014FBCC /* UIImage+RoundedCorner.h */,
@@ -1749,6 +1754,7 @@
 				7F3F6544177C19CE0014FBCC /* UIButton+Extensions.m in Sources */,
 				7F3F6548177C421D0014FBCC /* UIImage+Alpha.m in Sources */,
 				7F3F654E177C426C0014FBCC /* UIImage+RoundedCorner.m in Sources */,
+				7F3F6551177C7A8F0014FBCC /* UIImage+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
