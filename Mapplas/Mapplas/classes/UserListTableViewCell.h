@@ -17,6 +17,8 @@
 
 #import "AppPinRequest.h"
 
+#import "UIButton+Extensions.h"
+
 @interface UserListTableViewCell : UITableViewCell <AsynchronousImageDownloaderProtocol> {
     ImageLoader *imageLoader;
     
