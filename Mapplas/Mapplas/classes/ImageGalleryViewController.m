@@ -39,15 +39,12 @@
 
 - (void)configureGallery {
 	CGFloat contentOffset = 0.0f;
-    
-    ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:scroll];
-    
+    ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:self.scroll];
     NSArray *keys = [imagesArray allKeys];
     
     self.scroll.clipsToBounds = NO;
 	self.scroll.pagingEnabled = YES;
     self.scroll.showsHorizontalScrollIndicator = NO;
-    self.scroll.showsVerticalScrollIndicator = NO;
     self.scroll.delegate = self;
     
     self.pageControl.numberOfPages = keys.count;
@@ -70,8 +67,8 @@
                     imageView.frame = CGRectMake(contentOffset, -20, imageView.frame.size.height, imageView.frame.size.width);
                 }
                 
-                imageView.contentMode = UIViewContentModeCenter;
-                
+                imageView.contentMode = UIViewContentModeScaleAspectFit;
+                                
                 [self.scroll addSubview:imageView];
                 
                 contentOffset += imageView.frame.size.width;
