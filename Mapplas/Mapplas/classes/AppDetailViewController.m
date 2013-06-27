@@ -202,6 +202,28 @@
 - (void)showAppSmallDescription {
     CGSize maximumLabelSize = CGSizeMake(self.descriptionText.frame.size.width, 110);
     [self adjustLabel:maximumLabelSize];
+    
+    // If description fits minimum size, hide 'more description' button.
+    // Dummy check
+    CGSize maximumLabelSizeDummy = CGSizeMake(self.descriptionText.frame.size.width, FLT_MAX);
+    CGSize expectedLabelSizeDummy = [self.app.appDescription sizeWithFont:self.descriptionText.font
+                                                   constrainedToSize:maximumLabelSizeDummy
+                                                       lineBreakMode:self.descriptionText.lineBreakMode];
+    
+    UILabel *descriptionTextDummy = [[UILabel alloc] initWithFrame:CGRectMake(10, 24, 302, 20)];
+    descriptionTextDummy.numberOfLines = 0;
+    CGRect newFrameDummy = descriptionTextDummy.frame;
+    newFrameDummy.size.height = expectedLabelSizeDummy.height;
+    descriptionTextDummy.frame = newFrameDummy;
+    CGRect viewFrameDummy = CGRectMake(descriptionTextDummy.frame.origin.x, descriptionTextDummy.frame.origin.y, descriptionTextDummy.frame.size.width, descriptionTextDummy.frame.size.height + 30);
+    UIView *descriptionViewDummy = [[UIView alloc] init];
+    descriptionViewDummy.frame = viewFrameDummy;
+    
+    descriptionTextDummy.text = self.app.appDescription;
+    
+    if (descriptionTextDummy.frame.size.height <= maximumLabelSize.height) {
+        self.morebutton.hidden = YES;
+    }
 }
 
 - (void)showAppCompleteDescription {
