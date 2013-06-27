@@ -159,15 +159,21 @@
     // Sort table and reload
     [self.modelList sort];
     
-    // Animation
-    [self.viewController.table beginUpdates];
+    // Begin cell pin animation logic
     NSInteger scroll_to = [self.modelList numberOfPins] - 1;
     if (scroll_to < 0) {
         scroll_to = 0;
     }
-    [self.viewController.table moveRowAtIndexPath:[NSIndexPath indexPathForRow:self.positionInList inSection:0] toIndexPath:[NSIndexPath indexPathForRow:scroll_to inSection:0]];
-    [self.viewController.table endUpdates];
-    [self animate:nil];
+        
+    // If pinned or unpinned app is in same position before and after action, do not do any animation
+    if (self.positionInList != scroll_to && !([pinRequestConstant isEqualToString:ACTION_PIN_REQUEST_UNPIN] && self.positionInList == self.modelList.numberOfPins)) {
+        [self.viewController.table beginUpdates];
+        [self.viewController.table moveRowAtIndexPath:[NSIndexPath indexPathForRow:self.positionInList inSection:0] toIndexPath:[NSIndexPath indexPathForRow:scroll_to inSection:0]];
+        [self.viewController.table endUpdates];
+        
+        [self animate:nil];
+    }
+    
     [self performSelector:@selector(reload) withObject:nil afterDelay:0.2];
 }
 
