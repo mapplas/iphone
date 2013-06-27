@@ -167,7 +167,7 @@
     
     self.pageControl.numberOfPages = keys.count;
     self.pageControl.currentPage = 0;
-    
+        
     if (keys.count > 0) {
         for (NSString *currentKey in keys) {
             UIImage *currentImage = [imagesArray objectForKey:currentKey];
@@ -175,21 +175,18 @@
             if (currentImage != nil && ![currentImage isKindOfClass:[NSString class]]) {
                 UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset background:self.galleryBackground container:self.galleryView];
                 
-                imageView.image = [resizer resizeImage:currentImage];
-                
-                if (imageView.image.size.height < imageView.image.size.width) {
-                    // Rotate
-                    imageView.center = CGPointMake(100.0, 100.0);
-                    imageView.transform = CGAffineTransformMakeRotation(M_PI+ M_PI_2); // Rotation in radians 270
-                    
-                    imageView.frame = CGRectMake(contentOffset, -20, imageView.frame.size.height, imageView.frame.size.width);
+                if (currentImage.size.height < currentImage.size.width) {
+                    currentImage = [currentImage imageRotatedByDegrees:270.0];
                 }
+                
+                imageView.image = [resizer resizeImage:currentImage];
                 
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
                 
                 [self.galleryScroll addSubview:imageView];
                 
                 contentOffset += imageView.frame.size.width;
+                
                 self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
             }
         }

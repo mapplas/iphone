@@ -19,16 +19,7 @@
 }
 
 - (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset background:(UIView *)gallery_background container:(UIView *)gallery_container {
-    CGRect imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
-    
-    if (_image.size.width < _image.size.height) {
-        scroll.frame = CGRectMake(20, 40, 280, 300);
-        gallery_background.frame = CGRectMake(0, 0, 320, scroll.frame.size.height + 100);
-        gallery_container.frame = CGRectMake(0, 0, 320, scroll.frame.size.height + 100);
-        imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
-    }
-    
-    return [[UIImageView alloc] initWithFrame:imageViewFrame];
+    return [[UIImageView alloc] initWithFrame:CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height)];
 }
 
 - (UIImage *)resizeImage:(UIImage *)_image {
@@ -43,13 +34,13 @@
     
     if (_image.size.width > _image.size.height) {
         height = constantw / ratio;
-        height = height * 1.1;
-        width = width * 1.1;
+        height = height * 0.8;
+        width = width * 0.8;
     }
     else {
         width = constantw * ratio;
-        height = height * 1.1;
-        width = width * 1.1;
+        height = height * 0.8;
+        width = width * 0.8;
     }
     
     return [_image resizedImage:CGSizeMake((NSInteger)width, (NSInteger)height) interpolationQuality:kCGInterpolationHigh];

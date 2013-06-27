@@ -29,6 +29,7 @@
 #import "RatingHelper.h"
 #import "SharingHelper.h"
 #import "WebViewViewController.h"
+#import "UIImage+Extensions.h"
 
 #define groupedCellHeight 44;
 
