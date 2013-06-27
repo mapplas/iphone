@@ -126,8 +126,15 @@
     latLongTextTimer = nil;
 }
 
+- (void)initializeNavigationBar {
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initializeNavigationBar];
     
     [self initializeRadarAnimation];
     [self initializeLatitudeLongitude];

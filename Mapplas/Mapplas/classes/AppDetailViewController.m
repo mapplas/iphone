@@ -57,6 +57,9 @@
     appDetailRequester = [[AppDetailRequester alloc] init];
     [appDetailRequester doRequestWithApp:self.app andViewController:self];
     
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+    
     // Telephone icon or not
     UIView *whatActionBar = self.actionBar;
     if ([self.app.phone isEqualToString:@""]) {
@@ -444,8 +447,6 @@
     if (![url isEqualToString:@""]) {
         WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithUrl:url];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewViewController];
-        [SCAppUtils customizeNavigationController:navController];
-        
         [self presentModalViewController:navController animated:YES];
     }
     else {

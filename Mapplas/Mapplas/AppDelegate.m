@@ -46,7 +46,7 @@
     // Set navigationController
     AppsViewController *rootViewController = [[AppsViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-    [SCAppUtils customizeNavigationController:self.navigationController];
+    //[SCAppUtils customizeNavigationController:self.navigationController];
     self.window.rootViewController = self.navigationController;
 }
 

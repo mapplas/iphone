@@ -7,6 +7,7 @@
 //
 
 #import "ConfigurationViewController.h"
+#import "NavigationControllerStyler.h"
 
 #define groupedCellHeight 44
 
@@ -22,6 +23,13 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
 }
 
 #pragma mark - UITableViewDataSource delegate methods

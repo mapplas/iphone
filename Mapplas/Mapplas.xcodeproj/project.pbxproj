@@ -116,6 +116,7 @@
 		7F3F6568177C83DF0014FBCC /* ic_animation_radar_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F655C177C83DF0014FBCC /* ic_animation_radar_6.png */; };
 		7F3F6569177C83DF0014FBCC /* ic_animation_radar_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F655D177C83DF0014FBCC /* ic_animation_radar_6@2x.png */; };
 		7F3F656B177C88200014FBCC /* ic_refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F656A177C881E0014FBCC /* ic_refresh@2x.png */; };
+		7F3F656E177C8CD10014FBCC /* NavigationControllerStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F656D177C8CD10014FBCC /* NavigationControllerStyler.m */; };
 		7F5859F116AFC9A800DB843A /* JSONToAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */; };
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
@@ -417,6 +418,8 @@
 		7F3F655C177C83DF0014FBCC /* ic_animation_radar_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_animation_radar_6.png; sourceTree = SOURCE_ROOT; };
 		7F3F655D177C83DF0014FBCC /* ic_animation_radar_6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_animation_radar_6@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F3F656A177C881E0014FBCC /* ic_refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_refresh@2x.png"; sourceTree = SOURCE_ROOT; };
+		7F3F656C177C8CD10014FBCC /* NavigationControllerStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationControllerStyler.h; path = classes/utils/NavigationControllerStyler.h; sourceTree = "<group>"; };
+		7F3F656D177C8CD10014FBCC /* NavigationControllerStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationControllerStyler.m; path = classes/utils/NavigationControllerStyler.m; sourceTree = "<group>"; };
 		7F5859EF16AFC9A800DB843A /* JSONToAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToAppMapper.h; path = classes/mappers/JSONToAppMapper.h; sourceTree = "<group>"; };
 		7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppMapper.m; path = classes/mappers/JSONToAppMapper.m; sourceTree = "<group>"; };
 		7F5859FF16AFCFB100DB843A /* IteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IteratingMapper.h; path = classes/mappers/IteratingMapper.h; sourceTree = "<group>"; };
@@ -1038,6 +1041,8 @@
 				7FFFBB8716A9689900417499 /* HtmlEntitiesConversor.m */,
 				7FFFBB8916A968E600417499 /* MREntitiesConverter.h */,
 				7FFFBB8A16A968E700417499 /* MREntitiesConverter.m */,
+				7F3F656C177C8CD10014FBCC /* NavigationControllerStyler.h */,
+				7F3F656D177C8CD10014FBCC /* NavigationControllerStyler.m */,
 				7F8E24C9177AECFE00A86C10 /* ReverseGeocoder.h */,
 				7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */,
 				7F8E24CC177AEF0900A86C10 /* ReverseGeocoderHandler.h */,
@@ -1791,6 +1796,7 @@
 				7F3F6548177C421D0014FBCC /* UIImage+Alpha.m in Sources */,
 				7F3F654E177C426C0014FBCC /* UIImage+RoundedCorner.m in Sources */,
 				7F3F6551177C7A8F0014FBCC /* UIImage+Extensions.m in Sources */,
+				7F3F656E177C8CD10014FBCC /* NavigationControllerStyler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
