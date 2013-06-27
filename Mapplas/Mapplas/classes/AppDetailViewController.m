@@ -156,7 +156,7 @@
 
 - (void)configureGallery {
 	CGFloat contentOffset = 0.0f;
-    ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:self.galleryScroll];
+    ImageResizer *resizer = [[ImageResizer alloc] init];
     
     NSArray *keys = [imagesArray allKeys];
     
@@ -173,7 +173,7 @@
             UIImage *currentImage = [imagesArray objectForKey:currentKey];
             
             if (currentImage != nil && ![currentImage isKindOfClass:[NSString class]]) {
-                UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset background:self.galleryBackground container:self.galleryView];
+                UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset scroll:self.galleryScroll];
                 
                 if (currentImage.size.height < currentImage.size.width) {
                     currentImage = [currentImage imageRotatedByDegrees:270.0];
