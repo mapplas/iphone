@@ -39,6 +39,7 @@
 
 - (void)configureGallery {
 	CGFloat contentOffset = 0.0f;
+    
     ImageResizer *resizer = [[ImageResizer alloc] initWithScroll:scroll];
     
     NSArray *keys = [imagesArray allKeys];

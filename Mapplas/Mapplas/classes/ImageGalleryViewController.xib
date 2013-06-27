@@ -38,7 +38,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="424778581">
 						<reference key="NSNextResponder" ref="740452293"/>
-						<int key="NSvFlags">288</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIPageControl" id="302443353">
 								<reference key="NSNextResponder" ref="424778581"/>
@@ -4459,7 +4459,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					</object>
 					<object class="IBUIScrollView" id="1048886681">
 						<reference key="NSNextResponder" ref="740452293"/>
-						<int key="NSvFlags">288</int>
+						<int key="NSvFlags">314</int>
 						<array class="NSMutableArray" key="NSSubviews"/>
 						<string key="NSFrame">{{20, 39}, {280, 359}}</string>
 						<reference key="NSSuperview" ref="740452293"/>
