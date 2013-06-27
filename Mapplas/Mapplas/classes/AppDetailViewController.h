@@ -17,7 +17,6 @@
 #import "AsynchronousImageDownloader.h"
 #import "PriceImageLabelHelper.h"
 #import "ImageResizer.h"
-#import "ImageGalleryViewController.h"
 
 #import "MutableScrollViewOfViews.h"
 
