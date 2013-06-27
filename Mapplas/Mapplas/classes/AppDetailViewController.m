@@ -490,7 +490,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 300, 44)];
     titleLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
     titleLabel.textColor = [UIColor colorWithRed:33.f/255.f green:33.f/255.f blue:33.f/255.f alpha:1];
-    titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:18.0f];
     titleLabel.backgroundColor = [UIColor clearColor];
     
     [customTitleView addSubview:titleLabel];
