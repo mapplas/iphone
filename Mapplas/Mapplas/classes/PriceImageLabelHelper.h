@@ -14,6 +14,7 @@
 
 - (id)initWithApp:(App *)_app;
 - (UIImage *)getImage;
+- (UIImage *)getHighlightedImages;
 - (NSString *)getPriceText;
 
 @end
