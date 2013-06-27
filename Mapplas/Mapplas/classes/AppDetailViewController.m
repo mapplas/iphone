@@ -18,7 +18,6 @@
 - (void)adjustLabel:(CGSize)max_label_size;
 - (void)initPinActionLayout;
 - (void)toDeveloperWeb:(NSString *)url;
-- (void)galleryFullscreen;
 @end
 
 @implementation AppDetailViewController
@@ -91,7 +90,7 @@
     if ([self.app.auxPhotosArray count] > 0) {
         [self downloadGalleryImages];
         [self configureGallery];
-        
+
         [scrollViewConfigurator addView:self.galleryView];
     }
     
@@ -171,12 +170,22 @@
     
     if (keys.count > 0) {
         for (NSString *currentKey in keys) {
+            UIImage *currentImage = [imagesArray objectForKey:currentKey];
             
-            if ([imagesArray objectForKey:currentKey] != nil && ![[imagesArray objectForKey:currentKey] isKindOfClass:[NSString class]]) {
-                UIImageView *imageView = [resizer getImageViewForImage:[imagesArray objectForKey:currentKey] contentOffset:contentOffset background:self.galleryBackground container:self.galleryView];
+            if (currentImage != nil && ![currentImage isKindOfClass:[NSString class]]) {
+                UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset background:self.galleryBackground container:self.galleryView];
                 
-                imageView.image = [resizer resizeImage:[imagesArray objectForKey:currentKey]];
-                imageView.contentMode = UIViewContentModeCenter;
+                imageView.image = [resizer resizeImage:currentImage];
+                
+                if (imageView.image.size.height < imageView.image.size.width) {
+                    // Rotate
+                    imageView.center = CGPointMake(100.0, 100.0);
+                    imageView.transform = CGAffineTransformMakeRotation(M_PI+ M_PI_2); // Rotation in radians 270
+                    
+                    imageView.frame = CGRectMake(contentOffset, -20, imageView.frame.size.height, imageView.frame.size.width);
+                }
+                
+                imageView.contentMode = UIViewContentModeScaleAspectFit;
                 
                 [self.galleryScroll addSubview:imageView];
                 
@@ -184,21 +193,10 @@
                 self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
             }
         }
-        
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(galleryFullscreen)];
-        [galleryScroll addGestureRecognizer:tapGestureRecognizer];
     }
     else {
         [scrollViewConfigurator removeView:self.galleryView];
     }
-}
-
-- (void)galleryFullscreen {    
-    UIViewController *galleryVC = [[ImageGalleryViewController alloc] initWithImagesArray:imagesArray];    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
-    [SCAppUtils customizeNavigationController:navController];
-    
-    [self presentModalViewController:navController animated:YES];
 }
 
 - (void)showAppSmallDescription {

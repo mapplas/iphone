@@ -104,6 +104,8 @@
 		7F37957116E48D54005332A1 /* ic_animation_radar_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F37956D16E48D54005332A1 /* ic_animation_radar_shadow.png */; };
 		7F37957216E48D54005332A1 /* ic_animation_radar_triangles.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F37956E16E48D54005332A1 /* ic_animation_radar_triangles.png */; };
 		7F3F6544177C19CE0014FBCC /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F6543177C19CE0014FBCC /* UIButton+Extensions.m */; };
+		7F3F6548177C421D0014FBCC /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F6547177C421D0014FBCC /* UIImage+Alpha.m */; };
+		7F3F654E177C426C0014FBCC /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3F654D177C426C0014FBCC /* UIImage+RoundedCorner.m */; };
 		7F5859F116AFC9A800DB843A /* JSONToAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */; };
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
@@ -392,6 +394,10 @@
 		7F37956E16E48D54005332A1 /* ic_animation_radar_triangles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_animation_radar_triangles.png; sourceTree = SOURCE_ROOT; };
 		7F3F6542177C19CE0014FBCC /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extensions.h"; path = "classes/UIButton+Extensions.h"; sourceTree = "<group>"; };
 		7F3F6543177C19CE0014FBCC /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extensions.m"; path = "classes/UIButton+Extensions.m"; sourceTree = "<group>"; };
+		7F3F6546177C421D0014FBCC /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		7F3F6547177C421D0014FBCC /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		7F3F654C177C426C0014FBCC /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		7F3F654D177C426C0014FBCC /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		7F5859EF16AFC9A800DB843A /* JSONToAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToAppMapper.h; path = classes/mappers/JSONToAppMapper.h; sourceTree = "<group>"; };
 		7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppMapper.m; path = classes/mappers/JSONToAppMapper.m; sourceTree = "<group>"; };
 		7F5859FF16AFCFB100DB843A /* IteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IteratingMapper.h; path = classes/mappers/IteratingMapper.h; sourceTree = "<group>"; };
@@ -915,6 +921,19 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		7F3F6545177C41EE0014FBCC /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				7F3F6546177C421D0014FBCC /* UIImage+Alpha.h */,
+				7F3F6547177C421D0014FBCC /* UIImage+Alpha.m */,
+				7FF760F016D6635D00DF29C8 /* UIImage+Resize.h */,
+				7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */,
+				7F3F654C177C426C0014FBCC /* UIImage+RoundedCorner.h */,
+				7F3F654D177C426C0014FBCC /* UIImage+RoundedCorner.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
 		7FBAE92C16B027CC00621B34 /* EGOTableViewPullRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,12 +1034,11 @@
 		7FC8826716A82656008A06A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				7F3F6545177C41EE0014FBCC /* UIImage */,
 				7F2FD68F1740EED400E53F1A /* User unique identifier */,
 				7FFFBB6916A9520600417499 /* NSString */,
 				7F3F6542177C19CE0014FBCC /* UIButton+Extensions.h */,
 				7F3F6543177C19CE0014FBCC /* UIButton+Extensions.m */,
-				7FF760F016D6635D00DF29C8 /* UIImage+Resize.h */,
-				7FF760F116D6635D00DF29C8 /* UIImage+Resize.m */,
 				7FC8826816A82679008A06A8 /* UINavigationBar+SCBackgroundImage.h */,
 				7FC8826916A82679008A06A8 /* UINavigationBar+SCBackgroundImage.m */,
 			);
@@ -1747,6 +1765,8 @@
 				7FF8E1AF177B0A5500BC9EA3 /* EmptyCell.m in Sources */,
 				7FF8E1B8177B12DA00BC9EA3 /* EmptyCell4.m in Sources */,
 				7F3F6544177C19CE0014FBCC /* UIButton+Extensions.m in Sources */,
+				7F3F6548177C421D0014FBCC /* UIImage+Alpha.m in Sources */,
+				7F3F654E177C426C0014FBCC /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

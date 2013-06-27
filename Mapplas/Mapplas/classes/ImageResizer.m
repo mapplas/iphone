@@ -22,9 +22,9 @@
     CGRect imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
     
     if (_image.size.width < _image.size.height) {
-        scroll.frame = CGRectMake(20, 0, 280, 300);
-        gallery_background.frame = CGRectMake(0, 0, 320, scroll.frame.size.height);
-        gallery_container.frame = CGRectMake(0, 0, 320, scroll.frame.size.height);
+        scroll.frame = CGRectMake(20, 40, 280, 300);
+        gallery_background.frame = CGRectMake(0, 0, 320, scroll.frame.size.height + 100);
+        gallery_container.frame = CGRectMake(0, 0, 320, scroll.frame.size.height + 100);
         imageViewFrame = CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height);
     }
     
@@ -32,7 +32,6 @@
 }
 
 - (UIImage *)resizeImage:(UIImage *)_image {
-    
     NSUInteger constantw = 280;
     
     NSUInteger height = _image.size.height;
@@ -44,16 +43,16 @@
     
     if (_image.size.width > _image.size.height) {
         height = constantw / ratio;
-        height = height * .9;
-        width = width * .9;
+        height = height * 1.1;
+        width = width * 1.1;
     }
     else {
         width = constantw * ratio;
-        height = height * .9;
-        width = width * .9;
+        height = height * 1.1;
+        width = width * 1.1;
     }
     
-    return [_image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationHigh];
+    return [_image resizedImage:CGSizeMake((NSInteger)width, (NSInteger)height) interpolationQuality:kCGInterpolationHigh];
 }
 
 - (UIImage *)resizeImageForFullscreenView:(UIImage *)_image {
@@ -77,7 +76,7 @@
         width = width * 1.3;
     }
     
-    return [_image resizedImage:CGSizeMake(width, height) interpolationQuality:kCGInterpolationHigh];
+    return [_image resizedImage:CGSizeMake((NSInteger)width, (NSInteger)height) interpolationQuality:kCGInterpolationHigh];
 }
 
 @end
