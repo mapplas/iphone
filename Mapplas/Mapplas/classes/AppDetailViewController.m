@@ -159,7 +159,9 @@
 }
 
 - (void)configureGallery {
-	CGFloat contentOffset = 0.0f;
+    CGFloat offsetMargin = 50.0f;
+	CGFloat contentOffset = offsetMargin;
+    
     ImageResizer *resizer = [[ImageResizer alloc] init];
     
     NSArray *keys = [imagesArray allKeys];
@@ -177,7 +179,7 @@
             UIImage *currentImage = [imagesArray objectForKey:currentKey];
             
             if (currentImage != nil && ![currentImage isKindOfClass:[NSString class]]) {
-                UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset scroll:self.galleryScroll];
+                UIImageView *imageView = [resizer getImageViewForImage:currentImage contentOffset:contentOffset scroll:self.galleryScroll andMargin:offsetMargin];
                 
                 if (currentImage.size.height < currentImage.size.width) {
                     currentImage = [currentImage imageRotatedByDegrees:270.0];
@@ -188,14 +190,12 @@
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
                 
                 [self.galleryScroll addSubview:imageView];
-                
-                contentOffset += imageView.frame.size.width;
-                
-                self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
+            
+                contentOffset = contentOffset + imageView.frame.size.width + (2 * offsetMargin);
             }
         }
-    }
-    else {
+        self.galleryScroll.contentSize = CGSizeMake(contentOffset, self.galleryScroll.frame.size.height);
+    } else {
         [scrollViewConfigurator removeView:self.galleryView];
     }
 }

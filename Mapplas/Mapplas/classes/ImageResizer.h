@@ -10,7 +10,7 @@
 
 @interface ImageResizer : NSObject
 
-- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset scroll:(UIScrollView *)scroll;
+- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset scroll:(UIScrollView *)scroll andMargin:(CGFloat)margin;
 - (UIImage *)resizeImage:(UIImage *)_image;
 - (UIImage *)resizeImageForFullscreenView:(UIImage *)_image;
 
