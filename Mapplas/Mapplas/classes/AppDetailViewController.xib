@@ -207,7 +207,6 @@
 				<string key="NSFrameSize">{320, 72}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="66997051"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -541,9 +540,11 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUITableView" id="450895551">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<string key="NSFrameSize">{320, 114}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="66997051"/>
 				<bool key="IBUIClipsSubviews">YES</bool>
@@ -586,7 +587,7 @@
 								<reference key="NSNextResponder" ref="293154876"/>
 								<int key="NSvFlags">264</int>
 								<array class="NSMutableArray" key="NSSubviews"/>
-								<string key="NSFrame">{{50, 51}, {220, 330}}</string>
+								<string key="NSFrame">{{0, 51}, {320, 330}}</string>
 								<reference key="NSSuperview" ref="293154876"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="292483550"/>
@@ -5570,6 +5571,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="pinUp:">id</string>
 						<string key="rate:">id</string>
 						<string key="share:">id</string>
+						<string key="showCompleteDescription:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="block:">
@@ -5594,6 +5596,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						</object>
 						<object class="IBActionInfo" key="share:">
 							<string key="name">share:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showCompleteDescription:">
+							<string key="name">showCompleteDescription:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

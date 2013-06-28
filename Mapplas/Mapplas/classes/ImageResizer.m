@@ -12,8 +12,8 @@
 
 static inline double radians (double degrees) {return degrees * M_PI/180;}
 
-- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset scroll:(UIScrollView *)scroll {
-    return [[UIImageView alloc] initWithFrame:CGRectMake(content_offset, 0, scroll.frame.size.width, scroll.frame.size.height)];
+- (UIImageView *)getImageViewForImage:(UIImage *)_image contentOffset:(CGFloat)content_offset scroll:(UIScrollView *)scroll andMargin:(CGFloat)margin {
+    return [[UIImageView alloc] initWithFrame:CGRectMake(content_offset, 0, 320 - (2 * margin), scroll.frame.size.height)];
 }
 
 - (UIImage *)resizeImage:(UIImage *)_image {
