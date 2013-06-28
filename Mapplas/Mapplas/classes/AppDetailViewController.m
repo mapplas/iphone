@@ -229,6 +229,9 @@
     if (descriptionTextDummy.frame.size.height <= maximumLabelSize.height) {
         self.morebutton.hidden = YES;
     }
+    else {
+        self.morebutton.hidden = NO;
+    }
 }
 
 - (void)showAppCompleteDescription {
@@ -260,6 +263,7 @@
     }
     else {
         descriptionOpened = YES;
+        self.morebutton.hidden = YES;
         [self showAppCompleteDescription];
     }
     
