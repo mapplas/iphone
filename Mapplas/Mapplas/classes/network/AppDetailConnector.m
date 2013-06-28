@@ -7,6 +7,7 @@
 //
 
 #import "AppDetailConnector.h"
+#import "Constants.h"
 
 @implementation AppDetailConnector
 
@@ -18,6 +19,7 @@
     app = _app;
 
     [parameters setValue:[[NSLocale preferredLanguages] objectAtIndex:0] forKey:@"l"];
+    [parameters setValue:[NSNumber numberWithBool:IS_RETINA] forKey:@"r"];
     
     [super initializeVariablesWithUrlAndSend:[self getUrl]];
 }

@@ -8,6 +8,7 @@
 
 #import "AppGetterConnector.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @implementation AppGetterConnector
 
@@ -26,6 +27,7 @@
     [parameters setValue:[[model user] userId] forKey:@"uid"];
     [parameters setValue:[NSString stringWithFormat:@"%f", location.horizontalAccuracy] forKey:@"p"];
     [parameters setValue:[[NSLocale preferredLanguages] objectAtIndex:0] forKey:@"l"];
+    [parameters setValue:[NSNumber numberWithBool:IS_RETINA] forKey:@"r"];
     
     if (![self checkAppRequests]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -32,6 +32,9 @@
 #define ACTION_ACTIVITY_CALL @"call"
 #define ACTION_ACTIVITY_SHOW_COMMENTS @"showcomments"
 
+
+#define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
+
 @interface Constants : NSObject
 
 @end
