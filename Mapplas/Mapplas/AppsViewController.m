@@ -126,8 +126,25 @@
     latLongTextTimer = nil;
 }
 
+- (void)initializeNavigationBar {
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+    
+    // Back button text color
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor colorWithRed:0.0f/255.0f green:153.0f/255.0f blue:204.0f/255.0f alpha:255.0f/255.0f],
+                                UITextAttributeTextColor,
+                                [UIColor clearColor],
+                                UITextAttributeTextShadowColor, nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes: attributes
+                                                forState: UIControlStateNormal];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initializeNavigationBar];
     
     [self initializeRadarAnimation];
     [self initializeLatitudeLongitude];

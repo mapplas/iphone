@@ -7,6 +7,7 @@
 //
 
 #import "WebViewViewController.h"
+#import "NavigationControllerStyler.h"
 
 @interface WebViewViewController ()
 //- (void)startTimer;
@@ -30,6 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"nav_bar_button_cancel", @" Navigation bar button - Cancel") style:UIBarButtonSystemItemCancel target:self action:@selector(pop)];
     

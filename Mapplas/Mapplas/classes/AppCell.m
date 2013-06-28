@@ -78,6 +78,7 @@
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
     [self.priceButton setTitle:[priceHelper getPriceText] forState:UIControlStateNormal];
     [self.priceButton setBackgroundImage:[priceHelper getImage] forState:UIControlStateNormal];
+    [self.priceButton setBackgroundImage:[priceHelper getHighlightedImages] forState:UIControlStateHighlighted];
 
     [self.cellContent addSubview:self.cellUnpressed];
     

@@ -7,6 +7,7 @@
 //
 
 #import "TextViewViewController.h"
+#import "NavigationControllerStyler.h"
 
 @interface TextViewViewController ()
 
@@ -27,6 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.text = textToShow;
+
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
 }
 
 

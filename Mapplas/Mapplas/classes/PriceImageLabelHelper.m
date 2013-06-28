@@ -35,6 +35,23 @@
     }
 }
 
+- (UIImage *)getHighlightedImages {
+    if ([app.type isEqualToString:@"HTML"]) {
+        return [UIImage imageNamed:@"ic_badge_html5_pressed.png"];
+    }
+    else if (![app.appUrlScheme isEqualToString:@""] && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", app.appUrlScheme]]]){
+        return [UIImage imageNamed:@"ic_badge_launch_pressed.png"];
+    }
+    else {
+        if ([app.appPrice floatValue] == 0.0) {
+            return [UIImage imageNamed:@"ic_badge_free_pressed.png"];
+        }
+        else {
+            return [UIImage imageNamed:@"ic_badge_price_pressed.png"];
+        }
+    }
+}
+
 - (NSString *)getPriceText {
     NSString *currency = @"";
     

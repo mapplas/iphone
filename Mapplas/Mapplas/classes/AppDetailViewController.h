@@ -20,7 +20,7 @@
 
 #import "MutableScrollViewOfViews.h"
 
-#import "SCAppUtils.h"
+#import "NavigationControllerStyler.h"
 
 #import "Constants.h"
 #import "AppPinRequest.h"

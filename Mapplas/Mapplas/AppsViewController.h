@@ -23,6 +23,7 @@
 #import "EmptyCell4.h"
 #import "AppDetailViewController.h"
 #import "UIDevice+IdentifierAddition.h"
+#import "NavigationControllerStyler.h"
 
 #define CELL_HEIGHT 72;
 #define CELL_EMPTY_HEIGHT 504;

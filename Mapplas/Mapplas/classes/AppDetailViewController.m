@@ -57,6 +57,9 @@
     appDetailRequester = [[AppDetailRequester alloc] init];
     [appDetailRequester doRequestWithApp:self.app andViewController:self];
     
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+    [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+    
     // Telephone icon or not
     UIView *whatActionBar = self.actionBar;
     if ([self.app.phone isEqualToString:@""]) {
@@ -135,6 +138,7 @@
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
     [self.priceButton setTitle:[priceHelper getPriceText] forState:UIControlStateNormal];
     [self.priceButton setBackgroundImage:[priceHelper getImage] forState:UIControlStateNormal];
+    [self.priceButton setBackgroundImage:[priceHelper getHighlightedImages] forState:UIControlStateHighlighted];
 
     // Action layout
     [self initPinActionLayout];
@@ -444,8 +448,6 @@
     if (![url isEqualToString:@""]) {
         WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithUrl:url];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewViewController];
-        [SCAppUtils customizeNavigationController:navController];
-        
         [self presentModalViewController:navController animated:YES];
     }
     else {
@@ -488,7 +490,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 300, 44)];
     titleLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
     titleLabel.textColor = [UIColor colorWithRed:33.f/255.f green:33.f/255.f blue:33.f/255.f alpha:1];
-    titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:18.0f];
     titleLabel.backgroundColor = [UIColor clearColor];
     
     [customTitleView addSubview:titleLabel];
