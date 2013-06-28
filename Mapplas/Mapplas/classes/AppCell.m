@@ -93,10 +93,20 @@
     if ([self.app.auxPin intValue] == 0) {
         self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_pinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
+        
+        // White color
+        self.cellContent.backgroundColor = [UIColor whiteColor];
+        self.cellUnpressed.backgroundColor = [UIColor whiteColor];
+        self.cellPressed.backgroundColor = [UIColor whiteColor];
     }
     else {
         self.pinPressedImage.imageView.image = [UIImage imageNamed:@"ic_action_unpinup.png"];
         self.pinPressedText.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
+        
+        // #EAEAEA color
+        self.cellContent.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1];
+        self.cellUnpressed.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1];
+        self.cellPressed.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1];
     }
     
     // Rate
