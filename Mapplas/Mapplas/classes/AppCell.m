@@ -82,11 +82,6 @@
     [self.priceButton setBackgroundImage:[priceHelper getHighlightedImages] forState:UIControlStateHighlighted];
 
     [self.cellContent addSubview:self.cellUnpressed];
-    
-    // Rating
-//    RatingHelper *ratingHelper = [[RatingHelper alloc] init];
-//    [self.cellUnpressed addSubview:[ratingHelper getRatingViewForView:self.ratingView andApp:self.app]];
-//    self.ratingLabel.text = [ratingHelper getRatingTextForApp:self.app];
 }
 
 - (void)loadPressedCellData {
@@ -225,25 +220,29 @@
     
     // If device has ios6 and up
 	if ([UIActivityViewController class]) {
-		NSMutableArray *itemsToShare = [[NSMutableArray alloc] initWithObjects:[sharingHelper getShareMessage], nil];
         
-		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-		activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        NSString *text = [NSString stringWithFormat:@"%@ %@ %@ %@", NSLocalizedString(@"share_email_body_part_1", @"Share email body Spanish part 1"), self.app.name, NSLocalizedString(@"share_email_body_part_2", @"Share email body Spanish part 2"), [NSString stringWithFormat:@"ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId]];
+        NSArray *activityItems = @[text];
+        UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
         
-        activityViewController.completionHandler = ^(NSString *activityType, BOOL completed){
+		activityController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        
+        activityController.completionHandler = ^(NSString *activityType, BOOL completed){
             if (completed) {
                 [sharingHelper shareType:activityType];
             }
         };
         
-		[self.viewController.navigationController presentViewController:activityViewController animated:YES completion:nil];
+		[self.viewController.navigationController presentViewController:activityController animated:YES completion:nil];
 	}
 	else {
         // iOS 5
-		NSString *cancelButton = NSLocalizedString(@"ios5_sharing_action_sheet_cancel_button", @"iOS5 sharing action sheet cancel button - twitter sharing");
+        NSString *cancelButton = NSLocalizedString(@"ios5_sharing_action_sheet_cancel_button", @"iOS5 sharing action sheet cancel button - twitter sharing");
 		NSString *twitterButton = NSLocalizedString(@"ios5_sharing_action_sheet_twitter_button", @"iOS5 sharing action sheet twitter button - twitter sharing");
+        NSString *smsButton = NSLocalizedString(@"ios5_sharing_action_sheet_sms_button", @"iOS5 sharing action sheet sms button - sms sharing");
+        NSString *emailButton = NSLocalizedString(@"ios5_sharing_action_sheet_email_button", @"iOS5 sharing action sheet email button - email sharing");
         
-		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, @"Share via SMS", @"Share via email", nil];
+		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, smsButton, emailButton, nil];
 		[alertView showInView:self.viewController.navigationController.view];
 	}
 }

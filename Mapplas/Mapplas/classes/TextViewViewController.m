@@ -9,13 +9,9 @@
 #import "TextViewViewController.h"
 #import "NavigationControllerStyler.h"
 
-@interface TextViewViewController ()
-
-@end
-
 @implementation TextViewViewController
 
-@synthesize textView;
+@synthesize webView;
 
 - (id)initWithTextToShow:(NSString *)text_to_show {
     self = [super init];
@@ -27,10 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.textView.text = textToShow;
 
     NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
     [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+    
+    [webView loadHTMLString:textToShow baseURL:nil];
 }
 
 

@@ -381,18 +381,19 @@
     
     // If device has ios6 and up
 	if ([UIActivityViewController class]) {
-		NSMutableArray *itemsToShare = [[NSMutableArray alloc] initWithObjects:[sharingHelper getShareMessage], nil];
-
-		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-		activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        NSString *text = [NSString stringWithFormat:@"%@ %@ %@ %@", NSLocalizedString(@"share_email_body_part_1", @"Share email body Spanish part 1"), self.app.name, NSLocalizedString(@"share_email_body_part_2", @"Share email body Spanish part 2"), [NSString stringWithFormat:@"ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId]];
+        NSArray *activityItems = @[text];
+        UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
         
-        activityViewController.completionHandler = ^(NSString *activityType, BOOL completed){
+		activityController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        
+        activityController.completionHandler = ^(NSString *activityType, BOOL completed){
             if (completed) {
                 [sharingHelper shareType:activityType];
             }
         };
         
-		[self presentViewController:activityViewController animated:YES completion:nil];
+		[self presentViewController:activityController animated:YES completion:nil];
 	}
 	else {
         // iOS 5
@@ -406,6 +407,7 @@
 	}
 }
 
+#pragma mark - Developer support email and web
 - (void)toDeveloperMail {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setMailComposeDelegate:self];

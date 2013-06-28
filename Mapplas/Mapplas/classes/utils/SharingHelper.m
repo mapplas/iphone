@@ -23,7 +23,7 @@
 }
 
 - (NSString *)getShareMessage {
-    return [NSString stringWithFormat:@"%@%@%@", NSLocalizedString(@"share_message_part_1", @"Share message  part 1"), app.name, NSLocalizedString(@"share_message_part_2", @"Share message part 2")];
+    return [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"share_message_part_1", @"Share message  part 1"), app.name];
 }
 
 - (void)shareWithTwitter {
@@ -99,8 +99,8 @@
 - (void)shareViaEmail {
     MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
     mailViewController.mailComposeDelegate = self;
-    [mailViewController setSubject:NSLocalizedString(@"share_email_subject", @"Email sharing mail subject")];
-    [mailViewController setMessageBody:[self getShareMessage] isHTML:NO];
+    [mailViewController setSubject:[NSString stringWithFormat:@"%@%@", app.name, NSLocalizedString(@"share_message_part_2", @"")]];
+    [mailViewController setMessageBody:[NSString stringWithFormat:@"%@ %@ %@ %@", NSLocalizedString(@"share_email_body_part_1", @"Share email body Spanish part 1"), app.name, NSLocalizedString(@"share_email_body_part_2", @"Share email body Spanish part 2"), [NSString stringWithFormat:@"ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", app.appId]] isHTML:NO];
     
     [navController presentModalViewController:mailViewController animated:YES];
 }

@@ -12,7 +12,7 @@
     NSString *textToShow;
 }
 
-@property (nonatomic, strong) IBOutlet UITextView *textView;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
 
 - (id)initWithTextToShow:(NSString *)text_to_show;
 

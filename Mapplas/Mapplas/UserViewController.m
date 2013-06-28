@@ -10,11 +10,7 @@
 #import "UserPinAndBlocksRequester.h"
 
 @interface UserViewController ()
-//- (void)setTextToNavigationButton:(NSString *)title;
 - (void)configureLayout;
-//- (int)checkUserState;
-//- (void)changeLayoutComponents:(int)user_state;
-//- (void)actionButtonSelector;
 - (void)checkEmptyTable:(NSUInteger)cells;
 @end
 
@@ -50,7 +46,6 @@
     
     NSMutableArray *viewsToShow = [[NSMutableArray alloc] initWithObjects:/*self.userImageView, self.userInfo, self.listHeaderView,*/ self.list, nil];
     scrollManager = [[MutableScrollViewOfViews alloc] initWithViews:viewsToShow inScrollView:self.scroll delegate:self];
-    //[self.userInfo addSubview:self.userInfoUnpressed];
     
     [self configureLayout];
     
@@ -159,44 +154,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == configTable) {
-//        if (indexPath.row == 0) {
-            ConfigurationViewController *configVC = [[ConfigurationViewController alloc] init];
-            [self.navigationController pushViewController:configVC animated:YES];
-//        }
-//        else {
-//            [self userLogOut];
-//        }
+        ConfigurationViewController *configVC = [[ConfigurationViewController alloc] init];
+        [self.navigationController pushViewController:configVC animated:YES];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-/*
-#pragma mark - UITextFieldDelegate methods
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if ([textField isEqual:self.userInfoPressedNameEditText]) {
-        // Found next responder, so set it.
-        [self.userInfoPressedEmailEditText becomeFirstResponder];
-    } else {
-        // Not found, so remove keyboard.
-        [textField resignFirstResponder];
-    }
-    return NO;
-}
-*/
+
 - (IBAction)segmentedControlIndexChanged {
     [self reloadDataAnimated:YES];
 }
 
 #pragma mark - Private methods
 - (void)configureLayout {
-    // User image photo
-    /*
-    UIImage *userImage = [imageLoader loadImageFromCache:@"userPhoto"];
-    if (userImage != nil) {
-        self.userImageImageView.image = userImage;
-    }
-    */
-    // Segmented control button names
     NSString *segmentedControlPinnedText = NSLocalizedString(@"user_screen_segmented_control_pins", @"User screen segmented control pinned title");
     [self.segmentedControl setTitle:segmentedControlPinnedText forSegmentAtIndex:0];
     
@@ -210,8 +180,6 @@
     NSString *segmentedControlBlockedText = NSLocalizedString(@"user_screen_segmented_control_blocks", @"User screen segmented control blocks title");
     [self.segmentedControl setTitle:segmentedControlBlockedText forSegmentAtIndex:1];
     self.navigationItem.titleView = self.segmentedControl;
-    
-//    [self changeLayoutComponents:[self checkUserState]];
 }
 
 - (void)checkEmptyTable:(NSUInteger)cells {
@@ -252,27 +220,6 @@
             listHeight = self.listEmptyView.frame.size.height;
         }
     }
-//    
-//    // Screen component sizes
-//    NSUInteger screenHeight = self.view.frame.size.height;
-//    // Content offset is not real. Scroll hasn't been resized
-//    NSUInteger scrollViewContentOffset = scroll.contentOffset.y;
-//    NSUInteger segmentListAndConfigViewsHeight = self.segmentedControl.frame.size.height + listHeight + self.configTable.frame.size.height;
-//    NSUInteger scrollViewHeight = segmentListAndConfigViewsHeight;
-////    NSUInteger scrollViewHeight = self.userImageView.frame.size.height + self.userInfo.frame.size.height + segmentListAndConfigViewsHeight;
-//    
-//    if (scrollViewHeight - scrollViewContentOffset < screenHeight) {
-//        [UIView animateWithDuration:1.2
-//                              delay:0.02
-//                            options:UIViewAnimationOptionTransitionFlipFromTop
-//                         animations:^{
-//                             [scroll setContentOffset:CGPointMake(0, scrollViewHeight - screenHeight)];
-//                         }
-//                         completion:^(BOOL finished)
-//         {}
-//         ];
-//    }
-    
     
     [list reloadData];
 }
