@@ -134,7 +134,6 @@
 		7F3F658E177C9B780014FBCC /* ic_action_rate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F6589177C9B6E0014FBCC /* ic_action_rate@2x.png */; };
 		7F3F658F177C9B780014FBCC /* ic_action_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F658A177C9B710014FBCC /* ic_action_share@2x.png */; };
 		7F3F6590177C9B780014FBCC /* ic_action_unpinup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F658B177C9B740014FBCC /* ic_action_unpinup@2x.png */; };
-		7F3F6594177CA1690014FBCC /* ic_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F6593177CA1660014FBCC /* ic_map@2x.png */; };
 		7F3F6596177CA3A70014FBCC /* ic_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3F6595177CA3A40014FBCC /* ic_more@2x.png */; };
 		7F5859F116AFC9A800DB843A /* JSONToAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */; };
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
@@ -144,6 +143,7 @@
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
+		7F8414D0177D72AF00D8CA0C /* ic_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8414CF177D72AF00D8CA0C /* ic_map@2x.png */; };
 		7F8E24CB177AECFE00A86C10 /* ReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */; };
 		7F8E24CF177AF39500A86C10 /* JSONToPinnedAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E24CE177AF39500A86C10 /* JSONToPinnedAppMapper.m */; };
 		7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EF4B9173BC96500625C53 /* AppShareConnector.m */; };
@@ -455,7 +455,6 @@
 		7F3F6589177C9B6E0014FBCC /* ic_action_rate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_action_rate@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F3F658A177C9B710014FBCC /* ic_action_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_action_share@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F3F658B177C9B740014FBCC /* ic_action_unpinup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_action_unpinup@2x.png"; sourceTree = SOURCE_ROOT; };
-		7F3F6593177CA1660014FBCC /* ic_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_map@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F3F6595177CA3A40014FBCC /* ic_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_more@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F5859EF16AFC9A800DB843A /* JSONToAppMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToAppMapper.h; path = classes/mappers/JSONToAppMapper.h; sourceTree = "<group>"; };
 		7F5859F016AFC9A800DB843A /* JSONToAppMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToAppMapper.m; path = classes/mappers/JSONToAppMapper.m; sourceTree = "<group>"; };
@@ -474,6 +473,7 @@
 		7F68783A16A86065005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F68783C16A86083005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F68783E16A86087005DC098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F8414CF177D72AF00D8CA0C /* ic_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_map@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F8E24C9177AECFE00A86C10 /* ReverseGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverseGeocoder.h; path = classes/utils/ReverseGeocoder.h; sourceTree = "<group>"; };
 		7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverseGeocoder.m; path = classes/utils/ReverseGeocoder.m; sourceTree = "<group>"; };
 		7F8E24CC177AEF0900A86C10 /* ReverseGeocoderHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ReverseGeocoderHandler.h; path = classes/utils/ReverseGeocoderHandler.h; sourceTree = "<group>"; };
@@ -1511,7 +1511,7 @@
 				7FC8548316B18A9300D73E90 /* ic_badge_price.png */,
 				7F3F6572177C92660014FBCC /* ic_badge_price@2x.png */,
 				7FED40F516B12E5100581C9D /* ic_map.png */,
-				7F3F6593177CA1660014FBCC /* ic_map@2x.png */,
+				7F8414CF177D72AF00D8CA0C /* ic_map@2x.png */,
 				7FED32EA16D2971500AC7C5B /* ic_menu_notifications_alert.png */,
 				7FED32EB16D2971500AC7C5B /* ic_menu_notifications_alert@2x.png */,
 				7FFFBBC016A97E4900417499 /* ic_menu_notifications.png */,
@@ -1708,8 +1708,8 @@
 				7F3F658E177C9B780014FBCC /* ic_action_rate@2x.png in Resources */,
 				7F3F658F177C9B780014FBCC /* ic_action_share@2x.png in Resources */,
 				7F3F6590177C9B780014FBCC /* ic_action_unpinup@2x.png in Resources */,
-				7F3F6594177CA1690014FBCC /* ic_map@2x.png in Resources */,
 				7F3F6596177CA3A70014FBCC /* ic_more@2x.png in Resources */,
+				7F8414D0177D72AF00D8CA0C /* ic_map@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
