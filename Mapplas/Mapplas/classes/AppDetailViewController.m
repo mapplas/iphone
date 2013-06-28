@@ -86,9 +86,6 @@
     // Gallery
     if ([self.app.auxPhotosArray count] > 0) {
         [self downloadGalleryImages];
-        [self configureGallery];
-
-        [scrollViewConfigurator addView:self.galleryView];
     }
     
     // Description
@@ -106,6 +103,7 @@
 
 - (void)downloadGalleryImages {
     int i = 0;
+    
     for (NSString *currenPhoto in self.app.auxPhotosArray) {
         UIImage *currentImage = [imageLoader load:currenPhoto withSaveName:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         if (currentImage == nil) {
@@ -115,6 +113,22 @@
             [imagesArray setValue:currentImage forKey:[NSString stringWithFormat:@"%@.%d", self.app.appId, i]];
         }
         i++;
+    }
+    
+    NSUInteger numberOfImages = self.app.auxPhotosArray.count;
+    NSUInteger numberOfDownloadedImages = 0;
+    NSEnumerator *keys = imagesArray.keyEnumerator;
+    
+    for (NSString *key in keys) {
+        if ([imagesArray objectForKey:key] != [NSString class]) {
+            numberOfDownloadedImages++;
+        }
+    }
+    
+    if (numberOfImages == numberOfDownloadedImages) {
+        [self configureGallery];
+        
+        [scrollViewConfigurator addView:self.galleryView];
     }
 }
 
@@ -278,6 +292,20 @@
     
     if (downloadedImages == [imagesArray allKeys].count) {
         [self configureGallery];
+        
+        [scrollViewConfigurator emptyFromPosition:2];
+        [scrollViewConfigurator addView:self.galleryView];
+        
+        // Description
+        if (![self.app.description isEqualToString:@""]) {
+            [self showAppSmallDescription];
+            [scrollViewConfigurator addView:self.descriptionView];
+        }
+        
+        if (![self.app.appUrl isEqualToString:@""]) {
+            [scrollViewConfigurator addView:self.developerTable];
+        }
+        
         [scrollViewConfigurator organize];
     }
 }

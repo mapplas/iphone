@@ -135,7 +135,6 @@
 								<string key="NSFrame">{{272, 14}, {32, 32}}</string>
 								<reference key="NSSuperview" ref="103314023"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -222,6 +221,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="522849761"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="103314023"/>
 				<string key="IBUIReuseIdentifier">UserPinsTableItem</string>
 			</object>
@@ -430,7 +430,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="ic_action_unpinup.png">{32, 32}</string>
-			<string key="ic_template.png">{124, 124}</string>
+			<string key="ic_template.png">{57, 57}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

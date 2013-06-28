@@ -1181,9 +1181,9 @@
 		7FED410316B13FA300581C9D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7F0195EA16C26FC70040FAD9 /* AppCell.xib */,
 				7FED411616B141CE00581C9D /* AppCell.h */,
 				7FED411716B141CE00581C9D /* AppCell.m */,
+				7F0195EA16C26FC70040FAD9 /* AppCell.xib */,
 				7FF8E1AD177B0A5500BC9EA3 /* EmptyCell.h */,
 				7FF8E1AE177B0A5500BC9EA3 /* EmptyCell.m */,
 				7FF8E1B2177B0A9400BC9EA3 /* EmptyCell.xib */,
