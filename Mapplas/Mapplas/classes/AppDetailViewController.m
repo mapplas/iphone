@@ -383,7 +383,8 @@
     
     // If device has ios6 and up
 	if ([UIActivityViewController class]) {
-        NSString *text = [NSString stringWithFormat:@"%@ %@ %@ %@", NSLocalizedString(@"share_email_body_part_1", @"Share email body Spanish part 1"), self.app.name, NSLocalizedString(@"share_email_body_part_2", @"Share email body Spanish part 2"), [NSString stringWithFormat:@"ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId]];
+        NSString *text = [sharingHelper getShareMessage];
+        
         NSArray *activityItems = @[text];
         UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
         

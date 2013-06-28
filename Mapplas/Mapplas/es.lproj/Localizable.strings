@@ -115,10 +115,10 @@
 "toast_after_rate_nok" = "Error al enviar la valoración... Inténtalo de nuevo!";
 
 /* Share message Spanish part 1 */
-"share_message_part_1" = "Compartiendo ";
+"share_message_part_1" = "Echa un vistazo a";
 
 /* Share message Spanish part 2 */
-"share_message_part_2" = " via Mapplas";
+"share_message_part_2" = "descubierta a través de Mapplas";
 
 /* Share email body Spanish part 1 */
 "share_email_body_part_1" = "Uno de tus amigos encontró";

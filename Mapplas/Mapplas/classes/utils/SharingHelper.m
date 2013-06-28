@@ -23,7 +23,9 @@
 }
 
 - (NSString *)getShareMessage {
-    return [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"share_message_part_1", @"Share message  part 1"), app.name];
+    NSString *text = [NSString stringWithFormat:@"%@ %@ %@ %@", NSLocalizedString(@"share_message_part_1", @""), app.name, NSLocalizedString(@"share_message_part_2", @""), [NSString stringWithFormat:@"ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", app.appId]];
+
+    return text;
 }
 
 - (void)shareWithTwitter {
