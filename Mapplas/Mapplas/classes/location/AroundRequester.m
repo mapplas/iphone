@@ -39,19 +39,6 @@
     CLLocationCoordinate2D coordinate = location.coordinate;
     model.currentLocation = [NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude];
     model.location = location;
-    
-//    // MOCKED LOCATION
-//    ///////////////
-//    double lat = 42.343992;
-//    double lon = -3.696906;
-//    
-//    model.currentLocation = [NSString stringWithFormat:@"%f,%f", lat, lon];
-//    
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(lat, lon);
-//    
-//    CLLocation *loc = [[CLLocation alloc] initWithCoordinate:coordinate altitude:0 horizontalAccuracy:0 verticalAccuracy:0 course:0 speed:0 timestamp:0];
-//    model.location = loc;
-//    //////////////
 	
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];

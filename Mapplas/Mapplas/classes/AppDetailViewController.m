@@ -59,7 +59,9 @@
     
     NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
     [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
-        
+    NSDictionary *dict = [styler styleNavBarButtonToBlue:YES];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
     NSMutableArray *viewsToAddToScroll = nil;
     viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, nil];
 
@@ -229,6 +231,9 @@
     if (descriptionTextDummy.frame.size.height <= maximumLabelSize.height) {
         self.morebutton.hidden = YES;
     }
+    else {
+        self.morebutton.hidden = NO;
+    }
 }
 
 - (void)showAppCompleteDescription {
@@ -260,6 +265,7 @@
     }
     else {
         descriptionOpened = YES;
+        self.morebutton.hidden = YES;
         [self showAppCompleteDescription];
     }
     
@@ -377,18 +383,24 @@
     
     // If device has ios6 and up
 	if ([UIActivityViewController class]) {
-		NSMutableArray *itemsToShare = [[NSMutableArray alloc] initWithObjects:[sharingHelper getShareMessage], nil];
-
-		UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-		activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        NSString *text = [sharingHelper getShareMessage];
         
-        activityViewController.completionHandler = ^(NSString *activityType, BOOL completed){
+        NSArray *activityItems = @[text];
+        UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        
+		activityController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        
+        activityController.completionHandler = ^(NSString *activityType, BOOL completed){
             if (completed) {
                 [sharingHelper shareType:activityType];
             }
         };
         
-		[self presentViewController:activityViewController animated:YES completion:nil];
+        NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+        NSDictionary *dict = [styler styleNavBarButtonToBlue:NO];
+        [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
+        
+		[self presentViewController:activityController animated:YES completion:nil];
 	}
 	else {
         // iOS 5
@@ -402,6 +414,7 @@
 	}
 }
 
+#pragma mark - Developer support email and web
 - (void)toDeveloperMail {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setMailComposeDelegate:self];

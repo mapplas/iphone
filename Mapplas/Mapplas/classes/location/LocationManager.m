@@ -67,10 +67,8 @@ static NSTimeInterval validCacheTime;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    if(error.code == kCLErrorDenied) {
-		[self stopLocationNotifications];
-		[[self listener] locationSearchDidTimeout];
-	}
+    [self stopLocationNotifications];
+    [listener locationSearchDidTimeout];
 }
 
 - (void)resetState {

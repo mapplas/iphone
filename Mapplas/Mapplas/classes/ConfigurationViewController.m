@@ -30,6 +30,8 @@
     
     NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
     [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+    NSDictionary *dict = [styler styleNavBarButtonToBlue:YES];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
 }
 
 #pragma mark - UITableViewDataSource delegate methods
@@ -91,6 +93,11 @@
             [controller setToRecipients:[NSArray arrayWithObject:mail]];
             NSString *subject = NSLocalizedString(@"config_contact_us_email_subject", @"Config contact us email subject");
             [controller setSubject:subject];
+            
+            NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+            [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
+            NSDictionary *dict = [styler styleNavBarButtonToBlue:NO];
+            [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
             
             [self presentModalViewController:controller animated:YES];
         }

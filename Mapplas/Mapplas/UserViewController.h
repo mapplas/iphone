@@ -50,8 +50,6 @@ typedef enum {
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 
-//// NOT USED /////
-
 @property (nonatomic, strong) IBOutlet UIView *userImageView;
 @property (nonatomic, strong) IBOutlet UIButton *userImageButton;
 @property (nonatomic, strong) IBOutlet UIImageView *userImageImageView;
@@ -67,7 +65,6 @@ typedef enum {
 @property (nonatomic, strong) IBOutlet UITextField *userInfoPressedNameEditText;
 @property (nonatomic, strong) IBOutlet UITextField *userInfoPressedEmailEditText;
 @property (nonatomic, strong) IBOutlet UIView *userInfoPressedButtonOk;
-//////    ......    /////
 
 @property (nonatomic, strong) IBOutlet UIView *listHeaderView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
@@ -78,13 +75,8 @@ typedef enum {
 @property (nonatomic, strong) IBOutlet UILabel *listEmptyViewLabel;
 
 @property (nonatomic, strong) IBOutlet UITableView *configTable;
-/*
-- (IBAction)userLogin:(id)sender;
 
-- (IBAction)loadPhoto:(id)sender;
-*/
 - (IBAction)segmentedControlIndexChanged;
-
 - (void)requestedDataLoaded;
 
 @end

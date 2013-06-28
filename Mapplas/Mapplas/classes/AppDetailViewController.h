@@ -66,8 +66,6 @@
 @property (nonatomic, strong) NSString *currentLocation;
 @property (nonatomic, strong) SuperModel *model;
 
-//@property (nonatomic, strong) AppDetailCommentsViewController *commentsViewController;
-
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 
 @property (nonatomic, strong) IBOutlet UIView *topBar;
