@@ -144,6 +144,7 @@
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
 		7F68783B16A86083005DC098 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F68783D16A86083005DC098 /* Localizable.strings */; };
 		7F8414D0177D72AF00D8CA0C /* ic_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8414CF177D72AF00D8CA0C /* ic_map@2x.png */; };
+		7F8414D2177D75E900D8CA0C /* ic_template@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8414D1177D75E900D8CA0C /* ic_template@2x.png */; };
 		7F8E24CB177AECFE00A86C10 /* ReverseGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */; };
 		7F8E24CF177AF39500A86C10 /* JSONToPinnedAppMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E24CE177AF39500A86C10 /* JSONToPinnedAppMapper.m */; };
 		7F8EF4BA173BC96500625C53 /* AppShareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EF4B9173BC96500625C53 /* AppShareConnector.m */; };
@@ -474,6 +475,7 @@
 		7F68783C16A86083005DC098 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F68783E16A86087005DC098 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F8414CF177D72AF00D8CA0C /* ic_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_map@2x.png"; sourceTree = SOURCE_ROOT; };
+		7F8414D1177D75E900D8CA0C /* ic_template@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_template@2x.png"; sourceTree = SOURCE_ROOT; };
 		7F8E24C9177AECFE00A86C10 /* ReverseGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverseGeocoder.h; path = classes/utils/ReverseGeocoder.h; sourceTree = "<group>"; };
 		7F8E24CA177AECFE00A86C10 /* ReverseGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverseGeocoder.m; path = classes/utils/ReverseGeocoder.m; sourceTree = "<group>"; };
 		7F8E24CC177AEF0900A86C10 /* ReverseGeocoderHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ReverseGeocoderHandler.h; path = classes/utils/ReverseGeocoderHandler.h; sourceTree = "<group>"; };
@@ -1525,6 +1527,7 @@
 				7FFA007216B7E5A5003E53E1 /* ic_refresh.png */,
 				7F3F656A177C881E0014FBCC /* ic_refresh@2x.png */,
 				7FED410716B140ED00581C9D /* ic_template.png */,
+				7F8414D1177D75E900D8CA0C /* ic_template@2x.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -1710,6 +1713,7 @@
 				7F3F6590177C9B780014FBCC /* ic_action_unpinup@2x.png in Resources */,
 				7F3F6596177CA3A70014FBCC /* ic_more@2x.png in Resources */,
 				7F8414D0177D72AF00D8CA0C /* ic_map@2x.png in Resources */,
+				7F8414D2177D75E900D8CA0C /* ic_template@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
