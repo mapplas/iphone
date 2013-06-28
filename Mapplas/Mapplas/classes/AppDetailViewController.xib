@@ -5106,54 +5106,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">actionBarWithoutTeleph</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="844944589"/>
-					</object>
-					<int key="connectionID">779</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">blockWithoutPhoneLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="166500941"/>
-					</object>
-					<int key="connectionID">784</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">pinWithoutPhoneLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="244704777"/>
-					</object>
-					<int key="connectionID">785</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">rateWithoutPhoneLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="719359121"/>
-					</object>
-					<int key="connectionID">786</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">shareWithoutPhoneLabel</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="1003728012"/>
-					</object>
-					<int key="connectionID">787</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">pinWithoutPhoneButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="256567030"/>
-					</object>
-					<int key="connectionID">788</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">developerTable</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="450895551"/>
@@ -5199,6 +5151,78 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="destination" ref="809119614"/>
 					</object>
 					<int key="connectionID">820</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">blockButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="361343481"/>
+					</object>
+					<int key="connectionID">824</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">blockLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="166500941"/>
+					</object>
+					<int key="connectionID">825</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pinButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="256567030"/>
+					</object>
+					<int key="connectionID">826</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">pinLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="244704777"/>
+					</object>
+					<int key="connectionID">827</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">rateButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="187695586"/>
+					</object>
+					<int key="connectionID">828</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">rateLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="719359121"/>
+					</object>
+					<int key="connectionID">829</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">shareButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="20414453"/>
+					</object>
+					<int key="connectionID">830</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">shareLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1003728012"/>
+					</object>
+					<int key="connectionID">831</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">actionBar</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="844944589"/>
+					</object>
+					<int key="connectionID">832</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -5538,7 +5562,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">823</int>
+			<int key="maxID">832</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5605,10 +5629,8 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="actionBar">UIView</string>
-						<string key="actionBarWithoutTeleph">UIView</string>
 						<string key="blockButton">UIButton</string>
 						<string key="blockLabel">UILabel</string>
-						<string key="blockWithoutPhoneLabel">UILabel</string>
 						<string key="descriptionText">UILabel</string>
 						<string key="descriptionView">UIView</string>
 						<string key="developerTable">UITableView</string>
@@ -5620,31 +5642,21 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="morebutton">UIButton</string>
 						<string key="name">UILabel</string>
 						<string key="pageControl">UIPageControl</string>
-						<string key="phoneButton">UIButton</string>
-						<string key="phoneLabel">UILabel</string>
 						<string key="pinButton">UIButton</string>
 						<string key="pinLabel">UILabel</string>
-						<string key="pinWithoutPhoneButton">UIButton</string>
-						<string key="pinWithoutPhoneLabel">UILabel</string>
 						<string key="priceButton">UIButton</string>
 						<string key="rateButton">UIButton</string>
 						<string key="rateLabel">UILabel</string>
-						<string key="rateWithoutPhoneLabel">UILabel</string>
 						<string key="ratingView">UIView</string>
 						<string key="ratingViewButton">UIButton</string>
 						<string key="scroll">UIScrollView</string>
 						<string key="shareButton">UIButton</string>
 						<string key="shareLabel">UILabel</string>
-						<string key="shareWithoutPhoneLabel">UILabel</string>
 						<string key="topBar">UIView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="actionBar">
 							<string key="name">actionBar</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="actionBarWithoutTeleph">
-							<string key="name">actionBarWithoutTeleph</string>
 							<string key="candidateClassName">UIView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="blockButton">
@@ -5653,10 +5665,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						</object>
 						<object class="IBToOneOutletInfo" key="blockLabel">
 							<string key="name">blockLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="blockWithoutPhoneLabel">
-							<string key="name">blockWithoutPhoneLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="descriptionText">
@@ -5703,28 +5711,12 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<string key="name">pageControl</string>
 							<string key="candidateClassName">UIPageControl</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="phoneButton">
-							<string key="name">phoneButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="phoneLabel">
-							<string key="name">phoneLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="pinButton">
 							<string key="name">pinButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="pinLabel">
 							<string key="name">pinLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="pinWithoutPhoneButton">
-							<string key="name">pinWithoutPhoneButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="pinWithoutPhoneLabel">
-							<string key="name">pinWithoutPhoneLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="priceButton">
@@ -5737,10 +5729,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						</object>
 						<object class="IBToOneOutletInfo" key="rateLabel">
 							<string key="name">rateLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="rateWithoutPhoneLabel">
-							<string key="name">rateWithoutPhoneLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="ratingView">
@@ -5761,10 +5749,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						</object>
 						<object class="IBToOneOutletInfo" key="shareLabel">
 							<string key="name">shareLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="shareWithoutPhoneLabel">
-							<string key="name">shareWithoutPhoneLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="topBar">
@@ -5791,7 +5775,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<string key="ic_action_unpinup.png">{32, 32}</string>
 			<string key="ic_badge_price.png">{64, 64}</string>
 			<string key="ic_more.png">{32, 10}</string>
-			<string key="ic_template.png">{124, 124}</string>
+			<string key="ic_template.png">{57, 57}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

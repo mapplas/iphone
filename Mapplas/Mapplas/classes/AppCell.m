@@ -13,7 +13,8 @@
 
 @synthesize cellPressed, cellUnpressed, cellContent;
 @synthesize imageLogo, imageRoundView, appName, description;
-@synthesize pinPressedImage, pinPressedText, ratePressedText, blockPressedText, sharePressedText;
+@synthesize pinPressedImage, ratePressedImage, blockPressedImage, sharePressedImage;
+@synthesize pinPressedText, ratePressedText, blockPressedText, sharePressedText;
 @synthesize priceButton;
 
 @synthesize app = _app, user = _user, currentLocation = _currentLocation, currentDescriptiveGeoLoc = _currentDescriptiveGeoLoc, modelList = _modelList, appsList = _appsList, positionInList = _positionInList, viewController = _viewController, pressed = _pressed;
@@ -117,6 +118,12 @@
     
     // Share
     self.sharePressedText.text = NSLocalizedString(@"share_text", @"Share text");
+    
+    // Hit area bigger
+    [self.pinPressedImage setHitTestEdgeInsets:UIEdgeInsetsMake(-self.pinPressedImage.frame.origin.y, -self.pinPressedImage.frame.origin.x, -(self.frame.size.height - self.pinPressedImage.frame.size.height - self.pinPressedImage.frame.origin.y), -12)];
+    [self.ratePressedImage setHitTestEdgeInsets:UIEdgeInsetsMake(-self.ratePressedImage.frame.origin.y, -12, -(self.frame.size.height - self.ratePressedImage.frame.size.height - self.ratePressedImage.frame.origin.y), -12)];
+    [self.blockPressedImage setHitTestEdgeInsets:UIEdgeInsetsMake(-self.blockPressedImage.frame.origin.y, -12, -(self.frame.size.height - self.blockPressedImage.frame.size.height - self.blockPressedImage.frame.origin.y), -12)];
+    [self.sharePressedImage setHitTestEdgeInsets:UIEdgeInsetsMake(-self.sharePressedImage.frame.origin.y, -12, -(self.frame.size.height - self.sharePressedImage.frame.size.height - self.sharePressedImage.frame.origin.y), -(self.cellPressed.frame.size.width - self.sharePressedImage.frame.size.width - self.sharePressedImage.frame.origin.x))];
 }
 
 - (void)imageDownloaded:(DownloadedImageSuccess *)download withSaveName:(NSString *)save_name {

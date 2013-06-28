@@ -49,7 +49,6 @@
 								<string key="NSFrame">{{70, 0}, {250, 71}}</string>
 								<reference key="NSSuperview" ref="209533626"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="371738611"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -106,13 +105,13 @@
 									<string key="NSResourceName">ic_template.png</string>
 								</object>
 							</object>
-							<object class="IBUIImageView" id="371738611">
+							<object class="IBUIImageView" id="979734763">
 								<reference key="NSNextResponder" ref="209533626"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{71, 71}</string>
 								<reference key="NSSuperview" ref="209533626"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="1014404432"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -121,7 +120,7 @@
 						<string key="NSFrameSize">{320, 70}</string>
 						<reference key="NSSuperview" ref="1040147846"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1014404432"/>
+						<reference key="NSNextKeyView" ref="979734763"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="385537761"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -321,7 +320,6 @@
 						<string key="NSFrame">{{190, 13}, {32, 32}}</string>
 						<reference key="NSSuperview" ref="321150316"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -388,7 +386,6 @@
 						<string key="NSFrame">{{186, 4}, {64, 64}}</string>
 						<reference key="NSSuperview" ref="511086860"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -601,9 +598,33 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">imageRoundView</string>
 						<reference key="source" ref="1040147846"/>
-						<reference key="destination" ref="371738611"/>
+						<reference key="destination" ref="979734763"/>
 					</object>
 					<int key="connectionID">189</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">ratePressedImage</string>
+						<reference key="source" ref="1040147846"/>
+						<reference key="destination" ref="257641496"/>
+					</object>
+					<int key="connectionID">190</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">sharePressedImage</string>
+						<reference key="source" ref="1040147846"/>
+						<reference key="destination" ref="585306260"/>
+					</object>
+					<int key="connectionID">191</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">blockPressedImage</string>
+						<reference key="source" ref="1040147846"/>
+						<reference key="destination" ref="827822060"/>
+					</object>
+					<int key="connectionID">192</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -686,7 +707,7 @@
 							<reference ref="1014404432"/>
 							<reference ref="265309560"/>
 							<reference ref="371072881"/>
-							<reference ref="371738611"/>
+							<reference ref="979734763"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -798,7 +819,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">188</int>
-						<reference key="object" ref="371738611"/>
+						<reference key="object" ref="979734763"/>
 						<reference key="parent" ref="1040147846"/>
 					</object>
 				</array>
@@ -834,7 +855,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">189</int>
+			<int key="maxID">192</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -877,6 +898,7 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="appName">UILabel</string>
+						<string key="blockPressedImage">UIButton</string>
 						<string key="blockPressedText">UILabel</string>
 						<string key="cellContent">UIView</string>
 						<string key="cellPressed">UIView</string>
@@ -887,13 +909,19 @@
 						<string key="pinPressedImage">UIButton</string>
 						<string key="pinPressedText">UILabel</string>
 						<string key="priceButton">UIButton</string>
+						<string key="ratePressedImage">UIButton</string>
 						<string key="ratePressedText">UILabel</string>
+						<string key="sharePressedImage">UIButton</string>
 						<string key="sharePressedText">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="appName">
 							<string key="name">appName</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="blockPressedImage">
+							<string key="name">blockPressedImage</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="blockPressedText">
 							<string key="name">blockPressedText</string>
@@ -935,9 +963,17 @@
 							<string key="name">priceButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="ratePressedImage">
+							<string key="name">ratePressedImage</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="ratePressedText">
 							<string key="name">ratePressedText</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="sharePressedImage">
+							<string key="name">sharePressedImage</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="sharePressedText">
 							<string key="name">sharePressedText</string>
