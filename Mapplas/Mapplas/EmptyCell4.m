@@ -10,20 +10,16 @@
 
 @implementation EmptyCell4
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+@synthesize title, subtitle, pull;
+
+- (void)load {
+    self.title.text = NSLocalizedString(@"comming_soon_title", @"");
+    self.subtitle.text = NSLocalizedString(@"comming_soon_subtitle", @"");
+    self.pull.text = NSLocalizedString(@"comming_soon_pull", @"");
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:NO animated:NO];
 }
 
 @end

@@ -69,8 +69,11 @@
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
     [self setDefaultsForAppRequest];
-
-    NSLog(@"Response delegate error, %@, %@", [error description], JSON);
+    
+    model.appList.currentLocation = model.currentLocation;
+    model.appList = [[AppOrderedList alloc] init];
+    
+    [self doReverseGeocoding:-1];
 }
 
 - (void)setDefaultsForAppRequest {
@@ -100,6 +103,8 @@
             
             if (last_apps == 0) {
                 [mainController appsPaginationRequestOk];
+            } else if(last_apps == -1) {
+                [mainController appsDataError];
             } else {
                 [mainController appsPaginationRequestNok];
             }

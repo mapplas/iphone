@@ -86,15 +86,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *blockLabel;
 @property (nonatomic, strong) IBOutlet UIButton *shareButton;
 @property (nonatomic, strong) IBOutlet UILabel *shareLabel;
-@property (nonatomic, strong) IBOutlet UIButton *phoneButton;
-@property (nonatomic, strong) IBOutlet UILabel *phoneLabel;
-
-@property (nonatomic, strong) IBOutlet UIView *actionBarWithoutTeleph;
-@property (nonatomic, strong) IBOutlet UIButton *pinWithoutPhoneButton;
-@property (nonatomic, strong) IBOutlet UILabel *pinWithoutPhoneLabel;
-@property (nonatomic, strong) IBOutlet UILabel *rateWithoutPhoneLabel;
-@property (nonatomic, strong) IBOutlet UILabel *blockWithoutPhoneLabel;
-@property (nonatomic, strong) IBOutlet UILabel *shareWithoutPhoneLabel;
 
 @property (nonatomic, strong) IBOutlet UIView *galleryView;
 @property (nonatomic, strong) IBOutlet UIView *galleryBackground;
@@ -112,7 +103,6 @@
 - (IBAction)block:(id)sender;
 - (IBAction)rate:(id)sender;
 - (IBAction)share:(id)sender;
-- (IBAction)call:(id)sender;
 
 - (IBAction)launchApp:(id)sender;
 

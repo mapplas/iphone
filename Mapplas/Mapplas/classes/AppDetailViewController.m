@@ -8,6 +8,7 @@
 
 #import "AppDetailViewController.h"
 #import "AppDetailRequester.h"
+#import "UIButton+Extensions.h"
 
 @interface AppDetailViewController ()
 - (void)downloadGalleryImages;
@@ -29,8 +30,7 @@
 @synthesize scroll;
 
 @synthesize topBar, logo, name, priceButton, ratingView, ratingViewButton;
-@synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel, phoneButton, phoneLabel;
-@synthesize actionBarWithoutTeleph, pinWithoutPhoneButton, pinWithoutPhoneLabel, rateWithoutPhoneLabel, blockWithoutPhoneLabel, shareWithoutPhoneLabel;
+@synthesize actionBar, pinButton, pinLabel, rateButton, rateLabel, blockButton, blockLabel, shareButton, shareLabel;
 @synthesize galleryView, galleryBackground, galleryScroll, pageControl;
 @synthesize descriptionView, descriptionText, morebutton, moreBigButton;
 @synthesize developerTable;
@@ -59,15 +59,9 @@
     
     NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
     [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
-    
-    // Telephone icon or not
-    UIView *whatActionBar = self.actionBar;
-    if ([self.app.phone isEqualToString:@""]) {
-        whatActionBar = self.actionBarWithoutTeleph;
-    }
-    
+        
     NSMutableArray *viewsToAddToScroll = nil;
-    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, whatActionBar, nil];
+    viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, nil];
 
     scrollViewConfigurator = [[MutableScrollViewOfViews alloc] initWithViews:viewsToAddToScroll inScrollView:self.scroll delegate:self];
     
@@ -143,19 +137,15 @@
     // Action layout
     [self initPinActionLayout];
     
-    NSString *rateLabelText = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
-    self.rateLabel.text = rateLabelText;
-    self.rateWithoutPhoneLabel.text = rateLabelText;
+    self.rateLabel.text = NSLocalizedString(@"rate_singular_text", @"Rate singular text");
+    self.blockLabel.text = NSLocalizedString(@"block_text", @"Block text");
+    self.shareLabel.text = NSLocalizedString(@"share_text", @"Share text");
     
-    NSString *blockLabelText = NSLocalizedString(@"block_text", @"Block text");
-    self.blockLabel.text = blockLabelText;
-    self.blockWithoutPhoneLabel.text = blockLabelText;
-    
-    NSString *shareLabelText = NSLocalizedString(@"share_text", @"Share text");
-    self.shareLabel.text = shareLabelText;
-    self.shareWithoutPhoneLabel.text = shareLabelText;
-    
-    self.phoneLabel.text = NSLocalizedString(@"call_text", @"Detail screen call text");
+    // Set buttons hit area biggerç// Hit area bigger
+    [self.pinButton setHitTestEdgeInsets:UIEdgeInsetsMake(-self.pinButton.frame.origin.y, -self.pinButton.frame.origin.x, -(self.actionBar.frame.size.height - self.pinButton.frame.size.height - self.pinButton.frame.origin.y), -24)];
+    [self.rateButton setHitTestEdgeInsets:UIEdgeInsetsMake(-self.rateButton.frame.origin.y, -24, -(self.actionBar.frame.size.height - self.rateButton.frame.size.height - self.rateButton.frame.origin.y), -24)];
+    [self.blockButton setHitTestEdgeInsets:UIEdgeInsetsMake(-self.blockButton.frame.origin.y, -24, -(self.actionBar.frame.size.height - self.blockButton.frame.size.height - self.blockButton.frame.origin.y), -24)];
+    [self.shareButton setHitTestEdgeInsets:UIEdgeInsetsMake(-self.shareButton.frame.origin.y, -24, -(self.actionBar.frame.size.height - self.shareButton.frame.size.height - self.shareButton.frame.origin.y), -(self.actionBar.frame.size.width - self.shareButton.frame.size.width - self.shareButton.frame.origin.x))];
 }
 
 - (void)configureGallery {
@@ -326,19 +316,11 @@
 - (void)initPinActionLayout {
     if ([self.app.auxPin intValue] == 1) {
         self.pinButton.selected = YES;
-        self.pinWithoutPhoneButton.selected = YES;
-        
-        NSString *pinLabelText = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
-        self.pinLabel.text = pinLabelText;
-        self.pinWithoutPhoneLabel.text = pinLabelText;
+        self.pinLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
     }
     else {
         self.pinButton.selected = NO;
-        self.pinWithoutPhoneButton.selected = NO;
-        
-        NSString *pinLabelText = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
-        self.pinLabel.text = pinLabelText;
-        self.pinWithoutPhoneLabel.text = pinLabelText;
+        self.pinLabel.text = NSLocalizedString(@"pin_sing_text", @"Pin singular text");
     }
 }
 
@@ -390,10 +372,6 @@
 		UIActionSheet *alertView = [[UIActionSheet alloc] initWithTitle:nil delegate:sharingHelper cancelButtonTitle:cancelButton destructiveButtonTitle:nil otherButtonTitles:twitterButton, smsButton, emailButton, nil];
 		[alertView showInView:self.view];
 	}
-}
-
-- (IBAction)call:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", self.app.phone]]];
 }
 
 - (void)toDeveloperMail {

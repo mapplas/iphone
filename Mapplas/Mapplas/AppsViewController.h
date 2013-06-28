@@ -54,10 +54,11 @@
 @property (nonatomic, strong) IBOutlet UIView *cellLoadingEmpty;
 
 @property (nonatomic, strong) IBOutlet UIView *radarAnim;
-@property (nonatomic, strong) IBOutlet UIImageView *outerImage;
-@property (nonatomic, strong) IBOutlet UIImageView *pointsImage;
-@property (nonatomic, strong) IBOutlet UIImageView *trianglesImage;
-@property (nonatomic, strong) IBOutlet UIImageView *blueShadowImage;
+@property (nonatomic, strong) IBOutlet UIImageView *radarImage1;
+@property (nonatomic, strong) IBOutlet UIImageView *radarImage2;
+@property (nonatomic, strong) IBOutlet UIImageView *radarImage3;
+@property (nonatomic, strong) IBOutlet UIImageView *radarImage4;
+@property (nonatomic, strong) IBOutlet UIImageView *radarImage5;
 @property (nonatomic, strong) IBOutlet UILabel *latitudeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *longitudeLabel;
 
@@ -66,7 +67,9 @@
 @property (nonatomic, strong) AroundRequester *aroundRequester;
 
 - (void)appsDataParsedFromServer;
+- (void)appsDataError;
 - (void)userDataLoaded;
+- (void)userDataLoadingError;
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll;
 - (void)stopAnimations;

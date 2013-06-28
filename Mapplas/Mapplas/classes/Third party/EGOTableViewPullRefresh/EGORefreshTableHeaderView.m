@@ -48,7 +48,17 @@
         CALayer *layer2 = [CALayer layer];
 		layer2.frame = CGRectMake(10.0f, frame.size.height - 20.0f, 15.0f, 15.0f);
 		layer2.contentsGravity = kCAGravityLeft;
-		layer2.contents = (id)[UIImage imageNamed:@"ic_map.png"].CGImage;
+        
+        CGFloat appContentScaleFactor;
+        if ([[UIScreen mainScreen] respondsToSelector: @selector(scale)]) {
+            appContentScaleFactor = [[UIScreen mainScreen] scale];
+        
+            if ([layer2 respondsToSelector: @selector(setContentsScale:)]) {
+                layer2.contentsScale = appContentScaleFactor;
+            }
+        }
+        layer2.contents = (id)[UIImage imageNamed:@"ic_map.png"].CGImage;
+
         
         [self.layer addSublayer:layer2];
         _descriptiveGeolocationMapImage = layer2;

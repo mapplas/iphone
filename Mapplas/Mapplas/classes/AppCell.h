@@ -22,6 +22,7 @@
 
 #import "SharingHelper.h"
 #import "RatingHelper.h"
+#import "UIButton+Extensions.h"
 
 @class AppsViewController;
 
@@ -59,6 +60,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *description;
 
 @property (nonatomic, strong) IBOutlet UIButton *pinPressedImage;
+@property (nonatomic, strong) IBOutlet UIButton *ratePressedImage;
+@property (nonatomic, strong) IBOutlet UIButton *blockPressedImage;
+@property (nonatomic, strong) IBOutlet UIButton *sharePressedImage;
+
 @property (nonatomic, strong) IBOutlet UILabel *pinPressedText;
 @property (nonatomic, strong) IBOutlet UILabel *ratePressedText;
 @property (nonatomic, strong) IBOutlet UILabel *blockPressedText;
