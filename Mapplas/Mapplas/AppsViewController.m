@@ -22,7 +22,7 @@
 @synthesize aroundRequester = _aroundRequester;
 
 @synthesize radarAnim = _radarAnim;
-@synthesize outerImage, pointsImage, trianglesImage, blueShadowImage;
+@synthesize radarImage1, radarImage2, radarImage3, radarImage4, radarImage5;
 @synthesize latitudeLabel, longitudeLabel;
 
 @synthesize table;
@@ -59,45 +59,54 @@
 }
 
 - (void)initializeRadarAnimation {
-    CABasicAnimation *outerRotation;
-    outerRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    outerRotation.fromValue = [NSNumber numberWithFloat:0];
-    outerRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
-    outerRotation.duration = 0.75f;
-    outerRotation.repeatCount = 6;
-    outerRotation.speed = .5;
-    [self.outerImage.layer addAnimation:outerRotation forKey:@"360"];
+    CABasicAnimation *rotation1;
+    rotation1 = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation1.fromValue = [NSNumber numberWithFloat:0];
+    rotation1.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    rotation1.duration = 0.75f;
+    rotation1.repeatCount = 15;
+    rotation1.speed = .15;
+    [self.radarImage1.layer addAnimation:rotation1 forKey:@"360"];
     
-    CABasicAnimation *pointsRotation;
-    pointsRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    pointsRotation.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
-    pointsRotation.toValue = [NSNumber numberWithFloat:0];
-    pointsRotation.duration = 0.75f;
-    pointsRotation.repeatCount = 6;
-    pointsRotation.speed = .5;
-    [self.pointsImage.layer addAnimation:pointsRotation forKey:@"360"];
+    CABasicAnimation *rotation2;
+    rotation2 = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation2.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    rotation2.toValue = [NSNumber numberWithFloat:0];
+    rotation2.duration = 0.75f;
+    rotation2.repeatCount = 15;
+    rotation2.speed = .4;
+    [self.radarImage2.layer addAnimation:rotation2 forKey:@"360"];
     
-    CABasicAnimation *trianglesRotation;
-    trianglesRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    trianglesRotation.fromValue = [NSNumber numberWithFloat:0];
-    trianglesRotation.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
-    trianglesRotation.duration = 0.75f;
-    trianglesRotation.repeatCount = 6;
-    trianglesRotation.speed = .3;
-    [self.trianglesImage.layer addAnimation:trianglesRotation forKey:@"360"];
+    CABasicAnimation *rotation3;
+    rotation3 = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation3.fromValue = [NSNumber numberWithFloat:0];
+    rotation3.toValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    rotation3.duration = 0.75f;
+    rotation3.repeatCount = 15;
+    rotation3.speed = .3;
+    [self.radarImage3.layer addAnimation:rotation3 forKey:@"360"];
     
-    CABasicAnimation *shadowRotation;
-    shadowRotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    shadowRotation.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
-    shadowRotation.toValue = [NSNumber numberWithFloat:0];
-    shadowRotation.duration = 0.75f;
-    shadowRotation.repeatCount = 6;
-    shadowRotation.speed = .3;
-    [self.blueShadowImage.layer addAnimation:shadowRotation forKey:@"360"];
+    CABasicAnimation *rotation4;
+    rotation4 = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation4.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    rotation4.toValue = [NSNumber numberWithFloat:0];
+    rotation4.duration = 0.75f;
+    rotation4.repeatCount = 15;
+    rotation4.speed = .25;
+    [self.radarImage4.layer addAnimation:rotation4 forKey:@"360"];
+    
+    CABasicAnimation *rotation5;
+    rotation5 = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation5.fromValue = [NSNumber numberWithFloat:((360 * M_PI) / 180)];
+    rotation5.toValue = [NSNumber numberWithFloat:0];
+    rotation5.duration = 0.75f;
+    rotation5.repeatCount = 15;
+    rotation5.speed = .33;
+    [self.radarImage5.layer addAnimation:rotation5 forKey:@"360"];
 }
 
 - (void)initializeLatitudeLongitude {
-    latLongTextTimer = [NSTimer scheduledTimerWithTimeInterval:.1f
+    latLongTextTimer = [NSTimer scheduledTimerWithTimeInterval:.25f
                                      target:self
                                    selector:@selector(setData)
                                    userInfo:nil
@@ -109,16 +118,17 @@
 }
 
 - (void)setData {
-    self.latitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-90 andMax:90], [self getRandomNumberBetweenMin:0 andMax:99999]];
-    self.longitudeLabel.text = [NSString stringWithFormat:@"%d, %d", [self getRandomNumberBetweenMin:-180 andMax:180], [self getRandomNumberBetweenMin:0 andMax:99999]];
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-90 andMax:90], [self getRandomNumberBetweenMin:1000 andMax:9999]];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-180 andMax:180], [self getRandomNumberBetweenMin:1000 andMax:9999]];
 }
 
 - (void)stopAnimations {
-    [self.outerImage.layer removeAnimationForKey:@"360"];
-    [self.pointsImage.layer removeAnimationForKey:@"360"];
-    [self.trianglesImage.layer removeAnimationForKey:@"360"];
-    [self.blueShadowImage.layer removeAnimationForKey:@"360"];
-    
+    [self.radarImage1.layer removeAnimationForKey:@"360"];
+    [self.radarImage2.layer removeAnimationForKey:@"360"];
+    [self.radarImage3.layer removeAnimationForKey:@"360"];
+    [self.radarImage4.layer removeAnimationForKey:@"360"];
+    [self.radarImage5.layer removeAnimationForKey:@"360"];
+
     self.latitudeLabel.text = @"00.00000";
     self.longitudeLabel.text = @"00.00000";
     
@@ -233,21 +243,21 @@
 }
 
 - (void)appsDataParsedFromServer {
-    self.view = table;
-    [self stopAnimations];
-        
-    // Endless adapter
-    int height = CELL_HEIGHT;
-    if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
-        [self.table setTableFooterView:self.cellLoading];
-    } else if(self.model.appList.getArray.count == 0) {
-        [self.table setTableFooterView:nil];
-    } else {
-        [self.table setTableFooterView:self.cellLoadingEmpty];
-    }
-    
-    [_refreshHeaderView refreshLastUpdatedDate];
-    [self doneLoadingTableViewData];
+//    self.view = table;
+//    [self stopAnimations];
+//        
+//    // Endless adapter
+//    int height = CELL_HEIGHT;
+//    if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
+//        [self.table setTableFooterView:self.cellLoading];
+//    } else if(self.model.appList.getArray.count == 0) {
+//        [self.table setTableFooterView:nil];
+//    } else {
+//        [self.table setTableFooterView:self.cellLoadingEmpty];
+//    }
+//    
+//    [_refreshHeaderView refreshLastUpdatedDate];
+//    [self doneLoadingTableViewData];
     
     // Notification DB inserter
 //    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:self.model viewController:self];
