@@ -7,6 +7,7 @@
 //
 
 #import "SharingHelper.h"
+#import "NavigationControllerStyler.h"
 
 @implementation SharingHelper
 

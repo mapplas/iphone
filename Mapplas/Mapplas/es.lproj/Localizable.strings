@@ -13,7 +13,7 @@
 "descriptive_geoloc_error" = "Ups! Google no es capaz de posicionarte.";
 
 /* Pull to refresh pull message */
-"ptr_pull_to_refresh" = "Tira para refrescar...";
+"ptr_pull_to_refresh" = "Desliza hacia abajo para refrescar...";
 
 /* Pull to refresh release message */
 "ptr_release_to_refresh" = "Suelta para refrescar...";
@@ -115,7 +115,7 @@
 "toast_after_rate_nok" = "Error al enviar la valoración... Inténtalo de nuevo!";
 
 /* Share message Spanish part 1 */
-"share_message_part_1" = "Compartiendo";
+"share_message_part_1" = "Compartiendo ";
 
 /* Share message Spanish part 2 */
 "share_message_part_2" = " via Mapplas";

@@ -47,6 +47,7 @@
     [self.appUnblockButton setHitTestEdgeInsets:UIEdgeInsetsMake(-20, -20, -20, -20)];
     
     self.appTitle.text = app.name;
+    [self setBackgroundColor:[UIColor whiteColor]];
     
     self.appUnblockActionLabel.text = NSLocalizedString(@"user_list_blocked_cell_unblock_text", @"User screen block cell unblock label text");
 }

@@ -50,6 +50,8 @@
     self.appTitle.text = app.name;
     self.appGeoLocation.text = app.appPinnedGeocodedLocation;
     
+    [self setBackgroundColor:[UIColor whiteColor]];
+    
     self.appPinActionLabel.text = NSLocalizedString(@"un_pin_up", @"Pin unpin text");
 }
 

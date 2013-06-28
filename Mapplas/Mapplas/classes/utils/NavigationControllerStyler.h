@@ -9,5 +9,6 @@
 @interface NavigationControllerStyler : NSObject
 
 - (void)style:(UINavigationBar *)nav_bar andItem:(UINavigationItem *)nav_item;
+- (NSDictionary *)styleNavBarButtonToBlue:(BOOL)set_blue;
 
 @end

@@ -490,24 +490,6 @@
     return rows;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *customTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 0, 300, 44)];
-    titleLabel.text = NSLocalizedString(@"app_detail_developer_label_text", @"App detail - developer text");
-    titleLabel.textColor = [UIColor colorWithRed:33.f/255.f green:33.f/255.f blue:33.f/255.f alpha:1];
-    titleLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:18.0f];
-    titleLabel.backgroundColor = [UIColor clearColor];
-    
-    [customTitleView addSubview:titleLabel];
-    
-    return customTitleView;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 44;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *groupedTableIdentifier = @"GroupedCellItem";
     

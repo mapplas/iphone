@@ -200,9 +200,17 @@
     NSString *segmentedControlPinnedText = NSLocalizedString(@"user_screen_segmented_control_pins", @"User screen segmented control pinned title");
     [self.segmentedControl setTitle:segmentedControlPinnedText forSegmentAtIndex:0];
     
+    [self.segmentedControl setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                  [UIColor colorWithRed:0.0f/255.0f green:153.0f/255.0f blue:204.0f/255.0f alpha:255.0f/255.0f],
+                                                  UITextAttributeTextColor,
+                                                  [UIColor clearColor],
+                                                  UITextAttributeTextShadowColor, nil]
+                                        forState:UIControlStateNormal];
+    
     NSString *segmentedControlBlockedText = NSLocalizedString(@"user_screen_segmented_control_blocks", @"User screen segmented control blocks title");
     [self.segmentedControl setTitle:segmentedControlBlockedText forSegmentAtIndex:1];
     self.navigationItem.titleView = self.segmentedControl;
+    
 //    [self changeLayoutComponents:[self checkUserState]];
 }
 

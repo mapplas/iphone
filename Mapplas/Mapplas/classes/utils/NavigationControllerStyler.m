@@ -28,4 +28,22 @@
     ((UILabel *)nav_item.titleView).text = NSLocalizedString(@"nav_controller_title", @"Navigation controller title");
 }
 
+- (NSDictionary *)styleNavBarButtonToBlue:(BOOL)set_blue {
+    if (set_blue) {
+        return [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor colorWithRed:0.0f/255.0f green:153.0f/255.0f blue:204.0f/255.0f alpha:255.0f/255.0f],
+                                    UITextAttributeTextColor,
+                                    [UIColor clearColor],
+                                    UITextAttributeTextShadowColor, nil];
+        
+    }
+    else {
+        return [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor whiteColor],
+                                    UITextAttributeTextColor,
+                                    [UIColor clearColor],
+                                    UITextAttributeTextShadowColor, nil];
+    }
+}
+
 @end
