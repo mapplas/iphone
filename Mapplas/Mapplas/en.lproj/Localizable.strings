@@ -290,3 +290,9 @@
 
 /* Review alert cancell button title */
 "review_alert_cancel_button" = "No, thanks";
+
+"comming_soon_title" = "Mapplas shows great apps around you.";
+
+"comming_soon_subtitle" = "Or your country is not currently supported or something went wrong.";
+
+"comming_soon_pull" = "Pull to refresh...";

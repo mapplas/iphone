@@ -243,21 +243,21 @@
 }
 
 - (void)appsDataParsedFromServer {
-//    self.view = table;
-//    [self stopAnimations];
-//        
-//    // Endless adapter
-//    int height = CELL_HEIGHT;
-//    if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
-//        [self.table setTableFooterView:self.cellLoading];
-//    } else if(self.model.appList.getArray.count == 0) {
-//        [self.table setTableFooterView:nil];
-//    } else {
-//        [self.table setTableFooterView:self.cellLoadingEmpty];
-//    }
-//    
-//    [_refreshHeaderView refreshLastUpdatedDate];
-//    [self doneLoadingTableViewData];
+    self.view = table;
+    [self stopAnimations];
+        
+    // Endless adapter
+    int height = CELL_HEIGHT;
+    if (self.model.appList.getArray.count * height > self.table.frame.size.height) {
+        [self.table setTableFooterView:self.cellLoading];
+    } else if(self.model.appList.getArray.count == 0) {
+        [self.table setTableFooterView:nil];
+    } else {
+        [self.table setTableFooterView:self.cellLoadingEmpty];
+    }
+    
+    [_refreshHeaderView refreshLastUpdatedDate];
+    [self doneLoadingTableViewData];
     
     // Notification DB inserter
 //    NotificationDBInserter *dbInserter = [[NotificationDBInserter alloc] initWithModel:self.model viewController:self];
@@ -284,6 +284,16 @@
 		[self.table addSubview:view];
 		_refreshHeaderView = view;
 	}
+}
+
+// Error loading user data
+- (void)userDataLoadingError {
+    [self stopAnimatingRadar];
+    
+    [self.table setTableFooterView:nil];
+    
+    self.model.appList = [[AppOrderedList alloc] init];
+    [self appsDataParsedFromServer];
 }
 
 #pragma mark -
@@ -331,6 +341,8 @@
             if (cell == nil) {
                 NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EmptyCell4" owner:self options:nil];
                 cell = [nib objectAtIndex:0];
+                
+                [cell load];
             }
             return cell;
         }
@@ -339,6 +351,8 @@
             if (cell == nil) {
                 NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EmptyCell" owner:self options:nil];
                 cell = [nib objectAtIndex:0];
+                
+                [cell load];
             }
             return cell;
         }
@@ -446,6 +460,15 @@
     
     [self stopAnimatingRadar];
     [self.table setTableFooterView:nil];
+}
+
+// Apps response failed
+- (void)appsDataError {
+    [self stopAnimatingRadar];
+    
+    [self.table setTableFooterView:nil];
+    
+    [self appsDataParsedFromServer];
 }
 
 - (void)animateRadar {

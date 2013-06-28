@@ -67,7 +67,9 @@
 @property (nonatomic, strong) AroundRequester *aroundRequester;
 
 - (void)appsDataParsedFromServer;
+- (void)appsDataError;
 - (void)userDataLoaded;
+- (void)userDataLoadingError;
 
 - (void)reloadTableDataAndScrollTop:(BOOL)scroll;
 - (void)stopAnimations;

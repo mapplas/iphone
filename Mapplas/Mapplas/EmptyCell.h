@@ -10,4 +10,10 @@
 
 @interface EmptyCell : UITableViewCell
 
+@property (nonatomic, strong) IBOutlet UILabel *title;
+@property (nonatomic, strong) IBOutlet UILabel *subtitle;
+@property (nonatomic, strong) IBOutlet UILabel *pull;
+
+- (void)load;
+
 @end

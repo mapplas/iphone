@@ -32,7 +32,7 @@
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
-    NSLog(@"Response delegate error, %@, %@", [error description], JSON);
+    [viewController userDataLoadingError];
 }
 
 @end
