@@ -43,6 +43,7 @@
 						<string key="NSFrameSize">{320, 416}</string>
 						<reference key="NSSuperview" ref="979818913"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -84,10 +85,10 @@
 					<object class="IBUILabel" id="446311454">
 						<reference key="NSNextResponder" ref="942826107"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 26}, {280, 21}}</string>
+						<string key="NSFrame">{{76, 26}, {216, 21}}</string>
 						<reference key="NSSuperview" ref="942826107"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="661515796"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -105,13 +106,14 @@
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<int key="type">1</int>
+							<string key="name">HelveticaNeue-Light</string>
+							<string key="family">Helvetica Neue</string>
+							<int key="traits">0</int>
 							<double key="pointSize">14</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
+							<string key="NSName">HelveticaNeue-Medium</string>
 							<double key="NSSize">14</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -120,9 +122,10 @@
 					<object class="IBUIImageView" id="661515796">
 						<reference key="NSNextResponder" ref="942826107"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{31, 21}, {30, 30}}</string>
+						<string key="NSFrame">{{20, 21}, {30, 30}}</string>
 						<reference key="NSSuperview" ref="942826107"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="446311454"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -135,7 +138,7 @@
 				<string key="NSFrameSize">{320, 72}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="446311454"/>
+				<reference key="NSNextKeyView" ref="661515796"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -151,6 +154,7 @@
 				<string key="NSFrameSize">{320, 72}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -229,7 +233,7 @@
 						<string key="NSFrame">{{0, 67}, {320, 320}}</string>
 						<reference key="NSSuperview" ref="653509800"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="924377292"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -279,6 +283,7 @@
 						<string key="NSFrame">{{134, 227}, {47, 21}}</string>
 						<reference key="NSSuperview" ref="653509800"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -580,7 +585,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">67</int>
+			<int key="maxID">80</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
