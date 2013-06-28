@@ -59,7 +59,9 @@
     
     NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
     [styler style:self.navigationController.navigationBar andItem:self.navigationItem];
-        
+    NSDictionary *dict = [styler styleNavBarButtonToBlue:YES];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
     NSMutableArray *viewsToAddToScroll = nil;
     viewsToAddToScroll = [[NSMutableArray alloc] initWithObjects:self.topBar, self.actionBar, nil];
 
@@ -392,6 +394,10 @@
                 [sharingHelper shareType:activityType];
             }
         };
+        
+        NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+        NSDictionary *dict = [styler styleNavBarButtonToBlue:NO];
+        [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
         
 		[self presentViewController:activityController animated:YES completion:nil];
 	}

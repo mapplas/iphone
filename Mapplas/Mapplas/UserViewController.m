@@ -8,6 +8,7 @@
 
 #import "UserViewController.h"
 #import "UserPinAndBlocksRequester.h"
+#import "NavigationControllerStyler.h"
 
 @interface UserViewController ()
 - (void)configureLayout;
@@ -39,6 +40,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];    
+    NSDictionary *dict = [styler styleNavBarButtonToBlue:YES];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
     
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
     AsynchronousImageDownloader *downloader = [[AsynchronousImageDownloader alloc] initWithDelegate:nil];

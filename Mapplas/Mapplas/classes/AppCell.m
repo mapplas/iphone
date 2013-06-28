@@ -233,6 +233,10 @@
             }
         };
         
+        NavigationControllerStyler *styler = [[NavigationControllerStyler alloc] init];
+        NSDictionary *dict = [styler styleNavBarButtonToBlue:NO];
+        [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
+        
 		[self.viewController.navigationController presentViewController:activityController animated:YES completion:nil];
 	}
 	else {
