@@ -16,6 +16,7 @@
 @synthesize appBackgroundLogo;
 @synthesize appTitle;
 @synthesize appGeoLocation;
+@synthesize reverseGeocodedLocation;
 @synthesize appUnpinButton;
 @synthesize appPinActionLabel;
 
@@ -60,7 +61,7 @@
     [self.pinnedApps removeObject:app];
     
     unpinRequest = [[AppPinRequest alloc] init];
-    [unpinRequest doRequestWithAppId:app.appId userId:user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:location];
+    [unpinRequest doRequestWithAppId:app.appId userId:user.userId action:ACTION_PIN_REQUEST_UNPIN reverseGeocodedAddress:self.reverseGeocodedLocation andLocation:location];
     
     // Remove app from app ordered list at model
     BOOL found = NO;

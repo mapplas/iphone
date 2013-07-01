@@ -167,7 +167,7 @@
     
     // Pin/unpin request
     pinRequester = [[AppPinRequest alloc] init];
-    [pinRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:pinRequestConstant andLocation:self.currentLocation];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:pinRequestConstant reverseGeocodedAddress:self.currentDescriptiveGeoLoc andLocation:self.currentLocation];
 
     // Sort table and reload
     [self.modelList sort];
@@ -201,7 +201,7 @@
     
     // Pin/unpin request
     pinRequester = [[AppPinRequest alloc] init];
-    [pinRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
+    [pinRequester doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_PIN_REQUEST_UNPIN reverseGeocodedAddress:self.currentDescriptiveGeoLoc andLocation:self.currentLocation];
     
     // Remove app from app list
     [self.modelList deleteApp:self.app];

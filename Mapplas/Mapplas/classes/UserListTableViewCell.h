@@ -29,6 +29,7 @@
 @property (nonatomic, strong) NSMutableArray *pinnedApps;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *reverseGeocodedLocation;
 @property (nonatomic, strong) AppOrderedList *modelAppOrderedList;
 @property (nonatomic) NSUInteger positionInList;
 

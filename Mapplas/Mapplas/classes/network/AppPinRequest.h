@@ -13,6 +13,6 @@
     PinConnector *connector;
 }
 
-- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action andLocation:(NSString *)current_location;
+- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action reverseGeocodedAddress:(NSString *)_address andLocation:(NSString *)current_location;
 
 @end

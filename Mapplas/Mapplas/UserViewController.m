@@ -109,6 +109,7 @@
             [cell setApp:[model.user.pinnedApps objectAtIndex:indexPath.row]];
             [cell setPinnedApps:model.user.pinnedApps];
             [cell setLocation:model.currentLocation];
+            [cell setReverseGeocodedLocation:model.currentDescriptiveGeoLoc];
             [cell setUser:model.user];
             [cell setModelAppOrderedList:model.appList];
             [cell setPositionInList:indexPath.row];
