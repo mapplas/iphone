@@ -113,13 +113,13 @@
                                     repeats:YES];
 }
 
--(int) getRandomNumberBetweenMin:(int)min andMax:(int)max {
-	return ((arc4random() % (max-min+1)) + min);
+- (void)setData {
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-90 andMax:90], [self getRandomNumberBetweenMin:1001 andMax:9999]];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-180 andMax:180], [self getRandomNumberBetweenMin:1001 andMax:9999]];
 }
 
-- (void)setData {
-    self.latitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-90 andMax:90], [self getRandomNumberBetweenMin:1000 andMax:9999]];
-    self.longitudeLabel.text = [NSString stringWithFormat:@"%d,%d", [self getRandomNumberBetweenMin:-180 andMax:180], [self getRandomNumberBetweenMin:1000 andMax:9999]];
+- (int)getRandomNumberBetweenMin:(int)min andMax:(int)max {
+	return ((arc4random() % (max-min+1)) + min);
 }
 
 - (void)stopAnimations {
