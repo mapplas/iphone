@@ -39,6 +39,10 @@
     App *app = [[App alloc] init];
     
     [super map:json target:app];
+    
+    // Trim app name and short description texts
+    app.name = [app.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    app.appShortDescription = [app.appShortDescription stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
     return app;
 }
