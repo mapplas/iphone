@@ -48,7 +48,7 @@
 
 - (void)readjustNameAndTitleLabels {
     CGRect nameLabelFrame = CGRectMake(5, 1, self.appName.frame.size.width, 20);
-    CGRect descriptionLabelFrame = CGRectMake(5, 20, self.description.frame.size.width, 54);
+    CGRect descriptionLabelFrame = CGRectMake(5, 18, self.description.frame.size.width, 54);
     
     CGSize oneLineLabelSize = CGSizeMake(nameLabelFrame.size.width, nameLabelFrame.size.height);
     CGSize twoLinesLabelSize = CGSizeMake(nameLabelFrame.size.width, nameLabelFrame.size.height * 2);
