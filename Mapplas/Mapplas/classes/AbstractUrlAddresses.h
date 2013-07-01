@@ -26,6 +26,8 @@
 
 @property (nonatomic, strong) NSString *userPinAndBlocks;
 
+@property (nonatomic, strong) NSString *userAppInteraction;
+
 - (void)reloadAddresses;
 
 - (NSString *)getApps:(NSNumber *)apps_multiple;

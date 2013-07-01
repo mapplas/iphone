@@ -8,6 +8,7 @@
 
 #import "AppCell.h"
 #import "AppsViewController.h"
+#import "UserAppInteractionRequester.h"
 
 @implementation AppCell
 
@@ -273,6 +274,10 @@
 }
 
 - (void)goToAppStore {
+    // Send action to server
+    UserAppInteractionRequester *userAppInteractionRequester = [[UserAppInteractionRequester alloc] init];
+    [userAppInteractionRequester doRequestWithUserId:self.user.userId appId:self.app.appId location:self.currentLocation];
+    
     NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }

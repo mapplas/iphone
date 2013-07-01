@@ -9,6 +9,7 @@
 #import "AppDetailViewController.h"
 #import "AppDetailRequester.h"
 #import "UIButton+Extensions.h"
+#import "UserAppInteractionRequester.h"
 
 @interface AppDetailViewController ()
 - (void)downloadGalleryImages;
@@ -552,6 +553,25 @@
 }
 
 - (IBAction)launchApp:(id)sender {
+    NSString *urlScheme = self.app.appUrlScheme;
+    if ([urlScheme isEqualToString:@""]) {
+        [self goToAppStore];
+    }
+    else {
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", urlScheme]]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", urlScheme]]];
+        }
+        else {
+            [self goToAppStore];
+        }
+    }
+}
+
+- (void)goToAppStore {
+    // Send action to server
+    UserAppInteractionRequester *userAppInteractionRequester = [[UserAppInteractionRequester alloc] init];
+    [userAppInteractionRequester doRequestWithUserId:self.user.userId appId:self.app.appId location:self.currentLocation];
+    
     NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", self.app.appId];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }

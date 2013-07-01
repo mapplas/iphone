@@ -208,7 +208,7 @@
 "user_screen_sign_out_alert_message" = "Do you really want to log out?";
 
 /* User screen empty pinned list cell message */
-"user_screen_empty_pinup_list_text" = "You don't have any pinned up apps";
+"user_screen_empty_pinup_list_text" = "You don't have any pinned apps";
 
 /* User screen empty blocked list cell message */
 "user_screen_empty_blocked_list_text" = "You don't have any blocked apps";
