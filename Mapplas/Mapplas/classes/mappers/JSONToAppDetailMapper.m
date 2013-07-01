@@ -33,6 +33,9 @@
     photosStr = [photosStr stringByReplacingOccurrencesOfString:@"(" withString:@""];
     photosStr = [photosStr stringByReplacingOccurrencesOfString:@")" withString:@""];
     [app setAuxPhotosArray:[photosStr componentsSeparatedByString:@","]];
+    
+    // Trim description
+    app.appDescription = [app.appDescription stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 @end
