@@ -1985,12 +1985,14 @@
 		7F06796316A7F4150043EF6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: JOSE ALBERTO Roman (UHVL93Y8YL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mapplas/Mapplas-Prefix.pch";
 				INFOPLIST_FILE = "Mapplas/Mapplas-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=*]" = "8CA6C32E-1213-471F-BB51-2AD573FF1B75";
 				VALID_ARCHS = "armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1999,12 +2001,14 @@
 		7F06796416A7F4150043EF6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JOSE ALBERTO Roman (UHVL93Y8YL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mapplas/Mapplas-Prefix.pch";
 				INFOPLIST_FILE = "Mapplas/Mapplas-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "40F71A84-289C-41BA-943A-220D10CED739";
 				VALID_ARCHS = "armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
 			};
