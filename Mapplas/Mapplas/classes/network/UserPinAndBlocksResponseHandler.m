@@ -55,26 +55,3 @@
 }
 
 @end
-
-
-/*
-- (void)requestFinished:(id)JSON {
-    // Parse apps
-    NSArray *jsonObjects = JSON;
-    
-    App *app = nil;
-    NSMutableArray *blockedApps = [[NSMutableArray alloc] init];
-    for (int i=0; i < jsonObjects.count; i++) {
-        app = [appMapper map:[jsonObjects objectAtIndex:i]];
-        [blockedApps addObject:app];
-    }
-    
-    [user setBlockedApps:blockedApps];
-    [userViewController requestedDataLoaded];
-}
-
-- (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
-    [user setPinnedApps:[[NSMutableArray alloc] init]];
-    [userViewController requestedDataLoaded];
-}
-*/

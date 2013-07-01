@@ -342,7 +342,7 @@
     
     // Pin/unpin request
     pinRequest = [[AppPinRequest alloc] init];
-    [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:pinRequestConstant andLocation:self.currentLocation];
+    [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:pinRequestConstant reverseGeocodedAddress:self.model.currentDescriptiveGeoLoc andLocation:self.currentLocation];
     
     [self initPinActionLayout];
 }
@@ -368,7 +368,7 @@
     [blockRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_LIKE_REQUEST_BLOCK];
     
     pinRequest = [[AppPinRequest alloc] init];
-    [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_PIN_REQUEST_UNPIN andLocation:self.currentLocation];
+    [pinRequest doRequestWithAppId:self.app.appId userId:self.user.userId action:ACTION_PIN_REQUEST_UNPIN reverseGeocodedAddress:self.model.currentDescriptiveGeoLoc andLocation:self.currentLocation];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
