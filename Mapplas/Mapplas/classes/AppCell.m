@@ -33,7 +33,6 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 72)];
     view.backgroundColor = [UIColor colorWithRed:239.0f/255.0f green:239.0f/255.0f blue:239.0f/255.0f alpha:1];
     self.selectedBackgroundView = view;
-    
 }
 
 - (void)resetState {
@@ -47,9 +46,35 @@
     [self loadPressedCellData];
 }
 
-- (void)loadUnpressedCellData {
-    // Unpressed data
+- (void)readjustNameAndTitleLabels {
+    CGRect nameLabelFrame = CGRectMake(5, 1, self.appName.frame.size.width, 20);
+    CGRect descriptionLabelFrame = CGRectMake(5, 20, self.description.frame.size.width, 54);
+    
+    CGSize oneLineLabelSize = CGSizeMake(nameLabelFrame.size.width, nameLabelFrame.size.height);
+    CGSize twoLinesLabelSize = CGSizeMake(nameLabelFrame.size.width, nameLabelFrame.size.height * 2);
+    CGSize expectedLabelSize = [self.app.name sizeWithFont:self.appName.font constrainedToSize:twoLinesLabelSize lineBreakMode:self.appName.lineBreakMode];
+    
+    if (expectedLabelSize.height <= oneLineLabelSize.height) {
+        self.appName.frame = nameLabelFrame;
+        self.appName.numberOfLines = 1;
+        
+        self.description.frame = descriptionLabelFrame;
+        self.description.numberOfLines = 3;
+        
+    } else if(expectedLabelSize.height > oneLineLabelSize.height && expectedLabelSize.height <= twoLinesLabelSize.height) {
+        self.appName.frame = CGRectMake(nameLabelFrame.origin.x, nameLabelFrame.origin.y, nameLabelFrame.size.width, nameLabelFrame.size.height * 2);
+        self.appName.numberOfLines = 2;
+        
+        self.description.frame = CGRectMake(descriptionLabelFrame.origin.x, 34, descriptionLabelFrame.size.width, descriptionLabelFrame.size.height / 3 * 2);
+        self.description.numberOfLines = 2;
+    }
+    
     self.appName.text = self.app.name;
+    self.description.text = self.app.appShortDescription;
+}
+
+- (void)loadUnpressedCellData {
+    [self readjustNameAndTitleLabels];
     
     // Unpressed data - Set app logo
     ImageLoaderFactory *factory = [[ImageLoaderFactory alloc] init];
@@ -71,10 +96,6 @@
     else {
         [self.imageRoundView setImage:[UIImage imageNamed:@"img_roundc_btn.png"]];
     }
-    
-    // Unpressed data - Description
-    self.description.text = self.app.appShortDescription;
-
     
     // Price label and image
     PriceImageLabelHelper *priceHelper = [[PriceImageLabelHelper alloc] initWithApp:self.app];
