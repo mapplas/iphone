@@ -14,7 +14,7 @@
     return [super initWithAddresses:_addresses responseHandler:nil];
 }
 
-- (void)requestWithUserId:(NSString *)user_id appId:(NSString *)app_id location:(NSString *)location {
+- (void)requestWithUserId:(NSNumber *)user_id appId:(NSString *)app_id location:(NSString *)location {
     NSArray *splitedLocation = [location componentsSeparatedByString:@","];
 
     [parameters setValue:user_id forKey:@"uid"];

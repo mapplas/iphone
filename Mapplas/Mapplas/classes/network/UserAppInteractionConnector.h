@@ -11,6 +11,6 @@
 @interface UserAppInteractionConnector : GenericConnector
 
 - (id)initWithAddresses:(AbstractUrlAddresses *)_addresses;
-- (void)requestWithUserId:(NSString *)user_id appId:(NSString *)app_id location:(NSString *)location;
+- (void)requestWithUserId:(NSNumber *)user_id appId:(NSString *)app_id location:(NSString *)location;
 
 @end
