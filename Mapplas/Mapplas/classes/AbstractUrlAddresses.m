@@ -27,6 +27,8 @@
 
 @synthesize userPinAndBlocks;
 
+@synthesize userAppInteraction;
+
 - (id)init {
 	self = [super init];
 	
@@ -63,6 +65,10 @@
 
 - (NSString *)appDetail:(NSString *)app_id {
     return [self buildAddresWithPath:[NSString stringWithFormat:@"/app-detail/%@", app_id]];
+}
+
+- (NSString *)userAppInteraction {
+    return [self buildAddresWithPath:[NSString stringWithFormat:@"/user/app-interaction"]];
 }
 
 @end

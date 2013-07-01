@@ -135,6 +135,7 @@
 		7F585A0116AFCFB100DB843A /* IteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0016AFCFB100DB843A /* IteratingMapper.m */; };
 		7F585A0416AFD04700DB843A /* JSONToCommentMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */; };
 		7F585A0A16AFD67500DB843A /* TargetIteratingMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */; };
+		7F626AAB178185840003C24E /* UserAppInteractionConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F626AAA178185840003C24E /* UserAppInteractionConnector.m */; };
 		7F68051F1761EF2500C42C5E /* ic_badge_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F68051E1761EF2500C42C5E /* ic_badge_launch.png */; };
 		7F68781C16A857DC005DC098 /* AppOrderedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781B16A857DC005DC098 /* AppOrderedList.m */; };
 		7F68782016A85854005DC098 /* NotificationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F68781F16A85854005DC098 /* NotificationList.m */; };
@@ -461,6 +462,8 @@
 		7F585A0316AFD04700DB843A /* JSONToCommentMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToCommentMapper.m; path = classes/mappers/JSONToCommentMapper.m; sourceTree = "<group>"; };
 		7F585A0816AFD67500DB843A /* TargetIteratingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetIteratingMapper.h; path = classes/mappers/TargetIteratingMapper.h; sourceTree = "<group>"; };
 		7F585A0916AFD67500DB843A /* TargetIteratingMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TargetIteratingMapper.m; path = classes/mappers/TargetIteratingMapper.m; sourceTree = "<group>"; };
+		7F626AA9178185840003C24E /* UserAppInteractionConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserAppInteractionConnector.h; path = classes/network/UserAppInteractionConnector.h; sourceTree = "<group>"; };
+		7F626AAA178185840003C24E /* UserAppInteractionConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserAppInteractionConnector.m; path = classes/network/UserAppInteractionConnector.m; sourceTree = "<group>"; };
 		7F68051E1761EF2500C42C5E /* ic_badge_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_badge_launch.png; sourceTree = SOURCE_ROOT; };
 		7F68781A16A857DC005DC098 /* AppOrderedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppOrderedList.h; path = classes/AppOrderedList.h; sourceTree = "<group>"; };
 		7F68781B16A857DC005DC098 /* AppOrderedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppOrderedList.m; path = classes/AppOrderedList.m; sourceTree = "<group>"; };
@@ -1330,6 +1333,8 @@
 				7F0C5B7416AEB3620093C850 /* GenericConnector.m */,
 				7F2CE76416B6A79300B7E6E5 /* PinConnector.h */,
 				7F2CE76516B6A79400B7E6E5 /* PinConnector.m */,
+				7F626AA9178185840003C24E /* UserAppInteractionConnector.h */,
+				7F626AAA178185840003C24E /* UserAppInteractionConnector.m */,
 				7F14A3C916C8F60200FC0482 /* UserEditConnector.h */,
 				7F14A3CA16C8F60200FC0482 /* UserEditConnector.m */,
 				7FFFBAAC16A9351100417499 /* UserIdentificationConnector.h */,
@@ -1873,6 +1878,7 @@
 				7F3F654E177C426C0014FBCC /* UIImage+RoundedCorner.m in Sources */,
 				7F3F6551177C7A8F0014FBCC /* UIImage+Extensions.m in Sources */,
 				7F3F656E177C8CD10014FBCC /* NavigationControllerStyler.m in Sources */,
+				7F626AAB178185840003C24E /* UserAppInteractionConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
