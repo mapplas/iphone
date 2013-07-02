@@ -20,8 +20,8 @@
 }
 
 - (NSString *)convertHtmlEntities:(NSString *)input {
-	MREntitiesConverter *converter = [[MREntitiesConverter alloc] init];	NSString *result = [converter convertEntitiesInString:input];
-	
+	MREntitiesConverter *converter = [[MREntitiesConverter alloc] init];
+    NSString *result = [converter convertEntitiesInString:input];
 	return result;
 }
 

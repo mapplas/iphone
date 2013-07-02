@@ -29,7 +29,7 @@
 }
 
 - (void)requestFinishedWithErrors:(NSError *)error andReponse:(id)JSON {
-    NSLog(@"nok");
+    // TOAST¿?
 }
 
 @end

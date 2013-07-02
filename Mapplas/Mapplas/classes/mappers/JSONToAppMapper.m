@@ -13,7 +13,7 @@
 - (id)init {
     
 	NSArray *mappingProperties = [[NSArray alloc] initWithObjects:
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"id" action:@selector(setAppId:)],
+                                  [[KeyValueMapper alloc] initWithKey:@"id" action:@selector(setAppId:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"n" action:@selector(setName:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"i" action:@selector(setAppLogo:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"sc" action:@selector(setAppUrlScheme:)],
@@ -21,11 +21,11 @@
                                   
                                   [[KeyValueScappedMapper alloc] initWithKey:@"type" action:@selector(setType:)],
 
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"pin" action:@selector(setAuxPin:)],
+                                  [[KeyValueMapper alloc] initWithKey:@"pin" action:@selector(setAuxPin:)],
                                   [[KeyValueMapper alloc] initWithKey:@"tpin" action:@selector(setAuxTotalPins:)],
 
                                   [[KeyValueMapper alloc] initWithKey:@"pr" action:@selector(setAppPrice:)],
-                                  [[KeyValueScappedMapper alloc] initWithKey:@"st" action:@selector(setMarket:)],
+                                  [[KeyValueMapper alloc] initWithKey:@"st" action:@selector(setMarket:)],
                                   [[KeyValueScappedMapper alloc] initWithKey:@"cu" action:@selector(setCurrencyCode:)],
                                   
                                   nil];
