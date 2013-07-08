@@ -47,8 +47,16 @@
 }
 
 - (void)readjustNameAndTitleLabels {
-    CGRect nameLabelFrame = CGRectMake(5, 1, self.appName.frame.size.width, 20);
-    CGRect descriptionLabelFrame = CGRectMake(5, 18, self.description.frame.size.width, 54);
+    // Be carefull. Those sizes are taken from xib file.
+    CGFloat xPosition = 5;
+    CGFloat yPositionNameLabel = 1;
+    CGFloat yPositionDescriptionLabelThreeLines = 18;
+    CGFloat yPositionDescriptionLabelTwoLines = 34;
+    CGFloat nameLabelLineHeigth = 20;
+    CGFloat descriptionLabelLineHeigth = 18;
+    
+    CGRect nameLabelFrame = CGRectMake(xPosition, yPositionNameLabel, self.appName.frame.size.width, nameLabelLineHeigth);
+    CGRect descriptionLabelFrame = CGRectMake(xPosition, yPositionDescriptionLabelThreeLines, self.description.frame.size.width, descriptionLabelLineHeigth * 3);
     
     CGSize oneLineLabelSize = CGSizeMake(nameLabelFrame.size.width, nameLabelFrame.size.height);
     CGSize twoLinesLabelSize = CGSizeMake(nameLabelFrame.size.width, nameLabelFrame.size.height * 2);
@@ -65,7 +73,7 @@
         self.appName.frame = CGRectMake(nameLabelFrame.origin.x, nameLabelFrame.origin.y, nameLabelFrame.size.width, nameLabelFrame.size.height * 2);
         self.appName.numberOfLines = 2;
         
-        self.description.frame = CGRectMake(descriptionLabelFrame.origin.x, 34, descriptionLabelFrame.size.width, descriptionLabelFrame.size.height / 3 * 2);
+        self.description.frame = CGRectMake(descriptionLabelFrame.origin.x, yPositionDescriptionLabelTwoLines, descriptionLabelFrame.size.width, descriptionLabelFrame.size.height / 3 * 2);
         self.description.numberOfLines = 2;
     }
     
