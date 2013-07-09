@@ -10,7 +10,7 @@
 
 @implementation AppPinRequest
 
-- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action reverseGeocodedAddress:(NSString *)_address andLocation:(NSString *)current_location {
+- (void)doRequestWithAppId:(NSNumber *)app_id userId:(NSNumber *)user_id action:(NSString *)_action reverseGeocodedAddress:(NSString *)_address andLocation:(NSString *)current_location {
     Environment *environment = [Environment sharedInstance];
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
     

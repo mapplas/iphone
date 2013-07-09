@@ -13,6 +13,6 @@
     BlockConnector *connector;
 }
 
-- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action;
+- (void)doRequestWithAppId:(NSNumber *)app_id userId:(NSNumber *)user_id action:(NSString *)_action;
 
 @end

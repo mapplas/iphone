@@ -113,7 +113,7 @@
 - (App *)getAppForId:(NSString *)appId model:(SuperModel *)model {
     NSMutableArray *appList = model.appList.list;
     for (App *app in appList) {
-        if ([app.appId isEqualToString:appId]) {
+        if ([app.appId intValue] == [appId intValue]) {
             return app;
         }
     }

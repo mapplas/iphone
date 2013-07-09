@@ -40,7 +40,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.appId = @"0";
         self.name = @"";
 
         self.type = @"";

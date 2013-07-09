@@ -32,6 +32,6 @@
 
 - (NSString *)getApps:(NSNumber *)apps_multiple;
 - (NSString *)userPinAndBlocks:(NSNumber *)user_id;
-- (NSString *)appDetail:(NSString *)app_id;
+- (NSString *)appDetail:(NSNumber *)app_id;
 
 @end

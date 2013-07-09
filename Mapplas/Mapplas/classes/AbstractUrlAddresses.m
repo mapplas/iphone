@@ -63,8 +63,8 @@
     return [self buildAddresWithPath:[NSString stringWithFormat:@"/user-apps-info/%d", [user_id integerValue]]];
 }
 
-- (NSString *)appDetail:(NSString *)app_id {
-    return [self buildAddresWithPath:[NSString stringWithFormat:@"/app-detail/%@", app_id]];
+- (NSString *)appDetail:(NSNumber *)app_id {
+    return [self buildAddresWithPath:[NSString stringWithFormat:@"/app-detail/%d", [app_id intValue]]];
 }
 
 - (NSString *)userAppInteraction {

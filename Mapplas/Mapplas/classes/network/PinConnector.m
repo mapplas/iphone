@@ -16,7 +16,7 @@
     return [super initWithAddresses:_addresses responseHandler:nil];
 }
 
-- (void)requestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id action:(NSString *)_action reverseGeocodedAddress:(NSString *)address andLocation:(NSString *)currentLocation {
+- (void)requestWithAppId:(NSNumber *)app_id userId:(NSNumber *)user_id action:(NSString *)_action reverseGeocodedAddress:(NSString *)address andLocation:(NSString *)currentLocation {
     NSArray *splitedLocation = [currentLocation componentsSeparatedByString:@","];
     
     [parameters setValue:app_id forKey:@"app"];

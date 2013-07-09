@@ -25,7 +25,7 @@
 	return [[NSString stringWithString:path] stringByReplacingOccurrencesOfRegex:@"/[a-zA-Z0-9_\\-]+\\.(png|jpe?g)$" withString:@""];
 }
 
-- (NSError *)saveImage:(UIImage *)image path:(NSString *)path folder:(IFolder *)folder {
+- (NSError *)saveImage:(UIImage *)image path:(NSNumber *)path folder:(IFolder *)folder {
 	NSError *error = nil;
 	
 	NSString *fullPath = [folder getWithPath:@""];
@@ -62,7 +62,7 @@
 	return a;
 }
 
-- (UIImage *)loadImage:(NSString *)path folder:(IFolder *)folder {
+- (UIImage *)loadImage:(NSNumber *)path folder:(IFolder *)folder {
 	
 	NSString *fullPath = [folder getWithPath:@""];
 	

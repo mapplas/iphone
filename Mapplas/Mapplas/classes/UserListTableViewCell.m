@@ -68,7 +68,7 @@
     NSUInteger i = 0;
     while (!found && i < modelAppOrderedList.count) {
         App *currentApp = [modelAppOrderedList objectAtIndex:i];
-        if ([currentApp.appId isEqualToString:app.appId]) {
+        if ([currentApp.appId intValue] == [app.appId intValue]) {
             if ([currentApp.auxPin intValue] == 0) {
                 currentApp.auxPin = [NSNumber numberWithInt:1];
             }

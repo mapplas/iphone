@@ -17,8 +17,8 @@
 }
 
 - (id)initWithFileManager:(ImageFileManager *)image_file_manager folder:(CacheFolder *)cache_folder downloader:(id<ImageDownloader>)sync_downloader;
-- (UIImage *)loadImageFromCache:(NSString *)path;
-- (UIImage *)load:(NSString *)path withSaveName:(NSString *)save_name;
-- (NSError *)saveImageInCache:(UIImage *)image path:(NSString *)path;
+- (UIImage *)loadImageFromCache:(NSNumber *)path;
+- (UIImage *)load:(NSString *)path withSaveName:(NSNumber *)save_name;
+- (NSError *)saveImageInCache:(UIImage *)image path:(NSNumber *)path;
 
 @end

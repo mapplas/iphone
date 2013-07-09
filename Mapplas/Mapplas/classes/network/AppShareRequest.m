@@ -10,7 +10,7 @@
 
 @implementation AppShareRequest
 
-- (void)doRequestWithAppId:(NSString *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)current_location via:(NSString *)_via {
+- (void)doRequestWithAppId:(NSNumber *)app_id userId:(NSNumber *)user_id andLocation:(NSString *)current_location via:(NSString *)_via {
     Environment *environment = [Environment sharedInstance];
 	AbstractUrlAddresses *urlAdresses = [environment addresses];
     

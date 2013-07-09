@@ -52,7 +52,7 @@
 }
 
 
-- (UIImage *)downloadImage:(NSString *)path withSavePath:(NSString *)save_name {
+- (UIImage *)downloadImage:(NSString *)path withSavePath:(NSNumber *)save_name {
     NSArray *params = [[NSArray alloc] initWithObjects:path, save_name, nil];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self

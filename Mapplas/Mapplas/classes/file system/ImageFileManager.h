@@ -15,8 +15,8 @@
 }
 
 - (id)initWithFileManagement:(FileManagement *)file_management;
-- (UIImage *)loadImage:(NSString *)path folder:(IFolder *)folder;
-- (NSError *)saveImage:(UIImage *)image path:(NSString *)path folder:(IFolder *)folder;
+- (UIImage *)loadImage:(NSNumber *)path folder:(IFolder *)folder;
+- (NSError *)saveImage:(UIImage *)image path:(NSNumber *)path folder:(IFolder *)folder;
 - (BOOL)removeImage:(NSString *)path folder:(IFolder *)folder;
 - (BOOL)copyImageFromPath:(NSString *)path sourceFolder:(IFolder *)source_folder toPath:(NSString *)to_path targetFolder:(IFolder *)target_folder;
 - (BOOL)writePng:(UIImage *)image toFile:(NSString *)file_path error:(NSError *)error;

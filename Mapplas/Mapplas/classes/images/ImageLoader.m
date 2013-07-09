@@ -26,11 +26,11 @@
 #pragma mark -
 #pragma mark Cache handling
 
-- (UIImage *)loadImageFromCache:(NSString *)path {
+- (UIImage *)loadImageFromCache:(NSNumber *)path {
 	return [imageFileManager loadImage:path folder:cacheFolder];
 }
 
-- (NSError *)saveImageInCache:(UIImage *)image path:(NSString *)path {
+- (NSError *)saveImageInCache:(UIImage *)image path:(NSNumber *)path {
 	return [imageFileManager saveImage:image path:path folder:cacheFolder];
 }
 
@@ -38,13 +38,13 @@
 #pragma mark -
 #pragma mark Download image
 
-- (UIImage *)downloadImage:(NSString *)path withSavePaht:(NSString *)save_path {
+- (UIImage *)downloadImage:(NSString *)path withSavePaht:(NSNumber *)save_path {
 	return [imageDownloader downloadImage:path withSavePath:save_path];
 }
 
 #pragma mark - Public methods
 
-- (UIImage *)load:(NSString *)path withSaveName:(NSString *)save_name {
+- (UIImage *)load:(NSString *)path withSaveName:(NSNumber *)save_name {
 	
 	// First try: cache
 	UIImage *image = [self loadImageFromCache:save_name];

@@ -13,6 +13,6 @@
     UserAppInteractionConnector *connector;
 }
 
-- (void)doRequestWithUserId:(NSNumber *)user_id appId:(NSString *)app_id location:(NSString *)location;
+- (void)doRequestWithUserId:(NSNumber *)user_id appId:(NSNumber *)app_id location:(NSString *)location;
 
 @end

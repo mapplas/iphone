@@ -8,5 +8,5 @@
 
 @protocol ImageDownloader <NSObject>
 
-- (UIImage *)downloadImage:(NSString *)path withSavePath:(NSString *)save_name;
+- (UIImage *)downloadImage:(NSString *)path withSavePath:(NSNumber *)save_name;
 @end
